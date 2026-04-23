@@ -1,0 +1,52 @@
+﻿<h1 class="firstHeading">FAQ-1219 Origin 2025bでグラフが以前のバージョンと大きく異なるのはなぜですか。元に戻す方法は？</h1>
+<p class='urlname' style='display: none'>why-graph-looks-different-in-2025b</p>
+<p class='faqID'>最終更新日：2025/8/5</p>
+<p>Origin 2025bでグラフが以前のバージョンと異なって見えるのは以下のような変更が原因です。</p>
+<dl>
+<dd>
+<ul>
+<li>グラフページが広くなった（アスペクト比が変更された）</li>
+<li>グラフ周りの余白が小さくなった</li>
+<li>軸タイトル、目盛ラベルなどのフォントサイズが異なる</li>
+<li>軸の周囲にレイヤフレームが表示されるようになった</li>
+<li>軸線の太さが変更された</li>
+<li>目盛ラベルが重なる場合は自動で45°回転するようになった</li>
+<li>...その他</li>
+</ul>
+</dd>
+</dl>
+<p>また、グラフシステムテーマを設定したにもかかわらず、新しいグラフにテーマが適用されていない場合もあります。<br />
+<br />
+これは、Origin 2025bで新しい<a class="external text" href="../../UserGuide/UserGuide/Graph_Options_dialog.html">グラフオプション</a>ダイアログが導入され、グラフのグローバル設定をより細かく制御できるようになったためです。これに伴い、新しいデフォルト値のセット定義され、以前のバージョンとは異なっています。</p>
+<p><br /></p>
+<h3><a name="To_restore_the_classic_look_used_in_previous_versions:" id="To_restore_the_classic_look_used_in_previous_versions:"></a><span class="mw-headline">以前のバージョンでのクラシックな外観に復元するには</span></h3>
+<ol>
+<li><b>環境設定:グラフオプション</b>を開きます。</li>
+<li><b>リセット</b>ボタンをクリックします。</li>
+<li>フライアウトメニューから<b>すべてをクラシックにリセット</b>を選択します。これにより、Origin 2025のデフォルトに一致するよう主要なフォーマットオプションを元に戻すことができます。
+<dl>
+<dd><a class="image"><img alt="Old Layer Dimensioin.png" src="../images/How_to_restore_graph_layer_dimension_to_classic_aspect_ratio/470px-Old_Layer_Dimensioin.png" width="611" /></a></dd>
+</dl>
+</li>
+</ol>
+<h4><a name="Note:" id="Note:"></a><span class="mw-headline">Note:</span></h4>
+<ul>
+<li>いくつかの組み込みグラフテンプレートも2025bで更新されています。クラシック設定に戻した後も、外観が古いバージョンと正確に一致しないこともありますが、非常に近い状態にはなります。</li>
+<li>もし希望する場合は、リセットボタンをクリックして<b>全てクリア</b>を選択することで、ほとんどの設定が自動で設定され、古いシステムテーマおよびグラフテンプレートによって決定されます。その後、各タブで自分の設定を定義できます。</li>
+<li>システム変数'@GGO'は、これらの設定によって影響を受けるテンプレートの種類を制御します。</li>
+</ul>
+<dl>
+<dd>'0' = なし</dd>
+<dd>'1' = システムテンプレート</dd>
+<dd>'2' = ユーザテンプレート</dd>
+<dd>'4' = アプリテンプレート</dd>
+<dd>'8' = 拡張テンプレート</dd>
+</dl>
+<p>これらの値は組み合わせることができます（例: '3' = システムテンプレート + ユーザテンプレート）。</p>
+<h3><a name="To_restore_only_the_layout_.28page_size_and_margins.29:" id="To_restore_only_the_layout_.28page_size_and_margins.29:"></a><span class="mw-headline">レイアウト（ページサイズと余白）のみを元に戻すには</span></h3>
+<p>新しいデフォルトの大部分はそのままの設定で、グラフのレイアウトだけを調整したい場合、グラフオプションダイアログの<b>レイアウト</b>タブで、次の値を適用します。</p>
+<dl>
+<dd><a class="image"><img alt="Graph options layout.png" src="../images/How_to_restore_graph_layer_dimension_to_classic_aspect_ratio/470px-Graph_options_layout.png" width="561" /></a></dd>
+</dl>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span><span class='keywordsInput'>旧バージョンスタイル, グラフサイズ比, マージン, 軸フレーム, 統計モード, デフォルトモード, デフォルトグラフページ, ページレイアウト</span></p>

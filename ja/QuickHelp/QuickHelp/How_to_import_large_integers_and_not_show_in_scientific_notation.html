@@ -1,0 +1,37 @@
+﻿<h1 class="firstHeading">FAQ-1217 大きな整数をインポートしても指数表記にしない方法</h1><p class='urlname' style='display: none'>Import-Large-Integer-not-in-Scientific-Notation</p> 
+<p class='faqID'>最終更新日：2025/4/22</p>
+<p>すべての桁を表示した状態で大きな整数をインポートする方法には、2つの手段があります。
+</p>
+<h5><a name="Import_big_integer_as_Text"></a><span class="mw-headline">大きな整数をテキストとして読み込む</span></h5>
+<p>デフォルトでは、15桁を超える整数（例：ID番号など）は自動的に文字列としてインポートされ、1E15 のような指数表記には変換されません。一方、15桁未満の大きな整数は数値としてインポートされるため、指数表記で表示される場合があります。  
+</p>
+<table class="note">
+<tr>
+<td><b>Note:</b>
+<ul><li> <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#B">システム変数@BID</a>は、整数を文字列としてインポートするかどうかを決める桁数のしきい値を設定します。この値はデフォルトで15に設定されています。そのため、15桁未満の整数（例：<i>35928471539682</i> ＝14桁）でも桁数をすべて表示したい場合は、<a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="クイックヘルプ: システム変数の値を永続的に変更するには？">@BID をより小さい値（例：13）に設定</a>してください。 </li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h5><a name="Import_big_integer_as_Numeric"></a><span class="mw-headline">大きい整数を数値としてインポート</span></h5>
+<p>Origin 2025b以降では、11桁以下の大きな整数であれば、<b>小数点以下の桁数</b>を0に設定することで、すべての桁を表示させることができます。設定方法は以下の通りです。
+</p>
+<ol>
+<li> 列ヘッダをダブルクリックして、<b>列プロパティ</b>ダイアログを開きます。
+<li> <b>オプション</b>グループで、次のように設定します。
+<ul><li> <b>フォーマット</b>=<b>数値</b>または<b>文字と数値</b> </li>
+<li> <b>桁数指定法</b> = <b>小数桁数=</b></li>
+<li> <b>桁数</b> =  0 </li></ul>
+<a  class="image"><img alt="Big Integer Column Properties.png" src="../images/How_to_import_large_integers_and_not_show_in_scientific_notation/Big_Integer_Column_Properties.png" width="348"  /></a>
+</li></ol>
+<table class="note">
+<tr>
+<td><b>Note:</b>
+<ul><li> <b>小数桁数</b>が設定されている場合、<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#B">システム変数@BIT</a>によって、整数が指数表記で表示されるかどうかのしきい値が決まります。この値はデフォルトで1E10に設定されています。そのため、1E10を超える整数を指数表記ではなく全桁表示したい場合は、<a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="クイックヘルプ: システム変数の値を永続的に変更するには？">@BID をより大きな値（例：1E20）に設定</a>してください </li></ul>
+</td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>ビッグデータ, 大規模 , インポート, コピーペースト, Excelからコピー, クリップボード, 全桁, 小数, 科学表記, 標準フォーマット<keywords>
+&emsp;</span></span></p>
+
+
+
+
+    

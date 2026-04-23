@@ -1,0 +1,120 @@
+﻿<h1 class="firstHeading">FAQ-983 Was ist der Unterschied zwischen fehlenden Werten und leeren Zellen?</h1><p class='urlname' style='display: none'>Diff-of-Missing-and-Blank</p>
+<p class='faqID'>Letztes Update: 29.04.2025</p>
+<p>Leere Zellen sind Zellen mit keinerlei Inhalt. Fehlende Werte sind eine Datenart, die unbekannte, ungesammelte oder offensichtlich falsche Werte darstellen. Ein Beispiel sind die nicht beantworteten Fragen in einem Fragebogen, wenn Personen sich weigern, Angaben zu ihren pers&ouml;nlichen Daten zu machen. Oder die bedeutungslosen Werte, die sich aus einigen Berechnungen ergeben, wie &quot;0/0&quot;. <br /></p><p>Fehlende Werte haben unterschiedliche Anzeigen in Origin, abh&auml;ngig vom Zellenformat.</p>
+<ul>
+<li>Wenn das Zellenformat <b>Text</b> ist, werden fehlende Werte als leere Zelle angezeigt.<li>Wenn das Zellenformat <b>Numerisch</b> ist, werden fehlende Werte als &quot;--&quot; angezeigt.<li>Wenn das Zellenformat <b>Text &amp; Numerisch</b> ist, werden fehlende Werte als leere Zelle oder &quot;--&quot; angezeigt.<br /> Wenn Sie eine Zelle l&ouml;schen, indem Sie entweder die Taste <b>Entfernen</b> dr&uuml;cken oder im Men&uuml; <b>Bearbeiten: L&ouml;schen</b> w&auml;hlen, dann werden die Daten gel&ouml;scht und die leeren Zellen verbleiben. Sie k&ouml;nnen die Tasten <b>Strg</b>+<b>Entfernen</b> verwenden, um Daten in einer Zelle in &quot;--&quot; zu verwandeln.</ul>
+<p><br /> N&uuml;tzliche LabTalk-Funktionen zum &Uuml;berpr&uuml;fen, ob eine Zelle ein fehlender Wert, eine leere Zelle, NotANumber (NANUM), etc. ist:</p>
+<dl><dd><a  class="image"><img alt="Missing blank.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/800px-Missing_blank.png" width="800"   /></a></dd></dl>
+<p>Sie k&ouml;nnen auch f&uuml;r die Benutzerdefinierten Filter zum Filtern von Zeilen verwenden werden.</p>
+<ul><li><b>x!=0/0</b> filtert leere Zellen, fehlende Werte und Text heraus.</li>
+<li><b>!isNA(x)</b> filtert Zeilen, die nicht numerisch sind (leer, fehlende Werte und Text) heraus.</li>
+<li><b>!isempty(x)</b> filtert nur leere Zellen heraus.</li>
+<li><b>x!=&quot;--&quot;</b> filtert Zellen heraus, die -- zeigen.</li></ul>
+<dl><dd><a  class="image"><img alt="Missing filter.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/500px-Missing_filter.png" width="500"   /></a></dd></dl>
+<p><br /> Sie werden in Origin unterschiedlich behandelt:</p>
+<table class="simple">
+<tr>
+<th>
+</th>
+<th><b>Leere Zelle</b></th>
+<th><b>Fehlender Wert</b></th>
+<th><b>Hinweis</b></th></tr>
+<tr>
+<th>Grafische Darstellung</th>
+<td>Ausgeschlossen</td>
+<td>Ausgeschlossen</td>
+<td>
+<ul><li>Wenn Sie die Verbindungslinie &uuml;ber fehlende Werte/leere Zellen in 2D-Diagrammen verbinden m&ouml;chten, w&auml;hlen Sie <b>Format: Seite</b> und gehen Sie zur Registerkarte Anzeige.</li>
+<li>In Konturdiagrammen gibt es eine Option auf der Registerkarte Farbpalette/Kontur im Dialog <b>Details Zeichnung</b> zum Festlegen der Farbe von fehlenden Werten.</li></ul>
+</td></tr>
+<tr>
+<th>Analyse und Berechnung</th>
+<td>Ausgeschlossen von den meisten Analysen und Berechnungen Die Berechnungen, die auf leere Zellen durchgef&uuml;hrt werden, ergeben &uuml;blicherweise fehlende Werte.</td>
+<td>Ausgeschlossen von den meisten Analysen und Berechnungen Die Berechnungen, die auf fehlende Werte durchgef&uuml;hrt werden, ergeben &uuml;blicherweise fehlende Werte.</td>
+<td>
+</td></tr>
+<tr>
+<th>Zellenformel/<br />Spaltenwerte festlegen</th>
+<td>In den meisten Formeln gibt die Eingabe, einschlie&szlig;lich leerer Zellen, fehlende Werte aus.</td>
+<td>In den meisten Formeln gibt die Eingabe, einschlie&szlig;lich fehlender Werte, fehlende Werte aus.</td>
+<td>
+<ul><li>Wenn Sie die LabTalk-Funktion <a class="external text" href="../../LabTalk/LabTalk/Ave_(function).html">Average</a> verwenden, werden sowohl leere Zellen und fehlende Werte ausgeschlossen.</li>
+<li>Wenn Sie <a class="external text" href="../../LabTalk/LabTalk/IsText_(function).html">Istext</a> testen, erhalten Sie F f&uuml;r fehlende Werte und T f&uuml;r leere Zellen.</li></ul>
+</td></tr>
+<tr>
+<th>Statistik</th>
+<td>Aus den meisten statistischen Hilfsmitteln ausgeschlossen</td>
+<td>Aus den meisten statistischen Hilfsmitteln ausgeschlossen</td>
+<td>
+<ul><li>Im Hilfsmittel <a class="external text" href="../../UserGuide/Category/Discrete_Frequency_(OriginPro_Only).html">Diskrete H&auml;ufigkeit</a> werden leere Zellen und fehlende Werte als ein Faktor betrachtet.</li></ul>
+</td></tr>
+<tr>
+<th>Als Gruppenspalte festlegen</th>
+<td>Ausgeschlossen</td>
+<td>Ausgeschlossen</td>
+<td>
+</td></tr>
+<tr>
+<th>Sortieren</th>
+<td>Als fehlende Werte behandeln.</td>
+<td>Sie k&ouml;nnen beim Sortieren eines Datensatzes w&auml;hlen, ob Sie fehlende Werte als die kleinsten oder gr&ouml;&szlig;ten Werte behandeln (im Dialog <b>Geschachteltes Sortieren</b>).</td>
+<td>
+<ul><li>In anderen F&auml;llen, die nicht Sortieren sind, werden fehlende Werte als kleinste Werte in einem Datensatz betrachtet.</li></ul>
+</td></tr>
+<tr>
+<th>Suchen und Ersetzen</th>
+<td>Lassen Sie das Bearbeitungsfeld <b>Suchobjekt</b> leer, um leere Zellen zu finden.</td>
+<td>Geben Sie &quot;--&quot; zum Suchen von fehlenden Werten ein.</td>
+<td>Geben Sie &quot;-&quot; zum Suchen von fehlenden Werten und leeren Zellen ein.</td></tr>
+<tr>
+<th>Als Kategorisch setzen</th>
+<td>Ausgeschlossen</td>
+<td>Ausgeschlossen</td>
+<td>
+</td></tr>
+<tr>
+<th>Import</th>
+<td>Als leere Zelle importiert</td>
+<td>Als &quot;--&ldquo; importiert</td>
+<td>
+</td></tr>
+<tr>
+<th>Statistische Tipps im Statusbalken</th>
+<td>Ausgeschlossen<p><a  class="image"><img alt="Missing and blank diff 1.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/Missing_and_blank_diff_1.png" width="185"  /></a></p>
+</td>
+<td>Fehlenden Wert als einen Faktor z&auml;hlen<p><a  class="image"><img alt="Missing and blank diff 2.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/Missing_and_blank_diff_2.png" width="184"  /></a></p>
+</td>
+<td>
+</td></tr>
+<tr>
+<th>Spalte kopieren/einf&uuml;gen, insbesondere die Spalte, die mit einigen leeren Zellen beginnt (z. B. Zeitreihen)</th>
+<td>Leere Zellen bleiben</td>
+<td>Fehlende Werte bleiben</td>
+<td>
+<ul><li>Wenn Sie in Origin 2018b und neuer eine Spalte kopieren, die mit einigen leeren Zellen beginnt, und sie dann einf&uuml;gen, dann werden diese leeren Zellen am Anfang abgeschnitten. Fehlende Werte &quot;--&quot; dagegen bleiben.</li></ul>
+</td></tr>
+<tr>
+<th>Spezielle Funktion: <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html">Sum</a></th>
+<td>
+<ul><li>Leere Zellen geben fehlende Werte aus, wenn Sie &quot;Sum&quot; im <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22column.22_mode">Spaltenmodus</a> verwenden.<br /></li></ul>
+<p><a  class="image"><img alt="SumInCol BlankCell.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInCol_BlankCell.png" width="172"  /></a></p>
+<ul><li>Ausgeschlossen, wenn Sie &quot;Sum&quot; im <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22row.22_mode">Zeilenmodus</a> verwenden.<br /></li></ul>
+<p><a  class="image"><img alt="SumInRow BlankCell.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInRow_BlankCell.png" width="238"  /></a></p>
+</td>
+<td>
+<ul><li>Fehlende Werte bleiben, wenn Sie &quot;Sum&quot; im <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22column.22_mode">Spaltenmodus</a> verwenden.<br /></li></ul>
+<p><a  class="image"><img alt="SumInCol MissingV.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInCol_MissingV.png" width="170"  /></a></p>
+<ul><li>Ausgeschlossen, wenn Sie &quot;Sum&quot; im <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22row.22_mode">Zeilenmodus</a> verwenden.<br /></li></ul>
+<p><a  class="image"><img alt="SumInRow MissingV.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInRow_MissingV.png" width="237"  /></a></p>
+</td>
+<td>
+</td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>leere Zelle, fehlend, Null, Nanum</span></p>
+
+
+
+
+
+
+
+    

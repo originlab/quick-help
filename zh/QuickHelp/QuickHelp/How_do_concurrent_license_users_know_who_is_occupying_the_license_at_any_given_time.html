@@ -1,0 +1,40 @@
+<h1 class="firstHeading">6.110 FAQ-1198 网络版许可证用户如何知道在特定时间内谁占用了许可证？</h1><p class='urlname' style='display: none'>Perform-License-Status-Enquiry-on-Client</p>
+<p class='faqID'>Last Update: 10/24/2024</p>
+<p>网络版许可证类型意味着购买的许可证数量在客户端之间浮动分配。如果您使用的是网络版许可证，有时，尤其是当所有可用许可证都被占用时，您可能希望查看当时谁正在退出使用许可证。
+</p><p>作为网络版许可证的管理员，您随时可以打开 LMTools 并在 Server Status 选项卡上<b>Perform Status Enquiry</b>。在输出文本的末段，您可以找到许可证签出状态。
+</p><p>作为客户端，您可以选择以下方式之一从客户端电脑查询许可证状态。
+</p><p><span class='headerInParagraph'>方法1</span>
+</p>
+<ol>
+<li> 复制 <b>LMTools.exe</b> 到客户端电脑。
+<li> 打开 LMTOOLS 点选 Service/License File 选项卡。
+<li> 选择 <b>Configuration using License File</b> 选项按钮。
+<li> 输入<br />
+<code>@SERVERNAME</code> or <code>@IP_Address_Of_Server</code> 
+<br />进编辑框，其中 <i>SERVERNAME</i> 是你的许可证服务器名，要确保名字前面带有 “@” 。譬如，假设你的服务器名为 “OriginServer”，应当如此输入：
+<dl><dd><a  class="image"><img alt="Config using Lic File FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Config_using_Lic_File_FAQ_1198.PNG?v=12012" width="687"  /></a></dd></dl>
+<li> 在 Server Status 选项卡点击 <b>Perform Status Enquiry</b> 按钮，输出服务器状态将显示当前哪些客户端占用了许可证。
+<dl><dd><a  class="image"><img alt="Server Status Enquiry FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Server_Status_Enquiry_FAQ_1198.PNG?v=12013" width="673"  /></a></dd></dl>
+</ol>
+<p><span class='headerInParagraph'>方法2</span>
+</p>
+<ol>
+<li> 复制 <b>lmstat.exe</b> 到客户端电脑。您可在许可证管理器文件夹下的 <i>\Tools\command line</i> 文件夹找到这执行文件。
+<li> 打开文本编辑器 (如记事本)输入以下命令行，并保存为一个 .bat 文件。
+<pre class="lt" style="font-family:monospace;">@echo off 
+<span style="color: #000080;">&lt;</span>path_to_lmstat.<span style="color: #000080;">exe</span><span style="color: #000080;">&gt;</span>\lmstat.<span style="color: #000080;">exe</span> <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #000080;">&lt;</span>port_no.<span style="color: #000080;">&gt;</span>@SERVERNAME 
+pause</pre>
+<p><br />其中<i>&lt;path_to_lmstat.exe&gt;</i> 是指向客户端电脑中 <b>lmstat.exe</b> 文件的路径，<i>SERVERNAME</i> 是你的许可证服务器名。<i>port_no.</i> 是 lmgrd.exe 使用的端口号。 这个可以被省略如果使用的是默认端口 27000，但必须带有 "@"。譬如，假设你复制 <b>lmstat.exe</b> 文件到文件夹 <i>C:\Tools\OriginLicenseServer\command line\</i>，你的许可证服务器名为 “OriginServer” 端口为 27001，向 .bat 文件输入以下命令：
+</p>
+<pre class="lt" style="font-family:monospace;">@echo off 
+<span style="color: #ff00ff;">&quot;C:\Tools\OriginLicenseServer\command line\lmstat.exe&quot;</span>  <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #0000dd;">27001</span>@OriginServer
+pause</pre></li>
+<li> 你随时可以双击 .bat 文件查看状态。
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>concurrent, 网络版, License Management, 许可证管理, license checkout status, 许可证退出状态, occupy license, 占用许可证, monitor license usage, 监控许可证使用情况<keywords></span></p>
+
+
+
+
+
+

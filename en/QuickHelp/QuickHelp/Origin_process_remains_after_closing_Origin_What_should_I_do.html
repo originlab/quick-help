@@ -1,0 +1,27 @@
+<h1 class="firstHeading">5.91 FAQ-1213 Origin process remains after closing Origin. What should I do?</h1><p class='urlname' style='display: none'>Origin-Process-Remain-After-Exit</p> 
+<p class='faqID'>Last Update: 3/3/2025</p>
+<p>If you find that Origin takes a long time to close, or after you close an Origin instance it is still running in the background (you can check in the <b>Task Manager</b>), please try following workaround:
+</p>
+<ol>
+<li>.Open <b>Windows Security</b> by either searching for "Windows Security" in the Windows <b>Start</b> menu to open the <b>Windows Defender Security Center</b>, or selecting <b>Start</b> menu &gt; <b>Settings</b> button &gt; <b>Update &amp; Security</b> &gt; <b>Windows Security</b>.
+<li> Select <b>Virus &amp; threat protection</b>.
+<dl><dd><a  class="image"><img alt="Windows Security Virus Threat Protection.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Virus_Threat_Protection.png?v=76713" width="500"  /></a></dd></dl>
+<li> Click <b>Virus &amp; threat protection settings</b> and scroll down to click <b>Add or remove exclusions</b> under <b>Exclusions</b> group.
+<dl><dd><a  class="image"><img alt="Windows Security Add Remove Exclusions.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Remove_Exclusions.png?v=76714" width="500"  /></a></dd></dl>
+<li> Click <b>Add an exclusion</b> button, select <b>Folder</b> in the flyout menu to add following folders (EXE &amp; UFF etc. folders) as exception respectively.
+<pre class="lt" style="font-family:monospace;">C<span style="color: #000000;">:</span>\Program Files\OriginLab  <span style="color: #008000;">//EXE path, may change based on where user installs</span>
+C<span style="color: #000000;">:</span>\ProgramData\OriginLab  <span style="color: #008000;">//fixed path</span>
+C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">&#123;</span>YourAccountName<span style="color: #000000;">&#125;</span>\Documents\OriginLab  <span style="color: #008000;">//UFF path, may change based on where user specifies</span>
+C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">&#123;</span>YourAccountName<span style="color: #000000;">&#125;</span>\AppData\Local\OriginLab  <span style="color: #008000;">//relatively fixed path</span></pre>
+<p><b>Note</b>: You can also check the path by Origin menu <b>Preferences: Options</b> dialog &gt; System Path tab.
+</p>
+<dl><dd><a  class="image"><img alt="Windows Security Add Path.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Path.png?v=76716" width="500"  /></a></dd></dl>
+<li> Start Origin, and then quit Origin to make sure Origin process exit faster than no-exclusion scenario.
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>Windows Security, run in background, quit, exit, slow, long time<keywords></span></p>
+
+
+
+
+
+

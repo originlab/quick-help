@@ -1,0 +1,47 @@
+﻿<h1 class="firstHeading">FAQ-482 Wie kann ich Daten mit h&ouml;chster Pr&auml;zision kopieren?</h1><p class='urlname' style='display: none'>Copy-with-Full-Precision</p>
+<p class='faqID'>Letztes Update: 31.03.2025</p>
+<p>Ein numerischer Wert in einem Origin-Arbeitsblatt oder Matrixblatt wird intern als eine bin&auml;re 64-Bit-Zahl mit &quot;doppelter Genauigkeit&quot; gespeichert. Auf der Origin-Bedienoberfl&auml;che wird diese bin&auml;re Zahl als Dezimalzahl dargestellt, die mit ungef&auml;hr 15 Bruchstellen mit einem maximalen Exponenten von +/- 308 ausgedr&uuml;ckt werden kann.</p><p>Arbeitsbl&auml;tter und Matrixbl&auml;tter werden <a class="external text" href="../../UserGuide/UserGuide/The_(Column_Properties)_Properties_Tab.html#Digits">&uuml;blicherweise so formatiert, dass sie nur 5 oder 6 Dezimalstellen anzeigen</a>. Der Anwender sollte sich aber bewusst sein, dass die angezeigte Zahl nur eine gek&uuml;rzte Darstellung der im Speicher mit voller Genauigkeit abgelegten Zahl ist (maximal 15-stellig).</p>
+<dl><dd><dl><dd><a  class="image"><img alt="FAQ-482 1.png" src="../images/How_do_I_copy_data_with_maximum_precision/FAQ-482_1.png" width="480"  /></a></dd></dl></dd></dl>
+<ol><li><b>Bearbeiten: Kopieren: Kopieren</b> oder <b>Strg+C</b> kopiert die Daten in den folgenden F&auml;llen mit voller Genauigkeit:<ul><li>Kopieren von Daten aus einem Arbeitsblatt, einschlie&szlig;lich Ergebnisblatt, in ein anderes Arbeitsblatt in der gleichen oder einer anderen Origin-Sitzung. <b>Hinweis:</b> Dies gilt nicht f&uuml;r Matrixbl&auml;tter.</li>
+<li>Kopieren von Daten aus externer Anwendung, z. B. MS Excel, in ein Origin-Arbeitsblatt.</li></ul></li>
+<li>In allen anderen F&auml;llen kopiert <b>Bearbeiten: Kopieren: Kopieren</b> oder <b>Strg+C</b> Daten nur mit der angezeigten Genauigkeit. Um Daten mit voller Pr&auml;zision zu kopieren, w&auml;hlen Sie bitte <b>Bearbeiten: Kopieren: Werte kopieren (volle Pr&auml;zision)</b> oder <b>Strg+Alt+C</b>.</li>
+<li>Wenn eine Arbeitsblattzelle tats&auml;chlich ein <a class="external text" href="../../UserGuide/UserGuide/Inserting_Links_into_Worksheet_Cells.html#Links_to_Show_Contents_From_Other_Cell">Link zu einer anderen Arbeitsblattzelle</a> ist, zum Beispiel ein Ausgabeberichtsblatt mit Werten, die mit den Anpassungsergebnissen verkn&uuml;pft sind:<ul><li>Beim Kopieren und Einf&uuml;gen von einem Arbeitsblatt in ein anderes Arbeitsblatt in derselben Origin-Sitzung funktionieren <b>Bearbeiten: Kopieren: Kopieren (Strg+C)</b> und <b>Bearbeiten: Kopieren: Werte kopieren (volle Pr&auml;zision) (Strg+Alt+C)</b> gleich. Der Link wird eingef&uuml;gt. Wenn die Quelldaten sich in der Folge &auml;ndern, wird die verkn&uuml;pfte Zelle aktualisiert.</li>
+<li>Beim Kopieren in einer Origin-Sitzung und Einf&uuml;gen in einer neuen Origin-Sitzung m&uuml;ssen Sie <b>Bearbeiten: Kopieren: Werte kopieren (volle Pr&auml;zision)</b> oder <b>Strg+ALT+C</b> verwenden. Andernfalls wird nur der Link kopiert und als Text angezeigt wie <i>FitLinear1!Summary.R1.Intercept_Error</i>, was in der neuen Origin-Sitzung nicht interpretiert werden kann. Das Kopieren des verkn&uuml;pften Zellenwerts zwischen den Sitzungen wird seit Origin 2018 neu unterst&uuml;tzt.</li>
+<li>Beim Kopieren in Origin und Einf&uuml;gen in externe Anwendungen verwenden Sie <b>Bearbeiten: Kopieren: Werte kopieren (volle Pr&auml;zision)</b> oder <b>Strg+ALT+C</b>, um mit voller Genauigkeit zu kopieren. Andernfalls wird nur die angezeigte Genauigkeit kopiert.</li></ul></li></ol>
+<p>Detaillierte Informationen zu Kopieren (Strg+C) &amp; Einf&uuml;gen Strg+V</p>
+<table class="simple" width="50%">
+<tr>
+<th>Quelle (Kopieren)</th>
+<th>Ziel (Einf&uuml;gen)</th>
+<th>Was passiert ...</th></tr>
+<tr>
+<td>Arbeitsblatt</td>
+<td>Arbeitsblatt</td>
+<td>Kopiert und f&uuml;gt mit <b>voller Genauigkeit</b> ein, aber die angezeigten Stellen werden durch die Spalten- oder Arbeitsblatteigenschaften gesteuert.</td></tr>
+<tr>
+<td>Arbeitsblatt</td>
+<td>Weitere Orte, wie z. B. Matrix, Notizen, Beschriftung im Diagramm, Dialoge, externe Anwendungen</td>
+<td>Kopiert und f&uuml;gt mit der in der Quelle angezeigten Genauigkeit ein.</td></tr>
+<tr>
+<td>Matrix</td>
+<td>Alle Orte, wie z. B. Arbeitsblatt, Matrix, Notizen, Beschriftung im Diagramm, Dialoge, externe Anwendungen</td>
+<td>Kopiert und f&uuml;gt mit der in der Quelle angezeigten Genauigkeit ein.</td></tr>
+<tr>
+<td>Externe Anwendung</td>
+<td>Arbeitsblatt</td>
+<td>Kopiert und f&uuml;gt mit <b>voller Genauigkeit</b> ein, aber die angezeigten Stellen werden durch die Spalten- oder Arbeitsblatteigenschaften gesteuert.</td></tr>
+<tr>
+<td>Externe Anwendung</td>
+<td>Matrix</td>
+<td>Kopiert und f&uuml;gt mit der in der Quelle angezeigten Genauigkeit ein, aber die angezeigten Stellen werden durch die Matrixeigenschaften gesteuert.</td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/How_do_I_copy_data_with_maximum_precision/Tip_icon.png" width="57"  border="0" /></td><td><p>W&auml;hrend Sie beim Kopieren und Einf&uuml;gen von Daten aus Excel in Origin auf 15 Stellen beschr&auml;nkt sind, k&ouml;nnen Sie die Excel-Dateien, die mehr Stellen enhalten, importieren und deren Stellen beim Importieren bewahren.</p></td></tr></table>
+<h4><a name="A_Note_About_Copy_Values_.28Full_Precision.29_in_Origin"></a><span class="mw-headline">Ein Hinweis zum Kopieren von Werten (volle Genauigkeit) in Origin</span></h4>
+<p>Beim Verwenden von <b>Werte kopieren (volle Genauigkeit)</b>, um Daten aus Origin in eine externe Anwendung wie MS Excel zu kopieren, konvertiert Origin immer die interne bin&auml;re Zahl in eine dezimale Zahl von maximal 15 signifikanten Stellen.</p><p>Vor Origin 2018 verwendete die Funktion <b>Werte kopieren (volle Genauigkeit)</b> wie die Funktion <b>Kopieren</b> auch Origins internen bin&auml;ren Wert beim Kopieren und Einf&uuml;gen von einem Arbeitsblatt in ein anderes in Origin. Seit Origin 2018 konvertiert <b>Werte kopieren (volle Genauigkeit)</b> die Zahl <i>immer</i> zuerst.</p><p>Diese &Auml;nderung wurde gemacht, um denjenigen entgegenzukommen, die einen Datensatz, der eigentlich ein Link zu anderen Zellen ist (Werte in einem benutzerdefinierten Berichtsblatt, die eigentlich mit Parameterwerten im Anpassungsergebnisblatt verkn&uuml;pft sind) in ein Arbeitsblatt in einer neuen Origin-Sitzung kopieren m&ouml;chten. Vor Origin 2018 wurde der Link eingef&uuml;gt, unabh&auml;ngig davon, ob Sie <b>Kopieren</b> oder <b>Werte kopieren (volle Genauigkeit)</b> verwenden. Da der Link in einer neuen Origin-Sitzung nicht interpretiert werden konnte, wird er als bedeutungsloser Text angezeigt, z. B. <i>FitLinear1!Summary.R1.Intercept_Error</i>. In Origin 2018 konvertiert <b>Werte kopieren (volle Genauigkeit)</b> die verkn&uuml;pften Daten  zuerst in eine Dezimalzahl mit maximal 15 signifikanten Stellen und f&uuml;gt sie dann ein, so dass Werte angezeigt werden.</p><p>Wenn Sie die obige Vorgehensweise zum Kopieren und Einf&uuml;gen zwischen Origin-Sitzungen nicht befolgen m&ouml;chte und es vorziehen, <b>Werte kopieren (volle Genauigkeit)</b> innerhalb von Origin zu verwenden, wie die Software es vor Version 2018 gemacht hat, dann &ouml;ffnen Sie das <b>Skriptfenster</b>, geben Sie Folgendes ein und dr&uuml;cken Sie Enter:</p>
+<pre class="lt" style="font-family:monospace;">@CFP<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span></pre>
+<p>Dies ver&auml;ndert das Verhalten nur innerhalb der aktuellen Origin-Sitzung. Damit dieses Verhalten bei jedem Start von Origin zum Tragen kommt, lesen Sie bitte <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">diese FAQ</a>.</p>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>Genauigkeit, Dezimalstellen, Stellen, numerische Anzeige, Runden</span></p>
+<p><br /></p>
+
+
+    

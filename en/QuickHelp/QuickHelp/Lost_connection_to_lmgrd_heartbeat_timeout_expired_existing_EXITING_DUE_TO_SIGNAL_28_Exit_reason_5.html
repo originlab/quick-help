@@ -1,0 +1,21 @@
+<h1 class="firstHeading">6.109 FAQ-1197 I get a "Lost connection to lmgrd, heartbeat timeout expired, existing. EXITING DUE TO SIGNAL 28 Exit reason 5" error. What should I do?</h1><p class='urlname' style='display: none'>Lost-Connection-to-Lmgrd</p>
+<p class='faqID'>Last Update: 9/4/2024</p>
+<p>If you fail to start the FLEXnet license server, and get error message in the log file like the following:
+</p><p><code>
+10:38:30 (lmgrd) Lost connection to lmgrd, heartbeat timeout expired, exiting.</code><br />
+<code>10:38:30 (lmgrd) Heartbeat timeout is 300 seconds. Elapsed time is 16528 seconds.</code><br />
+<code>10:38:30 (lmgrd) EXITING DUE TO SIGNAL 28 Exit reason 5</code><br />
+<code>10:38:30 (lmgrd) orglab exited with status 28 (Communications error) </code>
+</p><p><br />
+This disconnection is probably caused by a firewall  between server and clients.<br /> 
+<span class='headerInParagraph'>To fix this problem, </span>
+</p><p>Please follow <a class="external text" href="https://www.originlab.com/doc/License/Concurrent-Additional-Info#Allowing_Access_through_a_Firewall" target="_blank">this document</a> to allow your license server access through firewall. 
+</p><p>Note that in step 1 “At the Firewall”, when you open up specified ports, make sure you do it for every firewall that may break the connection between server and clients. For example, on the server machine, besides the Windows built-in firewall, the virus software installed on the machine may also build up another firewall. In this case, you will need to turn off monitoring for the specified ports in both firewalls. 
+</p>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>concurrent, -15, 10032, lmgrd is not running, Cannot connect to license server, port or hostname in the license file has been changed, EXITING DUE TO SIGNAL 28, Exit reason 5, orglab exited with status 28, Communications error, Lost connection to lmgrd, heartbeat timeout expired <keywords></span></p>
+
+
+
+
+
+

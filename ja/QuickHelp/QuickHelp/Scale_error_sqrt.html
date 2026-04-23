@@ -1,0 +1,25 @@
+﻿<h1 class="firstHeading">FAQ-1211 sqrtのスケールエラーとはなんですか?なぜチェックを外すことができないのでしょうか。</h1><p class='urlname' style='display: none'>Scale-error-sqrt</p>
+<p class='faqID'>最終更新日：2025/11/9</p>
+<p><b>Sqrt（補正カイ2乗値）のスケールエラー</b>オプションは、 
+</p>
+<dl><dd><ul><li><b>非線形曲線フィット</b>ダイアログの<a class="external text" href="../../UserGuide/UserGuide/Settings_Tab_Upper_Panel.html#Advanced">詳細タブ：フィット制御</a> または、 </li>
+<li><b>線形フィット</b>ダイアログの<a class="external text" href="../../UserGuide/UserGuide/Linear_Regression_Dialog.html#Fit_Control">フィット制御</a>タブにあります </li></ul></dd></dl>
+<h2><a name="If_you_are_not_using_weights"></a><span class="mw-headline">重みを使用しない場合</span></h2>
+<p>Originでエラーデータなしで回帰を実行すると、解析は重みなしで実行されます。この場合、誤差をSqrt（補正カイ2乗値）でスケーリングする必要があるため、チェックを外すことはできません。
+</p><p>物理的な観点から、パラメータの標準誤差（SE）の単位は、そのパラメータ自体の単位と一致している必要があります。誤差がスケーリングされていない場合、パラメータのSEの単位は、(パラメータの単位)/(yの単位)で与えられます。これにより、パラメータとは異なる単位となり、正しくありません。
+</p><p>これは、例えばyデータを10倍にスケーリングすると明らかで、線形フィットのパラメータも同じ倍率でスケーリングされます。しかし、誤差がスケーリングされていない場合、パラメータの標準誤差（SE）は変更されません。SEもデータの変化に比例してスケーリングされるべきであるため、この挙動は理にかなっていません。
+</p><p>スケーリングが適切である理由のもう一つの例は、最尤推定法(MLE)の結果です。パラメータの標準誤差が公式に基づいて統計的に導出されており、同様にスケーリングされます。
+</p>
+<h2><a name="If_you_are_using_weights"></a><span class="mw-headline">重みを使用する場合</span></h2>
+<p>重みを使用する場合、特に「機械的」を選択する際には、重みオプションのチェックを外すことができます。この場合、ユーザーは𝑦<sub>𝑖</sub>の誤差が 𝑤<sub>𝑖</sub>であると仮定しており、すなわち、誤差𝑦<sub>𝑖</sub>/𝑤<sub>𝑖</sub>=1となります。このため、加重モデルの理論的分散は1であり、1でスケーリングしても影響はありません。したがって、1でスケーリングすることは不要です。
+</p><p>ただし、与えられた重みが各点の誤差の相対的な大きさを示す（真の誤差ではない）場合、スケールオプションにチェックを付けるべきです。この場合、加重モデルの理論的分散は1ではなく、実際の値（フィットから得られた縮小カイ二乗など）を使用する必要があります。
+</p><p><br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Scale_error_sqrt/Tip_icon.png" width="57"  border="0" /></td><td><p><a href="../../QuickHelp/QuickHelp/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled.html" title="クイックヘルプ：エラーバーがスケールされたときにパラメータの標準誤差が変わらないのはなぜですか？">理論と例についてはこちらのページ</a>
+</p></td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>線形, 回帰, フィットコントロール, 平方根, グレー表示, グレーアウト, 標準誤差</span></p>
+
+
+
+    

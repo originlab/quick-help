@@ -1,0 +1,35 @@
+﻿<h1 class="firstHeading">FAQ-279 解析操作の結果の精度はどの程度ですか？</h1>
+<p class="urlname" style="display: none;">AnalysisResult-Precision</p>
+<p class="faqID">最終更新日：2025/8/25</p>
+<p>Originは内部のすべての計算を完全な数値精度で実行します。ただし、読みやすさや表示上の理由から、レポートに表示される値が丸められる場合があります。 
+ </p>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/What_is_the_precision_of_results_from_analysis_operations/Alert_icon.png" 
+														 alt="" width="57" 
+														 height="57" border="0" /></td>
+		<td><p>数値精度が不十分な場合、丸め誤差が生じることがあります。特に高次の項を含むフィッティング関数を使用する場合には、高次項の値が大きくなるため、このような誤差が顕著になることがあります。この場合、精度不足によって計算結果に大きな丸め誤差が生じる可能性があります。 
+		 </p>
+		<p>Originは内部計算において丸めを行いません。しかし、パラメータ値を外部または独立した計算で使用するためにコピーする場合には、正確さを保つために必ずフル精度の値を保持してください。 
+		 </p></td>
+	</tr>
+</table>
+<p><span class="headerInParagraph">フル精度でレポート値をコピーするには</span>キーボードショートカット<i>Ctrl 
+ + Alt + C</i> を使用します。 </p>
+<p><span class="headerInParagraph">レポート値をより高い精度で表示するには、</span>次のいずれかの方法を使用できます。 
+ </p>
+<ol>
+	<li><b>環境設定: オプション</b>メニューを選択して開く<b>オプション</b>ダイアログの<b>数値の表現形式</b>タブで、選択し、<b>レポートでの桁</b>設定の小数桁数と有効桁数を指定します。</li>
+</ol>
+<p>または </p>
+<ol start="2">
+	<li>結果シートで、テーブルノードまたはテーブル内の任意のセルを右クリックし、コンテキストメニューから <b>桁数指定法...</b>を選択します。 
+	 </li>
+</ol>
+<p><br />
+レポートテーブルが結果ログに出力される場合、常にフル精度（小数点以下14桁）で表示されます。 </p>
+<p><br />
+</p>
+<hr class="keywordshr" style="float: aligncenter; " />
+<p><span class="keywords">キーワード:</span><span class="keywordsInput">有意, 
+ 桁数, 小数, 分析結果, レポートシート</span></p>

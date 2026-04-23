@@ -1,0 +1,44 @@
+<h1 class="firstHeading">1.307 FAQ-1219 Why does my graph look very different in Origin 2025b from previous versions. How to restore?</h1><p class='urlname' style='display: none'>why-graph-looks-different-in-2025b</p>
+<p class='faqID'>Last Update: 8/5/2025</p>
+<p>If your graph looks different in Origin 2025b from the previous versions, such as:
+</p>
+<dl><dd><ul><li>Wider graph page (aspect ratio changed)</li>
+<li>Smaller margins around the graph</li>
+<li>Font sizes for axis titles, tick labels, etc. appear different</li>
+<li>Layer frame now appears around axes</li>
+<li>Axis line thickness has changed</li>
+<li>Tick labels auto-rotate 45° if overlapping</li>
+<li>... and more</li></ul></dd></dl>
+<p>or if you set graph system theme but new graph does NOT seem to have it applied, ...<br /><br />
+it's because In Origin 2025b, we introduced the new <a class="external text" href="../../UserGuide/UserGuide/Graph_Options_dialog.html">Graph Options</a> dialog to give you better control over global graph settings. Along with this, we pre-shipped a new set of default values that differ from earlier versions.
+</p><p><br />
+</p>
+<h3><a name="To_restore_the_classic_look_used_in_previous_versions:"></a><span class="mw-headline">To restore the classic look used in previous versions:</span></h3>
+<ol>
+<li>Go to <b>Preferences: Graph Options</b>.
+<li>Click the <b>Reset</b> button.
+<li>Select <b>Reset All to Classic</b> from the fly-out menu. This will revert most key formatting options to match Origin 2025 defaults.
+<dl><dd><a  class="image"><img alt="Old Layer Dimensioin.png" src="../images/How_to_restore_graph_layer_dimension_to_classic_aspect_ratio/470px-Old_Layer_Dimensioin.png?v=76875" width="470"   /></a></dd></dl>
+</ol>
+<h4><a name="Note:"></a><span class="mw-headline">Note:</span></h4>
+<ul><li> Some built-in graph templates were also updated in 2025b. Even after restoring classic settings, the appearance may not exactly match older versions, but it should be very close.</li>
+<li> If you prefer, you can also click the Reset button and choose <b>Clear All</b>  so most settings are auto which means decided by the old system theme and graph template. Then Define your own settings on each tab.</li>
+<li> The system variable '@GGO' controls which types of templates will be affected by these settings:</li></ul>
+<dl><dd> '0' = none  </dd>
+<dd> '1' = system templates  </dd>
+<dd> '2' = user templates  </dd>
+<dd> '4' = app templates  </dd>
+<dd> '8' = extended templates  </dd></dl>
+<p>These values can be combined (e.g., '3' = system + user templates).
+</p>
+<h3><a name="To_restore_only_the_layout_.28page_size_and_margins.29:"></a><span class="mw-headline">To restore only the layout (page size and margins):</span></h3>
+<p>If you like most of the new defaults but want to adjust just the graph layout, go to the <b>Layout</b> tab in the Graph Options dialog and apply the following values:
+</p>
+<dl><dd><a  class="image"><img alt="Graph options layout.png" src="../images/How_to_restore_graph_layer_dimension_to_classic_aspect_ratio/470px-Graph_options_layout.png?v=76941" width="470"   /></a></dd></dl>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>old version style, graph size ratio, margin, axis frame, stats mode, default mode, default graph page, page layout</span></p>
+
+
+
+
+
+

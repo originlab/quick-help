@@ -1,0 +1,26 @@
+﻿<h1 class="firstHeading">FAQ-1213 Originを閉じた後もOriginプロセスが残ります。どうしたらよいでしょうか？</h1><p class='urlname' style='display: none'>Origin-Process-Remain-After-Exit</p> 
+<p class='faqID'>最終更新日：2025/3/04</p>
+<p>Originを閉じるのに時間がかかる場合、またはOriginを閉じた後もバックグラウンドで実行されている場合（<b>タスクマネージャ</b>で確認できます）、次の回避策を試してみてください。
+</p>
+<ol>
+<li>Windowsの<b>スタート</b>メニューで「Windowsセキュリティ」と検索して<b>Windowsセキュリティ</b>を開きます。または<b>スタート</b>メニュー &gt; <b>設定</b>ボタン &gt; <b>更新とセキュリティ</b> &gt; <b>Windowsセキュリティ</b>を選択して開きます。
+<li> <b>ウイルスと脅威の防止</b>を選択します。
+<dl><dd><a  class="image"><img alt="Windows Security Virus Threat Protection.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Virus_Threat_Protection.png" width="1024"  /></a></dd></dl>
+<li> <b>ウイルスと脅威の防止の設定</b>をクリックし、下にスクロールして<b>除外</b>グループの<b>除外の追加または削除</b>をクリックします。
+<dl><dd><a  class="image"><img alt="Windows Security Add Remove Exclusions.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Remove_Exclusions.png" width="1024"  /></a></dd></dl>
+<li> <b>除外の追加</b>ボタンをクリックし、フライアウトメニューの<b>フォルダ</b>を選択して、次のフォルダ（EXE、ユーザファイルフォルダなどのフォルダ）をそれぞれ例外として追加します。
+<pre class="lt" style="font-family:monospace;">C<span style="color: #000000;">:</span>\Program Files\OriginLab  <span style="color: #008000;">//EXEのパス。ユーザがOriginをインストールした場所を指定する。</span>
+C<span style="color: #000000;">:</span>\ProgramData\OriginLab  <span style="color: #008000;">//固定パス</span>
+C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">{</span>YourAccountName<span style="color: #000000;">}</span>\Documents\OriginLab  <span style="color: #008000;">//ユーザファイルフォルダのパス。ユーザが設定した場所を指定する。</span>
+C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">{</span>YourAccountName<span style="color: #000000;">}</span>\AppData\Local\OriginLab  <span style="color: #008000;">//相対的に固定されたパス</span></pre>
+<p><b>Note</b>: パスは、Originのメニューで<b>環境設定：オプション</b>ダイアログ &gt; システムパスタブで確認することもできます。
+</p>
+<dl><dd><a  class="image"><img alt="Windows Security Add Path.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Path.png" width="1024"  /></a></dd></dl>
+<li> Originを起動・終了して、除外設定前よりもOriginが早く終了することを確認してください。
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>Windowsセキュリティ、バックグラウンド実行、終了、終了、低速、長時間<keywords></span></p>
+
+
+
+
+    

@@ -1,0 +1,25 @@
+﻿<h1 class="firstHeading">FAQ-1214 OriginでRの起動に問題が発生した場合はどうすればよいですか?</h1><p class='urlname' style='display: none'>Origin-has-trouble-launching-R</p>
+<p class='faqID'>最終更新日：2025/3/11</p>
+<p>OriginでRを起動しようとしたときに以下の問題が発生した場合
+</p><p><span class='headerInParagraph'>Rを起動しようとするとOriginがクラッシュし、次のような警告メッセージが表示される</span>
+</p>
+<dl><dd><a  class="image"><img alt="Fail launch R.png" src="../images/When_Origin_has_trouble_launching_R/Fail_launch_R.png" width="407"  /></a></dd></dl>
+<p><br />
+<span class='headerInParagraph'>コンピュータにRの新しいバージョンをインストールしているにもかかわらず、Originは古いバージョンのRを起動する</span>
+</p>
+<h3><a name="Solution"></a><span class="mw-headline">解決法</span></h3>
+<p>これは、<b>Windowsレジストリ</b>で<b>R_HOME</b>という名前のWindows環境変数を設定しているためです。次の手順で変数を削除してください。
+</p>
+<ol><li> Originが起動していたら、閉じます。</li>
+<li> <b>Windows検索</b>で、「<i>システムの詳細設定の表示</i>」と検索して<b>システムの詳細設定の表示</b>を開きます。</li>
+<li> <b>システムのプロパティ</b>ダイアログで、 <b>詳細設定</b>タブを選択します。</li>
+<li> <b>環境変数...</b>ボタンをクリックします。</li>
+<li> <b>ユーザー環境変数</b>または<b>システム環境変数</b>から<b>R_HOME</b>を削除します。</li></ol>
+
+
+
+
+
+
+
+    

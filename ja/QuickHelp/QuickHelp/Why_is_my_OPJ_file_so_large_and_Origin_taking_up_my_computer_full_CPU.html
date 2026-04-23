@@ -1,0 +1,39 @@
+﻿<h1 class="firstHeading">FAQ-710 OPJファイルのサイズが大きく、OriginがCPUをフルに使用してしまうのですが？</h1><p class='urlname' style='display: none'>OPJ-so-large-and-take-full-cpu</p>
+<p class='faqID'>最終更新日：2024/8/12</p>
+<p>以下の問題のいずれかが発生している場合
+</p>
+<ul><li>特定のOriginプロジェクトファイル(OPJ)で作業しているとき、OriginがコンピュータのCPU全体を占有</li>
+<li>OPJのサイズがに不当に大きい</li>
+<li>黄色の再計算ツールバーボタンをクリックすると、再計算が失敗し、ボタンが赤に変わる</li></ul>
+<p>これらの問題の原因は以下のものが考えられます。 
+</p>
+<h3><a name="Pending_operations"></a><span class="mw-headline">保留中の操作</span></h3>
+<p>この問題を解決するには、以下の手順を実行して保留中の操作を削除します。
+特定のOPJファイルを開く、<b>スクリプトウィンドウ</b>を開きます（<b>ウィンドウ：スクリプトウィンドウ</b>）。以下を入力して<b>ENTER</b>キーを押します。Originの<b>スクリプトウィンドウに</b>操作が一覧表示されます。（保留中の操作は、入出力のない操作です）
+</p>
+<pre class="lt" style="font-family:monospace;">list op</pre>
+<p>そして次のスクリプトを入力して<b>Enter</b>キーを押し、保留中の操作を削除します。
+</p>
+<pre class="lt" style="font-family:monospace;">delete <span style="color: #000080;">-</span>op</pre>
+<p>プロジェクトを再保存します。
+</p>
+<h3><a name="Autofill_Ranges"></a><span class="mw-headline">オートフィル範囲</span></h3>
+<p>以前のバージョンでは、ユーザがワークシートの一部の範囲にデータを自動入力すると、範囲が誤って増加することがありました。
+この問題が起こっているか確認するには、特定のOPJを開き、<b>スクリプトウィンドウ</b>で次のスクリプトを入力して<b>ENTER</b>キーを押します。
+</p>
+<pre class="lt" style="font-family:monospace;">doc.<span style="color: #000080;">rangescount</span><span style="color: #000000;">(</span><span style="color: #0000dd;">32</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span></pre>
+<p>大きな数値が表示される場合は、次のスクリプトを実行して、すべてのオートフィル範囲を削除します。
+</p>
+<pre class="lt" style="font-family:monospace;">del <span style="color: #000080;">-</span>r <span style="color: #0000dd;">32</span></pre>
+<p>プロジェクトを再保存します。
+</p>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>大きいOPJ, CPUがいっぱい, 再計算失敗, 自動入力,範囲</span></p>
+<p class="version" >必要なOriginのバージョン:8.5.1</p>
+
+
+
+
+
+
+
+    

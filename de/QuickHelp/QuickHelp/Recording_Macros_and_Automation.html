@@ -1,0 +1,150 @@
+﻿<h1 class="firstHeading">FAQ-1195 Kann Origin Makros erfassen und sich wiederholende Aufgaben automatisieren?</h1>
+
+  <p class='urlname' style='display: none'>Recording-Macros-and-Automation</p>
+
+  <p class='faqID'>Letztes Update: 12.06.2024</p>
+
+  <p><b>Hinweis:</b> Origin bietet Anwendern die Möglichkeit, <a class="external text" href="https://www.originlab.com/doc/Quick-Help/Automate-Repetitive-tasks" target="_blank">sich wiederholende Aufgaben zu automatisieren</a>, ohne dafür einen Code zu benötigen. Während Programmierung nicht notwendig ist, um den Leistungsumfang von Origin voll nutzen zu können, wendet sich diese Seite an Anwender, die sich für die Programmierfunktonen von Origin interessieren.</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1">
+        <a href="#Programming_in_Origin"><span class="tocnumber">1</span> <span class="toctext">Programmierung in Origin</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-2"><a href="#Control_.2B_Shift_.2B_Click"><span class="tocnumber">1.1</span> <span class="toctext">Strg + Shift + Klick</span></a></li>
+
+          <li class="toclevel-2 tocsection-3"><a href="#ECHO_System_Variable"><span class="tocnumber">1.2</span> <span class="toctext">Systemvariable ECHO</span></a></li>
+
+          <li class="toclevel-2 tocsection-4"><a href="#Generate_Script"><span class="tocnumber">1.3</span> <span class="toctext">Skript erzeugen</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Automating_with_Code.2C_Commands.2C_and_Scripts"><span class="tocnumber">2</span> <span class="toctext">Automatisieren mit Code, Befehlen und Skripten</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Topics_for_Further_Reading"><span class="tocnumber">3</span> <span class="toctext">Weiterführende Themen</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Programming_in_Origin"></a><span class="mw-headline">Programmieren in Origin</span></h2>
+
+  <p>Origin ermöglicht Anwendern, komplexe Befehle und Funktionen über Bedienüberflächen und Dialoge auszuführen und das ganz ohne Programmierung. Es wurde jedoch als voll programmierbare Software entwickelt und enthält den <a class="external text" href="https://www.originlab.com/doc/en/User-Guide/Programming-in-Origin" target="_blank">integrierten Support für eine Vielzahl von leistungsstarker Sprachen</a>.</p>
+
+  <p>Mit den Programmierfunktionen können Anwender ihre Arbeitsabläufe benutzerdefiniert anpassen, automatisieren und teilen. Einige allgemeine Anwendungen sind:</p>
+
+  <ul>
+    <li>Erstellen von neuen Routinen für Import, Analyse, Visualisierung und Export von Daten</li>
+
+    <li>Automatisieren von sich wiederholender Aufgaben für große Datensätze oder Stapelverarbeitung</li>
+
+    <li>Durchführen numerischer Berechnungen und Simulationen</li>
+
+    <li>Erzeugen von benutzerdefinierten Apps, die mit Kollegen oder im <a class="external text" href="https://www.originlab.com/fileExchange/" target="_blank">Origin-Dateiaustausch</a> geteilt werden können</li>
+  </ul>
+
+  <p>Aufgrund der Anzahl von Sprachen, die parallel in Origin ausgeführt werden, stehen Anwendern eine Vielzahl von Hilfsmittel zur Verfügung, um den zugrunde liegenden Code, die Befehle und Skripte in Origin anzuzeigen. <b>Es sollte erwähnt werden, dass die auf dieser Seite erläuterten Funktionen primär verwendet werden, um auf LabTalk-Skript, einschließlich X-Funktionen, zuzugreifen.</b></p>
+
+  <h3><a name="Control_.2B_Shift_.2B_Click"></a><span class="mw-headline">Strg + Shift + Klick</span></h3>
+
+  <p>Anwender können auf die meisten <a class="external text" href="https://www.originlab.com/doc/de/Origin-Help/Menu-Items-Toolbars-and-Status-Bar" target="_blank">Menüelemente</a>, <a class="external text" href="https://www.originlab.com/doc/User-Guide/Toolbars" target="_blank">Symbolleistenschaltflächen</a> und <a class="external text" href="https://www.originlab.com/doc/Origin-Help/Mini-Toolbar" target="_blank">Minisymbolleistenfunktionen</a> klicken, während Sie die Tasten <a class="external text" href="https://www.originlab.com/doc/en/LabTalk/guide/Getting-Started-with-LT#Using_CTRL_.2B_SHIFT_to_capture_Menu_Command_and_Toolbar_Button_Script" target="_blank"><b>Strg + Shift</b></a> gedrückt halten, um (1) das entsprechende Skript im <a class="external text" href="https://www.originlab.com/doc/Origin-Help/Code-Builder" target="_blank">Code Builder</a> anzuzeigen und (2) Befehle und andere identifizierende Informationen im <a class="external text" href="https://www.originlab.com/doc/Origin-Help/CmdWindow" target="_blank">Skriptfenster</a> zu dumpen. Ein <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=578" target="_blank">kurzes Beispiel</a> hierfür können Sie auf unserem <a class="external text" href="http://www.youtube.com/@TheOriginLab" target="_blank">YouTube</a>-Kanal sehen.</p>
+
+  <h3><a name="ECHO_System_Variable"></a><span class="mw-headline">Systemvariable ECHO</span></h3>
+
+  <p>Origin kann das Skriptfenster verwenden, um Befehle, Skripte und <span class="OIndex">Fehlermeldungen</span> anzuzeigen, die verarbeitet werden, wenn Anwender der Wert der <a class="external text" href="https://www.originlab.com/doc/LabTalk/ref/System-vars#ECHO" target="_blank">ECHO</a>-Variable ändern. Standardmäßig ist ECHO auf Null gesetzt, um die Anzeige der Befehle zu deaktivieren.</p>
+
+  <p>Um <span class="OIndex">echo</span> zu aktivieren, geben Sie echo = <i>Zahl</i> im Skriptfenster ein. <i>Zahl</i> kann eine der folgenden Optionen sein:</p>
+
+  <table class="simple">
+    <tr>
+      <th>Zahl</th>
+
+      <th>Aktion</th>
+    </tr>
+
+    <tr>
+      <td>1</td>
+
+      <td>Befehle anzeigen, die einen Fehler erzeugen</td>
+    </tr>
+
+    <tr>
+      <td>2</td>
+
+      <td>Skripte anzeigen, die zu einer Warteschlange zur verzögerten Ausführung gesendet wurden</td>
+    </tr>
+
+    <tr>
+      <td>4</td>
+
+      <td>Skripte anzeigen, die Befehle enthalten</td>
+    </tr>
+
+    <tr>
+      <td>8</td>
+
+      <td>Skripte anzeigen, die Zuweisungen enthalten</td>
+    </tr>
+
+    <tr>
+      <td>16</td>
+
+      <td>Makros anzeigen</td>
+    </tr>
+  </table>
+
+  <p>ECHO kann auf eine beliebige Summe dieser Zahlen gesetzt werden, um die Optionen zu kombinieren. Wenn zum Beispiel <b>echo = 7;</b>, zeigt Origin (1) Befehle an, die einen Fehler erzeugen, (2) Skripte, die zur Warteschlange gesendet wurden, und (4) Skripte, die Befehle enthalten. Wenn <b>echo = 31;</b>, zeigt Origin eine Kombination aller fünf Optionen an, die in der obigen Tabelle aufgelistet sind.<br>
+  <a class="image"><img alt="Setting echo.gif" src="../images/Recording_Macros_and_Automation/Setting_echo.gif" width="600"></a></p>
+
+  <p>Anwendern wird nahegelegt, die Variable auf <b>echo = 0;</b> zurückzusetzen, wenn Sie fertig sind.</p>
+
+  <p>Ein <a class="external text" href="https://www.originlab.com/doc/LabTalk/Tutorials/Tutorial-Debug#echo" target="_blank">kurzes Beispiel</a> zur Verwendung von ECHO ist in unserer Dokumentation zu finden.</p>
+
+  <h3><a name="Generate_Script"></a><span class="mw-headline">Skript erzeugen</span></h3>
+
+  <p>Ein sehr starkes Hilfsmittel zum Automatisieren der Verarbeitung und Analyse ist der Befehl Skript erzeugen, den Sie in den meisten <a class="external text" href="https://www.originlab.com/doc/Origin-Help/Dialog-Theme" target="_blank">X-Funktionsdialogen</a> über das Ausklappmenü oben im Fenster finden. Hier sind viele Aktionen für Arbeitsblätter und Diagramme während der Analyse und Visualisierung enthalten.<br>
+  <a class="image"><img alt="Generate script.gif" src="../images/Recording_Macros_and_Automation/Generate_script.gif" width="600"></a></p>
+
+  <p>Diese Funktion wird verwendet, um auf die zugrunde liegenden <a class="external text" href="https://www.originlab.com/doc/X-Function/guide/Calling-X-Functions-from-Script#Generate_Script_from_X-Function_Dialog" target="_blank">X-Funktionen</a> in Origin zuzugreifen.</p>
+
+  <table class="note">
+    <tr>
+      <td>
+        <b>Hinweis:</b>
+
+        <p>Die <a class="external text" href="https://www.originlab.com/doc/LabTalk/ref/sys-var-list#F.2CG" target="_blank">Systemvariable <b>@GAS</b></a> steuert, wie viele Informationen beim Verwenden der Funktion Skript erzeugen angezeigt werden.<br>
+        <a class="image"><img alt="System Variable GAS Change.gif" src="../images/Recording_Macros_and_Automation/System_Variable_GAS_Change.gif" width="600"></a></p>
+      </td>
+    </tr>
+  </table>
+
+  <p>Sie finden ein <a class="external text" href="https://www.originlab.com/doc/LabTalk/Tutorials/Tutorial-XF#Generate_Script_from_X-Function_Dialog" target="_blank">kurzes Tutorial</a> in unserer Dokumentation.</p>
+
+  <h2><a name="Automating_with_Code.2C_Commands.2C_and_Scripts"></a><span class="mw-headline">Automatisieren mit Code, Befehlen und Skripten</span></h2>
+
+  <p>Origin verfügt über mehrere Bedienoberflächen, in die Anwender Code eingeben können, um ihre Arbeit zu automatisieren oder benutzerdefiniert anzupassen:</p>
+
+  <ul>
+    <li>Das <a class="external text" href="https://www.originlab.com/doc/Origin-Help/CmdWindow" target="_blank">Skriptfenster</a> bietet ein interaktives Textfeld, das nur das markierte Skript ausführt, wenn <b>Enter</b> gedrückt wird.</li>
+
+    <li>Das <a class="external text" href="https://www.originlab.com/doc/en/Tutorials/Command-Window" target="_blank">Befehlsfenster</a> hat ein Standardeingabefeld und führt bei Drücken auf <b>Enter</b> immer eine Codezeile aus.</li>
+
+    <li>Das <a class="external text" href="https://www.originlab.com/doc/Origin-Help/WkbkScript-Panel" target="_blank">Skriptfeld</a> wird verwendet, um Code, Befehle und Skripte auf eine spezifische Arbeitsmappe oder ein Arbeitsblatt anzuwenden.</li>
+
+    <li>Der <a class="external text" href="https://www.originlab.com/doc/Origin-Help/Code-Builder" target="_blank">Code Builder</a> ist der robusteste Codeeditor in Origin und ermöglicht das Erstellen und Kompilieren von Dateien. Er schließt auch Fehlerbehebungsfunktionen ein.</li>
+  </ul>
+
+  <h2><a name="Topics_for_Further_Reading"></a><span class="mw-headline">Weiterführende Themen</span></h2>
+
+  <ul>
+    <li><a class="external text" href="https://www.originlab.com/doc/en/Origin-Help/Batch-Processing" target="_blank">Stapelverarbeitung</a></li>
+
+    <li><a class="external text" href="https://www.originlab.com/doc/Tutorials/Introduce-X-Function" target="_blank">X-Funktionen</a></li>
+
+    <li><a class="external text" href="https://www.originlab.com/doc/en/Tutorials/Create-Update-Apps" target="_blank">Apps in Origin erstellen und aktualisieren</a></li>
+
+    <li><a class="external text" href="https://www.originlab.com/doc/Tutorials/LabTalk" target="_blank">LabTalk-Tutorials</a></li>
+  </ul>

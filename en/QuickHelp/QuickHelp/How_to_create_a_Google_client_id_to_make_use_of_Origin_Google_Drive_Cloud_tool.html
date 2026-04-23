@@ -1,0 +1,64 @@
+<h1 class="firstHeading">2.141 FAQ-1223 How to create a Google client_id to make use of Origin’s Google Drive Cloud tool?</h1><p class='urlname' style='display: none'>Create-Google-API-Key</p>
+<p class='faqID'>Last Update: 8/6/2025</p>
+<p>Google Drive Cloud tool (Connect to Cloud menu and Open from Cloud button) by default uses Origin's client_id. This is shared among all the Origin users. There is a global limit on the number of access set by Google. It reaches maximum now  and Origin cannot increase it yet.
+</p><p>Users who do not access before cannot access it with Origin's client_id (users who ever accessed it successfully can still access).
+</p><p>If you see error message like following
+</p>
+<dl><dd><a  class="image"><img alt="Google API key blocked.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_key_blocked.png?v=77053" width="632"  /></a></dd></dl>
+<h2><a name="Try_solution_below:"></a><span class="mw-headline">Try solution below:</span></h2>
+<ol>
+<li>Create your own client_id by following steps:
+<ol>
+<li>Log into <a class="external text" href="https://console.developers.google.com/" target="_blank">Google API Console</a> with your Google account (not necessary to be the same as the one you use to log in with Origin’s cloud connector).
+<li>Click "project" button on the top-left and then click "New project" button on the pop-up dialog to create a new project.
+<dl><dd><a  class="image"><img alt="Google API Create Project.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Create_Project.png?v=77055" width="600"  /></a></dd></dl>
+<li>Click on the left-side menu "APIs &amp; services" &gt; "Enable APIs and services". 
+<li>Find the "Google Drive API" in the API Library and click on it.  
+<li>On the "Product details" page, click Enable button.
+<dl><dd><a  class="image"><img alt="Google API Enable.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Enable.png?v=77056" width="646"  /></a></dd></dl>
+<li>Click "Credentials" in the left-side panel. Click "+Create credentials" on the top, and then select "API key" from the pop-up menu.
+<dl><dd><a  class="image"><img alt="Google API key.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_key.png?v=77057" width="615"  /></a></dd></dl>
+<br /><span class='headerInParagraph'>There is an "API key" on the pop-up dialog. Make a note of it.</span>
+<li>Click "+Create credentials" again and select "OAuth client ID".  Click on "Configure Consent Screen". On the "OAuth Overview" page, click Get started button to set up project configuration.
+<dl><dd><a  class="image"><img alt="Google API OAuth client ID.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_OAuth_client_ID.png?v=77058" width="608"  /></a></dd></dl>
+<li>On the "Project configuration" page, enter an app name such as "Origin web connector".
+And select the current account in the "User support mail" edit box.
+Click Next button.
+<li>Select "External" for Audience. Click Next button.
+<li>Enter your e-mail in "Developer contact information". Click Next button.
+<li>Check I agree to the "Google API Services User Data Policy" and click "CONTINUE" button.
+<li>Click "Create" button.
+<dl><dd><a  class="image"><img alt="Google API Project Configuration.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Project_Configuration.png?v=77059" width="500"  /></a></dd></dl>
+<li>Click "Create OAuth client" button.
+<li>Select Application type to "Desktop app" and give it a Name (default name is OK). Click "Create" button.
+<br /><span class='headerInParagraph'>There are "Client ID" and "Client secret" on the pop-up dialog. Make note of it.</span>
+<li> Click "Audience" on the left-side panel. And then click "Publish app" button and then click "Confirm" button in the pop-up dialog.
+<dl><dd><a  class="image"><img alt="Google API Publish app.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Publish_app.png?v=77060" width="561"  /></a></dd></dl>
+<li>Go back to "APIs &amp; Services" page by top-left Navigation menu.
+<li>Click "..." button on top-right corner and select "Project settings".
+<dl><dd><a  class="image"><img alt="Google API Project settings.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Project_settings.png?v=77063" width="600"  /></a></dd></dl>
+<br /><span class='headerInParagraph'>There is a project number(AppID). Make note of it.</span>
+</ol>
+<li>Make sure Origin is closed. Update <code>&lt;Origin UFF&gt;/OCloud.ini</code> (create a new ini file if it does not exist). <br />The [<b>GoogleDrive</b>] section in the ini file should be as following:
+<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">&#91;</span>GoogleDrive<span style="color: #000000;">&#93;</span>
+AppID<span style="color: #000080;">=</span>USER_APP_IDD
+ClientID<span style="color: #000080;">=</span>USER_CLIENT_ID
+ApiKey<span style="color: #000080;">=</span>USER_API_KEY
+ClientSecret<span style="color: #000080;">=</span>USER_CLIENT_SECRET</pre>
+<li><font color="blue">If you want to connect to Googlesheet from cloud, the following additional steps are required:</font>
+<ol>
+<li>Go back to <a class="external text" href="https://console.developers.google.com/" target="_blank">Google API Console</a>.
+<li>Select "Enabled APIs &amp; services" on left-side panel and click on "Enable APls and services".
+<li>Search for "Google Sheets API"
+<li>Click "ENABLE".
+<br /><a  class="image"><img alt="Google Sheet API Enable.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_Sheet_API_Enable.png?v=77071" width="800"  /></a>
+</ol></li>
+<li>Start Origin to try connecting now.
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>connect to Google, import from Google Drive, cloud connector, Google API Key, This app is blocked, tried to access sensitive info in Google Account, keep account safe, Google blocked this access<keywords></span></p>
+
+
+
+
+
+

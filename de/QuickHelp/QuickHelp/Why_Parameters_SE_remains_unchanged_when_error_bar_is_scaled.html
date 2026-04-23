@@ -1,0 +1,159 @@
+﻿<h1 class="firstHeading">FAQ-782 Warum bleibt der Standardfehler des Parameters unver&auml;ndert, w&auml;hrend der Fehlerbalken sich sehr &auml;ndert?</h1><p class='urlname' style='display: none'>Chi-Se-Remain</p>
+<p class='faqID'>Letztes Update: 16.01.2025</p>
+<p>Um die Kompatibilit&auml;t des Standardfehlers (SE) des angepassten Parameters und die verbundenen Ergebnisse mit anderer Software zu bewahren, ist das <a class="external text" href="../../UserGuide/UserGuide/Settings_Tab_Upper_Panel.html#Advanced">Kontrollk&auml;stchen <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b></a> standardm&auml;&szlig;ig aktiviert. Ist dieses Kontrollk&auml;stchen aktiviert, bleibt der Standardfehler des Parameter gleich, sogar wenn die Fehlerbalken sich betr&auml;chtlich ver&auml;ndert. Wir empfehlen, diese Option zu deaktivieren, wenn Daten mit <a class="external text" href="../../UserGuide/UserGuide/Fitting_with_Errors_and_Weighting.html"><b>instrumenteller oder direkter Gewichtung bzw. einem beliebigen Datensatz </b></a> angepasst werden, so dass der Standardfehler des Parameters den Betrag der Gewichtung wiedergeben kann.</p><p>Sie finden das Kontrollk&auml;stchen <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> auf der</p>
+<dl><dd><ul><li><a class="external text" href="../../UserGuide/UserGuide/Settings_Tab_Upper_Panel.html#Advanced">Registerkarte Erweitert: Fit-Steuerung</a> des Dialogs <b>Nichtlinearer Fit</b> oder der</li>
+<li><a class="external text" href="../../UserGuide/UserGuide/Linear_Regression_Dialog.html#Fit_Control">Registerkarte Fit-Steuerung</a> des Dialogs <b>Lineare Regression</b>.</li></ul></dd></dl>
+<table class="note">
+
+<tr>
+<td><b>Hinweis:</b><p>Dieses Kontrollk&auml;stchen hat NUR Einfluss auf den Standardfehler der angepassten Parameter. Es hat KEINEN Einfluss auf den Anpassungsprozess oder die Parameterwerte.</p>
+</td></tr></table>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Simple_theory_explanation"><span class="tocnumber">1</span> <span class="toctext">Einfache Theorieerkl&auml;rung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Quick_Example"><span class="tocnumber">2</span> <span class="toctext">Kurzes Beispiel</span></a><ul>
+<li class="toclevel-2 tocsection-3"><a href="#Sample_data"><span class="tocnumber">2,1</span> <span class="toctext">Beispieldaten</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Related_Topics"><span class="tocnumber">2,2</span> <span class="toctext">Verwandte Themen</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Simple_theory_explanation"></a><span class="mw-headline">Einfache Theorieerkl&auml;rung</span></h2>
+<p>Wir er&ouml;rtern unten, wie der Standarfehler des <i>j</i>-ten angepassten Parameter <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-cb0e17d96e58d55d1eb06dc1b14b7a7b.png" title="\theta_j" alt="\theta_j" class="tex"/> sich ver&auml;ndert mit und ohne aktivierter Option <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b>. Zur Vereinfachung nehmen wir an, dass der Fehlerbalken <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-51def96939771aad32a8144ed6298ea7.png" title="\sigma_{y_i}" alt="\sigma_{y_i}" class="tex"/> durch die Multiplikation mit einer Konstanten <i>k</i> skaliert wird. Einzelheiten zu Algorithmus und Erkl&auml;rung finden Sie unter <a class="external text" href="../../UserGuide/Category/Theory_of_Nonlinear_Curve_Fitting.html#Parameter_Standard_Errors">Theorie der nichtlinearen Kurvenanpassung</a>.</p><p>Wenn <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> standardm&auml;&szlig;ig aktiviert ist, h&auml;ngt die Varianz-Kovarianz-Matrix <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-0d61f8370cad1d412f80b84d143e1257.png" title="C" alt="C" class="tex"/> f&uuml;r Parameter <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-3a69d07d2adf42061942779219a83d19.png" title="\hat \theta" alt="\hat \theta" class="tex"/> von <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-a51470e10c536e93611fecd435c07013.png" title="F&apos;F" alt="F&apos;F" class="tex"/> und <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-10e16c6a764d367ca5077a54bf156f7e.png" title="\sigma^2" alt="\sigma^2" class="tex"/> ab.</p>
+<table class="formula">
+
+<tr>
+<th><img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-712b1e66b51431627b0566c6493c9d53.png" title="C=(F&apos;F)^{-1}\sigma^2" alt="C=(F&apos;F)^{-1}\sigma^2" class="tex"/></th>
+<td>
+<p>(1)</p>
+</td></tr></table>
+<p>Wobei <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-800618943025315f869e4e1f09471012.png" title="F" alt="F" class="tex"/> die partielle Ableitungsmatrix ist, deren Element in der <i>i</i>-ten Zeile und der <i>j</i>-ten Spalte folgenderma&szlig;en lautet:</p>
+<table class="formula">
+
+<tr>
+<th><img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-f192adbcbbeca93c9c92cbfbbdbe5f0d.png" title="F_{ij}=\frac{\partial f(X, \boldsymbol{\theta})}{\sigma _{y_i}\partial \theta _j}" alt="F_{ij}=\frac{\partial f(X, \boldsymbol{\theta})}{\sigma _{y_i}\partial \theta _j}" class="tex"/></th>
+<td>
+<p>(2)</p>
+</td></tr></table>
+<p>und <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-10e16c6a764d367ca5077a54bf156f7e.png" title="\sigma^2" alt="\sigma^2" class="tex"/> ist die mittlere Residuenvarianz, die mittels des reduzierten Chi-Quadrats gesch&auml;tzt wird:</p>
+<table class="formula">
+
+<tr>
+<th><img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-2b99055505274076d087ee5119593bb0.png" title="\sigma^2 = \sum_{i=1}^n \frac{1}{{\sigma_{y_i}}^2} \left[Y_i-f(X, \boldsymbol{\theta}) \right ]^2/df_{\text{Error}}" alt="\sigma^2 = \sum_{i=1}^n \frac{1}{{\sigma_{y_i}}^2} \left[Y_i-f(X, \boldsymbol{\theta}) \right ]^2/df_{\text{Error}}" class="tex"/></th>
+<td>
+<p>(3)</p>
+</td></tr></table>
+<p>Der SE von <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-cb0e17d96e58d55d1eb06dc1b14b7a7b.png" title="\theta_j" alt="\theta_j" class="tex"/> ist dann die Quadratwurzel eines diagonalen Hauptwerts der Matrix <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-0d61f8370cad1d412f80b84d143e1257.png" title="C" alt="C" class="tex"/></p>
+<table class="formula">
+
+<tr>
+<th><img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-6b1dadac7ac34439ceb90c5f051afeab.png" title="\sigma_{\theta_j}=\sqrt{c_{jj}}\,\!" alt="\sigma_{\theta_j}=\sqrt{c_{jj}}\,\!" class="tex"/></th>
+<td>
+<p>(4)</p>
+</td></tr></table>
+<p>Wenn die Fehlerbalken <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-51def96939771aad32a8144ed6298ea7.png" title="\sigma_{y_i}" alt="\sigma_{y_i}" class="tex"/> mit einer Konstanten <i>k</i> und sowohl <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-a51470e10c536e93611fecd435c07013.png" title="F&apos;F" alt="F&apos;F" class="tex"/> als auch <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-10e16c6a764d367ca5077a54bf156f7e.png" title="\sigma^2" alt="\sigma^2" class="tex"/> mit einem Faktor <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-82095e9f7da27f5ee19fb1c82d1be1d3.png" title="1/k^2" alt="1/k^2" class="tex"/> ge&auml;ndert werden, dann hebt <i>k</i> sie jeweils in der Berechnung des Standardfehlers auf. Daher bleibt der Standardfehler unver&auml;ndert, wenn der Fehlerbalken skaliert wird.</p><p>Wenn <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> deaktiviert ist, wodurch <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-10e16c6a764d367ca5077a54bf156f7e.png" title="\sigma^2" alt="\sigma^2" class="tex"/> beim Berechnen der Varianz-Kovarianz-Matrix ausgeschlossen ist, h&auml;ngt die Matrix <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-0d61f8370cad1d412f80b84d143e1257.png" title="C" alt="C" class="tex"/> nur von <img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-de1cb387b7e4df1801ac403d6d695c4d.png" title="(F&apos;F)^{-1}" alt="(F&apos;F)^{-1}" class="tex"/> ab.</p>
+<table class="formula">
+
+<tr>
+<th><img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-da354fed6c7186ffd18d96073171c7ef.png" title="C=(F&apos;F)^{-1}" alt="C=(F&apos;F)^{-1}" class="tex"/></th>
+<td>
+<p>(5)</p>
+</td></tr></table>
+<p>Der Standardfehler SE wird jetzt</p>
+<table class="formula">
+
+<tr>
+<th><img src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/math-b723811c7c0ffbc5194ecda68d218588.png" title="\sigma&apos;_{\theta_j}=\frac{\sigma_{\theta_j}}{\sigma}" alt="\sigma&apos;_{\theta_j}=\frac{\sigma_{\theta_j}}{\sigma}" class="tex"/></th>
+<td>
+<p>(6)</p>
+</td></tr></table>
+<p>Wenn die Fehlerbalken mit <i>k</i> multipliziert werden, wird der SE auch mal <i>k</i> sein.</p><p>Nach Anpassen der Modelle verwenden wir das reduzierte Chi-Quadrat, um zu pr&uuml;fen, ob die Gewichtungen den realen Y-Fehler darstellen k&ouml;nnen oder nicht. Zusammengefasst: Wenn Sie herausfinden, dass der Standardfehler des Parameters bei Aktivierung bzw. Deaktivierung des Kontrollk&auml;stchens <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> sich sehr unterscheidet, bedeutet dies, dass die Gewichtungen m&ouml;glicherweise nicht die realen Y-Fehler darstellen. Weitere Informationen finden Sie auf <a class="external text" href="../../QuickHelp/QuickHelp/Why_is_my_Reduced_Chi-Sqr_value_very_different_from_1.html">dieser Seite</a>.</p>
+<h2><a name="Quick_Example"></a><span class="mw-headline">Schnelles Beispiel</span></h2>
+<p>Unten befindet sich ein kurzes Beispiel, das belegt, dass <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> nur den Standardfehler der angepassten Parameter beeinflusst.</p>
+<ol><li>Kopieren Sie <a href="#Sample_data">diese Daten</a> und f&uuml;gen Sie in ein Arbeitsblatt ein.</li>
+<li>Klicken Sie mit der rechten Maustaste auf die Spalte col(C) und w&auml;hlen Sie <b>Setzen als: Als Y-Fehler setzen</b>.</li>
+<li>Markieren Sie alle Spalten und w&auml;hlen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFit</b> zu &ouml;ffnen.</li>
+<li>W&auml;hlen Sie Gauss in der Auswahlliste <b>Funktion</b>. Gehen Sie zur Registerkarte <b>Erweitert</b> und erweitern Sie den Zweig <b>Fit-Steuerung</b>. Stellen Sie sicher, dass das Kontrollk&auml;stchen <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> aktiviert ist. <br /><a  class="image"><img alt="Scale Error with sqrt 001.png" src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/Scale_Error_with_sqrt_001.png" width="599"  /></a><br />Wenn Sie auf <b>Fit</b> klicken, wird ein Anpassungsbericht erzeugt, der Parameterwerte und Standardfehler enth&auml;lt.<br /><a  class="image"><img alt="Scale Error with sqrt 002.png" src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/Scale_Error_with_sqrt_002.png" width="479"  /></a></li>
+<li>Klicken Sie auf das gr&uuml;ne Schloss und w&auml;hlen Sie <b>Parameter &auml;ndern</b>. Deaktivieren Sie im Dialog <b>NLFit</b> das Kontrollk&auml;stchen <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b>. <br /><a  class="image"><img alt="Scale Error with sqrt 003.png" src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/Scale_Error_with_sqrt_003.png" width="576"  /></a><br />Klicken Sie auf <b>Fit</b>. Standardfehler der Parameter &auml;ndern sich, aber die angepassten Werte nicht.<br /><a  class="image"><img alt="Scale Error with sqrt 004.png" src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/Scale_Error_with_sqrt_004.png" width="479"  /></a></li>
+<li>Jetzt wird der Fehler skaliert und festgestellt, wie unterschiedlich der Einfluss auf den Standardfehler ist je nachdem, ob <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> aktiviert ist oder nicht. &Ouml;ffnen Sie den Dialog <b>NLFit</b> &uuml;ber <b>Parameter &auml;ndern</b>. Aktivieren Sie <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> und &auml;ndern Sie die Einstellung f&uuml;r <b>Neu berechnen</b> in Auto.</li>
+<li>Multiplizieren Sie die Fehlerspalte C mit 10. Das Berichtsblatt wird automatisch aktualisiert. Sie sehen, dass der Standardfehler (SE) der Parameter der gleiche bleibt  (vergleichen Sie das zweite Bild in Schritt 4).<br /><a  class="image"><img alt="Scale Error with sqrt 005.png" src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/Scale_Error_with_sqrt_005.png" width="479"  /></a></li>
+<li>&Ouml;ffnen Sie den Dialog <b>NLFit</b> erneut &uuml;ber <b>Parameter &auml;ndern</b>. Deaktivieren Sie <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> Klicken Sie auf <b>Fit</b>. Sie sehen, dass der Standardfehler dieses Mal mit 10 multipliziert ist.<br /><a  class="image"><img alt="Scale Error with sqrt 006.png" src="../images/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled/Scale_Error_with_sqrt_006.png" width="472"  /></a></li></ol>
+<h5><a name="Sample_data"></a><span class="mw-headline">Beispieldaten</span></h5>
+<table class="simple" style="width:120px">
+<tr>
+<th>X</th>
+<th>Y</th>
+<th>Y-Fehler</th></tr>
+<tr>
+<td>11</td>
+<td>5</td>
+<td>0.4472</td></tr>
+<tr>
+<td>13</td>
+<td>10</td>
+<td>0.6324</td></tr>
+<tr>
+<td>15</td>
+<td>19</td>
+<td>0.8718</td></tr>
+<tr>
+<td>17</td>
+<td>27</td>
+<td>1.0392</td></tr>
+<tr>
+<td>19</td>
+<td>49</td>
+<td>1.4</td></tr>
+<tr>
+<td>21</td>
+<td>65</td>
+<td>1.6124</td></tr>
+<tr>
+<td>23</td>
+<td>77</td>
+<td>1.755</td></tr>
+<tr>
+<td>25</td>
+<td>80</td>
+<td>1.7888</td></tr>
+<tr>
+<td>27</td>
+<td>77</td>
+<td>1.755</td></tr>
+<tr>
+<td>29</td>
+<td>59</td>
+<td>1.5362</td></tr>
+<tr>
+<td>31</td>
+<td>44</td>
+<td>1.3266</td></tr>
+<tr>
+<td>33</td>
+<td>24</td>
+<td>0.9798</td></tr>
+<tr>
+<td>35</td>
+<td>11</td>
+<td>0.6634</td></tr>
+<tr>
+<td>37</td>
+<td>14</td>
+<td>0.7484</td></tr>
+<tr>
+<td>39</td>
+<td>4</td>
+<td>0.4</td></tr></table>
+<p><br /></p>
+<h4><a name="Related_Topics"></a><span class="mw-headline">Verwandte Themen</span></h4>
+<ul><li><a href="../../QuickHelp/QuickHelp/Scale_error_sqrt.html" title="QuickHelp:Scale error sqrt">FAQ-1121 Was ist der Skalierungsfehler mit Quadrat und warum kann ich ihn nicht deaktivieren?</a></li></ul>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>Anpassen, Standardfehler, reduziertes Chi-Quadrat, Fehlervarianz</span></p>
+
+
+
+
+
+
+
+    

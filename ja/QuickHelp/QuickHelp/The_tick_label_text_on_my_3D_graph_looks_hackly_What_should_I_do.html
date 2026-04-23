@@ -1,0 +1,17 @@
+﻿<h1 class="firstHeading">FAQ-1208 3Dグラフの目盛ラベルのテキストがいい加減に見えます。修正方法は？</h1><p class='urlname' style='display: none'>3D-Graph-Tick-Label-Anti-Aliansing</p> 
+<p class='faqID'>最終更新日：2024/11/17</p>
+<p>下図のように、3D OpenGLグラフの目盛ラベル等のテキストオブジェクトの見た目がおかしい場合
+</p>
+<dl><dd><a  class="image"><img alt="3D Graph Text AA.png" src="../images/The_tick_label_text_on_my_3D_graph_looks_hackly_What_should_I_do/350px-3D_Graph_Text_AA.png" width="350"   /></a></dd></dl>
+<p>3D OpenGLグラフの表示はグラフィックカードに依存するため、グラフィックカードが<a href="../../QuickHelp/QuickHelp/What_are_OpenGL_3D_graphs_requirements_and_limitations.html" title="クイックヘルプ：OpenGLの3Dグラフの要件と制限は何ですか？">3D OpenGLの要件</a>を満たしているか、ドライバーが正しくインストールされ、最新バージョンにアップグレードされているかをまず確認してください。 
+</p><p>要件などは問題がなく、それでもテキストの表示がおかしい場合は、システム変数<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#O">@OGLF</a>を0に設定してみてください。以下のように操作します。
+</p>
+<ol><li> メニューの<b>環境設定：システム変数...</b>を選択します。</li>
+<li> <b>システム変数を設定</b>ダイアログで、<b>変数</b>欄にOGLF、<b>値</b>欄に0と入力します。</li></ol>
+<dl><dd><a  class="image"><img alt="3D Graph Text AA System Variable.png" src="../images/The_tick_label_text_on_my_3D_graph_looks_hackly_What_should_I_do/3D_Graph_Text_AA_System_Variable.png" width="350"  /></a></dd></dl>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>3D OpenGL, 目盛ラベル, テキスト, ジグザグ<keywords></span></p>
+
+
+
+
+    

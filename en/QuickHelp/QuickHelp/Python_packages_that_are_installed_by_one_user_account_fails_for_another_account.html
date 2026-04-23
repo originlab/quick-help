@@ -1,0 +1,36 @@
+<h1 class="firstHeading">4.72 FAQ-1202 Internal Python packages that are installed by one user account fails for another account. What should I do?</h1><p class='urlname' style='display: none'>Interal-Python-Packages-Fail-for-Different-User</p>
+<p class='faqID'>Last Update: 11/23/2025</p>
+<p>If you installed Origin with <b>All users</b> accessible and later run Origin and installed a Python package (e.g. <i>numpy</i>) under Windows user account <i>A</i>, this package should be used for all Windows user accounts. 
+</p><p><i><b>For those upgraded from Origin 2023b/2024/2024b to Origin 2025 or later, </b></i>
+</p><p>If you failed to run the installed Python packages by another user account, and received error message like following:
+</p>
+<pre class="lt" style="font-family:monospace;">Traceback <span style="color: #000000;">&#40;</span>most recent call last<span style="color: #000000;">&#41;</span><span style="color: #000000;">:</span>
+  File <span style="color: #ff00ff;">&quot;&lt;string&gt;&quot;</span>, line <span style="color: #0000dd;">1</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+  File <span style="color: #ff00ff;">&quot;C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\__init__.py&quot;</span>, line <span style="color: #0000dd;">9</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+    from .<span style="color: #000080;">config</span> import <span style="color: #000080;">*</span>
+  File <span style="color: #ff00ff;">&quot;C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\config.py&quot;</span>, line <span style="color: #0000dd;">61</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+    np.<span style="color: #000080;">float64</span><span style="color: #000000;">:</span> po.<span style="color: #000080;">DF_DOUBLE</span>,
+    <span style="color: #000080;">^^^^^^^^^^</span>
+AttributeError<span style="color: #000000;">:</span> module <span style="color: #ff00ff;">'numpy'</span> has no attribute <span style="color: #ff00ff;">'float64'</span></pre>
+<p><br />
+<span class='headerInParagraph'>To fix this problem:</span>
+</p>
+<ol>
+<li>Start Origin. Select menu <b>Window: Command Window</b>, and run the following Labtalk script in the Command Window: 
+<pre class="lt" style="font-family:monospace;">pip freeze <span style="color: #000080;">&gt;</span> d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>;  <span style="color: #008000;">//you can change the path as desired</span></pre>
+<li>Find and open the created <i>packages.txt</i> with any text editor (e.g. Notepad). Remove 3 lines containing <i>originpro</i>, <i>jedi</i>, and <i>parso</i>. Re-save the file.
+<li>Run following Labtalk script to remove all installed python packages. 
+<pre class="lt" style="font-family:monospace;">pip uninstall <span style="color: #000080;">*</span>;</pre> 
+<li>Run following Labtalk script to re-install all packages. 
+<pre class="lt" style="font-family:monospace;">pip install <span style="color: #000080;">-</span>r d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>;</pre>
+<li>Run following Labtalk script to update <i>originpro</i>.
+<pre class="lt" style="font-family:monospace;">pip install originpro <span style="color: #000080;">--</span>upgrade;</pre>
+<li>Once done, restart Origin and try again your python scripts. It should be working fine now.
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>python, package, numpy, different account, log in account, user profile, permission<keywords></span></p>
+
+
+
+
+
+

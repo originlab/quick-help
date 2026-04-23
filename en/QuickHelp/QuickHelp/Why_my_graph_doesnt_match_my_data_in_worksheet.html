@@ -1,0 +1,63 @@
+<h1 class="firstHeading">1.308 FAQ-1224 Why my graph doesn't match my data in worksheet?</h1><p class='urlname' style='display: none'>Graph-Not-Match-Data</p>
+<p class='faqID'>Last Update: 8/19/2025</p>
+<p>If you find the graph does not match the data from the source worksheet, you can troubleshoot by checking the following:
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Check_if_worksheet_data_is_in_the_correct_format"><span class="tocnumber">1</span> <span class="toctext">Check if worksheet data is in the correct format</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Check_if_X_column_is_set_properly"><span class="tocnumber">2</span> <span class="toctext">Check if X column is set properly</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Check_if_built-in_template_has_been_overridden"><span class="tocnumber">3</span> <span class="toctext">Check if built-in template has been overridden</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Check_if_a_new_System_Theme_is_set"><span class="tocnumber">4</span> <span class="toctext">Check if a new System Theme is set</span></a></li>
+</ul>
+</div>
+
+<h4><a name="Check_if_worksheet_data_is_in_the_correct_format"></a><span class="mw-headline">Check if worksheet data is in the correct format</span></h4>
+<p>If data in the source worksheet is left-aligned, it is Text format rather than Numeric (which is right-aligned by default). 
+Note: You may need to resize the column width to check if it's left-aligned. 
+</p><p><span class='headerInParagraph'>To fix it: </span>
+</p><p>Right click on the column and select <b>Properties...</b>. In the <b>Column Properties</b> dialog, make sure the <b>Format</b> is set correctly. 
+</p>
+<dl><dd><a  class="image"><img alt="Text vs Numeric FAQ1224.png" src="../images/Why_my_graph_doesnt_match_my_data_in_worksheet/700px-Text_vs_Numeric_FAQ1224.png?v=77218" width="700"   /></a></dd></dl>
+<h4><a name="Check_if_X_column_is_set_properly"></a><span class="mw-headline">Check if X column is set properly</span></h4>
+<p>Double click on the plot to open the <b>Plot Details</b> dialog. On the left panel, you can check which columns are used as X and Y. 
+</p>
+<dl><dd><a  class="image"><img alt="Check X Column FAQ1224.png" src="../images/Why_my_graph_doesnt_match_my_data_in_worksheet/Check_X_Column_FAQ1224.png?v=77211" width="558"  /></a></dd></dl>
+<p>If the column that is supposed to be X isn't set as X, Origin will automatically use the nearest X column to the left of the Y column. If no X column in the sheet, the row index (&lt;auto&gt;) will be used. 
+</p><p><span class='headerInParagraph'>To fix it: </span>
+</p>
+<ul><li> Right click on the desired column and click the <b>X</b> button on the mini toolbar to set it as X and then plot. </li></ul>
+<p><i>Or, </i>
+</p>
+<ul><li> On existing graph, right click on the plot and select <b>Change X/Change Y</b> to choose the correct X/Y column.</li></ul>
+<h4><a name="Check_if_built-in_template_has_been_overridden"></a><span class="mw-headline">Check if built-in template has been overridden</span></h4>
+<p>If you plot with a built-in graph type menu but it doesn’t plot as expected, it’s possible a graph template with the same name of the built-in one is saved in the User Files Folder (UFF). This user-defined one has higher priority and used. Something may be wrong with it such as 
+</p>
+<ul><li> The template is saved as cloneable template so it will ignore column selections.</li>
+<li> The axis was fixed/manual so they don’t reflect the real data range.</li></ul>
+<p><span class='headerInParagraph'>To fix it:</span>
+</p>
+<ol><li> Open UFF by menu <b>Help: Open Folder: User Files Folder</b>. </li>
+<li> Locate the user-defined graph template.</li>
+<li> Rename the template.</li></ol>
+<h4><a name="Check_if_a_new_System_Theme_is_set"></a><span class="mw-headline">Check if a new System Theme is set</span></h4>
+<p>This is rare. But if you have saved some graph theme with some axis range fixed, etc. and set it as system theme. Then when you plot with built-in graph template, such system theme will be applied onto the graph automatically and may have some issues. 
+</p><p><span class='headerInParagraph'>To fix it:</span>
+</p>
+<ol>
+<li> Select <b>Preferences: Theme Organizer...</b>. 
+<li> On <b>Graph</b> tab, check if the bold theme isn't <b>Light Grids</b>. If a user-defined theme is bold, 
+<ul>
+<li>right click the user-defined theme and choose <b>Edit</b> to check what's in the theme.
+<br /><i>Or,</i> 
+<li>right click <b>Light Grids</b> theme and set it as system theme to roll back to built-in default. 
+</ul>
+<p>Try to plot again.
+</p>
+</li></ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>not pulling correct data, fail to make plot, plot not match source, plot wrong scale, plot disappear<keywords></span></p>
+
+
+
+
+
+

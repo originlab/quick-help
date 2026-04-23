@@ -1,0 +1,38 @@
+<h1 class="firstHeading">4.73 FAQ-1202 一个帐号安装的内部Python包不能在另一个帐号上使用，我该怎么办？</h1><p class='urlname' style='display: none'>Interal-Python-Packages-Fail-for-Different-User</p>
+<p class='faqID'>Last Update: 10/26/2024</p>
+<p>如果您在<b>所有用户</b>都可访问的情况下安装了Origin，之后运行Origin，在Windows用户帐号 <i>a</i> 下安装了Python包（例如<i>numpy</i>），则此包应用于所有Windows用户帐户。
+</p><p><i><b>对于从Origin 2023b/2024/2024b升级到Origin 2025或更高版本，</b></i>
+</p><p>如果您未能通过其他帐号运行已安装的Python包，并收到以下错误消息：
+</p>
+<pre class="lt" style="font-family:monospace;">Traceback <span style="color: #000000;">&#40;</span>most recent call last<span style="color: #000000;">&#41;</span><span style="color: #000000;">:</span>
+  File <span style="color: #ff00ff;">&quot;&lt;string&gt;&quot;</span>, line <span style="color: #0000dd;">1</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+  File <span style="color: #ff00ff;">&quot;C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\__init__.py&quot;</span>, line <span style="color: #0000dd;">9</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+    from .<span style="color: #000080;">config</span> import <span style="color: #000080;">*</span>
+  File <span style="color: #ff00ff;">&quot;C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\config.py&quot;</span>, line <span style="color: #0000dd;">61</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+    np.<span style="color: #000080;">float64</span><span style="color: #000000;">:</span> po.<span style="color: #000080;">DF_DOUBLE</span>,
+    <span style="color: #000080;">^^^^^^^^^^</span>
+AttributeError<span style="color: #000000;">:</span> module <span style="color: #ff00ff;">'numpy'</span> has no attribute <span style="color: #ff00ff;">'float64'</span></pre>
+<p>可以升级 <b>python311.zip</b> 去解决此问题：
+</p>
+<ol>
+<li>从 <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2024/08/python311.zip" target="_blank">这里</a> 下载 <b>python311.zip</b>。
+<li>用这个文件替换 Origin 安装文件夹 (默认是 <code>C:\Program Files\OriginLab\Origin####</code>) 里的<b>python311.zip</b>。 注意，需要Windows管理员权限。
+<br />继续以下步骤重新安装所有python包，因为这些包都存在权限问题。
+<li>启动Origin，点击菜单 <b>窗口: 命令窗口</b>，运行以下 Labtalk 脚本：
+<pre class="lt" style="font-family:monospace;">pip freeze <span style="color: #000080;">&gt;</span> d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>;  <span style="color: #008000;">//可根据需要更改路径</span></pre>
+<li>使用任意文本编辑器（例如记事本）查找并打开创建的 <i>packages.txt</i>。删除包含 <i>originpro</i>、<i>jedi</i> 和 <i>parso</i> 的3行。重新保存文件。
+<li>运行以下 Labtalk 脚本删除所以已安装的python包。
+<pre class="lt" style="font-family:monospace;">pip uninstall <span style="color: #000080;">*</span>;</pre> 
+<li>运行以下 Labtalk 脚本重装所有python包。
+<pre class="lt" style="font-family:monospace;">pip install <span style="color: #000080;">-</span>r d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>;</pre>
+<li>运行以下 Labtalk 脚本更新 <i>originpro</i>。
+<pre class="lt" style="font-family:monospace;">pip install originpro <span style="color: #000080;">--</span>upgrade;</pre>
+<li>完成后重启Origin，再试试你的python脚本。应该能运行了。
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>python, package, 安装包, numpy, different account, 不同账号, log in account, 登入账号<keywords></span></p>
+
+
+
+
+
+

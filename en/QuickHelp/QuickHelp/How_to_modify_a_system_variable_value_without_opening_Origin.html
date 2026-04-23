@@ -1,0 +1,29 @@
+<h1 class="firstHeading">5.98 FAQ-1234 How do I change a system variable value without opening Origin?</h1><p class='urlname' style='display: none'>Change-System-Variables-without-Origin-Open</p>
+<p class='faqID'>Last Update: 12/25/2025</p>
+<p>If Origin starts normally, you can always <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">use the <b>Set System Variables</b> dialog to change a variable value</a>. However, if Origin fails to start for some reasons and you need to adjust a system variable to fix/troubleshoot the problem, here are the steps you can follow.
+</p>
+<ul>
+<li> <span class='headerInParagraph'>For registry-based system variables: </span> 
+<dl><dd>Open <b>Registry Editor</b>, expend branch <code> \HKEY_CURRENT_USER\Software\OriginLab\SysVar</code>, and edit or add the desired values directly.</li></dd></dl>
+<li> <span class='headerInParagraph'>For non-registry system variables:</span>
+<ol>
+<li> Make sure no Origin process is running. 
+<li> Open <i>SystemVariables.ogs</i> in User Files Folder with Notepad editor (create it if it does not exist). Add the variable in <code>[Main]</code> session, e.g. if you want to change @PESS to -1, add the text like below:
+<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">&#91;</span>Main<span style="color: #000000;">&#93;</span>
+@PESS<span style="color: #000080;">=</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>;</pre>
+<p>Save the file. 
+</p>
+<ul>
+<li>If you just created <i>SystemVariables.ogs</i> in step 2, open <i>Origin.ini</i> in UFF with Notepad editor, and add following key in <code>[Startup]</code> session. 
+<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">&#91;</span>Startup<span style="color: #000000;">&#93;</span>
+sysvar<span style="color: #000080;">=</span>SystemVariables.<span style="color: #000080;">ogs</span></pre>
+Save the file. </li></ul></li>
+<li> Re-start Origin. See if it can be launched normally.
+</ol></ul>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>change sys var, set variable, crash<keywords></span></p>
+
+
+
+
+
+

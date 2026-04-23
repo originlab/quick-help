@@ -1,0 +1,29 @@
+<h1 class="firstHeading">6.108 FAQ-1194 如何向用户预安装/分发应用程序？</h1><p class='urlname' style='display: none'>preinstall-apps</p>
+<p class='faqID'>Last Update: 5/21/2025</p>
+<p>注意：仅当终端用户启动 Origin 时才会安装应用程序，并且仅对该用户可见。
+</p><p><span class='headerInParagraph'>IT 部门参与安装 Origin 和分发应用程序的站点</span>
+</p>
+<dl><dd><ul><li> IT 在 Origin 安装文件夹中创建一个名为 <i>Auto Install</i> 的文件夹 (带有 Setup.exe 或 MSI) </li>
+<li> 下载应用程序文件 (*.opx) 并将其保存在 <i>Auto Install</i> 文件夹中</li>
+<li> IT 使用系统管理员帐户在终端用户计算机上安装 Origin，并在安装过程中选择 "For all users（适用于所有用户）"。<i>Auto Install</i>文件夹将被复制到终端用户的 Origin 程序文件夹，比如 “C:\Program Files\OriginLab\Origin2025\Auto Install” (以 Origin 2025 举例)。IT 甚至可以在 Origin 安装完成后向此文件夹添加更多 opx 文件。注意：此时应用程序尚未安装。</li>
+<li> 当终端用户登录计算机并启动 Origin 时，系统会自动为该用户帐户安装 <b>Auto Install</b> 文件夹下的所有应用程序。这里可能会发生不同的事情
+<ul><li>A. 大多数应用程序会静默安装到 C:\Users\&lt;用户名&gt;\AppData\Local\OriginLab\Apps\，因为终端用户应该拥有该文件夹的写入权限。</li>
+<li> B. 某些应用程序需要 Python 软件包（例如：Neural Network Regression/神经网络回归）。终端用户会看到提示安装 Python 软件包的注意消息。点击“是”即可安装 Python 软件包，其余情况与 A 相同。</li>
+<li> C. 某些应用程序需要第三方软件（例如 DOE 需要 R 软件）。如果找不到 R 软件，终端用户将被要求以管理员身份运行 Origin 以先安装 R。</li></ul></li></ul></dd></dl>
+<p><span class='headerInParagraph'>向已安装 Origin 的终端用户分发应用程序</span>
+</p>
+<dl><dd><ul><li> 设定组长和成员
+<ol><li> 第一步是<a class="external text" href="../../UserGuide/UserGuide/Set_Group_Folder_Location_Dialog.html#Setting_the_Group_Folder_for_the_Group_Leader_Machine">为组长机器设置组文件夹</a>。</li>
+<li> 接下来，<a class="external text" href="../../UserGuide/UserGuide/Set_Group_Folder_Location_Dialog.html#Setting_the_Group_Folder_for_the_Member_Machines">为成员机器设置组文件夹</a>。</li></ol></li>
+<li> 分发应用程序
+<ol><li>在组长机器上的<a href="../../QuickHelp/QuickHelp/What_is_the_User_Files_Folder.html" title="QuickHelp:What is the User Files Folder">用户文件夹</a>创建一个名为 <i>Auto Install</i> 的文件夹</li>
+<li>下载应用程序文件 (*.opx) 并保存在 <i>Auto Install</i> 文件夹</li>
+<li>使用<a class="external text" href="../../UserGuide/UserGuide/Group_Folder_Manager.html"><b>组文件夹管理器</b></a>分发应用程序文件 (*.opx)</li>
+<li>当 Origin 组成员启动 Origin 时，将看到安装在 Origin 上的应用程序</li></ol></li></ul></dd></dl>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>concurrent, 网络, nodelock, 节点锁定, auto install, 自动安装, group, 组，apps, 应用程序, administrator, 管理员</span></p>
+
+
+
+
+
+

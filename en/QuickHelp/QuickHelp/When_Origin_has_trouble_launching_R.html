@@ -1,0 +1,23 @@
+<h1 class="firstHeading">4.73 FAQ-1214 What can I do when Origin has trouble launching R?</h1><p class='urlname' style='display: none'>Origin-has-trouble-launching-R</p>
+<p class='faqID'>Last Update: 3/11/2025</p>
+<p>If you met following problems when Origin tried to launch R
+</p><p><span class='headerInParagraph'>Origin crashes when try to launch R and pops up a warning message as below</span>
+</p>
+<dl><dd><a  class="image"><img alt="Fail launch R.png" src="../images/When_Origin_has_trouble_launching_R/Fail_launch_R.png?v=76724" width="407"  /></a></dd></dl>
+<p><br />
+<span class='headerInParagraph'>Origin launches an old version of R though I have installed a newer version of R on my computer</span>
+</p>
+<h3><a name="Solution"></a><span class="mw-headline">Solution</span></h3>
+<p>It is because you have set a Windows environmental variable named <b>R_HOME</b> in your <b>Windows Registry</b>. Please follow instructions below to delete the variable.
+</p>
+<ol><li> Exit Origin if it is running.</li>
+<li> In <b>Windows Search</b>, search for <i>"advanced system settings"</i> (without quotes) and open <b>View advanced system settings (Control Panel)</b>.</li>
+<li> In the <b>System Properties</b> dialog, select the <b>Advanced</b> tab.</li>
+<li> Click the <b>Environment Variables...</b> button.</li>
+<li> Remove the <b>R_HOME</b> from either <b>User variables</b> or <b>System variables</b>.</li></ol>
+
+
+
+
+
+

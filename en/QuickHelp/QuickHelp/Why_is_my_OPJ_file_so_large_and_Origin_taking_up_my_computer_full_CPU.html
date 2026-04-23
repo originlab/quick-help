@@ -1,0 +1,37 @@
+<h1 class="firstHeading">5.30 FAQ-710 Why is my OPJ file so large and Origin taking up my computer's full CPU?</h1><p class='urlname' style='display: none'>OPJ-so-large-and-take-full-cpu</p>
+<p class='faqID'>Last Update: 8/12/2024</p>
+<p>If you are experiencing any of these problems:
+</p>
+<ul><li>When you are working with a specific Origin project file (OPJ), Origin occupies the computer's full CPU.</li>
+<li>The size of an OPJ is unreasonably large.</li>
+<li>When you click the yellow Recalculate toolbar button, recalculation fails and the button turns red.</li></ul>
+<p>These problems may be caused by 
+</p>
+<h3><a name="Pending_operations"></a><span class="mw-headline">Pending operations</span></h3>
+<p>To solve this problem, perform the steps below to delete the pending operations.
+Open the specific OPJ, then open the <b>Script Window</b> (<b>Window:Script Window</b>), type in the following script, and then press <b>ENTER</b>. Origin will list the operations in the <b>Script Window</b>. (Pending operations are operations without input and output)
+</p>
+<pre class="lt" style="font-family:monospace;">list op</pre>
+<p>Then type the following script (and press <b>ENTER</b>) to delete these pending operations
+</p>
+<pre class="lt" style="font-family:monospace;">delete <span style="color: #000080;">-</span>op</pre>
+<p>Resave the project.
+</p>
+<h3><a name="Autofill_Ranges"></a><span class="mw-headline">Autofill Ranges</span></h3>
+<p>In old versions, when user auto fills some ranges in worksheet with data, the range might be wrongly increased.
+To check if this is the case, open the specific OPJ, in <b>Script Window</b>, type in the following script, and then press <b>ENTER</b>.
+</p>
+<pre class="lt" style="font-family:monospace;">doc.<span style="color: #000080;">rangescount</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">32</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span></pre>
+<p>If it dumps a big number, run the following script to remove all autofill range
+</p>
+<pre class="lt" style="font-family:monospace;">del <span style="color: #000080;">-</span>r <span style="color: #0000dd;">32</span></pre>
+<p>Resave the project.
+</p>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>large OPJ, full CPU, Recalculate fails, auto fill, range</span></p>
+<p class="version" >Minimum Origin Version Required: 8.5.1</p>
+
+
+
+
+
+

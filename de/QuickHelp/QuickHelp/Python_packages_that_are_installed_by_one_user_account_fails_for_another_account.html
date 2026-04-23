@@ -1,0 +1,54 @@
+﻿<h1 class="firstHeading">FAQ-1202 Interne Python-Pakete, die durch einen Benutzeraccount installiert werden, schlagen bei einem anderen Account fehl. Was soll ich tun?</h1>
+
+  <p class='urlname' style='display: none'>Interal-Python-Packages-Fail-for-Different-User</p>
+
+  <p class='faqID'>Letztes Update: 05.09.2024</p>
+
+  <p>Wenn Sie Origin mit Zugriff für <b>Alle Benutzer</b> installiert haben und Origin später ausführen und ein Python-Paket (z. B. <i>numpy</i>) unter dem Windows-Benutzerkonto <i>A</i> installiert haben, sollte dieses Paket für alle Windows-Benutzerkonten verwendet werden.</p>
+
+  <p><i><b>Für diejenigen, die ein Upgrade von Origin 2023b/2024/2024b auf Origin 2025 oder höher durchgeführt haben:</b></i></p>
+
+  <p>Wenn Sie die installierten Python-Pakete über einen anderen Benutzeraccount nicht ausführen konnten und eine Fehlermeldung wie die folgende erhalten haben:</p>
+  <pre class="lt" style="font-family:monospace;">
+Traceback <span style="color: #000000;">(</span>most recent call last<span style="color: #000000;">)</span><span style="color: #000000;">:</span> File <span style="color: #ff00ff;">"&lt;string&gt;"</span>, line <span style="color: #0000dd;">1</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span> File <span style="color: #ff00ff;">"C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\__init__.py"</span>, line <span style="color: #0000dd;">9</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span> from .<span style="color: #000080;">config</span> import <span style="color: #000080;">*</span> File <span style="color: #ff00ff;">"C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\config.py"</span>, line <span style="color: #0000dd;">61</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span> np.<span style="color: #000080;">float64</span><span style="color: #000000;">:</span> po.<span style="color: #000080;">DF_DOUBLE</span>, <span style="color: #000080;">^^^^^^^^^^</span> AttributeError<span style="color: #000000;">:</span> module <span style="color: #ff00ff;">'numpy'</span> has no attribute <span style="color: #ff00ff;">'float64'</span>
+</pre>
+
+  <p>Versuchen Sie es mit einem Upgrade der Datei <b>python311.zip</b>, um dieses Problem zu beheben. Das heißt:</p>
+
+  <ol>
+    <li>Laden Sie die Datei <b>python311.zip</b> <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2024/08/python311.zip" target="_blank">hier</a> herunter.</li>
+
+    <li>Ersetzen Sie <b>python311.zip</b> in Origins Installationsordner (Standard sollte <code>C:\Program Files\OriginLab\Origin####</code>) mit der obigen. Beachten Sie, dass Windows-Administratorrechte erforderlich sind.<br>
+    Fahren Sie mit den folgenden Schritten fort, um alle Python-Pakete neu zu installieren, da diese einen Konflikt mit den Zugriffsrechten aufwiesen.</li>
+
+    <li>Starten Sie Origin. Wählen Sie im Menü <b>Fenster: Befehlsfenster</b> und führen Sie das folgende Labtalk-Skript im Befehlsfenster aus:
+      <pre class="lt" style="font-family:monospace;">
+pip freeze <span style="color: #000080;">&gt;</span> d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>; <span style="color: #008000;">//you can change the path as desired</span>
+</pre>
+    </li>
+
+    <li>Suchen und öffnen Sie die erstellte Datei <i>packages.txt</i> mit einem beliebigen Texteditor (z. B. Notepad). Entfernen Sie 3 Zeilen, die <i>originpro</i>, <i>jedi</i> und <i>parso</i> enthalten. Speichern Sie die Datei neu.</li>
+
+    <li>Führen Sie das folgende Labtalk-Skript aus, um alle installierten Python-Paket zu entfernen.
+      <pre class="lt" style="font-family:monospace;">
+pip uninstall <span style="color: #000080;">*</span>;
+</pre>
+    </li>
+
+    <li>Führen Sie das folgende Labtalk-Skript aus, um alle Pakete neu zu installieren.
+      <pre class="lt" style="font-family:monospace;">
+pip install <span style="color: #000080;">-</span>r d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>;
+</pre>
+    </li>
+
+    <li>Führen Sie das folgende Labtalk-Skript aus, um <i>originpro</i> zu aktualisieren.
+      <pre class="lt" style="font-family:monospace;">
+pip install originpro <span style="color: #000080;">--</span>upgrade;
+</pre>
+    </li>
+
+    <li>Wenn Sie dies getan haben, starten Sie Origin neu und testen Sie Ihre Python-Skripte nochmal. Es sollte nun funktionieren.</li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörtet:</span><span class='keywordsInput'>Python, Paket, numpy, anderer Account, Anmeldekonto</span></p>

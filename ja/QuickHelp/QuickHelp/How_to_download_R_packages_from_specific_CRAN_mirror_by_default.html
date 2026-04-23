@@ -1,0 +1,21 @@
+﻿<h1 class="firstHeading">FAQ-1220 特定のCRANミラーからRパッケージをデフォルトでダウンロードする方法</h1>
+<p class='urlname' style='display: none'>R-Packages-CRAN-Mirror</p>
+<p class='faqID'>最終更新日：2025/6/20</p>
+<p>Rは異なるCRANミラーからのRパッケージのダウンロードをサポートしています。</p>
+<p>デフォルトのミラーが遅い場合、別のミラーをデフォルトとして設定することができます。</p>
+<ol>
+<li>メモ帳を管理者として実行（右クリックして[<b>管理者として実行</b>を選択）次のファイルを参照して開く<br />
+<code>C:\Program Files\R\R-4.5.0\etc\Rprofile.site</code></li>
+<li><code>set a CRAN mirror</code> セクションを見つけて編集し、デフォルトのミラーを指定。例えば、
+<pre class="lt" style="font-family:monospace;">
+# CRANミラーを設定
+ local<span style="color: #000000;">(</span><span style="color: #000000;">{</span>r <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> getOption<span style="color: #000000;">(</span><span style="color: #ff00ff;">"repos"</span><span style="color: #000000;">)</span>
+        r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"CRAN"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>
+        r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"Mirror1"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://ftp.yz.yamagata-u.ac.jp/pub/cran/"</span>
+        r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"Mirror2"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://ftp.fau.de/cran/"</span>
+        r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"Mirror3"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://cran.yu.ac.kr/"</span>
+       options<span style="color: #000000;">(</span>repos<span style="color: #000080;">=</span>r<span style="color: #000000;">)</span><span style="color: #000000;">}</span><span style="color: #000000;">)</span>
+</pre></li>
+</ol>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span><span class='keywordsInput'>R パッケージ, CRAN ミラー, install.packages(), リポジトリ</span></p>

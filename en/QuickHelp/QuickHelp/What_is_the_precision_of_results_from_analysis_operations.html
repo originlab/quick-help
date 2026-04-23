@@ -1,0 +1,28 @@
+<h1 class="firstHeading">3.46 FAQ-279 What is the precision of results from analysis operations?</h1><p class='urlname' style='display: none'>AnalysisResult-Precision</p>
+<p class='faqID'>Last Update: 8/25/2025</p>
+<p>Origin performs all internal calculations using full numerical precision. However, for readability and presentation purposes, the values displayed in reports may be rounded.
+</p>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/What_is_the_precision_of_results_from_analysis_operations/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>In certain cases, round-off errors may occur if numerical precision is insufficient. This is especially relevant when using fitting functions with high power terms, where the magnitude of the high power terms can become large. In such cases, inadequate precision may lead to significant round-off errors in the computed results.
+</p><p>Origin performs all internal calculations without rounding. However, if you copy parameter values for use in external or independent calculations, ensure that you retain their full precision to maintain accuracy.
+</p>
+	</td>
+	</tr>
+	</table>
+<p><span class='headerInParagraph'>To copy report values with full precision</span>, use the keyboard shortcut <i>Ctrl + Alt + C</i>.
+</p><p><span class='headerInParagraph'>To display report values with higher precision</span>, you may use one of the following methods:
+</p>
+<ol><li> Specify the <b>Digits in Report</b> setting for Decimal Digits and Significant Digits on the Numeric Format tab of the <b>Options</b> dialog, opened by selecting <b>Preference: Options</b>.</li></ol>
+<p>or
+</p>
+<ol start="2">
+<li> In result sheet, right click on the table node or any cell in the table and choose <b>Digits...</b> from the context menu
+</ol>
+<p><br />
+If the report table was output to the Results Log, it will always show full precision, 14 decimal places.
+</p><p><br />
+</p>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>significant, digits, decimal, analysis results, report sheet</span></p>
+
+

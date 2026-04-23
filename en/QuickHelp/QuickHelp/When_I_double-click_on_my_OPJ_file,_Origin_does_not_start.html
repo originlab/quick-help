@@ -1,0 +1,40 @@
+<h1 class="firstHeading">6.15 FAQ-17 What should I do if double-clicking on my OPJ file fails to launch Origin?</h1><p class='urlname' style='display: none'>Double-Click-Open-Failed</p>
+<p class='faqID'>Last Update: 10/8/2025</p>
+<p>This issue started since Windows Vista and later and is not unique to Origin. Usually the message is <b>There is a problem sending the command to the program</b>. It only happens on some PCs and we don't have a fix for this yet. Try the following suggestions and see if one of them will help.
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/When_I_double-click_on_my_OPJ_file,_Origin_does_not_start/Mini_bulb.png?v=44828" /></td><td><p>The default location of the Origin EXE file is C:\Program Files\OriginLab\OriginXXXX\
+<p>where XXXX is the version e.g. 2025 or 2025b
+</p>
+</p></td></tr></table>
+<h2><a name="Suggestion_1"></a><span class="mw-headline">Suggestion 1</span></h2>
+<p>Specify the default application to use when opening the OPJ(U) file
+</p>
+<ol><li> Right-click the Origin EXE and choose <b>Run as administrator</b> to run Origin once and exit.</li>
+<li> Right-click on an OPJ(U) file and select <b>Open With:Choose Programs</b>. </li>
+<li>Choose the Origin shortcut and check "Always use the selected program for this file". </li>
+<li> We began supporting 64-bit Origin in 9.0. If you're using a 64-bit operating system and have installed both the 32-bit and 64-bit versions of Origin, and the default is set to Origin##_64.exe, try switching it to Origin##.exe, or vice versa. This does not apply if you are using Origin 2020 or later as we have dropped 32-bit support.</li></ol>
+<h2><a name="Suggestion_2"></a><span class="mw-headline">Suggestion 2</span></h2>
+<p>Clear DDE settings in Registry
+</p>
+<ol><li>Run Origin as administrator, select <b>Window:Script Window</b> to open the Script window.</li>
+<li> Run the script "<b>doc -ddde 1</b>". Here <b>ddde</b> stand for disable DDE</li>
+<li> Following the popup message  to close Origin and run Origin once as administrator. Close Origin.</li></ol>
+<h2><a name="Suggestion_3"></a><span class="mw-headline">Suggestion 3</span></h2>
+<p>Make Sure Compatibility Settings of the Origin EXE file was not changed
+</p>
+<ol><li> Exit Origin and find the Origin EXE file in Windows Explorer. </li>
+<li> Right-click the Origin EXE file and select <b>Properties</b>.</li>
+<li> On the <b>Compatibility</b> tab, make sure all boxes in this tab are UNCHECKED and click OK.</li>
+<li>Right-click the Origin EXE and choose <b>Run as administrator</b> to run Origin once.</li></ol>
+<p>Again for Origin between 9.0 and 9.7, if your OS is 64 bit and you chose to install both 32 bit and 64 bit, do this for both EXE files (Origin<i>##</i>.exe and Origin<i>##</i>_64.exe).
+</p><p><br />
+</p><p><br />
+If you have two versions of Origin on the same PC, e.g. both Origin 9.0 and Origin 7.5 (Windows Vista, 7, 8, 8.1 or 10). If double clicking opj launches Origin 7.5 instead of Origin 9.0, you can try the following:
+</p>
+<ol><li>Exit both Origin 7.5 and Origin 9.0.</li>
+<li>Find the Origin 9.0 EXE file in Origin Programming Folder.</li>
+<li>Right click on the EXE file and choose <b>Run as administrator</b>. </li></ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>installation, OPJ, startup, project file, blank, no windows, empty</span></p>
+
+

@@ -1,0 +1,19 @@
+﻿<h1 class="firstHeading">FAQ-1187 Was sollte ich tun, wenn ich beim Startversuch des FLEXnet-Servers die Fehlermeldung &quot;WinSock: Connection refused&quot; (Winsock: Verbindung verweigert) angezeigt bekomme?</h1><p class='urlname' style='display: none'>WinSock-Connection-Refused-Server-Error</p>
+<p class='faqID'>Letztes Update: 17.04.2025</p>
+<p>Wenn Sie Ihren FLEXnet-Lizenzdienst starten m&ouml;chten, dies aber fehlschl&auml;gt, und Ihnen folgende Fehlermeldung auf der Registerkarte LMTools &gt; Server Status angezeigt wird:</p><p><font color="red">System Error: 10061 &ldquo;WinSock: Connection refused&rdquo;</font>
+</p>
+<dl><dd><a  class="image"><img alt="WinSock Connection refused FAQ1187.png" src="../images/What_should_I_do_if_I_see_a_WinSock_Connection_refused_error_when_I_try_to_start_the_FLEXnet_server/WinSock_Connection_refused_FAQ1187.png" width="673"  /></a></dd></dl>
+<p>Dies wird durch den Server ohne Schreibzugriff auf das Directory der Protokolldatei verursacht. Normalerweise passiert es, wenn Sie versuchen, den Dienst von einem Windows-Account ohne Administratorrechte auszuf&uuml;hren.</p><p><br /><font color="red"><b>Dieses Problem trat nur in der FLEXnet-Version 11.13.1 oder &auml;lter auf.</b></font>
+</p><p><span class='headerInParagraph'>Um dieses Problem zu beheben:</span></p>
+<ol><li>Deinstallieren Sie Ihren aktuellen FLEXnet-Server.</li>
+<li><a class="external text" href="../../License/Category/FLEXnet_Server_Setup(License).html#Install_FLEXnet_server">Laden Sie die neueste Version herunter</a> und installieren Sie sie.</li>
+<li>Folgen Sie <a class="external text" href="../../License/Category/FLEXnet_Server_Setup(License).html#Set_up_and_start_the_FLEXnet_service">diesem Abschnitt</a>, um den neuen Server mit den Standardeinstellungen zu konfigurieren. Stellen Sie sicher, dass die Datei debug.log auf <code>C:\ProgramData\FLEXlm\lmgrd\</code> gesetzt ist.</li></ol>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>Windows 10, Win10, Concurrent, Server, Floating-Lizenzserver</span></p> 
+
+
+
+
+
+
+
+    

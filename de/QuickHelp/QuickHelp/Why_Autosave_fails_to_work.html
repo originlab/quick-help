@@ -1,0 +1,133 @@
+﻿<h1 class="firstHeading">FAQ-1218 Warum funktioniert das automatische Speichern nicht?</h1>
+
+  <p class='urlname' style='display: none'>Auto-Save-Not-Work</p>
+
+  <p class='faqID'>Letztes Update: 06.06.2025</p>
+
+  <p>Wir haben Berichte von Nutzern von Origin 2025 und älteren Versionen erhalten, dass das automatische Speichern nicht funktioniert hat, auch wenn <b>Projekt automatisch alle x Minute(n) speichern</b> (unten gekürzt auf <b>Automatisch speichern</b>) im Dialog <b>Einstellungen: Optionen</b> aktiviert ist. Wir haben in Origin 2025b einige Verbesserungen vorgenommen und Fehler behoben, so dass das automatische Speichern besser funktionieren sollte. Bitte führen Sie ein Upgrade auf Origin 2025b durch, falls Sie Probleme mit der automatischen Speicherung haben.</p>
+
+  <p>Grundregeln der automatischen Speicherung:</p>
+
+  <ul>
+    <li>Sie müssen das Projekt ändern und dann x Minuten vergehen lassen, um die automatisch gespeicherte Datei im Ordner Autosave\ zu sehen.</li>
+
+    <li>Die automatisch gespeicherten Dateien werden nur bewahrt, wenn Origin abstürzt oder ohne Grund geschlossen wird (Stromausfall etc.). Wenn Sie die Datei manuell gespeichert haben oder Origin auf Aufforderung erfolgreich geschlossen wird, um das Projekt zu speichern, dann ist die automatisch gespeicherte Datei weg.</li>
+
+    <li>Um doppelt zu speichern, wenn x Minuten vergangen sind und Sie sich dafür entschieden haben, das Projekt nicht zu speichern, benennt Origin die zuletzt automatisch gespeicherte Datei im Ordner Autosave\ in <b>Last-AutoSave.OPJU</b> um. Sie wird nicht gelöscht. Auf diese Weise haben Sie die Möglichkeit, sie wiederherzustellen. Bitte beachten Sie, dass dies jedes Mal passiert, wenn es eine neuere automatisch gespeicherte Datei gibt und Sie das Projekt nicht speichern.</li>
+  </ul>
+
+  <p><br>
+  Unten finden Sie ausführliche Problemfälle. Die Erklärung und die Umgehung des Problem für frühere Versionen wird bereitgestellt.</p>
+
+  <h4><a name="Project_File_with_OPJ_Extension_Not_Autosaved"></a><span class="mw-headline">Keine automatische Speicherung von Projektdateien mit OPJ-Erweiterung</span></h4>
+
+  <p>Vor Origin 2025b speichert Origin nur Projektdateien mit neuem Dateiformat (Dateierweiterung OPJU) automatisch. Projektdateien mit dem alten Format <b>OPJ</b> werden nicht automatisch gespeichert. In Origin 2025b werden OPJ-Dateien automatisch mit der OPJU-Erweiterung gespeichert.</p>
+
+  <p>Workaround in Origin 2025 und älter: Nach Öffnen Ihrer OPJ-Datei speichern Sie sie zuerst als OPJU.</p>
+
+  <p>&#160;</p>
+
+  <h4><a name="Project_File_with_OPJU_Extension_Not_AutoSaved"></a><span class="mw-headline">Keine automatische Speicherung von Projektdateien mit OPJU-Erweiterung</span></h4>
+
+  <p>Dies kann folgende Ursachen haben:</p>
+
+  <ul>
+    <li>Systemvariable @ASC = 0</li>
+  </ul>
+
+  <dl>
+    <dd>
+      <ul>
+        <li>Die Systemvariable @ASC legt die Projektdateigröße fest, um die Erinnerung an die automatische Speicherung auszulösen. Standard ist @ASC = 20 (in Megabytes). Per Standard wird die automatische Speicherung bei kleineren Projektdateien stumm durchgeführt. Bei großen Projektdateien wird, nachdem x Minuten vergangen sind, die Aufforderung für das automatische Speichern angezeigt, damit Anwender entscheiden können, ob sie automatisch speichern möchten oder nicht, da es zeitaufwändig sein kann, große Projekte alle x Minuten zu speichern.</li>
+      </ul>
+    </dd>
+
+    <dd><a class="image"><img alt="Autosave reminder.png" src="../images/Why_Autosave_fails_to_work/Autosave_reminder.png" width="428"></a></dd>
+
+    <dd>Wenn Sie @ASC = 0 festlegen, wodurch die Erinnung unabhängig von der Projektgröße geöffnet werden soll, kann die automatische Speicherung fehlschlagen. Workaround vor Origin 2025b: Setzen Sie @ASC höher als 0.</dd>
+  </dl>
+
+  <ul>
+    <li>Einschalten der automatischen Speicherung für alle Projekte</li>
+  </ul>
+
+  <p>Beim ersten Anzeigen der Aufforderung zur automatischen Speicherung für große Projekte, werden Dateien, die größer sind als @ASC (Standardwert 20 MB), falls die dritte Option <b>Automatische Speicherung für alle Projekte einschalten</b> aktiviert ist, nur einmal automatisch gespeichert. Ab jetzt funktioniert die automatische Speicherung sowohl für dieses Projekt als auch für andere große Projekte nicht mehr. Dies ist kein Problem bei kleineren Projektdateien (kleiner als &lt; @ASC)</p>
+
+  <dl>
+    <dd>
+      <ul>
+        <li>Die @ASC prüft die Projektgröße im Speicher anstatt auf der Festplatte. Beim Speichern von Projekten auf der Festplatte wird die Datei komprimiert, z. B. 10 MB. Wenn Sie sie jedoch in Origin öffnen, kann Sie größer als 20 MB sein. Um die Projektgröße im Speicher zu prüfen, bewegen Sie die Maus über den Hauptordner im <b>Projekt Explorer</b>. Die Größe im Speicher wird im Tooltipp angezeigt. Zum Beispiel kann die Größe &gt; 20 MB im Speicher sein. Wenn die automatische Speicherung für alle Projekte eingeschaltet ist, wird die automatische Speicherung des Projekts fehlschlagen.</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl>
+    <dd>
+      <ul>
+        <li>Workaround vor Origin 2025: Führen Sie im Skriptfenster "doc -cac" aus, um <b>Automatische Speicherung für alle Projekte einschalten</b> doppelt zu aktivieren. Falls dies geschehen ist und Sie möchten, dass die automatische Speicherung stumm durchgeführt wird, unabhängig von der Projektgröße, wählen Sie bitte <b>Einstellungen: Systemvariablen.... Legen Sie die Systemvariable</b> ASC <b>höher fest als jede Ihrer Projektgrößen. 10000 bedeutet zum Beispiel 10GB (10000 MB). Jegliche Dateien &lt;= 10 GB im Speichern werden dann automatisch stumm alle x Minuten gespeichert.</b></li>
+
+        <li>In Origin 2025b wurde der Fehler behoben, also sollte das Wählen der dritten Option keine Probleme verursachen. Sie können auch die neue Systemvariable @ASS = 1 verwenden, um die automatische Speicherung für alle Projekte einzuschalten.</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <p>Vorschlag: Wenn es sehr lange dauert, große Projekte auf Ihrem PC zu speichern, dann legen Sie nicht fest, dass sehr häufig, z. B. jede Minute, automatisch gespeichert werden soll.</p>
+
+  <h4><a name="Useful_System_Variables"></a><span class="mw-headline">Nützliche Systemvariablen</span></h4>
+
+  <p>Es gibt einige hilfreiche Systemvariablen, die das Lösen von Problemen beim automatischen Speichern mit unterstützen:</p>
+
+  <p><br>
+  <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASM</span></a></p>
+
+  <ul>
+    <li>Setzen Sie diese Variable @ASM = 1 für die Fehlerbehebung. Versuchen Sie, nicht im Unterfenster auszuwählen, und bewegen Sie die Maus über den grauen Bereich des Arbeitsbereichs. Nachrichten der automatischen Speicherung werden auf der Statusleiste (unten links) gezeigt, um Sie darüber zu informieren, ob es funktioniert hat, wie zum Beispiel:</li>
+  </ul>
+  <pre class="lt" style="font-family:monospace;">
+Nächste automatische Speicherung <span style="color: #000000;">(</span>s<span style="color: #000000;">)</span><span style="color: #000000;">:</span> <span style="color: #0000dd;">690</span>
+</pre>
+  <pre class="lt" style="font-family:monospace;">
+Projekt automatisch gespeichert<span style="color: #000000;">:</span> C<span style="color: #000000;">:</span>\.....
+</pre>
+  <pre class="lt" style="font-family:monospace;">
+Automatisches Speicherung beendet, Warten auf Änderungen
+</pre>
+
+  <p>Wenn die automatische Speicherung fehlgeschlagen ist, z. B. wenn @ass = 0, öffnen Sie eine opju-Datei größer als @ASC und setzen Sie @asp = 4, um den Dialog Optionen für automatische Speicherung zu öffnen und die automatische Speicherung für große Projekte auszuschalten. Die folgende Nachricht wird im Skriptfenster eingefügt.</p>
+  <pre class="lt" style="font-family:monospace;">
+Projekt ist zu groß <span style="color: #000000;">(</span>im Speicher<span style="color: #000000;">)</span> für automatische Speicherung<span style="color: #000000;">:</span> 21 MB
+</pre>
+
+  <p><a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASS</span></a></p>
+
+  <ul>
+    <li>Automatische Speicherung nur für kleinere Projektdateien oder alle Projekte stumm schalten
+
+      <dl>
+        <dd>0 (Standard) = Automatische Speicherung für alle Projekte kleiner als @ASC stumm schalten. Für größere Dateien Erinnerung zeigen.</dd>
+
+        <dd>1 = Automatische Speicherung für alle Projekte einschalten. Ähnlich wie das Aktivieren der dritten Option im Erinnerungsdialog. Entsprechend wie das Setzen der folgenden Eigenschaft in älterer Version <code>SYSTEM.PROJECT.NOAUTOSAVEWITHSIZE = 1</code> und <code>system.project.NOASKAUTOSAVE = 1</code></dd>
+      </dl>
+    </li>
+  </ul>
+
+  <p><br>
+  <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASP</span></a></p>
+
+  <ul>
+    <li>Die Einstellung der automatischen Speicherung des aktuellen Projekts wird gespeichert. Sie wird mit der Projektdatei gespeichert.
+
+      <dl>
+        <dd>0 (Standard) = globalen Einstellungen der automatischen Speicherung folgen;</dd>
+
+        <dd>1 = automatische Speicherung für aktuelles Projekt unabhängig von den globalen Einstellungen ausschalten;</dd>
+
+        <dd>2 = automatische Speicherung von aktuellem Projekt unabhängig von der Projektgröße einschalten, aber trotzdem globale Einstellungen der automatischen Speicherung befolgen, das bedeutet, wenn die automatische Speicherung global ausgeschaltet ist, wird das aktuelle Projekt nicht automatisch gespeichert;</dd>
+
+        <dd>4 = Erinnerungsfeld zur automatischen Speicherung unterdrücken und die Speicherung ausschalten, wenn die Projektgröße &gt; @ASC (MB).</dd>
+      </dl>
+    </li>
+  </ul>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>Big Data,große Datei, automatisch speichern, autosave ungespeichert, Backup, speichern, 20 MB, nicht gespeichert, wiederherstellen</span></p>

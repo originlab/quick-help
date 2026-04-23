@@ -1,0 +1,15 @@
+﻿<h1 class="firstHeading">FAQ-1197 "Lost connection to lmgrd, heartbeat timeout expired, existing.EXITING DUE TO SIGNAL 28 Exit reason 5" というエラーが表示されます。どうしたらよいでしょうか？</h1>
+<p class='urlname' style='display: none'>Lost-Connection-to-Lmgrd</p>
+<p class='faqID'>最終更新日：2024/9/5</p>
+<p>FLEXnet ライセンスサーバを開始できず、ログファイルに以下のようなエラーメッセージが表示された場合</p>
+<p><code>10:38:30 (lmgrd) Lost connection to lmgrd, heartbeat timeout expired, exiting.</code><br />
+<code>10:38:30 (lmgrd) Heartbeat timeout is 300 seconds. Elapsed time is 16528 seconds.</code><br />
+<code>10:38:30 (lmgrd) EXITING DUE TO SIGNAL 28 Exit reason 5</code><br />
+<code>10:38:30 (lmgrd) orglab exited with status 28 (Communications error)</code></p>
+<p><br />
+この切断は、サーバとクライアントの間のファイアウォールが原因の可能性があります。<br />
+<span class='headerInParagraph'>この問題を解決するには、</span></p>
+<p>ライセンスサーバがファイアウォールを介してアクセスできるようにする方法については、<a class="external text" href="https://www.originlab.com/doc/License/Concurrent-Additional-Info#Allowing_Access_through_a_Firewall" target="_blank">このページ</a>を参照してください。</p>
+<p>ステップ1でファイアウォールで、指定したポートを開くときは、サーバとクライアント間の接続を切断する可能性のあるすべてのファイアウォールに対して確認してください。例えば、サーバマシンでは、Windowsの組み込みファイアウォールの他に、マシンにインストールされたウイルスソフトウェアが別のファイアウォールを構築することもあります。この場合、両方のファイアウォールで、指定されたポートの監視をオフにする必要があります。</p>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span> <span class='keywordsInput'>同時起動, -15,10032, lmgrdが実行されていない, ライセンスサーバーに接続できない, ライセンスファイルのポートまたはホスト名が変更された, EXITING DUE TO SIGNAL 28, Exit reason 5, orglabがステータス28で終了, 通信エラー, lmgrdへの接続が失われた, ハートビートタイムアウトが期限切れ</span></p>

@@ -1,0 +1,61 @@
+<h1 class="firstHeading">5.89 FAQ-1218 为什么自动保存功能无法工作？</h1><p class='urlname' style='display: none'>Auto-Save-Not-Work</p>
+<p class='faqID'>Last Update: 6/10/2025</p>
+<p>有来自 Origin 2025 及更早版本用户的报告称，即使在<b>设置：选项</b>对话框中启用了<b>自动保存项目文件间隔 x 分钟</b>（以下缩写为<b>自动保存</b>），自动保存仍然无法工作。因此，Origin 2025b 进行了一些改进并修复了一些错误，使自动保存功能更符合预期工作。如果您遇到自动保存问题，请升级到 Origin 2025b 版本。
+</p><p>自动保存的基本规则：
+</p>
+<ul><li> 项目必须被改动过并且经过 x 分钟才能在 Autosave\ 文件夹下看到自动保存文件。</li>
+<li> 自动保存的文件仅在 Origin 崩溃或非正常退出（例如断电）时才会保留。如果文件被手动保存了，或者 Origin 成功关闭并提示保存项目，则自动保存的文件将会消失。</li>
+<li> 为了双重保障，如果过了 x 分钟，而您选择不保存项目，Origin 仍会将 Autosave\ 文件夹下的最后一个自动保存文件重命名为 <b>Last-AutoSave.OPJU</b>。该文件不会被清除。这样，您就有机会用到它恢复文件。但请注意，每次有新的自动保存文件，而您选择不保存项目时，都会有重命名发生。</li></ul>
+<p><br />
+以下是该问题的详细案例。早期版本中已提供相关解释和解决方法。
+</p>
+<h4><a name=".E5.B8.A6.E6.9C.89_OPJ_.E6.89.A9.E5.B1.95.E5.90.8D.E7.9A.84.E9.A1.B9.E7.9B.AE.E6.96.87.E4.BB.B6.E6.9C.AA.E8.87.AA.E5.8A.A8.E4.BF.9D.E5.AD.98"></a><span class="mw-headline">带有 OPJ 扩展名的项目文件未自动保存</span></h4>
+<p>在 Origin 2025b 之前，Origin 仅自动保存新文件格式（文件扩展名为 OPJU）的项目文件。旧格式带<b>OPJ</b>扩展名的项目文件将无法自动保存。在 Origin 2025b 中，OPJ 文件将自动保存为 OPJU 扩展名。
+</p><p>Origin 2025 及更早版本中的解决方法：打开 OPJ 文件后，先将其保存为 OPJU 文件。
+</p><p><br />
+</p>
+<h4><a name=".E5.B8.A6.E6.9C.89_OPJU_.E6.89.A9.E5.B1.95.E5.90.8D.E7.9A.84.E9.A1.B9.E7.9B.AE.E6.96.87.E4.BB.B6.E6.9C.AA.E8.87.AA.E5.8A.A8.E4.BF.9D.E5.AD.98"></a><span class="mw-headline">带有 OPJU 扩展名的项目文件未自动保存</span></h4>
+<p>可能由以下原因造成：
+</p>
+<ul><li> 系统变量 @ASC=0</li></ul>
+<dl><dd><ul><li> 系统变量 @ASC 指定触发自动保存提醒的项目文件大小。默认情况下，@ASC=20（以兆字节为单位）。对于小于该大小的项目文件，自动保存默认在后台静默进行。对于较大的项目文件，每过 x 分钟，系统会弹出自动保存提示，供用户决定是否自动保存，因为每隔 x 分钟保存一次大型项目可能会很耗时。</li></ul></dd>
+<dd><a  class="image"><img alt="Autosave reminder.png" src="../images/Why_Autosave_fails_to_work/Autosave_reminder.png?v=14853" width="412"  /></a></dd>
+<dd>如果设置 @ASC=0 则无论项目大小，都应该打开提醒，但不知何故，这可能会导致自动保存失败。Origin 2025b 之前的解决方法：将 @ASC 设置为大于 0。</dd></dl>
+<ul><li> 所有项目均已启用自动保存</li></ul>
+<p>大型项目首次显示自动保存提示时，如果勾选了第三个选项<b>为所有项目打开自动保存</b>，则大于 @ASC（默认 20MB）的文件将仅自动保存一次。此后，此项目和其他大型项目的自动保存功能都将停止工作。小型项目文件（小于 @ASC）则不会出现此问题。
+</p>
+<dl><dd><ul><li> @ASC 检查项目在内存中的大小，而不是磁盘上的大小。将项目保存在磁盘上时，文件会被压缩，例如 10MB。但如果在 Origin 中打开，文件大小可能会大于 20MB。要检查项目在内存中的大小，请将鼠标悬停在<b>项目管理器</b>中的根文件夹上。内存中的大小将显示在工具提示中。例如，内存中的大小可能大于 20MB。如果所有项目都启用了自动保存，则项目将无法自动保存。</li></ul></dd></dl>
+<dl><dd><ul><li>Origin 2025 之前的解决方法：在脚本窗口运行 "doc -cac" 去再次检查 <b>为所有项目打开自动保存</b>。如果是这样，并且您确实希望自动保存所有项目，无论大小，请选择<b>设置: 系统变量...</b>菜单去设置系统变量 <b>ASC</b> 为一个比您可能制作的任何项目大小都大的数。比如 10000 就是 10GB (10000MB)。那么所有在内存中 &lt;=10GB 的文件就会每 x 分组进行静默的自动保存。</li>
+<li> 在 Origin 2025b 中，该错误已修复，因此选择第三个选项不会引发此问题。您也可以使用新的系统变量 @ASS=1 为所有项目启用自动保存。</li></ul></dd></dl>
+<p>建议：如果您的电脑上的大型项目自动保存需要很长时间，请不要将自动保存设置为非常频繁，例如每 1 分钟等。
+</p>
+<h4><a name=".E6.9C.89.E7.94.A8.E7.9A.84.E7.B3.BB.E7.BB.9F.E5.8F.98.E9.87.8F"></a><span class="mw-headline">有用的系统变量</span></h4>
+<p>有一些有用的系统变量可以解决自动保存问题或帮助调试：
+</p><p><br />
+<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASM</span></a>
+</p>
+<ul><li> 设置此变量 @ASM = 1 进行调试。尝试在子窗口中不选择任何内容，并将鼠标移至工作区的灰色区域。自动保存消息将显示在状态栏（左下角）上，以告知您自动保存是否成功或失败，例如</li></ul>
+<pre class="lt" style="font-family:monospace;">Next autosave <span style="color: #000000;">&#40;</span>sec<span style="color: #000000;">&#41;</span><span style="color: #000000;">:</span> <span style="color: #0000dd;">690</span></pre>
+<pre class="lt" style="font-family:monospace;">Project autosaved<span style="color: #000000;">:</span> C<span style="color: #000000;">:</span>\.....</pre>
+<pre class="lt" style="font-family:monospace;">autosave done, waiting for changes</pre>  
+当自动保存失败时，例如如果 @ass=0，打开一个大于 @ASC 的 opju 文件并设置 @asp=4 以抑制自动保存选项对话框并关闭大型项目的自动保存，以下消息将转储到脚本窗口。<pre class="lt" style="font-family:monospace;">Project too large <span style="color: #000000;">&#40;</span>in memory<span style="color: #000000;">&#41;</span> for autosave<span style="color: #000000;">:</span> 21MB</pre>
+<p><a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASS</span></a>
+</p>
+<ul><li> 仅为较小的项目文件或所有项目设置自动保存
+<dl><dd>0 (默认) = 为所有小于 @ASC 的文件设置静默自动保存。对于较大的文件，将显示提醒。</dd>
+<dd>1 = 所有项目均已启用自动保存。类似于在提醒对话框中勾选第三个单选按钮。与旧版本中设置以下属性相同<code>SYSTEM.PROJECT.NOAUTOSAVEWITHSIZE = 1 </code> 和 <code> system.project.NOASKAUTOSAVE = 1 </code> </dd></dl></li></ul>
+<p><br />
+<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASP</span></a>
+</p>
+<ul><li> 当前项目的自动保存设置。它与项目文件一起保存。
+<dl><dd>0 (默认) = 遵循全局自动保存设置；</dd>
+<dd>1 = 无论全局设置如何，关闭当前项目的自动保存；</dd>
+<dd>2 = 无论项目大小如何，都打开当前项目的自动保存，但仍遵守全局自动保存设置，这意味着如果全局关闭自动保存，则当前项目将不会自动保存；</dd>
+<dd>4 = 当项目大小 &gt; @ASC (MB) 时，抑制自动保存选项提醒框并关闭自动保存。</dd></dl></li></ul>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>big data, 大数据, large file, 大型文件, auto save, 自动保存, autosave unsaved, 自动保存不成功, backup, 备份, save, 保存, 20 MB, unsaved, 未保存, recover, 恢复 <keywords></span></p>
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+﻿<h1 class="firstHeading">FAQ-1206 現在のプロジェクト内の操作を全て再計算するには?</h1>
+<p class='urlname' style='display: none'>recalculate-all-operations-in-project</p>
+<p class='faqID'>最終更新日：2024/10/23</p>
+<p>現在のプロジェクト内のすべての操作(完了した操作と保留中の操作の両方)を強制的に再計算するには</p>
+<ol>
+<li>メニューから<b>ウィンドウ：スクリプトウィンドウ</b> を選択します。</li>
+<li>開いた<b>スクリプトウィンドウ</b>で、次の<a class="external text" href="../../LabTalk/LabTalk/Run_(command).html">run</a>コマンドを入力し、それらを強調表示して<b>Enter</b>キーを押して実行します。
+<pre class="lt" style="font-family:monospace;">
+run <span style="color: #000080;">-</span>auf <span style="color: #0000dd;">2</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//現在のプロジェクト内のすべての操作</span>
+run <span style="color: #000080;">-</span>p au; <span style="color: #008000;">//強制再計算</span>
+</pre></li>
+</ol>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span><span class='keywordsInput'>再計算,分析レポート,更新レポート, テーブルスタイルの更新</span></p>

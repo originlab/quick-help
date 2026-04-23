@@ -1,0 +1,42 @@
+﻿<h1 class="firstHeading">FAQ-1213 Der Origin-Prozess läuft nach dem Schließen von Origin weiter. Was soll ich tun?</h1>
+
+  <p class='urlname' style='display: none'>Origin-Process-Remain-After-Exit</p> 
+
+  <p class='faqID'>Letztes Update: 04.03.2025</p>
+
+  <p>Wenn Ihr Origin lange Zeit braucht, um zu schließen, oder die Origin-Instanz auch nach dem Schließen noch immer im Hintergrund ausgeführt wird (dies können Sie über den <b>Task Manager</b> feststellen), versuchen Sie bitte Folgendes:</p>
+
+  <ol>
+    <li>Öffnen Sie <b>Windows-Sicherheit</b>, indem Sie im <b>Start</b>-Menü von Windows nach "Windows-Sicherheit" suchen, um den Dialog <b>Windows-Sicherheit</b> zu öffnen, oder indem Sie im <b>Start</b>-Menü &gt; <b>Einstellungen</b> &gt; <b>Datenschutz und Sicherheit</b> &gt; <b>Windows-Sicherheit</b> auswählen.</li>
+
+    <li>Wählen Sie <b>Viren- und Bedrohungsschutz</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Windows Security Virus Threat Protection.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Virus_Threat_Protection.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Vieren- und Bedrohungsschutzeinstellungen</b> und scrollen Sie hinunter, um auf <b>Ausschlüsse hinzufügen oder entfernen</b> in der Gruppe <b>Ausschlüsse</b> zu klicken.
+
+      <dl>
+        <dd><a class="image"><img alt="Windows Security Add Remove Exclusions.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Remove_Exclusions.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Ausschluss hinzufügen</b> und wählen Sie <b>Ordner</b> im Ausklappmenü, um die folgenden Ordner (EXE und UFF etc.) jeweils als Ausnahme hinzuzufügen.
+      <pre class="lt" style="font-family:monospace;">
+C<span style="color: #000000;">:</span>\Program Files\OriginLab <span style="color: #008000;">//EXE path, may change based on where user installs</span> C<span style="color: #000000;">:</span>\ProgramData\OriginLab <span style="color: #008000;">//fixed path</span> C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">{</span>YourAccountName<span style="color: #000000;">}</span>\Documents\OriginLab <span style="color: #008000;">//UFF path, may change based on where user specifies</span> C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">{</span>YourAccountName<span style="color: #000000;">}</span>\AppData\Local\OriginLab <span style="color: #008000;">//relatively fixed path</span>
+</pre>
+
+      <p><b>Hinweis</b>: Sie können den Pfad über das Origin-Menü <b>Einstellungen: Optionen</b> &gt; Reiter Systempfad nachprüfen.</p>
+
+      <dl>
+        <dd><a class="image"><img alt="Windows Security Add Path.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Path.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Starten Sie Origin und schließen Sie es dann, um sicherzustellen, dass der Origin-Prozess schneller geschlossen wird als das Kein-Ausschluss-Szenario.</li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>Windows-Sicherheit, im Hintergrund laufen, schließen, beenden, langsam, lange Zeit</span></p>

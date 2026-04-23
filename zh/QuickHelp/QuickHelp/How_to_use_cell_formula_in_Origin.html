@@ -1,0 +1,1103 @@
+<h1 class="firstHeading">2.140 FAQ-1215 Origin 的单元格公式</h1><p class='urlname' style='display: none'>Excel-Origin-Functions-Comp</p>
+<p class='faqID'>Last Update: 5/17/2025</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.E6.95.B0.E6.8D.AE.E5.BC.95.E7.94.A8"><span class="tocnumber">1</span> <span class="toctext">数据引用</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#.E5.B8.B8.E7.94.A8.E5.87.BD.E6.95.B0"><span class="tocnumber">2</span> <span class="toctext">常用函数</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#.E6.97.A5.E6.9C.9F.E6.97.B6.E9.97.B4"><span class="tocnumber">3</span> <span class="toctext">日期时间</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#.E5.B7.A5.E7.A8.8B"><span class="tocnumber">4</span> <span class="toctext">工程</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#.E4.BF.A1.E6.81.AF"><span class="tocnumber">5</span> <span class="toctext">信息</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#.E9.80.BB.E8.BE.91"><span class="tocnumber">6</span> <span class="toctext">逻辑</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#.E6.9F.A5.E6.89.BE.E5.92.8C.E5.BC.95.E7.94.A8"><span class="tocnumber">7</span> <span class="toctext">查找和引用</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#.E6.95.B0.E5.AD.A6.E5.92.8C.E4.B8.89.E8.A7.92.E5.AD.A6"><span class="tocnumber">8</span> <span class="toctext">数学和三角学</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#.E7.BB.9F.E8.AE.A1"><span class="tocnumber">9</span> <span class="toctext">统计</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#.E6.96.87.E6.9C.AC"><span class="tocnumber">10</span> <span class="toctext">文本</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#.E5.85.B6.E4.BB.96"><span class="tocnumber">11</span> <span class="toctext">其他</span></a></li>
+</ul>
+</div>
+
+<p>本页将对比可用于设置单元格值的常见 Excel 和 Origin 函数。
+</p><p>更多的单元格公式，请参阅 <a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html">此页</a>。
+</p>
+<h2><a name=".E6.95.B0.E6.8D.AE.E5.BC.95.E7.94.A8"></a><span class="mw-headline">数据引用</span></h2>
+<p>Excel 和 Origin 都允许用户 <a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html#Extending_Formulas_Across_Rows_or_Columns">通过拖放来扩展跨行或跨列的公式</a>。其中包含了两种引用类型：相对引用和绝对引用。当单元格拖放到其他行列时，相对引用会发生变化，绝对引用则保持不变。
+</p>
+<table class="note">
+
+<tr>
+<td><b>注意：</b> 当把单元格公式复制到其他单元格时，Excel 中的行列引用会进行调整，而 Origin 则不会进行调整。
+</td></tr></table>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相对数据引用</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>引用 A 列第一行
+</td>
+<td><b>A1</b>
+</td>
+<td><b>A1</b>
+</td></tr>
+<tr>
+<td>A 列 <br />
+</td>
+<td><b>A</b>
+</td>
+<td><b>A:A</b>
+</td></tr>
+<tr>
+<td>多列
+</td>
+<td>多列时必须使用范围符号 （如 A1:C5）。
+</td>
+<td> <b>A:C</b>
+</td></tr>
+<tr>
+<td>一个范围
+</td>
+<td><b>A1:C5</b>
+</td>
+<td><b>A1:C5</b>
+</td></tr>
+<tr>
+<td>引用工作簿中第一张工作表上的 A1
+</td>
+<td><b>1!A1</b><br />
+<p><b>Sheet1!A1</b>
+</p>
+</td>
+<td><b>Sheet1!A1</b>
+</td></tr>
+<tr>
+<td>引用其他工作簿 Book1 中第一张工作表上的 A1
+</td>
+<td><b>[Book1]1!A1</b> <br />
+<p><b>[Book1]Sheet1!A1</b>
+</p>
+</td>
+<td><b>[Book1]Sheet1!A1</b>
+</td></tr></table>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>绝对数据引用</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>引用 A 列第一行
+</td>
+<td><b>$A$1</b>
+</td>
+<td><b>$A$1</b>
+</td></tr>
+<tr>
+<td>A 列
+</td>
+<td><b>A</b>
+</td>
+<td><b>$A:$A</b>
+</td></tr>
+<tr>
+<td>一个范围
+</td>
+<td>Origin 不支持跨列范围的绝对引用
+</td>
+<td><b>$A$1:$C$5</b>
+</td></tr>
+<tr>
+<td>引用工作簿中第一张工作表上的 A1
+</td>
+<td><b>1!$A$1</b><br />
+<p><b>Sheet1!$A$1</b>
+</p>
+</td>
+<td><b>Sheet1!$A$1</b>
+</td></tr>
+<tr>
+<td>引用其他工作簿 Book1 中第一张工作表上的 A1
+</td>
+<td><b>[Book1]1!$A$1</b> <br />
+<p><b>[Book1]Sheet1!$A$1</b>
+</p>
+</td>
+<td><b>[Book1]Sheet1!$A$1</b>
+</td></tr></table>
+<p><br />
+</p>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>文本数据引用</b></font>
+</caption>
+<tr>
+<th width="50%">Origin 单元格表示法
+</th>
+<th width="50%">Excel 表示法
+</th></tr>
+<tr>
+<td>在 Origin 中引用带有文本或返回文本值的单元格时，后面添加 <b>$</b> 符号<br />
+<p><b>例子：</b><br />
+</p>
+<pre class="lt" style="font-family:monospace;">A1<span style="color: #000080;">$</span></pre>
+<pre class="lt" style="font-family:monospace;">left<span style="color: #000000;">&#40;</span>A1<span style="color: #000080;">$</span>, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span></pre>
+</td>
+<td>对带有文本或数值的单元格，使用相同方式引用<br />
+<p><b>例子：</b> <br />
+</p>
+<pre class="lt" style="font-family:monospace;">A1</pre>
+<pre class="lt" style="font-family:monospace;">left<span style="color: #000000;">&#40;</span>A1, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span></pre>
+</td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/How_to_use_cell_formula_in_Origin/Tip_icon.png?v=0" width="57"  border="0" /></td><td><p>在 Origin 公式中，符号 "<b>$</b>" 有两种截然不同的使用方式。如果 "<b>$</b>" 位于列或行引用之前，表示绝对列或行引用。如果 "<b>$</b>" 在列或行引用之后，则表示返回存储在字符串变量中的值。
+</p></td></tr></table>
+<h2><a name=".E5.B8.B8.E7.94.A8.E5.87.BD.E6.95.B0"></a><span class="mw-headline">常用函数</span></h2>
+<table class="simple" style="width: 95%">
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>对单元格的值做加法
+</td>
+<td><b>total(A1:A3)</b> <sup><a class="external text" href="../../LabTalk/LabTalk/Total_(function).html">1</a></sup>
+</td>
+<td><b>sum(A1:A3)</b>
+</td></tr>
+<tr>
+<td> 返回按行计算的值之和：A 到 C 列，D 到 G 列，以及 F 列。
+</td>
+<td> <b>sum(A:C, D:G, F)</b>
+</td>
+<td> <b>=SUM(A1:C1, D1:G1, F1)</b>
+</td></tr>
+<tr>
+<td>根据条件真假返回值
+</td>
+<td><b>(A1&lt;=98.6)?(A1-98.6):Na()</b><sup><a class="external text" href="../../LabTalk/LabTalk/Operators.html#Conditional_Operator_.28.3F:.29">1</a>
+</td>
+<td><b>if(A1&lt;98.6, A1-98.6, NA())</b>
+</td></tr>
+<tr>
+<td>连接 B 列第 1 行和 C 列第 1 行的字符串。
+</td>
+<td><b>B1$ + C1$</b>
+</td>
+<td><b>B1 &amp; C1</b><br />
+<p><b>concatenate(B1, C1)</b>
+</p>
+</td></tr>
+<tr>
+<td>连接 A 列和 B 列的字符串
+</td>
+<td><b>A$ + B$</b>
+</td>
+<td><b>A1 &amp; B1</b> 或 <b>concatenate(A1, B1)</b>, 然后拖动以自动填充到输出列的所有单元格
+</td></tr>
+<tr>
+<td>在 A 列查找 2，并返回该行 B 列的值。
+</td>
+<td><b>lookup(2, A, B)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Lookup_(function).html">1</a></sup>
+</td>
+<td><b>lookup(2,A:A,B:B )</b>
+</td></tr>
+<tr>
+<td>在 B 列查找 E1 的值并返回该行 D 列的值
+</td>
+<td><b>lookup(E1, B, D)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Lookup_(function).html">1</a></sup>
+</td>
+<td><b>vlookup(E1, B:D, 3)</b>
+</td></tr>
+<tr>
+<td>在 A 列中搜索 3.5 并返回其位置。
+</td>
+<td><b>index(3.5, A)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Index_(function).html">1</a></sup>
+</td>
+<td><b>match(3.5,A:A )</b>
+</td></tr>
+<tr>
+<td>根据指定格式的日期时间字符串返回儒略日值。
+</td>
+<td><b>date("1/1/2008")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">1</a></sup>
+</td>
+<td><b>datevalue("1/1/2008")</b>
+</td></tr>
+<tr>
+<td>查找两个日期（3/15/11 和 2/1/11）之间的天数。
+</td>
+<td><b>date("3/15/11")-date("2/1/11")</b>
+</td>
+<td><b>days("3/15/11","2/1/11")</b>
+</td></tr>
+<tr>
+<td>在一段文本字符串中定位一个文本字符串并返回起始位置
+</td>
+<td><b>find(B10, "M")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Find_(function).html">1</a></sup>
+</td>
+<td><b>find("M", B10)</b>
+</td></tr>
+<tr>
+<td>返回指定行和列的值
+</td>
+<td><b>wcol(2)[4]</b>
+</td>
+<td><b>index(A:D, 4, 2)</b>
+</td></tr></table>
+<h2><a name=".E6.97.A5.E6.9C.9F.E6.97.B6.E9.97.B4"></a><span class="mw-headline">日期时间</span></h2>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>不同的函数</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>取 A、B、C 列作为日、月、年值并返回相应的日期字符串。
+</td>
+<td><b>date2str(date(A,B,C),"dd/MM/yyyy")$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Date2str_(function).html">1</a>, <a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">2</a></sup>
+</td>
+<td><b>date(A:A,B:B,C:C)</b>
+</td></tr>
+<tr>
+<td>输入指定格式的日期时间字符串，返回 Excel 识别的日期序列号（即 Origin 的儒略日值减去 2415018）。
+</td>
+<td><b>date("1/1/2008")-2415018</b><sup><a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">1</a></sup>
+</td>
+<td><b>datevalue("1/1/2008")</b>
+</td></tr>
+<tr>
+<td>输入特定文本格式日期字符串，返回（月份）日期
+</td>
+<td><b>day(date("2/18/2012 13:15:12"))</b><sup><a class="external text" href="../../LabTalk/LabTalk/Day_(function).html">1</a>, <a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">2</a></sup>
+</td>
+<td><b>day("7/18/2011 13:15:12")</b>
+</td></tr>
+<tr>
+<td>返回两个日期之间的天数
+</td>
+<td><b>date("7/18/2012")-date("3/15/2011")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">1</a></sup>
+</td>
+<td><b>days("2/1/12","3/15/11")</b>
+</td></tr>
+<tr>
+<td>返回日期时间字符串的小时值
+</td>
+<td><b>hour(date("7/18/2011 13:15:12"))</b><sup><a class="external text" href="../../LabTalk/LabTalk/Hour_(function).html">1</a></sup>
+</td>
+<td><b>hour("7/18/2011 13:15:12")</b>
+</td></tr>
+<tr>
+<td>返回日期时间字符串的分钟值
+</td>
+<td><b>minute(date("7/18/2011 13:15:12"))</b><sup><a class="external text" href="../../LabTalk/LabTalk/Minute_(function).html">1</a></sup>
+</td>
+<td><b>minute("7/18/2011 13:15:12")</b>
+</td></tr>
+<tr>
+<td>返回日期时间字符串的月份值
+</td>
+<td><b>month(date("7/18/2011 13:15:12"))</b><sup><a class="external text" href="../../LabTalk/LabTalk/Month_(function).html">1</a></sup>
+</td>
+<td><b>month("7/18/2011 13:15:12")</b>
+</td></tr>
+<tr>
+<td>返回指定格式的当前日期时间字符串
+</td>
+<td><b>date2str(now(),"MM/dd/yyyy HH:mm:ss")$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Date2str_(function).html">1</a>,  <a class="external text" href="../../LabTalk/LabTalk/Now_(function).html">2</a></sup>
+</td>
+<td><b>now()</b>
+</td></tr>
+<tr>
+<td>返回当前时间的秒值
+</td>
+<td><b>second(date("7/18/2011 13:15:12"))</b><sup><a class="external text" href="../../LabTalk/LabTalk/Second_(function).html">1</a></sup>
+</td>
+<td><b>second("7/18/2011 13:15:12")</b>
+</td></tr>
+<tr>
+<td>以 (HH:mm:ss) 格式返回给定时间的儒略日值
+</td>
+<td><b>time("13:15:12")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Time_(function).html">1</a></sup>
+</td>
+<td><b>timevalue("13:15:12")</b>
+</td></tr>
+<tr>
+<td>返回指定格式的当前日期字符串
+</td>
+<td><b>date2str(today(),"MM/dd/yyyy")$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Today_(function).html">1</a>, <a class="external text" href="../../LabTalk/LabTalk/Date2str_(function).html">2</a></sup>
+</td>
+<td><b>today()</b>
+</td></tr></table>
+<p><br />
+</p>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相同的表示法</b></font>
+</caption>
+<tr>
+<th width="40%">Description
+</th>
+<th width="60%">Origin 和 Excel 表示法
+</th></tr>
+<tr>
+<td>以 (HH,mm,ss) 格式返回给定时间的儒略日值
+</td>
+<td><b>time(13,15,12)</b>
+</td></tr></table>
+<h2><a name=".E5.B7.A5.E7.A8.8B"></a><span class="mw-headline">工程</span></h2>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>不同的函数</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>取二进制数的十进制值，然后将其转换为十六进制
+</td>
+<td><b>dec2hex(Bin2dec(A1))$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Bin2Dec_(function).html">1</a></sup>
+</td>
+<td><b>bin2hex(11111011)</b>
+</td></tr>
+<tr>
+<td>将十进制数转换为二进制
+</td>
+<td><b>dec2bin(-100)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Dec2Bin_(function).html">1</a></sup>
+</td>
+<td><b>dec2bin(-100)</b>
+</td></tr>
+<tr>
+<td>将十进制数转换为十六进制
+</td>
+<td><b>dec2hex(-100)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Dec2Hex_(function).html">1</a></sup>
+</td>
+<td><b>dec2hex(-100)</b>
+</td></tr>
+<tr>
+<td>将十六进制值转换为二进制
+</td>
+<td><b>dec2bin(hex2dec(B7))$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Hex2Dec_(function).html">1</a>,  <a class="external text" href="../../LabTalk/LabTalk/Dec2Bin_(function).html">2</a></sup>
+</td>
+<td><b>hex2bin(B7)</b>
+</td></tr>
+<tr>
+<td>返回相当于十六进制值的十进制数
+</td>
+<td><b>hex(A2) </b><sup><a class="external text" href="../../LabTalk/LabTalk/Hex_(function).html">1</a></sup>
+</td>
+<td><b>hex2dec(A2)</b>
+</td></tr></table>
+<p><br />
+</p>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相同的表示法</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="60%">Origin 和 Excel 表示法
+</th></tr>
+<tr>
+<td>返回二进制数的十进制值
+</td>
+<td><b>bin2Dec(A1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Bin2Dec_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>将数字从一种测量系统转换为另一种测量系统。
+</td>
+<td><b>convert(1,"yd","m")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Convert_(function).html">1</a></sup>
+</td></tr></table>
+<h2><a name=".E4.BF.A1.E6.81.AF"></a><span class="mw-headline">信息</span></h2>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>不同的函数</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>检查单元格 A1 中的值是否为数字
+</td>
+<td><b>istext(A1)=&gt;0</b><sup><a class="external text" href="../../LabTalk/LabTalk/IsText_(function).html">1</a></sup>
+</td>
+<td><b>cell("type", A1)=&gt;"v"</b>
+</td></tr>
+<tr>
+<td>检查单元格是否为空
+</td>
+<td><b>isempty(A1)</b> <sup><a class="external text" href="../../LabTalk/LabTalk/IsEmpty_(function).html">1</a></sup>
+</td>
+<td><b>isblank(A1)</b>
+</td></tr>
+<tr>
+<td>判断输入是否为文本
+</td>
+<td><b>istext(A1)?0:1</b><sup><a class="external text" href="../../LabTalk/LabTalk/IsText_(function).html">1</a></sup>
+</td>
+<td><b>isnumber(A1)</b>
+</td></tr></table>
+<p><br />
+</p>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相同的表示法</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="60%">Origin 和 Excel 表示法
+</th></tr>
+<tr>
+<td>若是缺失值则返回 1，否则返回 0
+</td>
+<td><b>isna(A1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/ISNA_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>判断输入是否为文本
+</td>
+<td><b>istext(A1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/IsText_(function).html">1</a></sup>
+</td></tr></table>
+<h2><a name=".E9.80.BB.E8.BE.91"></a><span class="mw-headline">逻辑</span></h2>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>不同的函数</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>当所有条件为真则返回 1
+</td>
+<td><b>A1&gt;1 &amp;&amp; A2&gt;2</b>
+</td>
+<td><b>and(A1&gt;1 , A2&gt;2)</b>
+</td></tr>
+<tr>
+<td>根据条件表达式返回指定值
+</td>
+<td><b>A1&gt;0?1:-1</b>
+</td>
+<td><b>if(A1&gt;0,1,-1)</b>
+</td></tr>
+<tr>
+<td>如果输入值为缺失值或 NANUM 则返回指定值
+</td>
+<td><b>isna(sqrt(-4))?-1:0</b>
+</td>
+<td><b>iferror(SQRT(-4),-1)</b>
+</td></tr>
+<tr>
+<td>当有条件为真则返回 1
+</td>
+<td><b>A1&gt;1 || A2&gt;2</b>
+</td>
+<td><b>or(A1&gt;1 , A2&gt;2)</b>
+</td></tr>
+<tr>
+<td>逻辑真值。<br /> <b>注意：</b> Origin 把所有非 0 值视为真
+</td>
+<td><b>1</b>
+</td>
+<td><b>TRUE</b>
+</td></tr>
+<tr>
+<td>逻辑假值。
+</td>
+<td><b>0</b>
+</td>
+<td><b>FALSE</b>
+</td></tr>
+<tr>
+<td>返回输入的异或
+</td>
+<td><b>((3&lt;4) + (4&lt;5)) - int( ((3&lt;4)+(4&lt;5) )/2)*2 ==&gt;0</b>
+</td>
+<td><b>xor(3&lt;4,4&lt;5) ==&gt; FALSE</b>
+</td></tr></table>
+<p><br />
+</p>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相同的表示法</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="60%">Origin 和 Excel 表示法
+</th></tr>
+<tr>
+<td>返回错误值
+</td>
+<td><b>NA()</b>
+</td></tr></table>
+<h2><a name=".E6.9F.A5.E6.89.BE.E5.92.8C.E5.BC.95.E7.94.A8"></a><span class="mw-headline">查找和引用</span></h2>
+<table class="simple" style="width: 95%">
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>返回给定列引用的列号。
+</td>
+<td><b>colnum(col(B))</b><sup><a class="external text" href="../../LabTalk/LabTalk/Colnum_(function).html">1</a></sup>
+</td>
+<td><b>column(B1)</b>
+</td></tr>
+<tr>
+<td>在 A 列查找 2，并返回该行 B 列的值。<br /><b>注意</b>： Origin 中，要根据返回值的类型去决定使用 lookup()$ 还是 lookup()。
+</td>
+<td><b>lookup(2, A, B)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Lookup_(function).html">1</a></sup>
+</td>
+<td><b>lookup(2,A:A,B:B )</b>
+</td></tr>
+<tr>
+<td>返回范围内的值的索引。
+</td>
+<td><b>list(25,col(A)[1:3])</b><sup><a class="external text" href="../../LabTalk/LabTalk/List_(function).html">1</a></sup><br />
+<p><b>index(25, A1:A3)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Index_(function).html">1</a></sup>
+</p>
+</td>
+<td><b>match(25,A1:A3,0)=2</b>
+</td></tr>
+<tr>
+<td>返回当前行值
+</td>
+<td><b>i</b><sup><a class="external text" href="../../LabTalk/LabTalk/System_Variables.html#X.2C_Y.2C_Z.2C_I.2C_J.2C_E.2C_T.2C_Count">1</a></sup>
+</td>
+<td><b>row()</b>
+</td></tr>
+<tr>
+<td>插入带有超链接的标签。
+</td>
+<td><b>http://www.originlab.com [Origin]</b><sup><a class="external text" href="../../UserGuide/UserGuide/Inserting_Links_into_Worksheet_Cells.html">1</a></sup>
+</td>
+<td><b>hyperlink("http://www.originlab.com","Origin")</b>
+</td></tr></table>
+<h2><a name=".E6.95.B0.E5.AD.A6.E5.92.8C.E4.B8.89.E8.A7.92.E5.AD.A6"></a><span class="mw-headline">数学和三角学</span></h2>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>不同的函数</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>返回给定数量的项目的组合数（包括重复）。
+</td>
+<td><b>combine(4+3-1,4-1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Combine_(function).html">1</a></sup>
+</td>
+<td><b>combina(4,3)</b>
+</td></tr>
+<tr>
+<td>返回值的截断整数。<br /> <b>警告！</b>： Excel 的 INT 函数向下取整，但 Origin 只取整数部分。例如：Origin 中 int(-1.23)=-1；而 Excel 中 INT(-1.23)=-2。
+</td>
+<td><b>int(1.23)=1<br />int(-1.23)=-1</b><sup><a class="external text" href="../../LabTalk/LabTalk/Int_(function).html">1</a></sup>
+</td>
+<td><b>int(1.23)=1<br />int(-1.23)=-2</b>
+</td></tr>
+<tr>
+<td>返回指定底数的对数。
+</td>
+<td><b>log(8)/log(2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Log_(function).html">1</a></sup>
+</td>
+<td><b>log(8, 2)</b>
+</td></tr>
+<tr>
+<td>返回以 10 为底数的对数。
+</td>
+<td><b>log(2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Log_(function).html">1</a></sup>
+</td>
+<td><b>log10(2)</b>
+</td></tr>
+<tr>
+<td>返回给定数字的乘幂
+</td>
+<td><b>3^2</b>
+</td>
+<td><b>power(3,2)</b>
+</td></tr>
+<tr>
+<td>返回除法的整数部分
+</td>
+<td><b>int(5/2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Int_(function).html">1</a></sup>
+</td>
+<td><b>quotient(5, 2)</b>
+</td></tr>
+<tr>
+<td>返回指定数据集的和
+</td>
+<td><b>total(A1:A5)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Total_(function).html">1</a></sup>
+</td>
+<td><b>sum(A1:A5)</b>
+</td></tr></table>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相同的表示法</b></font>
+</caption>
+<tr>
+<th width="70%">描述
+</th>
+<th width="30%">Origin 和 Excel 表示法
+</th></tr>
+<tr>
+<td>返回绝对值
+</td>
+<td><b>abs(-1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Abs_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回相应三角函数的反函数
+</td>
+<td><b>acos(0)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Acos_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回该数字的反双曲余切
+</td>
+<td><b>acoth(6)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Acoth_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回反余切值
+</td>
+<td><b>acot(2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Acot_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回反正弦值
+</td>
+<td><b>asin(0.5)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Asin_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回反双曲正弦值
+</td>
+<td><b>ASINH(10)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Asinh_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回反正切值
+</td>
+<td><b>atan(1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Atan_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回坐标点 (x, y) 和正 X 轴之间的角度
+</td>
+<td><b>atan2(2,2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Atan2_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回反双曲正切值
+</td>
+<td><b>atanh(0.76159416)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Atanh_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定集合中 n 个元素的 k 个组合的数量
+</td>
+<td><b>combine(8,2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Combine_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回余弦值。
+</td>
+<td><b>cos(pi/3)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Cos_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回余切值
+</td>
+<td><b>cot(pi/6)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Cot_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>将弧度转换为度数
+</td>
+<td><b>degrees(pi)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Degrees_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回指数值
+</td>
+<td><b>exp(1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Exp_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回非负整数的阶乘
+</td>
+<td><b>fact(5.5)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Fact_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回自然对数值
+</td>
+<td><b>ln(10)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Ln_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回一个整数除以另一个整数的整数模数
+</td>
+<td><b>mod(13,2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Mod_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回 pi 值
+</td>
+<td><b>pi</b>
+</td></tr>
+<tr>
+<td>将度数转换为弧度
+</td>
+<td><b>radians(180)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Radians_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>从均匀分布的样本中返回 0 到 1 之间的值
+</td>
+<td><b>rnd()</b><sup><a class="external text" href="../../LabTalk/LabTalk/Rnd_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>将数字四舍五入到指定的位数
+</td>
+<td><b>round(-1.99,0)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Round_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定值的三角正割
+</td>
+<td><b>secant(pi/3)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Secant_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定值的双曲正割
+</td>
+<td><b>sech(1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Sech_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回实数的符号
+</td>
+<td><b>sign(2)=1<br /> sign(0)=0<br /> sign(-2)=-1</b><sup><a class="external text" href="../../LabTalk/LabTalk/Sign_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定值的正弦值
+</td>
+<td><b>sin(pi/4)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Sin_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定值的双曲正弦值
+</td>
+<td><b>sinh(5)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Sinh_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定值的平方根
+</td>
+<td><b>sqrt(2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Sqrt_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定值的正切值
+</td>
+<td><b>tan(pi/4)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Tan_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回给定值的双曲正切
+</td>
+<td><b>tanh(0.5)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Tanh_(function).html">1</a></sup>
+</td></tr></table>
+<h2><a name=".E7.BB.9F.E8.AE.A1"></a><span class="mw-headline">统计</span></h2>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>不同的函数</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>返回未校正的平方和
+</td>
+<td><b>rms(A)^21count(A)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Rms_(function).html">1</a></sup>
+</td>
+<td><b>sumsq(A:A)</b>
+</td></tr>
+<tr>
+<td>计算满足指定条件的值的平均值
+</td>
+<td><b>averageif(A, "col(A) &gt; 5")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Averageif_(function).html">1</a></sup>
+</td>
+<td><b>averageif(A:A, "&gt; 5")</b>
+</td></tr>
+<tr>
+<td>计算满足指定条件的值的平均值
+</td>
+<td><b>averageif(A, "col(A) &gt; 5 &amp;&amp; col(B) &lt; 10")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Averageif_(function).html">1</a></sup>
+</td>
+<td><b>averageifs(A:A,A:A, "&gt;5",B:B, "&lt; 10")</b>
+</td></tr>
+<tr>
+<td>返回 beta 分布
+</td>
+<td><b>betacdf(1, 2, 2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Betacdf_(function).html">1</a></sup>
+</td>
+<td><b>beta.dist(1,2,2,TRUE)</b>
+</td></tr>
+<tr>
+<td>返回指定的 beta 分布累积分布函数的反函数值
+</td>
+<td><b>betainv(0.8975362,8,10)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Betainv_(function).html">1</a></sup>
+</td>
+<td><b>beta.inv(0.8975362,8,10)</b>
+</td></tr>
+<tr>
+<td>返回卡方分布
+</td>
+<td><b>chi2cdf(0.5,1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Chi2cdf_(function).html">1</a></sup>
+</td>
+<td><b>chisq.dist(0.5,1,TRUE)</b>
+</td></tr>
+<tr>
+<td>返回卡方分布左尾概率的倒数。
+</td>
+<td><b>chi2inv(0.93,1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Chi2inv_(function).html">1</a></sup>
+</td>
+<td><b>chisq.inv(0.93,1)</b>
+</td></tr>
+<tr>
+<td>返回向量中元素的数量，向量的大小。<br /><b>注意</b> Excel 会把缺失值排除，而 Origin 则不会。
+</td>
+<td><b>count(A)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Count_(function).html">1</a></sup>
+</td>
+<td><b>count(A:A)</b>
+</td></tr>
+<tr>
+<td>返回满足条件的值的计数
+</td>
+<td><b>countif(A,"col(A)&gt;1")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Countif_(function).html">1</a></sup>
+</td>
+<td><b>countif(A:A,"&gt;1")</b>
+</td></tr>
+<tr>
+<td>计算满足多个指定条件的值的数量
+</td>
+<td><b>countif(A,"col(A)&gt;1&amp;&amp;col(A)&gt;4")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Countif_(function).html">1</a></sup>
+</td>
+<td><b>countifs(A:A,"&gt;1",A:A,"&gt;4")</b>
+</td></tr>
+<tr>
+<td>返回两个数据集之间的协方差
+</td>
+<td><b>cov(A, B)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Cov_(function).html">1</a></sup>
+</td>
+<td><b>covariance.s(A:A,B:B)</b>
+</td></tr>
+<tr>
+<td>返回 F 概率分布的倒数
+</td>
+<td><b>finv(A2, A3, A4)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Finv_(function).html">1</a></sup>
+</td>
+<td><b>f.inv(A2,A3,A4)</b>
+</td></tr>
+<tr>
+<td>返回 x 的对数正态分布
+</td>
+<td><b>logncdf(4,3.5,1.2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Logncdf_(function).html">1</a></sup>
+</td>
+<td><b>lognorm.dist(4,3.5,1.2,TRUE)</b>
+</td></tr>
+<tr>
+<td>返回 x 的对数正态累积分布函数的反函数
+</td>
+<td><b>logninv(0.039084,3.5,1.2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Logninv_(function).html">1</a></sup>
+</td>
+<td><b>lognorm.inv(A2, A3, A4)</b>
+</td></tr>
+<tr>
+<td>正态分布的累积分布函数的反函数，返回概率值
+</td>
+<td><b>norminv(0.9)=1.2815515655446</b><sup><a class="external text" href="../../LabTalk/LabTalk/Norminv_(function).html">1</a></sup>
+</td>
+<td><b>NORMINV(0.9,0,1)=1.281551566</b>
+</td></tr>
+<tr>
+<td>返回两个数据集之间的相关系数的平方
+</td>
+<td><b>correl(A,B)^2</b><sup><a class="external text" href="../../LabTalk/LabTalk/Correl_(function).html">1</a></sup>
+</td>
+<td><b>rsq(A:A,B:B )</b>
+</td></tr>
+<tr>
+<td>返回指定窗口宽度的每个点的移动斜率
+</td>
+<td><b>movslope(A,B)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Movslope_(function).html">1</a></sup>
+</td>
+<td><b>slope(B:B,A:A)</b>
+</td></tr>
+<tr>
+<td>返回学生的 t 分布的左尾反函数
+</td>
+<td><b>tinv(0.75,2)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Tinv_(function).html">1</a></sup>
+</td>
+<td><b>t.inv(0.75,2)</b>
+</td></tr>
+<tr>
+<td>返回比标准正态累积分布小 0.5
+</td>
+<td><b>prob(2)/2</b><sup><a class="external text" href="../../LabTalk/LabTalk/Prob_(function).html">1</a></sup>
+</td>
+<td><b>gauss(2)</b>
+</td></tr></table>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相同的表示法</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="60%">Origin 和 Excel 表示法
+</th></tr>
+<tr>
+<td>返回范围平均值
+</td>
+<td><b>mean(A1:A6)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Mean_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回 2.5 的伽马函数值（1.329）
+</td>
+<td><b>gamma(2.5)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Gamma_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回伽马函数的自然对数，Î“(x)
+</td>
+<td><b>gammaln(4)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Gammaln_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回数据集的峰度
+</td>
+<td><b>kurt(A)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Kurt_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回一组值中的最大值
+</td>
+<td><b>max(A1: C8)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Max_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回一组值中的最小值
+</td>
+<td><b>min(A1:C8)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Min_(function).html">1</a></sup>
+</td></tr>
+<tr>
+<td>返回分布的偏度
+</td>
+<td><b>skew(A1:A4)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Skew_(function).html">1</a></sup>
+</td></tr></table>
+<h2><a name=".E6.96.87.E6.9C.AC"></a><span class="mw-headline">文本</span></h2>
+<table class="simple" style="width: 95%">
+<tr>
+<th width="40%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>将字符串连成一个并返回结果字符串
+</td>
+<td><b>B1$ + C1$</b>
+</td>
+<td><b>concatenate(B1,C1)</b>
+</td></tr>
+<tr>
+<td>返回文本最左边的字符
+</td>
+<td><b>left(A1$, 2)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Left_(function).html">1</a></sup>
+</td>
+<td><b>left(A1,2)</b>
+</td></tr>
+<tr>
+<td>返回字符串的字符数
+</td>
+<td><b>len(A1$) or len(A1)</b><sup><a class="external text" href="../../LabTalk/LabTalk/Len_(function).html">1</a></sup>
+</td>
+<td><b>len(A1)</b>
+</td></tr>
+<tr>
+<td>转换小写
+</td>
+<td><b>lower(A1$)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Lower_(function).html">1</a></sup>
+</td>
+<td><b>lower(A1)</b>
+</td></tr>
+<tr>
+<td>通过指定起始字符和后续字符的数量返回提取字符
+</td>
+<td><b>mid(A1$, 2, 3)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Mid_(function).html">1</a></sup>
+</td>
+<td><b>mid(A1,2,3)</b>
+</td></tr>
+<tr>
+<td>将文本中每个单词的首字母大写
+</td>
+<td><b>upper(left(A1$,1)$)$+lower(right(A1$,2)$)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Upper_(function).html">1</a></sup>
+</td>
+<td><b>proper(A1)</b>
+</td></tr>
+<tr>
+<td>返回文本值最右边的字符
+</td>
+<td><b>right(A1$, 2)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Right_(function).html">1</a></sup>
+</td>
+<td><b>right(A1,2)</b>
+</td></tr>
+<tr>
+<td>返回字符串的位置，如果未找到则返回 -1
+</td>
+<td><b>search(A1$, "margin")</b><sup><a class="external text" href="../../LabTalk/LabTalk/Search_(function).html">1</a></sup>
+</td>
+<td><b>search("margin",A1)</b>
+</td></tr>
+<tr>
+<td>转换大写
+</td>
+<td><b>upper(A1$)$</b><sup><a class="external text" href="../../LabTalk/LabTalk/Upper_(function).html">1</a></sup>
+</td>
+<td><b>upper(A1)</b>
+</td></tr></table>
+<table class="simple" style="width: 95%">
+<caption> <font color="green"><b>相同的表示法</b></font>
+</caption>
+<tr>
+<th width="40%">描述
+</th>
+<th width="60%">Origin 和 Excel 表示法
+</th></tr>
+<tr>
+<td>将字符串转换为数字。指定小数和数字组分隔符的选项允许覆盖操作系统区域设置。
+</td>
+<td><b>NumberValue(string [, string Decimal, string Group])</b><sup><a class="external text" href="../../LabTalk/LabTalk/NumberValue_(function).html">1</a></sup>
+</td></tr></table>
+<h2><a name=".E5.85.B6.E4.BB.96"></a><span class="mw-headline">其他</span></h2>
+<table class="simple" style="width: 95%">
+<tr>
+<th width="35%">描述
+</th>
+<th width="30%">Origin 单元格表示法
+</th>
+<th width="30%">Excel 表示法
+</th></tr>
+<tr>
+<td>为变量分配值并在表达式中使用这些值
+</td>
+<td><b>LET(t,if(A$==B$,1,0),t*500)</b><br /><b>LET(aa,left(A,1),bb,left(B,2), aa$+ "-" + bb$)</b>
+</td>
+<td><b>LET(t,IF(A1=B1,1,0),t*500)</b><br />
+<p>&#160;&#160;&#160;
+</p>
+</td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>LabTalk formula, LabTalk 公式, excel function, excel 函数, set cell value, 设置单元格值, refer to other cell, 引用其他单元格, define range in formula, 在式子中定义范围</span></p></sup>
+
+

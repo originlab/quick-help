@@ -1,0 +1,176 @@
+﻿<h1 class="firstHeading">FAQ-983 欠損値と空白セルの違いは何ですか？</h1><p class='urlname' style='display: none'>Diff-of-Missing-and-Blank</p>
+<p class='faqID'>最終更新日：2025/4/29</p>
+<p>空白セルとは、内容がまったくない空のセルのことです。欠損値セルは、未知の値、未収集の値、明らかに間違った値を表す一種のデータです。例えば、人々が個人情報を提供することを拒否したアンケートから収集された非回答の回答等をさします。あるいは、「0/0」などの計算から生じる無意味な値の場合もあります。 
+<br />
+</p><p>欠落値は、セルのフォーマットによって、Originでの表示が異なります。
+</p>
+<ul>
+<li> セルフォーマットが<b>テキスト</b>の場合、欠損値は常に空白セルとして表示されます。 
+<li> セルフォーマットが<b>数値</b>の場合、欠損値は常に「--」と表示されます。 
+<li> セルの書式が<b>文字と数値</b>の場合、空白セルまたは「--」として表示されることがあります。<br />
+<b>Delete</b>キーを押すか<b>編集: クリア</b>メニューを使用してセルを削除すると、データは消去され、空白のセルが残ります。<b>Ctrl</b>+<b>Delete</b>キーを使ってセルのデータを「--」に変換することもできます。
+</ul>
+<p><br />
+セルの値が欠損値か、空白セル、NotANumber (NANUM)なのかを確認するのに便利なLabTalk関数があります。
+</p>
+<dl><dd><a  class="image"><img alt="Missing blank.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/800px-Missing_blank.png" width="800"   /></a></dd></dl>
+<p>カスタムフィルタとして行をフィルタするために使用することもできます。
+</p>
+<ul><li> <b>x!=0/0</b> は空白セル、欠損値セル、およびテキストの両方を除外します</li>
+<li> <b>!isNA(x)</b> は数値でない行 (空白、欠損値、テキスト)をフィルタリングして除外します</li>
+<li> <b>!isempty(x)</b> は空白のセルのみを除外します</li>
+<li> <b>x!=&quot;--&quot;</b> は、--を含むセルを除外し、それ以外のセルのみを表示します</li></ul>
+<dl><dd><a  class="image"><img alt="Missing filter.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/500px-Missing_filter.png" width="500"   /></a></dd></dl>
+<p><br />
+Originのさまざまな側面での扱い
+</p>
+<table class="simple">
+<tr>
+<th>
+</th>
+<th><b>空白セル</b>
+</th>
+<th><b>欠損値</b>
+</th>
+<th> <b>Note</b>
+</th></tr>
+<tr>
+<th> グラフ作成
+</th>
+<td> 除外
+</td>
+<td> 除外
+</td>
+<td>
+<ul><li>2Dグラフで、欠損データ/空白セルを超えて線を接続する場合は、<b>フォーマット: 作図の詳細（ページ属性）</b>を選択して表示指定で設定します。</li>
+<li>等高線図では、<b>作図の詳細</b>ダイアログのカラーマップ/等高線タブに欠落値の色を指定するオプションがあります。 </li></ul>
+</td></tr>
+<tr>
+<th>解析と計算
+</th>
+<td> ほとんどの解析および計算から除外。空白セルに対して実行される計算は、通常、欠落値を返す。
+</td>
+<td> ほとんどの解析および計算から除外。欠損値に対して実行される計算は、通常、欠損値を返す。
+</td>
+<td>
+</td></tr>
+<tr>
+<th> セルの数式/<br />列値の設定
+</th>
+<td> ほとんどの式では、空白セルを含む入力は欠損値を返す
+</td>
+<td> ほとんどの式では、欠損値を含む入力は欠損値を返す
+</td>
+<td>
+<ul><li> LabTalk関数<a class="external text" href="../../LabTalk/LabTalk/Ave_(function).html">Average</a>を使用する場合、空白セル、欠損値ともに除外されます。</li>
+<li><a class="external text" href="../../LabTalk/LabTalk/IsText_(function).html">Istext</a>を使うと、欠損値に対してF、空白セルに対してTを取得できます。</li></ul>
+</td></tr>
+<tr>
+<th> 統計
+</th>
+<td> ほとんどの統計ツールから除外
+</td>
+<td> ほとんどの統計ツールから除外
+</td>
+<td>
+<ul><li><a class="external text" href="../../UserGuide/Category/Discrete_Frequency_(OriginPro_Only).html">離散度数</a>では、空白セルと欠損値が要因として考慮されます。</li></ul>
+</td></tr>
+<tr>
+<th> グループ列として設定
+</th>
+<td> 除外
+</td>
+<td> 除外
+</td>
+<td>
+</td></tr>
+<tr>
+<th> ソート
+</th>
+<td> 欠損値として扱われる。
+</td>
+<td> データセットをソートするときに、欠落値を最小値または最大値として処理するように選択できる (<b>ネストされたソート</b>ダイアログ内)
+</td>
+<td>
+<ul><li>ソートをする場合も考慮し、欠落値はデータセット内の最小値と見なされる</li></ul>
+</td></tr>
+<tr>
+<th> 検索と置換
+</th>
+<td> <b>検索する文字列</b>編集ボックスを空のままにすると空白のセルを検索
+</td>
+<td> &quot;--&quot;を入力すると欠損値セルを検索
+</td>
+<td> 欠損値セルと空白セルの両方を検索するには、「-」を入力
+</td></tr>
+<tr>
+<th> カテゴリーとして設定
+</th>
+<td> 除外
+</td>
+<td> 除外
+</td>
+<td>
+</td></tr>
+<tr>
+<th> インポート
+</th>
+<td> 空白セルとしてインポート
+</td>
+<td> &quot;--&quot;としてインポート
+</td>
+<td>
+</td></tr>
+<tr>
+<th> ステータスバーの統計値の表示
+</th>
+<td> 除外
+<p><a  class="image"><img alt="Missing and blank diff 1.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/Missing_and_blank_diff_1.png" width="185"  /></a>
+</p>
+</td>
+<td> 欠損値を係数としてカウント
+<p><a  class="image"><img alt="Missing and blank diff 2.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/Missing_and_blank_diff_2.png" width="184"  /></a>
+</p>
+</td>
+<td>
+</td></tr>
+<tr>
+<th> 列のコピー/貼り付け、特に空白セルで始まる列 (時系列など)
+</th>
+<td> 空白セルが残る
+</td>
+<td> 欠損値セルが残る
+</td>
+<td>
+<ul><li>Origin 2018b以前では、空白セルで始まる列をコピーして貼り付けると、先頭の空白セルがトリミングされます。一方、欠損値&quot;--&quot;はのこります。   </li></ul>
+</td></tr>
+<tr>
+<th> 特別な関数: <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html">Sum</a>
+</th>
+<td>
+<ul><li> <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22column.22_mode">列モード</a>でSumを使用すると空白セルは欠損値を返す<br /></li></ul>
+<p><a  class="image"><img alt="SumInCol BlankCell.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInCol_BlankCell.png" width="172"  /></a>
+</p>
+<ul><li> <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22row.22_mode">行モード</a>でSumを使用すると除外<br /></li></ul>
+<p><a  class="image"><img alt="SumInRow BlankCell.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInRow_BlankCell.png" width="238"  /></a>
+</p>
+</td>
+<td>
+<ul><li> <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22column.22_mode">列モード</a>でSumを使用すると欠損値は残る<br /></li></ul>
+<p><a  class="image"><img alt="SumInCol MissingV.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInCol_MissingV.png" width="170"  /></a>
+</p>
+<ul><li> <a class="external text" href="../../LabTalk/LabTalk/Sum_(function).html#In_.22row.22_mode">行モード</a>でSumを使用すると除外<br /></li></ul>
+<p><a  class="image"><img alt="SumInRow MissingV.png" src="../images/What_is_the_difference_between_missing_values_and_blank_cells/SumInRow_MissingV.png" width="237"  /></a>
+</p>
+</td>
+<td>
+</td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>空のセル, 欠落, null, nanum</span></p>
+
+
+
+
+
+
+
+    

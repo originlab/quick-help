@@ -1,0 +1,23 @@
+<h1 class="firstHeading">3.171 FAQ-1211 What is Scale Error with sqrt and why can't I uncheck it?</h1><p class='urlname' style='display: none'>Scale-error-sqrt</p>
+<p class='faqID'>Last Update: 11/9/2025</p>
+<p>The <b>Scale Error with sqrt(Reduced Chi-Sqr)</b> option can be found in: 
+</p>
+<dl><dd><ul><li><a class="external text" href="../../UserGuide/UserGuide/Settings_Tab_Upper_Panel.html#Advanced">Advanced tab: Fit Control</a> of <b>Nonlinear Fit</b> dialog, or </li>
+<li><a class="external text" href="../../UserGuide/UserGuide/Linear_Regression_Dialog.html#Fit_Control">Fit Control tab</a> of <b>Linear Regression</b> dialog. </li></ul></dd></dl>
+<h2><a name="If_you_are_not_using_weights"></a><span class="mw-headline">If you are not using weights</span></h2>
+<p>If you run a regression in Origin without error data then the analysis is run without weights. In this case, it is necessary to scale the error with sqrt(reduced chi-square) and so it cannot be unchecked.
+</p><p>From a physical perspective, the unit of a parameter's standard error (SE) should be consistent with the unit of the parameter itself. If the error is not scaled, the unit of the parameter's SE is given by (Unit of Parameter) / (Unit of y). This results in a different unit than that of the parameter, which is incorrect.
+</p><p>This is evident when scaling the y-data by a factor of 10: the parameters in a linear fit will also be scaled by the same factor. However, if the error is not scaled, the standard error (SE) of the parameters will remain unchanged. This behavior is unreasonable, as the SE should also be scaled in proportion to the change in the data.
+</p><p>Another example of why scaling is appropriate is the results from the maximum likelihood estimation (MLE) method. It has a statistically derived standard error of the parameters in its formula and is scaled as well.
+</p>
+<h2><a name="If_you_are_using_weights"></a><span class="mw-headline">If you are using weights</span></h2>
+<p>When using weights, you may uncheck the weight option, particularly when selecting "Instrumental weight," as we recommend doing so in this case. This implies that the user has assumed the error of 𝑦<sub>𝑖</sub> is 𝑤<sub>𝑖</sub>, meaning the error of 𝑦<sub>𝑖</sub>/𝑤<sub>𝑖</sub> is 1. Consequently, the theoretical variance of the weighted model is 1, and scaling by 1 has no effect. Therefore, scaling by 1 is unnecessary.
+</p><p>However, if the given weight only reflects the relative magnitude of the error for each point (rather than the true error), the user should check the scale option. In this case, the theoretical variance of the weighted model is not 1, and the actual value, such as the reduced chi-squared from the fit, should be used instead.
+</p><p><br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Scale_error_sqrt/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p><a href="../../QuickHelp/QuickHelp/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled.html" title="QuickHelp:Why Parameters SE remains unchanged when error bar is scaled">See this page for the theory and an example</a>
+</p></td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>linear, regression, fit control, square root, grayed out, greyed, standard error</span></p>
+
+

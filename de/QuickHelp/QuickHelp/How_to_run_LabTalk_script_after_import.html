@@ -1,0 +1,83 @@
+﻿<h1 class="firstHeading">FAQ-428 Wie führe ich LabTalk-Skript nach dem Import aus?</h1>
+
+  <p class='urlname' style='display: none'>run-script-after-import</p>
+
+  <p class='faqID'>Letztes Update: 15.10.2024</p>
+
+  <p><br>
+  Es gibt mehrere Optionen zum Ausführen von LabTalk-Skript nach dem Import, um die Daten nachzubearbeiten (Berechnungen, Formatierung, Analyse, Zeichnen):</p>
+
+  <ul>
+    <li>Die Schaltfläche <b>Weitere Optionen</b> <a class="image"><img alt="OtherOptionsGear.gif" src="../images/How_to_run_LabTalk_script_after_import/OtherOptionsGear.gif" width="34"></a> ist in die allgemeinen <a class="external text" href="../../UserGuide/Category/Data_Connector.html">Datenkonnektoren</a> eingebaut, das heißt den <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=508" target="_blank">CSV-Konnektor</a> und den <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=530" target="_blank">Excel-Konnektor</a>. Dies erlaubt Anwendern, die Verarbeitung nach dem Import mit LabTalk-Befehlen zu konfigurieren. Dieses Skript wird ausgeführt, sobald der aktive Datenkonnektor eine Datei importiert oder sich neu mit ihr verbindet. LabTalk-Skript kann in das Textfeld im Dialog <b>Weitere Optionen</b> eingegeben werden. Es wird nach einem erfolgreichen Import sofort ausgeführt.</li>
+  </ul>
+
+  <table class="note">
+    <tr>
+      <td>
+        <p><b>Hinweis:</b> Das Ausführen des Skripts nach Import unterbricht die Verbindung zu den Quelldaten nicht.</p>
+      </td>
+    </tr>
+  </table>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="DialogOtherOptionsPostImportLabTalkScript.png" src="../images/How_to_run_LabTalk_script_after_import/430px-DialogOtherOptionsPostImportLabTalkScript.png" width="430"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <ul>
+    <li>Die meisten Datenkonnektoren gewähren Anwendern nach dem ersten Import Zugriff auf das Feld des Skripts nach Import. Klicken Sie einfach auf das Symbol <a class="image"><img alt="Data connector icon.PNG" src="../images/How_to_run_LabTalk_script_after_import/Data_connector_icon.PNG" width="24"></a> und wählen Sie „Skript nach Import“. Per Standard löst das Klicken auf OK einen Import aus, gefolgt vom Ausführen des Skripts.</li>
+
+    <li>Auch wenn einige Datenkonnektoren kein explizites Feld für das Skript nach Import zur Verfügung stellen, können Sie das LabTalk-Skript direkt in das Arbeitsblatt eingeben. Auf <a class="external text" href="../../UserGuide/UserGuide/Script_tab_of_Worksheet_Properties.html">der Registerkarte <b>Skript</b> des Dialogs <b>Arbeitsblatteigenschaften</b></a> eingegebenes LabTalk-Skript kann darauf festgelegt werden, <b>nach dem Import</b> ausgeführt zu werden (diese Methode funktioniert mit beliebigen importierten Daten). Dies ist eine gute Lösung für die Nutzer, die maximale Beweglichkeit wünschen, da es möglich ist, Skripte mit einer Vorlage (.otwu), Arbeitsmappe (.ogwu) oder Projektdatei (.opju) zu speichern. Einzelheiten finden Sie in <a class="external text" href="http://blog.originlab.com/worksheet-script-after-data-connector-to-modify-data" target="_blank">diesen Blogeintrag</a> von OriginLab.</li>
+  </ul>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd>
+          <dl>
+            <dd>
+              <dl>
+                <dd>
+                  <dl>
+                    <dd><a class="image"><img alt="Script WorksheetProperties.png" src="../images/How_to_run_LabTalk_script_after_import/350px-Script_WorksheetProperties.png" width="350"></a></dd>
+                  </dl>
+                </dd>
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <ul>
+    <li>Falls Sie die älteren auf X-Funktionen basierenden Importroutinen verwenden (z. B. <a class="external text" href="../../UserGuide/UserGuide/Customizing_the_ASCII_Import_Options.html">impASC</a>), können Sie LabTalk-Skript zu den Dialogen <b>Daten: Aus Datei importieren</b> für ASCII-, CSV-, SPC- oder Excel-Dateien hinzufügen und haben dabei die Option, Ihre Einstellungen als <a class="external text" href="../../UserGuide/UserGuide/Dialog_Themes.html">Dialogdesign</a> zu speichern.</li>
+
+    <li>Für die meisten Dateitypen können Sie über <a class="external text" href="../../UserGuide/UserGuide/Introduction_to_Import_Filters_Manager.html">den Dialog <b>iwfilter</b></a> Skript zu einem Filter für den Import per Drag&amp;Drop hinzufügen. Als Beispiel soll der Excel-Import dienen. Klicken Sie auf <b>Einstellungen: Importfilter verwalten</b> und wählen Sie <b>Excel</b> in der Spalte <b>Filter</b> des Dialogs <b>Importfilter verwalten</b>. Stellen Sie sicher, dass das Kontrollkästchen <b>Drag&amp;Drop unterstützen</b> aktiviert ist. Klicken Sie auf <b>Bearbeiten</b>, um den Dialog <b>Import and Export: iwfilter</b> zu öffnen. Geben Sie das LabTalk-Skript in dem Feld <b>Labtalk-Skript nach Import</b> im Zweig <b>Allgemeine Importeinstellungen</b> ein. Klicken Sie auf <b>Speichern unter</b>, um den Filter (.oif-Datei) umzubenennen und im Verzeichnis <b>&lt;Anwenderdateiordner&gt;\Filters</b> zu speichern. Um den Importfilter zu verwenden, ziehen Sie eine Excel-Datei per Drag&amp;Drop in Origin. Ein Dialog <b>Filter auswählen</b> wird angezeigt. Wählen Sie Ihren gespeicherten Filter und klicken Sie auf <b>OK</b>. Das LabTalk-Skript in dem Feld "Skript nach..." wird automatisch bei Import ausgeführt (siehe unten <b>Hinweis 1</b>). Jeder durch diese Vorgehensweise hinzugefügte Importfilter kann auch beim Importieren über den Dialog <b>Datei: Öffnen</b> oder während der Importoperationen der <a class="external text" href="../../UserGuide/UserGuide/Batch_Processing.html">Stapelverarbeitung</a> verwendet werden (beachten Sie, dass der Dialog batchProcess selbst Skriptoptionen beinhaltet).</li>
+
+    <li>Sie können auch <a class="external text" href="../../UserGuide/UserGuide/Import_Wizard_Save_Filters_Page_(All_Data_Types).html">einen Importfilter speichern</a> und das <a class="external text" href="../../UserGuide/UserGuide/Import_Wizard_Advanced_Options_Page.html">Skript für die Ausführung nach dem Import mit dem Importassistenten</a> hinzufügen. Während diese Option für die Nutzer am interessantesten sein wird, die ASCII-Dateien importieren -- insbesondere Dateien von komplexer Struktur -- , kann sie auch verwendet werden, um binäre und andere "benutzerdefinierte" Datentypen zu importieren.</li>
+  </ul>
+
+  <p><br>
+  <b>Hinweis 1</b>: Diese Operation ist nicht auf die Dateiformate <b>Famos</b>, <b>MDF</b> und <b>pClamp</b> anwendbar.<br>
+  <b>Hinweis 2</b>: Sie können das Kontrollkästchen <b>XF-Dialog öffnen</b> im Abschnitt <b>Allgemeine Importeinstellungen</b> im Dialog iwfilter aktivieren und den entsprechenden Importdialog beim Importieren von Daten öffnen.</p>
+
+  <p><b>Beispiele für Skript nach Import:</b></p>
+  <pre class="lt" style="font-family:monospace;">
+<span style="color: #008000;">// Specify column width</span> wks.<span style="color: #000080;">col1</span>.<span style="color: #000080;">width</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>; wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">width</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">20</span>; wks.<span style="color: #000080;">col3</span>.<span style="color: #000080;">width</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">8</span>;
+</pre>
+  <pre class="lt" style="font-family:monospace;">
+<span style="color: #008000;">// Designating X, Y, and Y Error columns</span> wks.<span style="color: #000080;">col1</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>; <span style="color: #008000;">// Designate col(A) to contain data labels</span> wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">4</span>; <span style="color: #008000;">// Designate col(B) as X data</span> wks.<span style="color: #000080;">col3</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">// Col(C) as Y data</span> wks.<span style="color: #000080;">col4</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>; <span style="color: #008000;">// Col(D) as YErr</span>
+</pre>
+  <pre class="lt" style="font-family:monospace;">
+<span style="color: #008000;">// Name the workbook with the current date</span> string theDate <span style="color: #000080;">=</span> date2str<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>today<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>, <span style="color: #ff00ff;">"MM-dd-yyyy"</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>; page.<span style="color: #000080;">longname</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> theDate<span style="color: #000080;">$</span>;
+</pre>
+  <pre class="lt" style="font-family:monospace;">
+<span style="color: #008000;">// These are just two possible approaches to calculating and recording column means in the metadata area</span> <span style="color: #008000;">// Method 1</span> wks.<span style="color: #000080;">userParam1</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">// Set visibility to 1 (0 = not visible)</span> wks.<span style="color: #000080;">userParam1</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"ColumnMean"</span>; col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">[</span>ColumnMean<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>mean<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span><span style="color: #000000;">[</span>ColumnMean<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>mean<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//Method 2</span> wks.<span style="color: #000080;">userparam</span><span style="color: #000000;">(</span><span style="color: #000080;">++</span>Mean<span style="color: #000000;">)</span>; loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">1</span>,wks.<span style="color: #000080;">ncols</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span> wcol<span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">[</span>Mean<span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">"=Mean(this)"</span>; <span style="color: #000000;">}</span> <span style="color: #008000;">// This loops through all columns}</span>
+</pre>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>LabTalk-Skript, Nachbearbeitung, Daten importieren, Importfilter, iwfilter, Arbeitsblattskript, Arbeitsblatteigenschaften, Stapelverarbeitung, nach Import</span></p>

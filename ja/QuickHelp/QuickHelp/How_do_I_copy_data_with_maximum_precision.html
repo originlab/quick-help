@@ -1,0 +1,76 @@
+﻿<h1 class="firstHeading">FAQ-482 データを最大精度でコピーするには、どうしたら良いでしょうか?</h1><p class='urlname' style='display: none'>Copy-with-Full-Precision</p>
+<p class='faqID'>最終更新日：2025/3/31</p>
+<p>Originワークシートまたは行列の数値は、内部的には64ビットの「倍精度」の2進数として保存されています。  Origin のインターフェースでは、この2進数は、指数が ±308の範囲で有効数字約15桁の10進数として表されます。
+</p><p>ワークシートや行列シートは<a class="external text" href="../../UserGuide/UserGuide/The_(Column_Properties)_Properties_Tab.html#Digits">通常、小数点以下 5～6&nbsp;桁だけが表示されるようにフォーマットされています</a>。しかし、表示される数値は、Origin がセルに保存している「完全精度」（最大15桁）の値を短縮したものにすぎない場合があることに注意してください。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="FAQ-482 1.png" src="../images/How_do_I_copy_data_with_maximum_precision/FAQ-482_1.png" width="468"  /></a></dd></dl></dd></dl>
+<ol><li> <b>編集: コピー: コピー</b>または<b>Ctrl+C</b>は、次の場合に完全精度でデータをコピーします。
+<ul><li> 結果シートを含む1つのワークシートから、同じOriginセッションまたは異なるOriginセッション内の別のワークシートにデータをコピー。<b>Note:</b>これは行列シートでは適用されません。</li>
+<li> MS Excelなどの外部アプリケーションからOriginワークシートにデータをコピー。</li></ul></li>
+<li> それ以外の場合、<b>編集: コピー: コピー</b>または<b>Ctrl+C</b>は、表示された精度でデータをコピーします。完全精度でデータをコピーするには、<b>編集: コピー: 値をコピー(フル精度)</b>または<b>Ctrl+Alt+C</b>を押します。</li>
+<li> ワークシートのセルが実際には<a class="external text" href="../../UserGuide/UserGuide/Inserting_Links_into_Worksheet_Cells.html#Links_to_Show_Contents_From_Other_Cell">他のワークシートのセルへのリンク</a>である場合、たとえば、フィット結果にリンクされた値を持つ出力レポートシートの場合
+<ul><li> 同じOriginセッションのワークシートから別のワークシートにコピーして貼り付ける場合、<b>編集: コピー: コピー (Ctrl+C) </b>と<b>編集: コピー: 値をコピー (フル精度) (Ctrl+Alt+C)</b>は同じように機能します。リンクが貼り付けられます。あとでソースデータが変更されると、リンクされたセルも更新されます。</li>
+<li> あるOriginセッションからコピーして、新しいOriginセッションに貼り付ける場合は、<b>編集: コピー: 値をコピー(フル精度)</b>または<b>Ctrl+Alt+C</b>を使用してください。そうでない場合は、リンクのみコピーされ、<i>FitLinear1!Summary.R1.Intercept_Error</i>のようにテキストとして表示されます。リンクセル値をセッション間でコピーする操作は、Origin 2018からサポートされています。 </li>
+<li> Originでコピーし、外部アプリケーションに貼り付ける場合は、<b>編集: コピー: 値をコピー(フル精度)</b>、または<b>Ctrl+Alt+C</b>を使用して完全精度でコピーします。それ以外の場合は、表示精度のみをコピーします。</li></ul></li></ol>
+<p>コピー (Ctrl+C) および貼り付け (Ctrl+V) の詳細情報
+</p>
+<table class="simple" width="50%">
+<tr>
+<th>ソース（コピー）
+</th>
+<th>ターゲット（貼り付け）
+</th>
+<th>結果
+</th></tr>
+<tr>
+<td> ワークシート
+</td>
+<td> ワークシート
+</td>
+<td> <b>完全な精度</b>でコピーして貼り付けるが、表示される数字は列またはワークシートのプロパティによって制御される
+</td></tr>
+<tr>
+<td> ワークシート
+</td>
+<td> その他の場所（行列、メモ、グラフ内のラベル、ダイアログボックス、外部アプリケーションなど）
+</td>
+<td> ソースでの表示精度をコピーして貼り付ける
+</td></tr>
+<tr>
+<td> 行列
+</td>
+<td> すべて（ワークシート、行列、メモ、グラフ内のラベル、ダイアログボックス、外部アプリケーションなど）
+</td>
+<td> ソースでの表示精度をコピーして貼り付ける
+</td></tr>
+<tr>
+<td> 外部アプリケーション
+</td>
+<td> ワークシート
+</td>
+<td> <b>完全な精度</b>でコピーして貼り付けるが、表示される数字は列またはワークシートのプロパティによって制御される
+</td></tr>
+<tr>
+<td> 外部アプリケーション
+</td>
+<td> 行列
+</td>
+<td> ソースの表示精度をコピーして貼り付けるが、表示されている数字は行列プロパティで制御される
+</td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/How_do_I_copy_data_with_maximum_precision/Tip_icon.png" width="57"  border="0" /></td><td><p>ExcelからデータをコピーしてOriginに貼り付けるときは15桁に制限されていますが、より多くの桁を含むExcelファイルをインポートすることで、全ての桁を保持することができます。
+</p></td></tr></table>
+<h4><a name="A_Note_About_Copy_Values_.28Full_Precision.29_in_Origin"></a><span class="mw-headline">Originでの値をコピー(フル精度) に関する注意</span></h4>
+<p><b>値をコピー(フル精度)</b> を使用してOriginからMS Excelなどの外部アプリケーションにデータをコピーする場合、Originは常に内部の2進数を最大15桁の有効桁の10進数に変換します。 
+</p><p>Origin 2018以前は、<b>コピー</b>と同様に<b>値をコピー(フル精度)</b>は、Origin内のワークシートから別のワークシートにコピー＆ペーストするときにOriginの内部バイナリ値を使用していました。Origin 2018以降、 <b>値をコピー(フル精度)</b> は<i>常に</i> 数値が最初に変換されたうえでコピーされます。 
+</p><p>この変更は、カスタマイズしたレポートシートのセル値（実際にはフィッティング結果シートのパラメータ値にリンクされているなど、他セルへのリンクとなっているデータ）を、新しいOriginセッションのワークシートへコピーしたいという要望に対応するために行われました。Origin 2018以前は、<b>コピー</b>または<b>値をコピー(フル精度)</b>のどちらを使用しても、リンクが貼り付けられます。リンクは新しいOriginセッションで解釈できず、例えば<i>FitLinear1!Summary.r1.Intercept_Error</i>のような意味のないテキストとして表示されていました。Origin 2018以降では、<b>値をコピー(フル精度)</b>すると、リンクデータを最大15桁の有効桁の10進数に変換してから、値として表示されるように貼り付けます。 
+</p><p>異なるOriginセッション間で上記のコピーアンドペーストを行わず、Origin 2018以前のように<b>値をコピー(フル精度)</b>を動作させたい場合は、<b>スクリプトウィンドウ</b>を開いて、次のように入力してEnterキーを押します。 
+</p>
+<pre class="lt" style="font-family:monospace;">@CFP<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span></pre>
+<p>これにより、現在のOriginセッション内の動作のみが変更されます。Originを起動するたびにこの動作を有効にするには、<a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="クイックヘルプ: システム変数の値を永続的に変更するには？">このFAQ</a>を参照してください。
+</p>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>精度, 小数, 数字, 数値表示, 丸め</span></p>
+<p><br />
+</p>
+
+    

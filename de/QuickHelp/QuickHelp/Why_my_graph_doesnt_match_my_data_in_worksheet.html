@@ -1,0 +1,102 @@
+﻿<h1 class="firstHeading">FAQ-1224 Warum stimmt mein Diagramm nicht mit meinen Daten im Arbeitsblatt überein?</h1>
+
+  <p class='urlname' style='display: none'>Graph-Not-Match-Data</p>
+
+  <p class='faqID'>Letztes Update: 19.08.2025</p>
+
+  <p>Wenn Sie merken, dass das Diagramm nicht mit den Daten aus dem Quellarbeitsblatt zusammenpasst, können Sie Folgendes überprüfen, um den Fehler zu beheben:</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Check_if_worksheet_data_is_in_the_correct_format"><span class="tocnumber">1</span> <span class="toctext">Prüfen, ob die Arbeitsblattdaten das korrekte Format haben</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#Check_if_X_column_is_set_properly"><span class="tocnumber">2</span> <span class="toctext">Prüfen, ob die X-Spalte richtig festgelegt ist</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Check_if_built-in_template_has_been_overridden"><span class="tocnumber">3</span> <span class="toctext">Prüfen, ob die Standardvorlage überschrieben wurde</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Check_if_a_new_System_Theme_is_set"><span class="tocnumber">4</span> <span class="toctext">Prüfen, ob ein neues Systemdesign festgelegt ist</span></a></li>
+    </ul>
+  </div>
+
+  <h4><a name="Check_if_worksheet_data_is_in_the_correct_format"></a><span class="mw-headline">Prüfen, ob die Arbeitsblattdaten das korrekte Format haben</span></h4>
+
+  <p>Wenn Daten im Quellarbeitsblatt links ausgerichtet sind, handelt es sich um das Textformat anstatt des numerischen Formats (das standardmäßig rechts ausgerichtet ist). Hinweis: Sie müssen die Spaltenbreite eventuell ändern, um zu prüfen, ob sie links ausgerichtet ist.</p>
+
+  <p><span class='headerInParagraph'>Um dies zu beheben::</span></p>
+
+  <p>Klicken Sie mit der rechten Maustaste auf die Spalte und wählen Sie <b>Einstellungen</b>. Stellen Sie im Dialog <b>Spalteneigenschaften</b> sicher, dass das <b>Format</b> korrekt festgelegt ist.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Text vs Numeric FAQ1224.png" src="../images/Why_my_graph_doesnt_match_my_data_in_worksheet/700px-Text_vs_Numeric_FAQ1224.png" width="700"></a></dd>
+  </dl>
+
+  <h4><a name="Check_if_X_column_is_set_properly"></a><span class="mw-headline">Prüfen, ob die X-Spalte richtig festgelegt ist</span></h4>
+
+  <p>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm. Sie können im linken Bedienfeld prüfen, welche Spalten als X und Y verwendet werden.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Check X Column FAQ1224.png" src="../images/Why_my_graph_doesnt_match_my_data_in_worksheet/Check_X_Column_FAQ1224.png" width="558"></a></dd>
+  </dl>
+
+  <p>Wenn die Spalte, die eigentlich X sein soll, nicht als X gesetzt ist, verwendet Origin automatisch die nächstliegende X-Spalte links von der Y-Spalte. Wenn sich im Blatt keine X-Spalte befindet, wird der Zeilenindex (&lt;auto&gt;) verwendet.</p>
+
+  <p><span class='headerInParagraph'>Um dies zu beheben::</span></p>
+
+  <ul>
+    <li>Klicken Sie mit der rechten Maustaste auf die gewünschte Spalte und klicken Sie auf die <b>X</b>-Schaltfläche auf der Minisymbolleiste, um sie als X zu setzen und dann zu zeichnen.</li>
+  </ul>
+
+  <p><i>Oder</i></p>
+
+  <ul>
+    <li>Klicken Sie in der vorhandenen Grafik mit der rechten Maustaste auf die Zeichnung und wählen Sie <b>X ändern/Y ändern</b>, um die korrekte X/Y-Spalte zu wählen.</li>
+  </ul>
+
+  <h4><a name="Check_if_built-in_template_has_been_overridden"></a><span class="mw-headline">Prüfen, ob die Standardvorlage überschrieben wurde</span></h4>
+
+  <p>Wenn Sie über das Standardmenü Zeichnen ein Diagramm erstellen, das Diagramm aber nicht wie erwartet gezeichnet wird, ist es möglich, dass eine Diagrammmvorlage mit dem gleichen Namen der Standardvorlage im Anwenderdateiordner (UFF) gespeichert wurde. Diese benutzerdefinierte Vorlage hat eine höhere Priorität und wird verwendet. Es kann etwas mit ihr falsch sein, zum Beispiel:</p>
+
+  <ul>
+    <li>Die Vorlage wurde als klonbare Vorlage gespeichert, das heißt, sie ignoriert Spaltenauswahlen.</li>
+
+    <li>Die Achsen wurden fixiert/manuell festgelegt, so dass sie nicht den realen Datenbereich wiedergeben.</li>
+  </ul>
+
+  <p><span class='headerInParagraph'>Um dies zu beheben::</span></p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfe: Ordner öffnen: Anwenderdateiordner</b> im Hauptmenü.</li>
+
+    <li>Suchen Sie die benutzerdefinierte Diagrammmvorlage.</li>
+
+    <li>Benennen Sie die Vorlage um.</li>
+  </ol>
+
+  <h4><a name="Check_if_a_new_System_Theme_is_set"></a><span class="mw-headline">Prüfen, ob ein neues Systemdesign festgelegt ist</span></h4>
+
+  <p>Dies ist selten. Eventuell haben Sie ein Diagrammdesign mit fixiertem Achsenbereich etc. gespeichert und es als Systemdesign festgelegt. Wenn Sie dann mit der Standarddiagrammvorlage zeichnen, wird dieses Systemdesign automatisch auf das Diagramm angewendet und kann einige Probleme verursachen.</p>
+
+  <p><span class='headerInParagraph'>Um dies zu beheben::</span></p>
+
+  <ol>
+    <li>Wählen Sie <b>Einstellungen: Designs verwalten</b>.</li>
+
+    <li>Prüfen Sie, ob auf der Registerkarte <b>Diagramm</b> das fett markierte Design nicht <b>Light Grids</b> ist. Wenn ein benutzerdefiniertes Design fett ist,
+
+      <ul>
+        <li>klicken Sie mit der rechten Maustaste auf das benutzerdefinierte Design und wählen Sie <b>Bearbeiten</b>, um zu prüfen, was sich hinter dem Design verbirgt.<br>
+        <i>Oder</i></li>
+
+        <li>Klicken Sie mit der rechten Maustaste auf das Design <b>Light Grids</b> und legen Sie es als Systemdesign fest, um zur Standardeinstellung zurückzukehren.</li>
+      </ul>
+
+      <p>Versuchen Sie, erneut zu zeichnen.</p>
+    </li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>falsche Daten abrufen, Zeichnen schlägt fehl, Zeichnung passt nicht zur Quelle, falsche Skalierung, Zeichnung verschwindet</span></p>

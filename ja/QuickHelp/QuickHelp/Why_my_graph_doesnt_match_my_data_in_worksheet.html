@@ -1,0 +1,65 @@
+﻿<h1 class="firstHeading">FAQ-1224 なぜグラフがワークシートのデータと一致しないのでしょうか。</h1><p class='urlname' style='display: none'>Graph-Not-Match-Data</p>
+<p class='faqID'>最終更新日：2025/8/19</p>
+<p>グラフがソースのワークシートのデータと一致しない場合、以下の点を確認してトラブルシューティングを行ってください。
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Check_if_worksheet_data_is_in_the_correct_format"><span class="tocnumber">1</span> <span class="toctext">ワークシートのデータが正しい形式か確認する</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Check_if_X_column_is_set_properly"><span class="tocnumber">2</span> <span class="toctext">X列が正しく設定されているか確認する</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Check_if_built-in_template_has_been_overridden"><span class="tocnumber">3</span> <span class="toctext">組み込みテンプレートが上書きされていないかを確認する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Check_if_a_new_System_Theme_is_set"><span class="tocnumber">4</span> <span class="toctext">新しいシステムテーマが設定されていないか確認する</span></a></li>
+</ul>
+</div>
+
+<h4><a name="Check_if_worksheet_data_is_in_the_correct_format"></a><span class="mw-headline">ワークシートのデータが正しい形式か確認する</span></h4>
+<p>ソースのワークシートのデータが左揃えになっている場合、それはテキスト形式であり、数値形式（デフォルトでは右揃え）ではありません。 
+Note: 左揃えかどうか確認するには、列の幅を調整する必要がある場合があります。 
+</p><p><span class='headerInParagraph'>修正方法 </span>
+</p><p>列を右クリックして、<b>プロパティ</b>を選択します。<b>列プロパティ</b>ダイアログで、<b>フォーマット</b>が正しく設定されていることを確認します。 
+</p>
+<dl><dd><a  class="image"><img alt="Text vs Numeric FAQ1224.png" src="../images/Why_my_graph_doesnt_match_my_data_in_worksheet/700px-Text_vs_Numeric_FAQ1224.png" width="700"   /></a></dd></dl>
+<h4><a name="Check_if_X_column_is_set_properly"></a><span class="mw-headline">X列が正しく設定されているか確認する</span></h4>
+<p>グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。左側のパネルで、XとYに使用されている列を確認できます。 
+</p>
+<dl><dd><a  class="image"><img alt="Check X Column FAQ1224.png" src="../images/Why_my_graph_doesnt_match_my_data_in_worksheet/Check_X_Column_FAQ1224.png" width="558"  /></a></dd></dl>
+<p>Xになるはずの列がXに設定されていない場合、Originは自動的にY列の左側に最も近いX列を使用します。シートにX列がない場合、行インデックス（&lt;自動&gt;）が使用されます。 
+</p><p><span class='headerInParagraph'>修正方法 </span>
+</p>
+<ul><li> X列として設定したい列を右クリックし、ミニツールバーで<b>X</b>ボタンをクリックしてX列として設定し、再度プロットします。 </li></ul>
+<p><i>または、 </i>
+</p>
+<ul><li> 既存のグラフでプロットを右クリックし、<b>X/Yを変更</b>を選択して正しいX/Y列を選択します。</li></ul>
+<h4><a name="Check_if_built-in_template_has_been_overridden"></a><span class="mw-headline">組み込みテンプレートが上書きされていないかを確認する</span></h4>
+<p>組み込みのグラフタイプメニューを使用してプロットを作成したが、期待通りにプロットされない場合、ユーザファイルフォルダ（UFF）に同じ名前のユーザ定義テンプレートが保存されている可能性があります。このユーザー定義のテンプレートが優先されて使用されます。問題がある場合として以下のようなことがあります。 
+</p>
+<ul><li> テンプレートがクローン可能なテンプレートとして保存されているため、列の選択が無視される。</li>
+<li> 軸が固定または手動設定されているため、実際のデータ範囲が反映されない。</li></ul>
+<p><span class='headerInParagraph'>修正方法</span>
+</p>
+<ol><li> <b>ヘルプ：フォルダを開く：ユーザファイルフォルダ</b>メニューでUFFを開きます。 </li>
+<li> ユーザ定義のグラフテンプレートを見付けます。</li>
+<li> テンプレートの名前を変更します。</li></ol>
+<h4><a name="Check_if_a_new_System_Theme_is_set"></a><span class="mw-headline">新しいシステムテーマが設定されていないか確認する</span></h4>
+<p>これは稀なケースです。しかし、グラフテーマを保存して、軸範囲などが固定された状態でシステムテーマとして設定した場合等で起こる場合があり、組み込みグラフテンプレートでプロットを作成すると、そのシステムテーマが自動的に適用され、問題が発生することがあります。 
+</p><p><span class='headerInParagraph'>修正方法</span>
+</p>
+<ol>
+<li> <b>環境設定：テーマオーガナイザ</b>を選択します。 
+<li> <b>グラフ</b>タブで、太字のテーマが<b>Light Grids</b>でないか確認します。ユーザ定義のテーマが太字の場合、 
+<ul>
+<li>ユーザ定義のテーマを右クリックし、<b>編集</b>を選択してテーマの内容を確認します。
+<br /><i>または、</i> 
+<li><b>Light Grids</b>テーマを右クリックし、組み込みのデフォルトにロールバックするためのシステムテーマとして設定します。 
+</ul>
+<p>再度プロットを試みます。
+</p>
+</li></ol>
+<hr class='keywordshr'><p><span class='keywords'>キーワード：</span><span class='keywordsInput'>正しいデータを取得しない, プロットを作成できない, プロットソースと一致しない, プロットのスケールが正しくない, プロットが表示されない<keywords></span></p>
+
+
+
+
+
+
+
+    

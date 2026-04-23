@@ -1,0 +1,31 @@
+﻿<h1 class="firstHeading">FAQ-869 なぜエクスポートされたグラフの線がギザギザなのでしょうか？</h1><p class='urlname' style='display: none'>why-line-jagged</p>
+<p class='faqID'>最終更新日：2025/9/15</p>
+<h5><a name="If_your_data_has_high_resolution"></a><span class="mw-headline">データの解像度が高い場合</span></h5>
+<ul><li>データの解像度が高い場合、例えば1E-5以上の場合、グラフ上で線がギザギザ見えることがあります。 </li></ul>
+<dl><dd>この場合、データに対応するためにグラフの解像度を上げる必要があります。エクスポートオプションを設定する際に、DPI 解像度を高く設定してください。</dd>
+<dd>また、2025b以降では、グラフをアクティブにして<b>フォーマット: ページDPIの変更</b>を選択することもできます。</dd></dl>
+<p><br />
+Originには、グラフ内の線をより滑らかに表示するアンチエイリアシング機能をサポートしています。ただし、場合によっては、エクスポート中にアンチエイリアスがオフになることがあります。
+</p>
+<h5><a name="If_you_export_a_2D_graph"></a><span class="mw-headline">2Dグラフをエクスポートする場合</span></h5>
+<ul><li>2Dグラフをラスタイメージタイプ（JPG、PNG、PCX、BMP、PSD、GIF、TIFFなど）にエクスポートする場合</li></ul>
+<dl><dd>エクスポートされたグラフのアンチエイリアス状態（オン/オフ）は、グラフ内の線に対してアンチエイリアスを有効にしているかどうかで決定されます。例えば、2Dグラフを TIFF 形式でエクスポートし、線を滑らかに見せたい場合は、Originで2D グラフのアンチエイリアスを有効にしてから（<b>アンチエイリアシングの有効／無効</b>ボタン<a  class="image"><img alt="Button Enable Anti-Aliasing.png" src="../images/Why_do_lines_in_my_graph_export_look_jagged/Button_Enable_Anti-Aliasing.png" width="24"  /></a>をクリック）、エクスポートしてください。</dd></dl>
+<ul><li>2Dグラフをベクターイメージタイプ（WMF、EMF、DXF、EPSなど）にエクスポートする場合</li></ul>
+<dl><dd>アンチエイリアスがオフになっていても、十分に高品質なグラフがエクスポートされます。逆にアンチエイリアスをオンにすると画質はわずかに改善されますが、ファイルサイズが大幅に増加します。そのため、ベクター形式にエクスポートする場合は、グラフでアンチエイリアスをオンにしていても、常にアンチエイリアスをオフにしています。</dd></dl>
+<dl><dd><table class="note">
+
+<tr>
+<td><b>Note:</b> <a class="external text" href="../../UserGuide/UserGuide/Set_System_Variables_Dialog_Box.html"><b>システム変数を設定</b>ダイアログ</a>を使用して、ベクター形式でエクスポートするときにアンチエイリアスをオンにすることもできます。<b>環境設定：システム変数</b>を選択してダイアログを開きます。EAA = 1 に設定します。
+</td></tr></table></dd></dl>
+<h5><a name="If_you_export_a_3D_OpenGL_graph"></a><span class="mw-headline">3D OpenGLグラフをエクスポートする場合</span></h5>
+<p>3D グラフをラスター形式でもベクター形式でもエクスポートする際、アンチエイリアスは常にオンになります。
+</p>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>アンチエイリア, 線のステップ, ギザギザの線</span></p>
+
+
+
+
+
+
+
+    

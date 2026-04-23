@@ -1,0 +1,44 @@
+﻿<h1 class="firstHeading">FAQ-1198 同時起動ライセンスで誰がライセンスを使用しているかを知るにはどうしたらよいでしょうか？</h1>
+<p class='urlname' style='display: none'>Perform-License-Status-Enquiry-on-Client</p>
+<p class='faqID'>最終更新日：2024/7/10</p>
+<p>同時起動型ライセンスは、購入した数のライセンスがクライアント間でフローティングで割り当てられることを意味します。同時起動型ライセンスを使用している場合、その時点に誰がライセンスを使用しているかを、特に利用可能なすべてのライセンスが使用されているときに知りたい場合があります。</p>
+<p>同時起動型ライセンスの管理者は、LMTOOLSを開き、Server Statusタブの<b>Perform Status Enquiry</b>で確認できます。出力テキストの最後に、ライセンスのチェックアウトステータスが表示されます。</p>
+<p>クライアント側で、クライアントコンピュータからライセンスステータスを照会する場合、次のいずれかの方法で行います。</p>
+<p><span class='headerInParagraph'>方法1</span></p>
+<ol>
+<li><b>LMTools.exe</b>ファイルをクライアントコンピュータにコピーする。</li>
+<li>LMTOOLSを開き、Service/License Fileタブを開きます。</li>
+<li><b>Configuration using License File</b>ラジオボタンを選択します。</li>
+<li>編集ボックスに以下のように入力します。<br />
+<code>@SERVERNAME</code> または <code>@IP_Address_Of_Server</code><br />
+ここで、<i>SERVERNAME</i>はライセンスサーバ名で、始めに “@” 記号を付けます。たとえば、ライセンスサーバー名「OriginServer」の場合次のように設定します。
+<dl>
+<dd><a class="image"><img alt="Config using Lic File FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Config_using_Lic_File_FAQ_1198.PNG" width="687" /></a></dd>
+</dl>
+</li>
+<li>Server Statusタブで、<b>Perform Status Enquiry</b> ボタンをクリックすると、出力サーバーステータスに、現時点でライセンスを使用しているクライアントが表示されます。
+<dl>
+<dd><a class="image"><img alt="Server Status Enquiry FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Server_Status_Enquiry_FAQ_1198.PNG" width="673" /></a></dd>
+</dl>
+</li>
+</ol>
+<p><span class='headerInParagraph'>方法2</span></p>
+<ol>
+<li><b>lmstat.exe</b>ファイルをクライアントコンピュータにコピーします。このファイルは、ライセンスマネージャフォルダの下の<i>\Tools\Command line</i>フォルダにあります。</li>
+<li>テキストエディタ(例:メモ帳)を開き、次のコマンドラインを入力して.batファイルとして保存します。
+<pre class="lt" style="font-family:monospace;">
+@echo off 
+<span style="color: #000080;">&lt;</span>path_to_lmstat.<span style="color: #000080;">exe</span><span style="color: #000080;">&gt;</span>\lmstat.<span style="color: #000080;">exe</span> <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #000080;">&lt;</span>port_no.<span style="color: #000080;">&gt;</span>@SERVERNAME 
+pause
+</pre>
+<p><br />
+ここで、<i>&lt;path_to_lmstat.exe&gt;は</i>クライアントコンピュータ上の<b>lmstat.exe</b>ファイルへのパス、<i>servername</i>はライセンスサーバー名、<i>port_no.</i>はlmgrd.exeが使用するポート番号です。デフォルトポート27000を使用する場合は省略できますが、"@"記号は省略できません。たとえば、<b>lmstat.exe</b>ファイルをフォルダパス<i>C:\Tools\OriginLicenseServer\command line\</i>にコピーし、ライセンスサーバー名「OriginServer」でポート27001を使用する場合、.batファイルに次の行を入力します。</p>
+<pre class="lt" style="font-family:monospace;">
+@echo off 
+<span style="color: #ff00ff;">"C:\Tools\OriginLicenseServer\command line\lmstat.exe"</span>  <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #0000dd;">27001</span>@OriginServer
+pause
+</pre></li>
+<li>この.batファイルをダブルクリックしてステータスを確認できます。</li>
+</ol>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span><span class='keywordsInput'>同時起動, ライセンス管理, ライセンスチェックアウトステータス, ライセンス状況, ライセンス使用状況の管理</span></p>

@@ -1,0 +1,21 @@
+<h1 class="firstHeading">6.109 FAQ-1197 我看到“Lost connection to lmgrd, heartbeat timeout expired, existing. EXITING DUE TO SIGNAL 28 Exit reason 5”这样的错误信息，应该怎么解决？</h1><p class='urlname' style='display: none'>Lost-Connection-to-Lmgrd</p>
+<p class='faqID'>Last Update: 10/25/2024</p>
+<p>如果您启动 FLEXnet 许可证服务失败并在日志文件中看到以下错误消息：
+</p><p><code>
+10:38:30 (lmgrd) Lost connection to lmgrd, heartbeat timeout expired, exiting.</code><br />
+<code>10:38:30 (lmgrd) Heartbeat timeout is 300 seconds. Elapsed time is 16528 seconds.</code><br />
+<code>10:38:30 (lmgrd) EXITING DUE TO SIGNAL 28 Exit reason 5</code><br />
+<code>10:38:30 (lmgrd) orglab exited with status 28 (Communications error) </code>
+</p><p><br />
+连接断开可能是由服务器和客户端之间的防火墙引起的。<br /> 
+<span class='headerInParagraph'>如何解决这个问题：</span>
+</p><p>请根据<a class="external text" href="https://www.originlab.com/doc/License/Concurrent-Additional-Info#Allowing_Access_through_a_Firewall" target="_blank">此文档</a>使许可证服务器通过防火墙访问。
+</p><p>注意，在第一步 “At the Firewall”，当打开指定端口时，请确保对可能中断服务器和客户端连接的每个防火墙都这样做。例如，在服务器电脑上，除了 Windows 内置防火墙，电脑上安装的病毒软件可能还建了一个防火墙。在这种情况下，需要在两个防火墙中关闭指定端口的监控。 
+</p>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>concurrent, 网络版, -15, 10032, lmgrd is not running, Cannot connect to license server, 连接不上服务器, port or hostname in the license file has been changed, 端口或许可证文件中的主机名已更改, EXITING DUE TO SIGNAL 28, Exit reason 5, orglab exited with status 28, Communications error, 通信错误, Lost connection to lmgrd, heartbeat timeout expired <keywords></span></p>
+
+
+
+
+
+

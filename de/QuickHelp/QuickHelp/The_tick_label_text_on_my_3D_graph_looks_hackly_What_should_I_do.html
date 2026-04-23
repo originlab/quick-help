@@ -1,0 +1,28 @@
+﻿<h1 class="firstHeading">FAQ-1208 Der Text der Hilfsstrichsbeschriftung auf meinen 3D-Diagrammen sieht zackig aus. Wie kann ich dies verbessern?</h1>
+
+  <p class='urlname' style='display: none'>3D-Graph-Tick-Label-Anti-Aliansing</p> 
+
+  <p class='faqID'>Letztes Update: 17.11.2024</p>
+
+  <p>Wenn Sie merken, dass das Textobjekt, wie die Hilfsstrichsbeschriftungen in einem 3D-OpenGL-Diagramm, nicht gut aussehen, tun Sie Folgendes.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="3D Graph Text AA.png" src="../images/The_tick_label_text_on_my_3D_graph_looks_hackly_What_should_I_do/350px-3D_Graph_Text_AA.png" width="350"></a></dd>
+  </dl>
+
+  <p>Prüfen Sie bitte als Erstes, ob Ihre Grafikkarte die <a href="../../QuickHelp/QuickHelp/What_are_OpenGL_3D_graphs_requirements_and_limitations.html" title="QuickHelp:What are OpenGL 3D graphs requirements and limitations">Anforderungen von 3D-OpenGL</a> erfüllt und der Treiber korrekt installiert und auf Stand der aktuellen Version ist, da die Anzeige von 3D-OpenGL-Diagrammen sehr von der Grafikkarte abhängt.</p>
+
+  <p>Wenn alles in Ordnung ist, der Text aber immer noch schlecht aussieht, setzen Sie die Systemvariable <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#O">@OGLF</a> bitte auf 0. Das heißt:</p>
+
+  <ol>
+    <li>Wählen Sie im Menü <b>Einstellungen: Systemvariablen</b>.</li>
+
+    <li>Geben Sie im Dialog <b>Systemvariablen festlegen</b> „OGLF“ in <b>Variable</b> ein und setzen Sie den <b>Wert</b> auf 0.</li>
+  </ol>
+
+  <dl>
+    <dd><a class="image"><img alt="3D Graph Text AA System Variable.png" src="../images/The_tick_label_text_on_my_3D_graph_looks_hackly_What_should_I_do/3D_Graph_Text_AA_System_Variable.png" width="371"></a></dd>
+  </dl>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>3D-OpenGL, Hilfsstrichsbeschriftung, Text, zickzack</span></p>

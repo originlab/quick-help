@@ -1,0 +1,64 @@
+<h1 class="firstHeading">2.143 FAQ-1223 如何创建 Google client_id 以使用 Origin 的 Google Drive 云工具？</h1><p class='urlname' style='display: none'>Create-Google-API-Key</p>
+<p class='faqID'>Last Update: 11/12/2025</p>
+<p>Google Drive 云工具（连接到云菜单和打开云文件工具栏按钮）默认使用 Origin 的 client_id。所有 Origin 用户共享此权限。Google 对访问数量设置了全局限制，目前已达上限，Origin 暂时无法增加数量。
+</p><p>以前未曾访问过的用户无法使用 Origin 的 client_id 访问（曾经成功访问​​过的用户仍然可以访问）。
+</p><p>如果你看到如下的错误信息：
+</p>
+<dl><dd><a  class="image"><img alt="Google API key blocked.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_key_blocked.png?v=14894" width="632"  /></a></dd></dl>
+<h2><a name=".E5.8F.AF.E4.BB.A5.E5.B0.9D.E8.AF.95:"></a><span class="mw-headline">可以尝试:</span></h2>
+<ol>
+<li>根据以下步骤创建自己的 client_id&#160;:
+<ol>
+<li>使用你的 Google 账号登录 <a class="external text" href="https://console.developers.google.com/" target="_blank">Google API Console</a> （不需要和登录 Origin 云连接器的用户名相同）。
+<li>点击左上角的 "project" 按钮，然后在弹出的对话框点击 "New project" 按钮去创建新项目。
+<dl><dd><a  class="image"><img alt="Google API Create Project.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Create_Project.png?v=14895" width="600"  /></a></dd></dl>
+<li>在左侧菜单点击 "APIs &amp; services" &gt; "Enable APIs and services"。
+<li>在 API Library 找到 "Google Drive API" 并点击。
+<li>在 "Product details" 页面点击 Enable 按钮。
+<dl><dd><a  class="image"><img alt="Google API Enable.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Enable.png?v=14896" width="646"  /></a></dd></dl>
+<li>在左侧面板点击 "Credentials"，然后在顶部点击 "+Create credentials"，在弹出菜单里选择 "API key"。
+<dl><dd><a  class="image"><img alt="Google API key.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_key.png?v=14897" width="615"  /></a></dd></dl>
+<br /><span class='headerInParagraph'>把弹出对话框上的 "API key" 记下来。</span>
+<li>再次点击 "+Create credentials" 然后选择 "OAuth client ID"。点击 "Configure Consent Screen"。在 "OAuth Overview" 页面点击 Get started 按钮设置项目配置。
+<dl><dd><a  class="image"><img alt="Google API OAuth client ID.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_OAuth_client_ID.png?v=14898" width="608"  /></a></dd></dl>
+<li>在 "Project configuration" 页面输入应用程序名称，如 "Origin web connector"。
+然后在 "User support mail" 编辑框选择当前账号。
+点击 Next 按钮。
+<li>Audience 选 "External"，点击下一步。
+<li>在 "Developer contact information" 输入电子邮箱地址，然后点击下一步。
+<li>查看并同意 "Google API Services User Data Policy"，然后点 "CONTINUE" 按钮。
+<li>点击 "Create" 按钮。
+<dl><dd><a  class="image"><img alt="Google API Project Configuration.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Project_Configuration.png?v=14899" width="500"  /></a></dd></dl>
+<li>点击 "Create OAuth client" 按钮。
+<li>应用程序的类型选择 "Desktop app" ，然后设一个名字（可以使用默认的），点击 "Create" 按钮。
+<br /><span class='headerInParagraph'>把弹出对话框上的 "Client ID" 和 "Client secret" 记下来。</span>
+<li> 在左侧面板选择 "Audience"，然后点击 "Publish app" 按钮。在弹出对话框点 "Confirm" 按钮。
+<dl><dd><a  class="image"><img alt="Google API Publish app.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Publish_app.png?v=14900" width="561"  /></a></dd></dl>
+<li>通过左上角的导航菜单回到 "APIs &amp; Services" 页面。
+<li>在右上角点击 "..." 按钮，然后选 "Project settings"。
+<dl><dd><a  class="image"><img alt="Google API Project settings.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Project_settings.png?v=14901" width="600"  /></a></dd></dl>
+<br /><span class='headerInParagraph'>记下这个项目号码(AppID)。</span>
+</ol>
+<li>确保 关掉了 Origin。更新 <code>&lt;Origin UFF&gt;/OCloud.ini</code> （如果没有就创建这个 ini 文件）。 <br />其中的 [<b>GoogleDrive</b>] 章节如下:
+<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">&#91;</span>GoogleDrive<span style="color: #000000;">&#93;</span>
+AppID<span style="color: #000080;">=</span>USER_APP_IDD
+ClientID<span style="color: #000080;">=</span>USER_CLIENT_ID
+ApiKey<span style="color: #000080;">=</span>USER_API_KEY
+ClientSecret<span style="color: #000080;">=</span>USER_CLIENT_SECRET</pre>
+<li><font color="blue">如果你想云连接到 Googlesheet，还需要做这些步骤：</font>
+<ol>
+<li>回到 <a class="external text" href="https://console.developers.google.com/" target="_blank">Google API Console</a>。
+<li>在左侧面板选 "Enabled APIs &amp; services"，然后点击 "Enable APls and services"。
+<li>搜索 "Google Sheets API"
+<li>点击 "ENABLE"。
+<br /><a  class="image"><img alt="Google Sheet API Enable.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_Sheet_API_Enable.png?v=14902" width="800"  /></a>
+</ol></li>
+<li>现在打开 Origin 尝试连接。
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>连接到 Google, connect to Google, 从 Google Drive 导入, import from Google Drive, 云连接器, cloud connector, Google API 密钥, Google API Key, 此应用已被屏蔽, This app is blocked, 试图访问 Google 帐户中的敏感信息, tried to access sensitive info in Google Account, 保护账号安全, keep account safe, Google 已阻止此访问, Google blocked this access<keywords></span></p>
+
+
+
+
+
+

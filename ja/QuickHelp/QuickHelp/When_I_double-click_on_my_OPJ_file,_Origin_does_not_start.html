@@ -1,0 +1,43 @@
+﻿<h1 class="firstHeading">FAQ-17 OPJファイルをダブルクリックしたときにOriginを起動できない場合、どのようにしたらよいのでしょうか。</h1><p class='urlname' style='display: none'>Double-Click-Open-Failed</p>
+<p class='faqID'>最終更新日：2025/10/8</p>
+<p>この問題はWindows Vista以降、発生しており、Origin固有の問題ではありません。通常、エラーメッセージは、「<b><b>プログラムにコマンドを送信しているときに、エラーが発生しました。</b></b>」というものです。これはいくつかのPCで起こっており、まだ完全に解決されていません。以下の対処方法をお試しいただき、メッセージが表示されなくなるか確認してください。
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/When_I_double-click_on_my_OPJ_file,_Origin_does_not_start/Mini_bulb.png" /></td><td><p>Origin EXEファイルのデフォルトの場所は、C:\Program Files\OriginLab\OriginXXXX\ です。
+<p>ここで、XXXXはバージョン番号です（例：2025または2025b）。
+</p>
+</p></td></tr></table>
+<h2><a name="Suggestion_1"></a><span class="mw-headline">Suggestion 1</span></h2>
+<p>OPJ(U)ファイルを開くときに使用する規定のプログラムを指定する
+</p>
+<ol><li> Origin EXEを右クリックし、<b>管理者として実行</b>を選択してOriginを一度実行し、終了します。</li>
+<li> OPJ(U)ファイルを右クリックして、<b>プログラムから開く：別のプログラムを選択</b>を選択します。 </li>
+<li>Originのショートカットを選択し、「常にこのアプリを使ってファイルを開く」にチェックを入れます。 </li>
+<li> Origin9.0以降、64bit版をサポートしています。64bitOSの場合、デフォルトで32、64bit版のOrigin双方がインストールされます。規定のプログラムをOrigin##_64.exeからOrigin##.exeに変更することでエラーが表示されなくなったといういくつかの報告もあります。Origin 2020以降では、32bit版のサポートを終了したため、これは適用されません。</li></ol>
+<h2><a name="Suggestion_2"></a><span class="mw-headline">Suggestion 2</span></h2>
+<p>レジストリのDDE設定をクリア
+</p>
+<ol><li>Originを管理者として起動し、メニューから<b>ウィンドウ：スクリプトウィンドウ</b>を選択してコマンドウィンドウを開きます。</li>
+<li> コマンド <b>doc -ddde 1</b> を入力してEnterキーを押してください。<b>ddde</b>は、DDEを無効にします。
+</li>
+<li> ポップアップしたメッセージに従い、Originを閉じ、Originを管理者として実行で再度起動します。Originを閉じます。</li></ol>
+<h2><a name="Suggestion_3"></a><span class="mw-headline">Suggestion 3</span></h2>
+<p>Origin exeファイルの互換性の設定が変更されていないか確認
+</p>
+<ol><li> Originを終了し、WindowsエクスプローラでOrigin EXEファイルを表示します。 </li>
+<li> Origin exeファイル上で右クリックして、<b>プロパティ</b>を選択します。</li>
+<li> <b>互換性</b>タブで、すべてのチェックボックスがチェックされていない事を確認し、OKボタンをクリックします。</li>
+<li>Origin EXEファイルを右クリックし、<b>管理者として実行</b>を選択して起動します。</li></ol>
+<p>Origin 9.0 ～ 9.7の場合、64bitOSのPCでは32/64bit版Origin双方がインストールされますので、この操作を双方 (Origin<i>##</i>.exe と Origin<i>##</i>_64.exe)に対して行ってください。
+</p><p><br />
+</p><p><br />
+Origin 9.0とOrigin 7.5の両方など、同じPC上にOriginの2つのバージョンがある場合(Windows Vista、7、8、8.1、または10)opjをダブルクリックすると、Origin 9.0ではなくOrigin 7.5が起動する場合は、以下の操作をお試しください。
+</p>
+<ol><li>Origin 7.5とOrigin 9.0の両方を終了します。</li>
+<li>Originのインストールフォルダから、Origin 9.0 EXE ファイルを探します。</li>
+<li>EXEファイル上で右クリックして、<b><b>管理者として実行</b></b>を選択します。 </li></ol>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>インストール, OPJ, スタートアップ, プロジェクトファイル, 空白, ウィンドウなし, 空</span></p>
+
+
+
+    

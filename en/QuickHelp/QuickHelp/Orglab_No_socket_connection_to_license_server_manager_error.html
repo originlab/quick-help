@@ -1,0 +1,25 @@
+<h1 class="firstHeading">6.114 FAQ-1229 I get a "orglab: No socket connection to license server manager" error. What should I do?</h1><p class='urlname' style='display: none'>No-socket-Connection-to-License-server-manager</p>
+<p class='faqID'>Last Update: 12/18/2025</p>
+<p>If you fail to start the FLEXnet license server and see the following error message in the Server Status tab of LMTools:
+</p>
+<pre class="lt" style="font-family:monospace;">Vendor daemon status<span style="color: #000000;">:</span>
+    orglab<span style="color: #000000;">:</span> No socket connection to license server manager. <span style="color: #000000;">&#40;</span><span style="color: #000080;">-</span><span style="color: #0000dd;">7</span>,<span style="color: #0000dd;">10015</span><span style="color: #000000;">&#41;</span></pre>
+<p>This error may be caused by several possible reasons such as read/write/execution privileges or a firewall block.
+</p><p><span class='headerInParagraph'>To troubleshoot this problem: </span>
+</p>
+<ul>
+<li>Please first look at the Network License Manager's log file (its path can be found in Config Services tab of LMTools) and check if an obvious error is logged. For example, if you find something like
+<code> 11:20:00 (lmgrd) orglab exited with status 45 (Child cannot exec requested server)</code><br />
+in the log file, it indicates that the orglab file lacks execute permission. Granting that permission usually solves the problem. </li>
+<li>If the log gives no clear clue, please try the following possible reasons. 
+<ul><li> The required ports are already in use.</li>
+<li> Security software or a firewall blocks orglab from communicating with clients.</li></ul>
+For either case, choose a different port in the license file and open that port in the active firewall that may break the connection. Please follow <a class="external text" href="https://www.originlab.com/doc/License/Concurrent-Additional-Info#Allowing_Access_through_a_Firewall" target="_blank">this document</a> to allow your license server access through firewall. Note that PC may have more than one firewall, which often happens if an antivirus software is installed with its own firewall. In this case, the Windows built-in firewall is disable, and you only need to turn off monitoring for the specified ports in the antivirus firewall.
+</li></ul>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>concurrent, lmgrd not running, Cannot connect to license server, specified in the license file is not available in the local network database, -96, No such file or directory, Communications error, Lost connection to lmgrd, -7,10015<keywords></span></p>
+
+
+
+
+
+

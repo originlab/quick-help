@@ -1,0 +1,93 @@
+﻿<h1 class="firstHeading">FAQ-1218 自動保存が機能しないのはなぜですか？</h1>
+<p class='urlname' style='display: none'>Auto-Save-Not-Work</p>
+<p class='faqID'>最終更新日：2025/6/6</p>
+<p>Origin 2025以前のバージョンをご利用のお客様より、「<b>環境設定：オプション</b>ダイアログで<b>自動セーブする間隔</b>が有効になっているにもかかわらず、自動保存が機能しない」という報告を受けています。Origin 2025b では自動保存の挙動がより適切になるよう、いくつかの改善および不具合修正が行われました。 自動保存の問題がある場合は、Origin 2025b へのアップグレードをお勧めします。</p>
+<p>自動保存の基本ルール：</p>
+<ul>
+<li>プロジェクトに変更が加えられ（「ダーティ」な状態になり）、指定したx分が経過すると、Autosave\ フォルダに自動保存ファイルが作成されます。</li>
+<li>自動保存されたファイルは、Origin がクラッシュした場合や予期せぬ終了（停電など）のみ保持されます。プロジェクトを手動で保存した場合、またはOriginが正常に終了する際に保存を促すダイアログで保存を行った場合、自動保存ファイルは削除されます。</li>
+<li>安全対策として、x分が経過して保存しないことを選択した場合、最後の自動保存ファイルが Autosave\ フォルダに <b>Last-AutoSave.OPJU</b> としてリネームされます。これは削除されません。これによりファイルを修復できます。自動保存ファイルは新しいもので上書きされ、保存しない選択をした場合は、毎回この処理が行われます。</li>
+</ul>
+<p><br />
+以下はその詳細な事例です。この説明と回避策は以前のバージョンで提供されているものです。</p>
+<h4><a name="Project_File_with_OPJ_Extension_Not_Autosaved" id="Project_File_with_OPJ_Extension_Not_Autosaved"></a><span class="mw-headline">OPJ拡張子のプロジェクトファイルが自動保存されない</span></h4>
+<p>Origin 2025b以前では、新しい形式（OPJU拡張子）のみが自動保存の対象です。古い形式（<b>OPJ</b>拡張子）のファイルは自動保存されません。Origin 2025bからは、OPJファイルもOPJU形式で自動保存されます。</p>
+<p>Origin 2025以前での回避策: OPJファイルを開いた後、まずOPJUとして保存します。</p>
+<p><br /></p>
+<h4><a name="Project_File_with_OPJU_Extension_Not_AutoSaved" id="Project_File_with_OPJU_Extension_Not_AutoSaved"></a><span class="mw-headline">OPJU拡張子のプロジェクトファイルが自動保存されない</span></h4>
+<p>原因としては、次のようなものが考えられます。</p>
+<ul>
+<li>System Variable @ASC=0</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>@ASC は、自動保存のリマインダーを表示するためのプロジェクトサイズ（MB）を指定します。デフォルトは@ASC=20MBです。指定サイズ未満のファイルは、リマインダーなしで自動保存されます。大きいファイルの場合、x分経過後にリマインダーが表示されます。</li>
+</ul>
+</dd>
+<dd><a class="image"><img alt="Autosave reminder.png" src="../images/Why_Autosave_fails_to_work/Autosave_reminder.png" width="428" /></a></dd>
+<dd>@ASC を0に設定すると、すべてのサイズのプロジェクトでリマインダーが表示されるはずですが、これが原因で自動保存が動作しない場合があります。Origin 2025以前での回避策: @ASCを0より大きく設定してください。</dd>
+</dl>
+<ul>
+<li>「すべてのプロジェクトで自動保存を有効にする」を選択した</li>
+</ul>
+<p>大きなプロジェクトに対して初めてリマインダーが表示された際、「<b>すべてのプロジェクトで自動保存を有効にする</b>（3番目のオプション）」を選ぶと、@ASC（デフォルトでは20MB）より大きいファイルは一度だけ自動保存されます。そしてそれ以降、自動保存はこのプロジェクトと他の大規模なプロジェクトの両方で動作しなくなります。小さなプロジェクトファイル（@ASCより小さいサイズ）では問題はおこりません。</p>
+<dl>
+<dd>
+<ul>
+<li>Origin はディスク上のファイルサイズではなく、メモリ上のサイズで判定します。ディスク上で10MBのファイルでも、Originで開くと20MBを超えることがあります。<b>プロジェクトエクスプローラ</b>でルートフォルダにマウスを当てると、メモリ上のサイズがツールチップに表示されます。メモリ上のサイズは20MBを超えている可能性があります。すべてのプロジェクトで自動保存が有効になっている場合、プロジェクトは自動保存に失敗します。</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>Origin 2025以前での回避策: スクリプトウィンドウで「doc-cac」を実行し、<b>すべてのプロジェクトで自動保存が有効にする</b>になっていることを確認します。有効になっている場合は、<b>環境設定：システム変数メニューを選択します。システム変数 ASC</b> に十分大きな値を設定してください。<b>（例：10000 = 10GB）これにより指定したサイズ以下のファイルはx分ごとに自動的に保存されます。</b></li>
+<li>Origin 2025bではバグが修正されているため、3番目のオプションを選択しても問題は発生しません。新しいシステム変数@ASS=1を使用して、すべてのプロジェクトで自動保存をオンにすることもできます。</li>
+</ul>
+</dd>
+</dl>
+<p>推奨事項: PCで大きなプロジェクトを自動保存するのに時間がかかる場合は、1分ごとなど、頻繁に自動保存を設定しないことをお勧めします。</p>
+<h4><a name="Useful_System_Variables" id="Useful_System_Variables"></a><span class="mw-headline">役立つシステム変数</span></h4>
+<p>自動保存の問題のトラブルシューティングやデバッグのヘルプに役立つシステム変数</p>
+<p><br />
+<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASM</span></a></p>
+<ul>
+<li>@ASM=1 を設定してデバッグできます。子ウィンドウで何も選択しないで、マウスをワークスペースの灰色の領域に移動します。自動保存メッセージがステータスバー（左下）に表示され、自動保存が機能するか失敗するかを通知します。</li>
+</ul>
+<pre class="lt" style="font-family:monospace;">
+Next autosave <span style="color: #000000;">(</span>sec<span style="color: #000000;">)</span><span style="color: #000000;">:</span> <span style="color: #0000dd;">690</span>
+</pre>
+<pre class="lt" style="font-family:monospace;">
+Project autosaved<span style="color: #000000;">:</span> C<span style="color: #000000;">:</span>\.....
+</pre>
+<pre class="lt" style="font-family:monospace;">
+autosave done, waiting for changes
+</pre>
+<p>自動保存が失敗した場合（例：@ASS=0 の状態で、@ASCより大きいプロジェクトを開いた場合など）、スクリプトウィンドウに次のようなメッセージが表示されます。</p>
+<pre class="lt" style="font-family:monospace;">
+Project too large <span style="color: #000000;">(</span>in memory<span style="color: #000000;">)</span> for autosave<span style="color: #000000;">:</span> 21MB
+</pre>
+<p><a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASS</span></a></p>
+<ul>
+<li>小さいプロジェクトファイルに対してのみ自動保存を設定するか、すべてのプロジェクトに対して自動保存を設定します
+<dl>
+<dd>0（デフォルト）：@ASCより小さいプロジェクトのみを自動保存。大きいファイルにはリマインダーを表示。</dd>
+<dd>1：すべてのプロジェクトで自動保存を有効にします。これは「すべてのプロジェクトで自動保存を有効にする」と同様です。旧バージョンの<code>SYSTEM.PROJECT.NOAUTOSAVEWITHSIZE = 1</code> および <code>system.project.NOASKAUTOSAVE = 1</code> で次のプロパティを設定するのと同じです。</dd>
+</dl>
+</li>
+</ul>
+<p><br />
+<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASP</span></a></p>
+<ul>
+<li>現在のプロジェクトの自動保存設定。プロジェクトファイルと一緒に保存されています。
+<dl>
+<dd>0（デフォルト）=グローバル設定に従う</dd>
+<dd>1=グローバル設定に関係なく、このプロジェクトのみ自動保存を無効</dd>
+<dd>2= このプロジェクトのみ常に自動保存（サイズ制限あり）</dd>
+<dd>4=リマインダー表示を抑制し、@ASCより大きいプロジェクトで自動保存を無効にする</dd>
+</dl>
+</li>
+</ul>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span><span class='keywordsInput'>ビッグデータ, 大きなファイル, 自動保存, 自動保存, 未保存, バックアップ, 保存, 20MB, 未保存, 復元</span></p>

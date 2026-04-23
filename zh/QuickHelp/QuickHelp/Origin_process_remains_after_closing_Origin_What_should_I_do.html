@@ -1,0 +1,27 @@
+<h1 class="firstHeading">5.88 FAQ-1213 关闭 Origin 后，Origin 进程仍然存在。我该怎么办？</h1><p class='urlname' style='display: none'>Origin-Process-Remain-After-Exit</p> 
+<p class='faqID'>Last Update: 5/21/2025</p>
+<p>如果 Origin 需要很长时间才能关闭，或者关闭 Origin 后仍在后台运行（可以在<b>任务管理器</b>中检查），请尝试以下解决方法：
+</p>
+<ol>
+<li>.通过在 Windows <b>开始</b>菜单中搜索 "Windows 安全中心" 来打开 <b>Windows 安全中心</b>，或者选择<b>开始</b>菜单 &gt; <b>设置</b>按钮 &gt; <b>更新和安全</b> &gt; <b>Windows 安全中心</b>来打开。
+<li> 选择<b>病毒和威胁防护</b>。
+<dl><dd><a  class="image"><img alt="Windows Security Virus Threat Protection.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Virus_Threat_Protection.png?v=14822" width="500"  /></a></dd></dl>
+<li> 点击<b>病毒和威胁防护设置</b> 后，滚动下来，在<b>排除</b>分组点击 <b>添加排除项</b>。
+<dl><dd><a  class="image"><img alt="Windows Security Add Remove Exclusions.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Remove_Exclusions.png?v=14823" width="500"  /></a></dd></dl>
+<li> 点击<b>添加排除项</b> 按钮，在菜单中选择 <b>文件夹</b> 去分布添加以下文件夹 (程序文件夹和用户文件夹等)作为排除项。
+<pre class="lt" style="font-family:monospace;">C<span style="color: #000000;">:</span>\Program Files\OriginLab  <span style="color: #008000;">//程序文件夹，会根据用户安装的位置而改变</span>
+C<span style="color: #000000;">:</span>\ProgramData\OriginLab  <span style="color: #008000;">//固定路径</span>
+C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">&#123;</span>YourAccountName<span style="color: #000000;">&#125;</span>\Documents\OriginLab  <span style="color: #008000;">//用户文件夹，会根据用户指定的位置而改变</span>
+C<span style="color: #000000;">:</span>\Users\<span style="color: #000000;">&#123;</span>YourAccountName<span style="color: #000000;">&#125;</span>\AppData\Local\OriginLab  <span style="color: #008000;">//相对固定路径</span></pre>
+<p><b>注意</b>：可以在 Origin 菜单<b>设置: 选项</b> 对话框&gt; 系统路径标签栏中查看。
+</p>
+<dl><dd><a  class="image"><img alt="Windows Security Add Path.png" src="../images/Origin_process_remains_after_closing_Origin_What_should_I_do/Windows_Security_Add_Path.png?v=14824" width="500"  /></a></dd></dl>
+<li> 启动 Origin，然后退出 Origin，以确保 Origin 进程退出速度比之前加快了。
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>Windows Security, 安全, run in background, 后台运行, quit, 退出, exit, slow, 慢, long time, 长时间<keywords></span></p>
+
+
+
+
+
+

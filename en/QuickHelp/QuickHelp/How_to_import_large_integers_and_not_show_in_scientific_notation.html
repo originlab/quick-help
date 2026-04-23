@@ -1,0 +1,40 @@
+<h1 class="firstHeading">2.140 FAQ-1217 How to import large integers and not show in scientific notation?</h1><p class='urlname' style='display: none'>Import-Large-Integer-not-in-Scientific-Notation</p> 
+<p class='faqID'>Last Update: 7/10/2025</p>
+<p>Two ways to import large integers displaying all the digits.
+</p>
+<h5><a name="Import_big_integer_as_Text"></a><span class="mw-headline">Import big integer as Text</span></h5>
+<p>By default, for integer larger than 15 digits, e.g. ID number etc. the integer will be imported as text so not converted to scientific notation e.g. 1E15, etc. In contrast, the big integer less than 15 digits will be imported as numeric and thus truncated by displaying in scientific notation.  
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<ul><li> A <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#B">system variable @BID</a> determines the threshold digit beyond which the big integer will be imported as Text. It sets to 15 by default. Therefore, if you want to display all the digits of big integers with less than 15 digits, e.g. "<i>35928471539682</i>", <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">set @BID to a smaller value</a>, e.g. 13. </li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h5><a name="Import_big_integer_as_Numeric"></a><span class="mw-headline">Import big integer as Numeric</span></h5>
+<p>From Origin 2025b, for big integers no more than 11 digits, you can show the full digits by setting <b>Decimal Places</b> to 0. That is,
+</p>
+<ol>
+<li> Double click on the column header to open the <b>Column Properties</b> dialog.
+<li> Under <b>Options</b> group, set as follow:
+<ul><li> <b>Format</b> = <b>Numeric</b> or <b>Text&amp;Numeric</b> </li>
+<li> <b>Digits</b> = <b>Set Decimal Places</b></li>
+<li> <b>Decimal Number</b> =  0 </li></ul>
+<a  class="image"><img alt="Big Integer Column Properties.png" src="../images/How_to_import_large_integers_and_not_show_in_scientific_notation/Big_Integer_Column_Properties.png?v=76830" width="369"  /></a>
+</li></ol>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<ul><li> When <b>Decimal Places</b> is set, a  <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#B">system variable @BIT</a> determines the threshold bigger than which the integer will show in scientific notation. It sets to 1E10 by default. Therefore, if you import integers bigger than 1E10 and want to import as numeric with full digits shown, <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">set @BIT to a larger value</a>, e.g. 1E20. </li></ul>
+</td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>big data, large no, import, copy paste, copy from Excel, clipboard, full digits, decimal, scientific notation, standard format<keywords>
+ </span></p>
+
+
+
+
+
+

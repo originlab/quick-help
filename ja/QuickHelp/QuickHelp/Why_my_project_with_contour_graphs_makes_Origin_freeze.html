@@ -1,0 +1,20 @@
+﻿<h1 class="firstHeading">FAQ-1225 等高線図のあるプロジェクトでOriginがフリーズするのはなぜですか？</h1>
+<p class='urlname' style='display: none'>Smooth-Contour-Freeze</p>
+<p class='faqID'>最終更新日：2025/8/28</p>
+<p>等高線図の描画速度が非常に遅い、あるいはOriginがフリーズする原因になっている場合は、等高線図のデータポイントの数が多すぎることが原因である可能性があります。</p>
+<h5><a name="To_fix_the_problem:" id="To_fix_the_problem:"></a><span class="mw-headline">この問題を解決するには、</span></h5>
+<ol>
+<li>システム変数 <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#T">@TCS</a> = 4000 に変更します。システム変数の値を変更する手順については、<a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="クイックヘルプ: システム変数の値を永続的に変更するには？">このFAQ</a>を参照してください。<br />
+@TCSはスピードモードをトリガーするデータポイント数のしきい値を制御するもので、Origin 2022以降、デフォルトで10,000に設定されています。値を4000などに減らすと、Originを高速化できます。</li>
+<li>等高線図のスムージングをオフにします。設定方法は以下の通りです。
+<ol>
+<li>等高線図をダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。</li>
+<li>等高線設定タブに移動し、<b>スムージング</b>オプションのチェックを外します。</li>
+</ol>
+<dl>
+<dd><a class="image"><img alt="Turn off Smoothing FAQ1225.png" src="../images/Why_my_project_with_contour_graphs_makes_Origin_freeze/Turn_off_Smoothing_FAQ1225.png" width="637" /></a></dd>
+</dl>
+</li>
+</ol>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span> <span class='keywordsInput'>コンター, 開けない, フリーズ, 固まる, 移動できない, ロードが遅い, 応答しない</span></p>

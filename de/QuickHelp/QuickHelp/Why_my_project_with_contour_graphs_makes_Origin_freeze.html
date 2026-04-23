@@ -1,0 +1,30 @@
+﻿<h1 class="firstHeading">FAQ-1225 Warum lässt mein Projekt mit Konturdiagrammen Origin abstürzen?</h1>
+
+  <p class='urlname' style='display: none'>Smooth-Contour-Freeze</p>
+
+  <p class='faqID'>Letztes Update: 28.08.2025</p>
+
+  <p>Wenn Sie merken, dass das Konturdiagramm sehr langsam ist oder Origin sogar zum Abstürzen bringt, kann dies an der übermäßigen Anzahl von Datenpunkten in der Kontur liegen.</p>
+
+  <h5><a name="To_fix_the_problem:"></a><span class="mw-headline">Um dieses Problem zu beheben:</span></h5>
+
+  <ol>
+    <li>Ändern Sie die Systemvariable <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#T">@TCS</a> in 4000. Lesen Sie <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">diese FAQ</a>, um zu erfahren, wie Sie den Wert ändern.<br>
+    @TCS steuert den Schwellenwert für die Anzahl von Datenpunkten, die den Entwurfsmodus auslösen. Der Standardwert liegt seit Origin 2022 bei 10.000. Das Reduzieren dieses Werts, zum Beispiel auf 4000, kann Origin beschleunigen.</li>
+
+    <li>Schalten Sie das Glätten der Kontur aus. Das heißt:
+
+      <ol>
+        <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf die Kontur.</li>
+
+        <li>Gehen Sie zur Registerkarte Kontur-Info und deaktivieren Sie die Option <b>Glätten</b>.</li>
+      </ol>
+
+      <dl>
+        <dd><a class="image"><img alt="Turn off Smoothing FAQ1225.png" src="../images/Why_my_project_with_contour_graphs_makes_Origin_freeze/Turn_off_Smoothing_FAQ1225.png" width="665"></a></dd>
+      </dl>
+    </li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>Kontur, Öffnen fehlgeschlagen, abgestürzt, abstürzen, kann sich nicht bewegen, lädt langsam, keine Antwort</span></p>

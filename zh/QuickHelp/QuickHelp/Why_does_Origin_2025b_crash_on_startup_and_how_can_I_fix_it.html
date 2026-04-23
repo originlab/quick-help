@@ -1,0 +1,26 @@
+<h1 class="firstHeading">5.93 FAQ-1228 我的 Origin 2025b 每次启动都会崩溃，该怎么办？</h1><p class='urlname' style='display: none'>Origin-Crash-on-Startup</p>
+<p class='faqID'>Last Update: 12/14/2025</p>
+<p>我们收到多份报告，指出 Origin 的最新三个版本（2024b、2025和2025b）在启动时容易崩溃。根源在新版的 Microsoft Visual C++ 可再发行组件包。<b><font color="red">事实上，这是一个全球性问题，详情请见<a class="external text" href="https://developercommunity.visualstudio.com/t/Calling-omp_set_dynamic-before-pragma-o/10973188" target="_blank">此处</a>。</font></b>
+</p><p>如果您的 Origin 每次启动都崩溃，请先检查您电脑上的 Microsoft Visual C++ 可再发行组件包是否存在问题：
+</p>
+<ol>
+<li> 搜索并打开 Windows <b>控制面板</b>，选择  <b>程序 &gt; 程序和功能</b>
+<a  class="image"><img alt="FAQ1228 Crash on Startup Control Panel.png" src="../images/Why_does_Origin_2025b_crash_on_startup_and_how_can_I_fix_it/870px-FAQ1228_Crash_on_Startup_Control_Panel.png?v=14987" width="870"   /></a></li>
+<p><br />
+</p>
+<li> 在列表中找寻 "Microsoft Visual C++ …  - 14.<i>###</i>". 如果版本号 <i>###</i> 是 <b>50.35710</b> 或更低，则表示该版本基于 2017-2026，并且存在问题。
+</ol>
+<h2><a name=".E5.A6.82.E4.BD.95.E4.BF.AE.E5.A4.8D"></a><span class="mw-headline">如何修复</span></h2>
+<ul>
+<li>请下载安装 <a class="external text" href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170" target="_blank">最新的 Microsoft Visual C++ 可再发行组件包</a> 去永久解决这问题：
+<ul><li><a class="external text" href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank">X86</a></li>
+<li><a class="external text" href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank">X64</a></li></ul>
+<li>如果您不想更新可再发行组件包，请将 Origin 升级到 <a class="external text" href="https://www.originlab.com/restricted/demo_download/DLRequest.aspx?rq=dl&amp;d=1&amp;s=E" target="_blank">2026 或更高版本</a>。Origin 2026 包含其自身的解决方案，无需微软的修复程序。
+</ul>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>Origin2024b, Origin2025, Origin2025b, crash when open, frozen, freeze on open, launch, Window Switcher, navigator, 启动崩溃, 启动, 窗口切换器, 导航<keywords></span></p>
+
+
+
+
+
+

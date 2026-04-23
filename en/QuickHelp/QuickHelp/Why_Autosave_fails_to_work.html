@@ -1,0 +1,91 @@
+<h1 class="firstHeading">5.92 FAQ-1218 Why Autosave fails to work?</h1><p class='urlname' style='display: none'>Auto-Save-Not-Work</p>
+<p class='faqID'>Last Update: 6/10/2025</p>
+<p>We have received reports from Origin 2025 and earlier version users that Autosave failed to work even though <b>Autosave project every x minute(s)</b> (shortened to <b>Autosave</b> below) is enabled in <b>Preferences: Options</b> dialog. We made some improvements and bug fixes in Origin 2025b so autosave works more expectedly. Please upgrade to Origin 2025b if you have autosave issues.
+</p><p>Basic rules of autosave:
+</p>
+<ul><li> You must dirty the project and x minutes have passed to see the autosaved file under Autosave\ folder.</li>
+<li> Autosaved files will only be kept if Origin crashes or exits without reason (power outage, etc.). If you have manually saved the file, or Origin closes successfully with prompt to save the project, then the autosaved file will be gone. </li>
+<li> To be double safe, if x minutes has passed and you choose not to save the project, Origin still rename the last autosaved file as <b>Last-AutoSave.OPJU</b> under Autosave\ folder. It will not be cleared. This way you get a chance to recover from it. But please note that this will happen every time there is a newer autosaved file and you choose no not to save the project. </li></ul>
+<p><br />
+Below are detailed cases of the issue. Explanation and workaround is provided in earlier versions.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Project_File_with_OPJ_Extension_Not_Autosaved"><span class="tocnumber">1</span> <span class="toctext">Project File with OPJ Extension Not Autosaved</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Project_File_with_OPJU_Extension_Not_AutoSaved"><span class="tocnumber">2</span> <span class="toctext">Project File with OPJU Extension Not AutoSaved</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Useful_System_Variables"><span class="tocnumber">3</span> <span class="toctext">Useful System Variables</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Radio_buttons_in_Autosave_Options_Reminder"><span class="tocnumber">4</span> <span class="toctext">Radio buttons in Autosave Options Reminder</span></a></li>
+</ul>
+</div>
+
+<h4><a name="Project_File_with_OPJ_Extension_Not_Autosaved"></a><span class="mw-headline">Project File with OPJ Extension Not Autosaved</span></h4>
+<p>Before Origin 2025b, Origin only autosaved project files with new file format (file extension OPJU). Old format project file with <b>OPJ</b> extension would not be autosaved. In Origin 2025b, OPJ file will be auto saved with OPJU extension.
+</p><p>Workaround in Origin 2025 and earlier: After opening your OPJ file, save it as OPJU first.
+</p>
+<h4><a name="Project_File_with_OPJU_Extension_Not_AutoSaved"></a><span class="mw-headline">Project File with OPJU Extension Not AutoSaved</span></h4>
+<p>It may be caused by the following reasons:
+</p>
+<ul><li> System Variable @ASC=0</li></ul>
+<dl><dd><ul><li> System variable @ASC specifies the project file size to trigger Autosave reminder. By default @ASC=20 (in megabytes). By default autosave happens silently behind the scene for project file smaller than that. For large project file, when x minute passes, Autosave Prompt will popup to for user to decide autosave or not since it could be time consuming to save large project every x minutes. </li></ul></dd>
+<dd><a  class="image"><img alt="Autosave reminder.png" src="../images/Why_Autosave_fails_to_work/Autosave_reminder.png?v=76868" width="428"  /></a></dd>
+<dd>If you sets @ASC=0, which is supposed to open the reminder no matter how small the project size is, somehow it can cause autosave to fail. Workaround before Origin 2025b: Set @ASC bigger than 0.</dd></dl>
+<ul><li> Autosave is Turned on for All Projects</li></ul>
+<p>The first time the Autosave Prompt shows for large projects, if the 3rd option <b>Turn on autosave for all projects</b> is checked, files bigger than @ASC (default 20MB) will only be autosaved once. And from then on, autosave will stop working for both this project and other large projects. It's not an issue for small project files (size smaller than &lt;@ASC)
+</p>
+<dl><dd><ul><li> The @ASC checks project size in memory instead on disk. When saving project on disk, the file is compressed. E.g. a project file size may be only 10MB on disk but 20MB in memory. To check project size in memory, open it in Origin. Mouse over the root folder in <b>Project Explorer</b> window. The size in memory will show in tooltip. If size in memory &gt; @ASC  and "Autosave is on for all project", the project will fail to be autosaved.</li></ul></dd></dl>
+<dl><dd>Workaround before Origin 2025: In Script window, run "doc -cac" to double check <b>Autosave is on for all projects</b>. If so and you do want autosave silently no matter project is big or small, please choose <b>Preferences: System Variables... menu. Set system variable </b>ASC<b> to a big number (more than any project size you may create). E.g. 10000 means 10GB (10000MB). Then any files &lt;=10GB in memory will be autosaved silently every x minutes. </b></dd>
+<dd>In Origin 2025b, the bug is fixed so choosing 3rd option will not cause the issue. You can also use new system variable @ASS=1 to turn autosave on for all projects. </dd></dl>
+<p>Suggestion: If it takes a long time to autosave large project on your PC, please don't set to autosave very frequently, e.g. every 1 minute, etc.
+</p>
+<h4><a name="Useful_System_Variables"></a><span class="mw-headline">Useful System Variables</span></h4>
+<p>The following system variables are added in Origin 2025b to help set and debug autosave issues: 
+</p>
+<ul><li>Autosave Message <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASM</span></a></li></ul>
+<p>Set @ASM = 1 for debugging. Autosave messages will be shown every few seconds on status bar (at the bottom-left) to tell you if autosave works or fails, something like
+</p>
+<dl><dd><pre class="lt" style="font-family:monospace;">Next autosave <span style="color: #000000;">&#40;</span>sec<span style="color: #000000;">&#41;</span><span style="color: #000000;">:</span> <span style="color: #0000dd;">690</span></pre></dd>
+<dd><pre class="lt" style="font-family:monospace;">autosave done, waiting for changes</pre>  </dd></dl>
+<p>When autosave fails, e.g. if @ass=0, open an opju file bigger than @ASC and set @asp=4 to supress the Autosave Options dialog and turn off autosave for large project, The following message dumped to Script window.
+</p>
+<dl><dd><pre class="lt" style="font-family:monospace;">Project too large <span style="color: #000000;">&#40;</span>in memory<span style="color: #000000;">&#41;</span> for autosave<span style="color: #000000;">:</span> 21MB</pre></dd></dl>
+<ul><li>Autosave Setting <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASS</span></a></li></ul>
+<dl><dd>0 (default) = Autosave silently for projects smaller than @ASC. For larger files, reminder will show.</dd>
+<dd>1 = autosave silently is on for all projects. It's same as choosing the 3rd radio to turn on autosave for all projects in the reminder dialog. And same as setting the following property in older version <code>SYSTEM.PROJECT.NOAUTOSAVEWITHSIZE = 1 </code> and <code> system.project.NOASKAUTOSAVE = 1 </code> </dd></dl>
+<p><br />
+</p>
+<ul><li>Autosave Setting in Project <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#A"><span class='headerInParagraph'>@ASP</span></a></li></ul>
+<p>Each project file can have its own autosave settings. Open project file and run @ASP= to check its autosave settings or set it and click save project to save it in the project file.
+</p>
+<dl><dd>0 (default) = follow global autosave settings @ASS</dd>
+<dd>1 = turn off autosave for current project regardless of Preferences: Option's autosave on/off settings.</dd>
+<dd>2 = turn on autosave for current project, but still obey the Preferences: Option's autosave on/off settings. And still show reminder if large (&gt;@ASC)</dd>
+<dd>4 = Do not show Autosave Options reminder when project size is &gt; @ASC (MB).</dd></dl>
+<p>Note: The bits can be combined. E.g. set @ASP=6 means turn on the autosave for current project and don't show reminder.
+</p>
+<h4><a name="Radio_buttons_in_Autosave_Options_Reminder"></a><span class="mw-headline">Radio buttons in Autosave Options Reminder</span></h4>
+<dl><dd><a  class="image"><img alt="Autosave reminder.png" src="../images/Why_Autosave_fails_to_work/Autosave_reminder.png?v=76868" width="428"  /></a></dd></dl>
+<ul><li> Turn on Autosave for this project </li></ul>
+<dl><dd> Autosave this project silently without reminder. It equals to set @ASP=6. </dd>
+<dd> Set @asp=0 or run "doc -ca" can trigger the reminder again. </dd></dl>
+<ul><li> Turn off Autosave for this project</li></ul>
+<dl><dd> Don't autosave this project and no reminder. It equals to set @ASP=5. </dd>
+<dd> Set @asp=0 or run "doc -ca" can trigger the reminder again. </dd></dl>
+<ul><li> Turn on Autosave for all projects</li></ul>
+<dl><dd> Autosave all projects silently no matter small or large without reminder. It equals to set @ASS=1</dd>
+<dd> Set @ass=0 to trigger the reminder again. </dd></dl>
+<ul><li> Turn off Autosave for all large projects</li></ul>
+<dl><dd> Autosave or not will depend on the project size. 
+<dl><dd>If the project size in memory &lt; @ASC, autosave. </dd>
+<dd>If the project size in memory &gt; @ASC, no autosave. If Script window is on, "Project too large (in memory) for autosave: xxxMB" will be dumped there. </dd></dl></dd>
+<dd> Run "doc -ca" can trigger the reminder again. Or set @ASS=1 and then set @ASS=0 to trigger the reminder.</dd></dl>
+<ul><li> Turn off Autosave for all projects</li></ul>
+<dl><dd> Autosave is turned off globally. It equals to uncheck <b>Autosave project for every x minutes</b> checkbox in <b>Preferences: Options dialog.</b></dd></dl>
+<p><br />
+</p>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>big data, large file, auto save, autosave unsaved, backup, save, 20 MB, unsaved, recover <keywords></span></p>
+
+
+
+
+
+

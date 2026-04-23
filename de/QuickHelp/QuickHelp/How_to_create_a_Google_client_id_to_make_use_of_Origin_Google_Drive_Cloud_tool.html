@@ -1,0 +1,123 @@
+﻿<h1 class="firstHeading">FAQ-1223 Wie erstelle ich eine Google client_id, um Origins Google Drive Cloud nutzen zu können?</h1>
+
+  <p class='urlname' style='display: none'>Create-Google-API-Key</p>
+
+  <p class='faqID'>Letztes Update: 06.08.2025</p>
+
+  <p>Das Hilfsmittel der Google Drive Cloud (Menü Mit Cloud verbinden und Schaltfläche Über Cloud öffnen) verwendet standardmäßig Origins client_id. Diese wird von allen Origin-Benutzern geteilt. Google hat eine globale Beschränkung für die Zugangsanzahl festgelegt. Das Maximum ist jetzt erreicht, und Origin hat noch keine Möglichkeit, dieses zu erhöhen.</p>
+
+  <p>Benutzer, die vorher noch nicht auf die Cloud zugegriffen haben, können mit Origins client_id nicht mehr auf sie zugreifen (Benutzer, die bereits erfolgreich aus sie zugegriffen haben, haben noch Zugang).</p>
+
+  <p>Sollten Sie eine Fehlermeldung wie diese sehen:</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Google API key blocked.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_key_blocked.png" width="632"></a></dd>
+  </dl>
+
+  <h2><a name="Try_solution_below:"></a><span class="mw-headline">, dann versuchen Sie bitte Folgendes:</span></h2>
+
+  <ol>
+    <li>Erstellen Sie Ihre eigene client_id mit den folgenden Schritten:
+
+      <ol>
+        <li>Melden Sie sich an der <a class="external text" href="https://console.developers.google.com/" target="_blank">Google API Console</a> mit Ihrem Google-Account an (muss nicht der gleiche Account sein wie derjenige, den Sie zum Anmelden bei Origins Cloud-Konnektor verwenden).</li>
+
+        <li>Klicken Sie im Popup-Dialog auf die Schaltfläche "Projekt" oben links und dann auf die Schaltfläche "Neues Projekt", um ein neues Projekt zu erstellen.
+
+          <dl>
+            <dd><a class="image"><img alt="Google API Create Project.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Create_Project.png" width="600"></a></dd>
+          </dl>
+        </li>
+
+        <li>Klicken Sie im Menü auf der linken Seite "APIs &amp; Dienste" &gt; "Aktivierte APIs und Dienste".</li>
+
+        <li>Suchen Sie "Google Drive API" in der API Bibliothek und klicken Sie darauf.</li>
+
+        <li>Klicken Sie auf der Seite "Produktdetails" auf die Schaltfläche Aktivieren.
+
+          <dl>
+            <dd><a class="image"><img alt="Google API Enable.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Enable.png" width="646"></a></dd>
+          </dl>
+        </li>
+
+        <li>Klicken Sie auf "Anmeldedaten" auf der linken Seite. Klicken Sie oben auf "+Anmeldedaten erstellen" und wählen Sie "API-Schlüssel" im Popup-Menü aus.
+
+          <dl>
+            <dd><a class="image"><img alt="Google API key.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_key.png" width="615"></a></dd>
+          </dl><br>
+          <span class='headerInParagraph'>Im Popup-Dialog wird ein "API-Schlüssel" angezeigt. Merken Sie sich seinen Namen.</span>
+        </li>
+
+        <li>Klicken Sie erneut auf "+Anmeldedaten erstellen" und wählen Sie "OAuth Client ID". Klicken Sie auf "Zustimmungsbildschirm konfigurieren". Klicken Sie auf der Seite "Übersicht über OAuth" auf die Schaltfläche Erste Schritte, um die Projektkonfiguration einzurichten.
+
+          <dl>
+            <dd><a class="image"><img alt="Google API OAuth client ID.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_OAuth_client_ID.png" width="608"></a></dd>
+          </dl>
+        </li>
+
+        <li>Geben Sie auf der Seite "Projektkonfiguration" einen Appnamen wie "Origin web connector“ ein. Wählen Sie den aktuellen Account im Bearbeitungsfeld "Nutzersupport-E-Mail“ aus. Klicken Sie auf die Schaltfläche Weiter.</li>
+
+        <li>Wählen Sie die Option "Extern" für die Zielgruppe. Klicken Sie auf die Schaltfläche Weiter.</li>
+
+        <li>Geben Sie Ihre E-Mail in "Kontaktdaten“ ein. Klicken Sie auf die Schaltfläche Weiter.</li>
+
+        <li>Aktivieren Sie das Kontrollkästchen Ich akzeptiere die "Richtlinie zu Nutzerdaten für Google API-Dienste."</li>
+
+        <li>Klicken Sie auf die Schaltfläche Weiter.
+
+          <dl>
+            <dd><a class="image"><img alt="Google API Project Configuration.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Project_Configuration.png" width="500"></a></dd>
+          </dl>
+        </li>
+
+        <li>Klicken Sie auf die Schaltfläche "Erstellen".</li>
+
+        <li>Wählen Sie den Applikationstyp "Desktop App" und vergeben Sie einen Namen (Standardname ist OK). Klicken Sie auf die Schaltfläche Weiter.<br>
+        <span class='headerInParagraph'>Im Popup-Dialog wird "Client-ID" und "Client-Geheimnis" angegeben. Merken Sie sich die Namen.</span></li>
+
+        <li>Klicken Sie auf "Zielgruppe" auf der linken Seite. Klicken Sie auf die Schaltfläche "App veröffentlichen" und dann auf die Schaltfläche "Bestätigen" im Popup-Dialog.
+
+          <dl>
+            <dd><a class="image"><img alt="Google API Publish app.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Publish_app.png" width="561"></a></dd>
+          </dl>
+        </li>
+
+        <li>Kehren Sie über das Navigationsmenü links oben zurück zur Seite "APIs &amp; Dienste".</li>
+
+        <li>Klicken Sie auf die Schaltfläche "..." oben rechts und wählen Sie "Projekteinstellungen".
+
+          <dl>
+            <dd><a class="image"><img alt="Google API Project settings.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Project_settings.png" width="600"></a></dd>
+          </dl><br>
+          <span class='headerInParagraph'>Eine Projektnummer (AppID) wird angezeigt. Merken Sie sie sich.</span>
+        </li>
+      </ol>
+    </li>
+
+    <li>Stellen Sie sicher, dass Origin geschlossen ist. Aktualisiere Sie <code>&lt;Origin UFF&gt;/OCloud.ini</code> (erstellen Sie eine neue ini-Datei, falls keine existiert).<br>
+      Der Abschnitt [<b>GoogleDrive</b>] in der ini-Datei sollte, wie folgt, aussehen:
+      <pre class="lt" style="font-family:monospace;">
+<span style="color: #000000;">[</span>GoogleDrive<span style="color: #000000;">]</span> AppID<span style="color: #000080;">=</span>USER_APP_IDD ClientID<span style="color: #000080;">=</span>USER_CLIENT_ID ApiKey<span style="color: #000080;">=</span>USER_API_KEY ClientSecret<span style="color: #000080;">=</span>USER_CLIENT_SECRET
+</pre>
+    </li>
+
+    <li>
+      <font color="blue">Wenn Sie eine Verbindung zum Google-Sheet in der Cloud herstellen möchten, befolgen Sie diese zusätzlichen erforderlichen Schritte:</font>
+
+      <ol>
+        <li>Gehen Sie zurück zur <a class="external text" href="https://console.developers.google.com/" target="_blank">Google API Console</a>.</li>
+
+        <li>Wählen Sie auf der linken Seite "Aktivierte APIs &amp; Dienste" und klicken Sie auf "APls und Dienste aktivieren".</li>
+
+        <li>Suchen Sie nach "Google Sheets API".</li>
+
+        <li>Klicken Sie auf "Aktivieren“.<br>
+        <a class="image"><img alt="Google Sheet API Enable.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_Sheet_API_Enable.png" width="800"></a></li>
+      </ol>
+    </li>
+
+    <li>Starten Sie jetzt Origin, um die Verbindung zu testen.</li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>mit Google verbinden, Import von Google Drive, Cloud Connector, Google API Key, Diese App ist blockiert, Zugriffsversuch auf zugangssensible Infos im Google-Account, Account sichern, Google blockiert diesen Zugriff</span></p>

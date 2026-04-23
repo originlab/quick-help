@@ -1,0 +1,40 @@
+<h1 class="firstHeading">6.110 FAQ-1198 How do concurrent license users know who is occupying the license at any given time?</h1><p class='urlname' style='display: none'>Perform-License-Status-Enquiry-on-Client</p>
+<p class='faqID'>Last Update: 7/10/2024</p>
+<p>A concurrent license type means the purchased number of licenses are floating assigned among clients. If you are using a concurrent license,  sometimes you may want to see who is checking out a license at the time, especially when all the available licenses are in used.
+</p><p>As the administrator of a concurrent license, you can always open LMTools and <b>Perform Status Enquiry</b> on Server Status tab. At the end of the output text, you can find the license check-out status.
+</p><p>As a client, you can choose one of the following ways to query license status from a client computer.
+</p><p><span class='headerInParagraph'>Method 1</span>
+</p>
+<ol>
+<li> Copy the <b>LMTools.exe</b> file to the client computer(s).
+<li> Open LMTOOLS and go to the Service/License File tab.
+<li> Select <b>Configuration using License File</b> radio button.
+<li> Type <br />
+<code>@SERVERNAME</code> or <code>@IP_Address_Of_Server</code> 
+<br />in the edit box, where <i>SERVERNAME</i> is your license server name, and make sure to include the “@” symbol at the beginning. E.g. suppose your license server names “OriginServer”, set as following:
+<dl><dd><a  class="image"><img alt="Config using Lic File FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Config_using_Lic_File_FAQ_1198.PNG?v=75918" width="687"  /></a></dd></dl>
+<li> On the Server Status tab, click <b>Perform Status Enquiry</b> button and the output server status will show which clients occupy the licenses at the moment.
+<dl><dd><a  class="image"><img alt="Server Status Enquiry FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Server_Status_Enquiry_FAQ_1198.PNG?v=75919" width="673"  /></a></dd></dl>
+</ol>
+<p><span class='headerInParagraph'>Method 2</span>
+</p>
+<ol>
+<li> Copy the <b>lmstat.exe</b> file to the client computer(s). This file can be found in the <i>\Tools\command line</i> folder under the license manager folder.
+<li> Open a text editor (e.g. Notepad), enter the following command lines and save it as a .bat file.
+<pre class="lt" style="font-family:monospace;">@echo off 
+<span style="color: #000080;">&lt;</span>path_to_lmstat.<span style="color: #000080;">exe</span><span style="color: #000080;">&gt;</span>\lmstat.<span style="color: #000080;">exe</span> <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #000080;">&lt;</span>port_no.<span style="color: #000080;">&gt;</span>@SERVERNAME 
+pause</pre>
+<p><br />where <i>&lt;path_to_lmstat.exe&gt;</i> is the path to <b>lmstat.exe</b> file on the client computer, and <i>SERVERNAME</i> is your license server name. <i>port_no.</i> is the port number lmgrd.exe uses. It can be omitted if the default port 27000 is used, but the "@" symbol cannot be omitted. E.g. suppose you copy the <b>lmstat.exe</b> file to folder path <i>C:\Tools\OriginLicenseServer\command line\</i>, your license server names “OriginServer” and use port 27001, enter following lines in the .bat file:
+</p>
+<pre class="lt" style="font-family:monospace;">@echo off 
+<span style="color: #ff00ff;">&quot;C:\Tools\OriginLicenseServer\command line\lmstat.exe&quot;</span>  <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #0000dd;">27001</span>@OriginServer
+pause</pre></li>
+<li> You can always double-click this .bat file to check the status.
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>concurrent, License Management, license checkout status, occupy license, monitor license usage<keywords></span></p>
+
+
+
+
+
+

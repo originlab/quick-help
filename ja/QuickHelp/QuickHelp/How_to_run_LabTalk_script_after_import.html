@@ -1,0 +1,100 @@
+﻿<h1 class="firstHeading">FAQ-428 インポート後にLabTalkスクリプトを実行するには?</h1>
+<p class="urlname" style="display: none;">run-script-after-import</p>
+<p class="faqID">最終更新日：2024/10/15</p>
+<p><br />
+インポート後にLabTalkスクリプトを実行してデータの後処理（計算、書式設定、分析、作図）を行うためのオプションがいくつかあります。 </p>
+<ul>
+	<li><b>他のオプション</b>ボタン<a class="image"><img alt="OtherOptionsGear.gif" 
+												 src="../images/How_to_run_LabTalk_script_after_import/OtherOptionsGear.gif" 
+												 width="34" border="0" /></a>は、<a 
+	 class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=508" 
+	 target="_blank">CSVコネクタ</a>や<a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=530" 
+									 target="_blank">Excelコネクタ</a>といったデータコネクタに組み込まれており、LabTalkコマンドを使ってインポート後の処理を設定できます。このスクリプトは、アクティブなデータコネクタがファイルをインポートまたは再接続するたびに実行されます。LabTalkスクリプトは、<b>他のオプション</b>ダイアログのテキストボックスに入力することができ、インポートが成功した直後に実行されます。</li>
+</ul>
+<table class="note">
+	<tr>
+		<td><p><b>Note:</b> インポート後のスクリプトを実行しても、ソースデータへの接続は切断されません。 </p></td>
+	</tr>
+</table>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="DialogOtherOptionsPostImportLabTalkScript.png" 
+									 src="../images/How_to_run_LabTalk_script_after_import/430px-DialogOtherOptionsPostImportLabTalkScript.png" 
+									 width="430" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<ul>
+	<li>ほとんどのデータコネクタでは、最初のインポート後に「インポート後に実行するLabTalkスクリプト」ボックスにアクセスできます。<a 
+	 class="image"><img alt="Data connector icon.PNG" src="../images/How_to_run_LabTalk_script_after_import/Data_connector_icon.PNG" 
+						 width="24" border="0" /></a>アイコンをクリックして、「インポート後に実行するスクリプト」を選択します。デフォルトでは、OKをクリックするとインポートがトリガーされ、その後スクリプトが実行されます。</li>
+	<li>一部のデータコネクタでは、インポート後のスクリプトボックスが提供されていないませんが、LabTalkスクリプトをワークシートに直接埋め込むこともできます。<a 
+	 class="external text" href="../../UserGuide/UserGuide/Script_tab_of_Worksheet_Properties.html"><b>ワークシートプロパティ</b>ダイアログの<b>スクリプト</b>タブ</a>に入力したLabTalkスクリプトは、<b>インポート後</b>に実行するように設定可能です 
+	 (この方法はインポートされたデータで動作します)。これは、スクリプトをテンプレート(.otwu)、ワークブック(.ogwu)、プロジェクトファイル(.opju)に保存できるため、データの持ち運びの際に安心です。詳しくはOriginLabの<a 
+	 class="external text" href="http://blog.originlab.com/worksheet-script-after-data-connector-to-modify-data" 
+	 target="_blank">ブログ記事</a>を参照してください。</li>
+</ul>
+<dl>
+	<dd><dl>
+		<dd><dl>
+			<dd><dl>
+				<dd><dl>
+					<dd><a class="image"><img alt="Script WorksheetProperties.png" 
+												 src="../images/How_to_run_LabTalk_script_after_import/350px-Script_WorksheetProperties.png" 
+												 width="350" border="0" /></a></dd>
+				</dl></dd>
+			</dl></dd>
+		</dl></dd>
+	</dl></dd>
+</dl>
+<ul>
+	<li>以前のXファンクションベースのインポートルーチン (例えば<a class="external text" href="../../UserGuide/UserGuide/Customizing_the_ASCII_Import_Options.html">impASC</a>など) 
+	 を使用している場合、LabTalkスクリプトをASCII、CSV、SPC、Excelファイルの<b>データ:ファイルからインポート</b>ダイアログに追加し、<a 
+	 class="external text" href="../../UserGuide/UserGuide/Dialog_Themes.html">ダイアログテーマ</a>として設定を保存することができます。 
+	 </li>
+	<li>ほとんどのファイルタイプで、<a class="external text" href="../../UserGuide/UserGuide/Introduction_to_Import_Filters_Manager.html"><b>iwfilter</b>ダイアログボックス</a>を使用して、ドラッグアンドドロップインポート用のフィルタにスクリプトを追加できます。Excelファイルのインポートを使用する例として、<b>環境設定:インポートフィルターマネージャー...</b> 
+	 をクリックし、<b>フィルタマネージャ</b>ダイアログの<b>フィルタ</b>列で<b>Excel</b>を選択します。<b>ドラッグアンドドロップのサポート</b>チェックボックスが選択されていることを確認します。 
+	 <b>編集</b>をクリックして<b>Import and Export: iwfilter</b>ダイアログを開き、<b>一般のインポート設定</b>の<b>インポート後のスクリプト</b>ボックスにLabTalkスクリプトを入力します。<b>名前を付けて保存</b>をクリックし、フィルタ（.oifファイル）を<b>&lt; 
+	 Origin User File フォルダ&gt;\Filters</b>フォルダに保存します。ExcelファイルをOriginにドラッグアンドドロップすると、<b>Select 
+	 Filter</b>ダイアログが表示され、フィルタを選択できます。保存したフィルタを選択し、<b>OK</b>をクリックします。&quot;インポート後のスクリプト...&quot;ボックス内のLabTalkスクリプトはインポート時に自動的に実行されます 
+	 (下記の<b>Note1</b>参照) 。この方法によって追加されたインポートフィルタは、<b>ファイル：開く</b>ダイアログを介してインポートするとき、またはインポート操作の<a 
+	 class="external text" href="../../UserGuide/UserGuide/Batch_Processing.html">バッチ処理</a>中にも使用できます（バッチ処理ダイアログ自体にスクリプトオプションがあることに注意）。</li>
+	<li><a class="external text" href="../../UserGuide/UserGuide/Import_Wizard_Save_Filters_Page_(All_Data_Types).html">インポートフィルタを保存</a>して<a 
+	 class="external text" href="../../UserGuide/UserGuide/Import_Wizard_Advanced_Options_Page.html">インポートウィザードでインポート後のスクリプト</a>を追加することもできます。このオプションは、ASCIIファイルをインポートする場合、特に複雑な構造を持つファイル、バイナリやその他のユーザ定義データ型をインポートする場合に向いています。</li>
+</ul>
+<p><br />
+<b>Note1</b>: この操作は<b>Famos</b>、<b>MDF</b>、<b>pClamp</b>ファイル形式には適用されません。<br />
+<b>Note2</b>: データのインポート時に、Iwfilterダイアログボックスの<b>一般のインポート設定</b>セクションの下にある 
+ <b>XFダイアログを開く</b>にチェックを入れ、対応するインポートダイアログボックスを開くことができます。 </p>
+<p><b>インポート後に実行するスクリプトのサンプル</b> </p>
+<pre class="lt" style="font-family: monospace;">
+<span style="color: #008000;">// 列幅を指定</span>
+wks.<span style="color: #000080;">col1</span>.<span style="color: #000080;">width</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>;
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">width</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">20</span>;
+wks.<span style="color: #000080;">col3</span>.<span style="color: #000080;">width</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">8</span>;
+</pre>
+<pre class="lt" style="font-family: monospace;">
+<span style="color: #008000;">// X、Y、Yエラー属性設定</span>
+wks.<span style="color: #000080;">col1</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>; <span style="color: #008000;">// データラベルを含むcol(A)の属性を設定</span>
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">4</span>; <span style="color: #008000;">// Xデータを含むcol(B)の属性を設定</span>
+wks.<span style="color: #000080;">col3</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">// Col(C)をYデータとして設定</span>
+wks.<span style="color: #000080;">col4</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>; <span style="color: #008000;">// Col(D)をYErrデータとして設定</span>
+</pre>
+<pre class="lt" style="font-family: monospace;">
+<span style="color: #008000;">// 現在の日付でワークブックを命名</span>
+string theDate <span style="color: #000080;">=</span> date2str<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>today<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>, <span style="color: #ff00ff;">&quot;MM-dd-yyyy&quot;</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>;
+page.<span style="color: #000080;">longname</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> theDate<span style="color: #000080;">$</span>;
+</pre>
+<pre class="lt" style="font-family: monospace;">
+<span style="color: #008000;">// 列平均を計算してメタデータ領域に記録するための 2 つのアプローチ</span><span style="color: #008000;">
+// Method 1</span>
+wks.<span style="color: #000080;">userParam1</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">// 可視性を1 に設定 (0 = 不可視)</span>
+wks.<span style="color: #000080;">userParam1</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;ColumnMean&quot;</span>;
+col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">[</span>ColumnMean<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>mean<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span><span style="color: #000000;">[</span>ColumnMean<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>mean<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<span style="color: #008000;">
+//Method 2 </span>
+wks.<span style="color: #000080;">userparam</span><span style="color: #000000;">(</span><span style="color: #000080;">++</span>Mean<span style="color: #000000;">)</span>;
+loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">1</span>,wks.<span style="color: #000080;">ncols</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span> wcol<span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">[</span>Mean<span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;=Mean(this)&quot;</span>; <span style="color: #000000;">}</span> <span style="color: #008000;">// 全列ループ}</span>
+</pre>
+<hr class="keywordshr" align="center" />
+<p><span class="keywords">キーワード:</span><span class="keywordsInput">LabTalkスクリプト, 
+ 後処理, インポートデータ, インポートフィルタ, iwfilter, ワークシートスクリプト, ワークシートプロパティ, バッチ処理, インポート後</span></p>

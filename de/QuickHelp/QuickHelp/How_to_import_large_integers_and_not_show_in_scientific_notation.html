@@ -1,0 +1,59 @@
+﻿<h1 class="firstHeading">FAQ-1217 Wie importiere ich große ganze Zahlen und zeige sie nicht in wissenschaftlicher Notation an?</h1>
+
+  <p class='urlname' style='display: none'>Import-Large-Integer-not-in-Scientific-Notation</p> 
+
+  <p class='faqID'>Letztes Update: 22.04.2025</p>
+
+  <p>Es gibt zwei Möglichkeiten, große ganze Zahlen zu importieren und sie mit allen Stellen anzuzeigen.</p>
+
+  <h5><a name="Import_big_integer_as_Text"></a><span class="mw-headline">Große ganze Zahl als Text importieren</span></h5>
+
+  <p>Standardmäßig werden ganzen Zahlen, wenn sie mehr als 15 Stellen haben, z. B. ID-Nummern etc, als Text importiert und nicht in wissenschaftlicher Notation, wie z. B. 1E15 etc., umgewandelt. Im Gegensatz dazu werden ganze Zahlen mit weniger als 15 Stellen als numerische Zahlen importiert und daher bei der Anzeige in wissenschaftlicher Notation gekürzt.</p>
+
+  <table class="note">
+    <tr>
+      <td>
+        <b>Hinweis:</b>
+
+        <ul>
+          <li>Die <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#B">Systemvariable @BID</a> bestimmt die Schwellenwertstellen, über die heinaus die große ganze Zahl als Text importiert wird. Ihr Standardwert beträgt 15. Wenn Sie alle Stellen von großen ganzen Zahlen mit weniger als 15 Stellen anzeigen möchten, z. B. "<i>35928471539682</i>", dann müssen Sie <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">@BID auf einen kleineren Wert setzen</a>, z. B. 13.</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h5><a name="Import_big_integer_as_Numeric"></a><span class="mw-headline">Große ganze Zahl als Numerisch importieren</span></h5>
+
+  <p>Seit Origin 2025b können Sie für große ganze Zahlen, die nicht mehr als 11 Stellen haben, sämtliche Stellen anzeigen, indem Sie <b>Dezimalstellen</b> auf 0 setzen. Das heißt:</p>
+
+  <ol>
+    <li>Klicken Sie doppelt auf die Spaltenüberschrift, um den Dialog <b>Spalteneigenschaften</b> zu öffnen.</li>
+
+    <li>Unter der Gruppe <b>Optionen</b> legen Sie Folgendes fest:
+
+      <ul>
+        <li><b>Format</b> = <b>Numericch</b> oder <b>Text &amp; Numerisch</b></li>
+
+        <li><b>Stellen</b> = <b>Dezimalstellen festlegen</b></li>
+
+        <li><b>Dezimalzahl</b> = 0</li>
+      </ul><a class="image"><img alt="Big Integer Column Properties.png" src="../images/How_to_import_large_integers_and_not_show_in_scientific_notation/Big_Integer_Column_Properties.png" width="369"></a>
+    </li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td>
+        <b>Hinweis:</b>
+
+        <ul>
+          <li>Wenn die <b>Dezimalstellen</b> festgelegt sind, bestimmt die <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#B">Systemvariable @BIT</a> den Schwellenwert, bei dessen Überschreitung die ganze Zahl in wissenschaftlicher Notation angezeigt wird. Der Standardwert beträgt 1E10. Wenn Sie ganze Zahlen importieren, die größer sind als 1E10, und sie als numerisch mit vollständig angezeigten Stellen importieren möchten, <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">setzen Sie @BID auf einen größeren Wert</a>, z. B. 1E20.</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>Big Data, große Zahlen, importieren, kopieren, einfügen, aus Excel kopieren, Zwischenablage, alle Stellen, Dezimal, wissenschaftliche Notation, Standardformat </span></p>

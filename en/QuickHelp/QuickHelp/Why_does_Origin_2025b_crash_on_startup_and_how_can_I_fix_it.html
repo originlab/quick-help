@@ -1,0 +1,26 @@
+<h1 class="firstHeading">5.96 FAQ-1228 Why my Origin 2025b always crashes on start up? What should I do?</h1><p class='urlname' style='display: none'>Origin-Crash-on-Startup</p>
+<p class='faqID'>Last Update: 11/24/2025</p>
+<p>We have received several reports that the recent 3 versions of Origin, 2024b, 2025 and 2025b, may easily crash at startup. The root cause is the recent Microsoft Visual C++ Redistributable. <b><font color="red">In fact, it is a global issue documented <a class="external text" href="https://developercommunity.visualstudio.com/t/Calling-omp_set_dynamic-before-pragma-o/10973188" target="_blank">here</a>.</font></b>
+</p><p>If your Origin always crashes on start-up, please first check if the Microsoft Visual C++ Redistributable package on your PC is the buggy one:
+</p>
+<ol>
+<li> Search and open Windows <b>Control Panel</b>. Select <b>Programs &gt; Programs and Features</b> link.
+<a  class="image"><img alt="FAQ1228 Crash on Startup Control Panel.png" src="../images/Why_does_Origin_2025b_crash_on_startup_and_how_can_I_fix_it/870px-FAQ1228_Crash_on_Startup_Control_Panel.png?v=77635" width="870"   /></a></li>
+<p><br />
+</p>
+<li> In the "Uninstall or change a program" list, locate the entry "Microsoft Visual C++ …  - 14.<i>###</i>". If the version number <i>###</i> is <b>50.35710</b> or lower, it is 2017-2026 based and has the problem.
+</ol>
+<h2><a name="To_fix_this_issue.2C"></a><span class="mw-headline">To fix this issue,</span></h2>
+<ul>
+<li>Please download and install <a class="external text" href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170" target="_blank">the latest supported Microsoft Visual C++ Redistributable</a> for a permanent fix:
+<ul><li><a class="external text" href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank">X86</a></li>
+<li><a class="external text" href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank">X64</a></li></ul>
+<li>If you prefer not to update the redistributable, please upgrade your Origin to <a class="external text" href="https://www.originlab.com/restricted/demo_download/DLRequest.aspx?rq=dl&amp;d=1&amp;s=E" target="_blank">version 2026 or later</a>. Origin2026 includes its own solution without a Microsoft fix.
+</ul>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>Origin2024b, Origin2025, Origin2025b, crash when open, frozen, freeze on open, launch, Window Switcher, navigator<keywords></span></p>
+
+
+
+
+
+

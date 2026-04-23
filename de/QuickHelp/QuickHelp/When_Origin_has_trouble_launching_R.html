@@ -1,0 +1,32 @@
+﻿<h1 class="firstHeading">FAQ-1214 Was kann ich tun, wenn Origin Schwierigkeiten hat, R zu starten?</h1>
+
+  <p class='urlname' style='display: none'>Origin-has-trouble-launching-R</p>
+
+  <p class='faqID'>Letztes Update: 11.03.2025</p>
+
+  <p>Wenn Sie auf folgende Probleme stoßen, wenn Origin versucht, R zu starten:</p>
+
+  <p><span class='headerInParagraph'>Origin stürzt ab, wenn Sie versuchen, R zu starten, und es wird die folgende Warnmeldung angezeigt.</span></p>
+
+  <dl>
+    <dd><a class="image"><img alt="Fail launch R.png" src="../images/When_Origin_has_trouble_launching_R/Fail_launch_R.png" width="407"></a></dd>
+  </dl>
+
+  <p><br>
+  <span class='headerInParagraph'>Origin startet eine alte Version von R, obwohl Sie eine neuere Version von R auf Ihrem Computer installiert haben.</span></p>
+
+  <h3><a name="Solution"></a><span class="mw-headline">Lösung</span></h3>
+
+  <p>Der Grund hierfür ist, dass Sie eine Umgebungsvariable von Windows namens <b>R_HOME</b> in Ihrem <b>Windows Registry</b> festgelegt haben. Bitte befolgen Sie die Anweisungen, um die Variable zu löschen.</p>
+
+  <ol>
+    <li>Schließen Sie Origin, falls es gerade ausgeführt wird.</li>
+
+    <li>Suchen Sie über die <b>Windows-Suche</b> nach den <i>"erweiterten Systemeinstellungen"</i> (ohne Anführungszeichen) und öffnen Sie <b>Erweiterte Systemeinstellungen anzeigen (Systemsteuerung)</b>.</li>
+
+    <li>Wählen Sie im Dialog <b>Systemeigenschaften</b> die Registerkarte <b>Erweitert</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Umgebungsvariablen...</b>.</li>
+
+    <li>Entfernen Sie <b>R_HOME</b> entweder aus den <b>Benutzervariablen</b> oder <b>Systemvariablen</b>.</li>
+  </ol>

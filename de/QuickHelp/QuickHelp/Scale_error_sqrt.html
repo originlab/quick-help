@@ -1,0 +1,48 @@
+﻿<h1 class="firstHeading">FAQ-1211 Was ist der Skalierungsfehler mit Quadrat und warum kann ich ihn nicht deaktivieren?</h1>
+
+  <p class='urlname' style='display: none'>Scale-error-sqrt</p>
+
+  <p class='faqID'>Letztes Update: 09.11.2025</p>
+
+  <p>Sie finden das Kontrollkästchen <b>Skalierungsfehler mit Quadrat (Reduziertes Chi-Qdr.)</b> auf der:</p>
+
+  <dl>
+    <dd>
+      <ul>
+        <li><a class="external text" href="../../UserGuide/UserGuide/Settings_Tab_Upper_Panel.html#Advanced">Registerkarte Erweitert: Fit-Steuerung</a> des Dialogs <b>Nichtlinearer Fit</b> oder der</li>
+
+        <li><a class="external text" href="../../UserGuide/UserGuide/Linear_Regression_Dialog.html#Fit_Control">Registerkarte Fit-Steuerung</a> des Dialogs <b>Lineare Regression</b>.</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <h2><a name="If_you_are_not_using_weights"></a><span class="mw-headline">Wenn Sie keine Gewichtungen verwenden</span></h2>
+
+  <p>Wenn Sie eine Regression ohne Fehlerdaten in Origin ausführen, dann wird die Analyse ohne Gewichtungen ausgeführt. In diesem Fall ist es notwendig, den Fehler mit Quadrat (reduziertes Chi-Quadrat) zu skalieren. Das heißt, es kann nicht deaktiviert sein.</p>
+
+  <p>Aus physikalischer Perspektive sollte die Einheit des Standardfehlers eines Parameters (SE) konsistent mit der Einheit des Parameters selbst sein. Wenn der Fehler nicht skaliert ist, ist die Einheit des Standardfehlers des Parameters gegeben durch (Einheit des Parameters) / (Einheit von y). Dies ergibt eine andere Einheit als die des Parameters, was nicht korrekt ist.</p>
+
+  <p>Dies ist beim Skalieren der Y-Daten mit einem Faktor von 10 offensichtlich: Die Parameter in einer linearen Anpassung werden ebenfalls mit dem gleichen Faktor skaliert. Wenn der Fehler jedoch nicht skaliert wird, bleibt der Standardfehler (SE) der Parameter unverändert. Dieses Verhalten ist nicht sinnvoll, da der Standardfehler entsprechend der Änderung in den Daten skaliert werden sollte.</p>
+
+  <p>Ein weiteres Beispiel dafür, warum Skalieren angemessen ist, sind die Ergebnisse der Methode Maximum-Likelihood-Schätzung (MLE). In ihrer Formel befindet sich ein statistisch abgeleiteter Standardfehler der Parameter und die Skalierung ist gut.</p>
+
+  <h2><a name="If_you_are_using_weights"></a><span class="mw-headline">Wenn Sie Gewichtungen verwenden</span></h2>
+
+  <p>Wenn Gewichtungen verwendet werden, können Sie die Gewichtungsoption deaktivieren, insbesondere beim Aktivieren der "Instrumentellen Gewichtung", wie von uns in diesem Fall empfohlen. Dies impliziert, dass der Anwender angenommen hat, dass der Fehler von 𝑦<sub>𝑖</sub> 𝑤<sub>𝑖</sub> ist, das heißt der Fehler von 𝑦<sub>𝑖</sub>/𝑤<sub>𝑖</sub> ist 1. Folglich ist die theoretische Varianz des gewichteten Modells 1 und die Skalierung mit 1 hat keine Wirkung. Daher ist das Skalieren mit 1 unnötig.</p>
+
+  <p>Wenn jedoch die gegebene Gewichtung nur den relativen Betrag des Fehlers für jeden Punkt (anstatt dem wahren Fehler) wiedergibt, sollte der Anwender die Skalierungsoption aktivieren. In diesem Fall ist die theoretische Varianz des gewichteten Modells nicht 1, und der tatsächliche Wert, wie das reduzierte Chi-Quadrat aus der Anpassung, sollte stattdessen verwendet werden.</p>
+
+  <p>&#160;</p>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Scale_error_sqrt/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p><a href="../../QuickHelp/QuickHelp/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled.html" title="QuickHelp:Why Parameters SE remains unchanged when error bar is scaled">Siehe die Theorie und ein Beispiel auf dieser Seite.</a></p>
+      </td>
+    </tr>
+  </table>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>linear, Regression, Fit-Steuerung, Quadratwurzel, abgeblendet, ausgegraut, Standardfehler</span></p>

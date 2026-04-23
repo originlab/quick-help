@@ -1,0 +1,97 @@
+<h1 class="firstHeading">4.72 FAQ-1195 Origin 是否有录制宏并自动执行重复性任务的方法？</h1><p class='urlname' style='display: none'>Recording-Macros-and-Automation</p>
+<p class='faqID'>Last Update: 11/14/2025</p>
+<p><b>注意:</b> 无需写代码 Origin 就可以执行 <a class="external text" href="https://www.originlab.com/doc/Quick-Help/Automate-Repetitive-tasks" target="_blank">自动化重复性任务</a>。虽然无需编程即可享受 Origin 的强大功能，本页是给对 Origin 编程功能感兴趣的用户准备的。
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Origin.E7.BC.96.E7.A8.8B"><span class="tocnumber">1</span> <span class="toctext">Origin编程</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Control_.2B_Shift_.2B_Click"><span class="tocnumber">1.1</span> <span class="toctext">Control + Shift + Click</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#ECHO_.E7.B3.BB.E7.BB.9F.E5.8F.98.E9.87.8F"><span class="tocnumber">1.2</span> <span class="toctext">ECHO 系统变量</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#.E7.94.9F.E6.88.90.E8.84.9A.E6.9C.AC"><span class="tocnumber">1.3</span> <span class="toctext">生成脚本</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#.E4.BD.BF.E7.94.A8.E4.BB.A3.E7.A0.81.E3.80.81.E5.91.BD.E4.BB.A4.E5.92.8C.E8.84.9A.E6.9C.AC.E5.AE.9E.E7.8E.B0.E8.87.AA.E5.8A.A8.E5.8C.96"><span class="tocnumber">2</span> <span class="toctext">使用代码、命令和脚本实现自动化</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#.E5.BB.B6.E4.BC.B8.E9.98.85.E8.AF.BB.E4.B8.BB.E9.A2.98"><span class="tocnumber">3</span> <span class="toctext">延伸阅读主题</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Origin.E7.BC.96.E7.A8.8B"></a><span class="mw-headline">Origin编程</span></h2>
+<p>Origin 允许用户通过图形用户界面和对话框运行复杂的命令和功能，而无需编写代码。然而，它被设计成一款完全可编程的软件，并且<a class="external text" href="https://www.originlab.com/doc/en/User-Guide/Programming-in-Origin" target="_blank">内置对多种高级语言的支持</a>。
+</p><p>编程功能允许用户自定义、自动化和共享工作流程。一些常见的应用包括:
+</p>
+<ul><li> 创建新的数据导入、分析、可视化和导出流程。</li>
+<li> 处理大型数据集或批量处理的自动化重复性任务。</li>
+<li> 进行数值计算和模拟。</li>
+<li> 构建自定义应用程序与同事共享或者放在 <a class="external text" href="https://www.originlab.com/fileExchange/" target="_blank">Origin File Exchange</a>页面上共享。</li></ul>
+<p>由于 Origin 中同时运行着多种语言，用户可以使用各种工具来查看 Origin 中的底层代码、命令和脚本。 <b>需要注意的是，本页讨论的功能主要用于访问 LabTalk 脚本，包括 X-Functions。</b>
+</p>
+<h3><a name="Control_.2B_Shift_.2B_Click"></a><span class="mw-headline">Control + Shift + Click</span></h3>
+<p>用户<a class="external text" href="https://www.originlab.com/doc/en/LabTalk/guide/Getting-Started-with-LT#Using_CTRL_.2B_SHIFT_to_capture_Menu_Command_and_Toolbar_Button_Script" target="_blank">按住 <b>Ctrl + Shift</b> 键</a>并点击大多数<a class="external text" href="https://www.originlab.com/doc/de/Origin-Help/Menu-Items-Toolbars-and-Status-Bar" target="_blank">菜单</a>、<a class="external text" href="https://www.originlab.com/doc/User-Guide/Toolbars" target="_blank">工具栏按钮</a>和<a class="external text" href="https://www.originlab.com/doc/Origin-Help/Mini-Toolbar" target="_blank">浮动工具栏</a>，即可 (1) 在<a class="external text" href="https://www.originlab.com/doc/Origin-Help/Code-Builder" target="_blank">代码生成器</a>中显示相应的脚本，以及 (2) 在<a class="external text" href="https://www.originlab.com/doc/Origin-Help/CmdWindow" target="_blank">脚本窗口</a>中显示命令和其他识别信息。您可以在我们的 <a class="external text" href="http://www.youtube.com/@TheOriginLab" target="_blank">YouTube 频道</a>上找到一个<a class="external text" href="https://www.originlab.com/videos/details.aspx?id=578" target="_blank">简短的示例</a>。
+</p>
+<h3><a name="ECHO_.E7.B3.BB.E7.BB.9F.E5.8F.98.E9.87.8F"></a><span class="mw-headline">ECHO 系统变量</span></h3>
+<p>当用户更改 <a class="external text" href="https://www.originlab.com/doc/LabTalk/ref/System-vars#ECHO" target="_blank">ECHO</a> 变量值时，Origin 会在脚本窗口显示处理的命令、脚本和<span class="OIndex">错误信息</span>。默认情况下，ECHO 的值为零，以禁用命令显示。
+</p><p>要启用 <span class="OIndex">echo</span> 的显示功能，请在脚本窗口中输入 echo = <i>数值</i>。<i>数值</i> 可以是:
+</p>
+<table class="simple">
+<tr>
+<th>数值</th>
+<th>作用
+</th></tr>
+<tr>
+<td> 1</td>
+<td>显示会生成错误的命令
+</td></tr>
+<tr>
+<td> 2</td>
+<td>显示已发送到延迟执行队列的脚本
+</td></tr>
+<tr>
+<td> 4</td>
+<td>显示涉及命令的脚本
+</td></tr>
+<tr>
+<td> 8</td>
+<td>显示涉及赋值的脚本
+</td></tr>
+<tr>
+<td> 16</td>
+<td>显示宏
+</td></tr></table>
+<p>可以将 ECHO 设置为这些数字的任意总和，以组合不同的选项。例如，如果 <b>echo = 7;</b>，Origin 将显示 (1) 产生错误的命令，(2) 已发送到队列的脚本，以及 (4) 包含命令的脚本。如果 <b>echo = 31;</b>，Origin 将显示上表中列出的所有五个选项的组合。<br />
+<a  class="image"><img alt="Setting echo.gif" src="../images/Recording_Macros_and_Automation/Setting_echo.gif?v=14927" width="600"  /></a>
+</p><p>建议用户在使用完毕后将变量重置为 <b>echo = 0;</b>。
+</p><p>我们的文档中提供了一个演示如何使用 ECHO 的<a class="external text" href="https://www.originlab.com/doc/LabTalk/Tutorials/Tutorial-Debug#echo" target="_blank">简短示例</a>。
+</p>
+<h3><a name=".E7.94.9F.E6.88.90.E8.84.9A.E6.9C.AC"></a><span class="mw-headline">生成脚本</span></h3>
+<p>生成脚本命令是用于自动化处理和分析的强大工具，该命令可以在大多数 <a class="external text" href="https://www.originlab.com/doc/Origin-Help/Dialog-Theme" target="_blank">X-Function 对话框</a>顶部的弹出式菜单找到。涵盖了许多对工作表和图形做分析和可视化的操作。
+<br /><a  class="image"><img alt="Generate script.gif" src="../images/Recording_Macros_and_Automation/Generate_script.gif?v=14928" width="600"  /></a>
+</p><p>此功能用于访问 Origin 中的底层 <a class="external text" href="https://www.originlab.com/doc/X-Function/guide/Calling-X-Functions-from-Script#Generate_Script_from_X-Function_Dialog" target="_blank">X-Functions</a>。
+</p>
+<table class="note">
+
+<tr>
+<td><b>注意:</b>
+<p>系统变量 <a class="external text" href="https://www.originlab.com/doc/LabTalk/ref/sys-var-list#F.2CG" target="_blank">system variable <b>@GAS</b></a> 控制使用生成脚本功能时显示的信息。<br /><a  class="image"><img alt="System Variable GAS Change.gif" src="../images/Recording_Macros_and_Automation/System_Variable_GAS_Change.gif?v=14926" width="600"  /></a>
+</p>
+</td></tr></table>
+<p>我们也提供了<a class="external text" href="https://www.originlab.com/doc/LabTalk/Tutorials/Tutorial-XF#Generate_Script_from_X-Function_Dialog" target="_blank">简要教程</a>。
+</p>
+<h2><a name=".E4.BD.BF.E7.94.A8.E4.BB.A3.E7.A0.81.E3.80.81.E5.91.BD.E4.BB.A4.E5.92.8C.E8.84.9A.E6.9C.AC.E5.AE.9E.E7.8E.B0.E8.87.AA.E5.8A.A8.E5.8C.96"></a><span class="mw-headline">使用代码、命令和脚本实现自动化</span></h2>
+<p>Origin 拥有多个接口允许用户输入代码来自动化或自定义他们的工作:
+</p>
+<ul><li> <a class="external text" href="https://www.originlab.com/doc/Origin-Help/CmdWindow" target="_blank">脚本窗口</a>提供一个交互式文本框，按下 <b>Enter</b> 键即可运行选中的脚本。</li>
+<li> <a class="external text" href="https://www.originlab.com/doc/en/Tutorials/Command-Window" target="_blank">命令窗口</a>包含一个标准输入面板和一个输出面板，按下 <b>Enter</b> 键即可一次运行一行代码。</li>
+<li> <a class="external text" href="https://www.originlab.com/doc/Origin-Help/WkbkScript-Panel" target="_blank">脚本面板</a>用于将代码、命令和脚本应用到特定的工作簿或工作表中。</li>
+<li> <a class="external text" href="https://www.originlab.com/doc/Origin-Help/Code-Builder" target="_blank">代码生成器</a>是 Origin 中最强大的代码编辑器，允许创建和编译文件，并包含调试功能。</li></ul>
+<h2><a name=".E5.BB.B6.E4.BC.B8.E9.98.85.E8.AF.BB.E4.B8.BB.E9.A2.98"></a><span class="mw-headline">延伸阅读主题</span></h2>
+<ul><li> <a class="external text" href="https://www.originlab.com/doc/en/Origin-Help/Batch-Processing" target="_blank">批处理</a></li>
+<li> <a class="external text" href="https://www.originlab.com/doc/Tutorials/Introduce-X-Function" target="_blank">X-Functions</a></li>
+<li> <a class="external text" href="https://www.originlab.com/doc/en/Tutorials/Create-Update-Apps" target="_blank">在 Origin 中创建和更新应用程序</a></li>
+<li> <a class="external text" href="https://www.originlab.com/doc/Tutorials/LabTalk" target="_blank">LabTalk 教程</a></li></ul>
+
+
+
+
+
+

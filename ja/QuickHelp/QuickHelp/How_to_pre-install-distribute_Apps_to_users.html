@@ -1,0 +1,32 @@
+﻿<h1 class="firstHeading">FAQ-1194 ユーザにアプリをプリインストール/配布するには?</h1><p class='urlname' style='display: none'>preinstall-apps</p>
+<p class='faqID'>最終更新日：2024/12/03</p>
+<p><br />
+Note: アプリはエンドユーザがOriginを起動したときにのみインストールされ、このユーザにのみ表示されます。 
+</p><p><span class='headerInParagraph'>IT部門がOriginのインストールとアプリの配布を行う場合</span>
+</p>
+<dl><dd><ul><li> Origin セットアップフォルダ（Setup.exeまたはMSIを含む）に<i>Auto Install</i>という名前のフォルダを作成 </li>
+<li> アプリファイル(*.opx)をダウンロードし、<i>Auto Install</i>フォルダに保存</li>
+<li> IT担当者がエンドユーザのコンピュータにOriginをシステム管理者アカウントでインストールし、インストール中に「すべてのユーザ」を選択します。アプリを含む<i>Auto Install</i>フォルダは、エンドユーザのOrigin Programフォルダにコピーされます（バージョン2025の例：C:\Program Files\OriginLab\Origin2025\Auto Install）。IT担当者は、Originがインストールされた後、このProgramフォルダにopxファイルを追加することもできます。Note: この段階では、アプリはまだインストールされていません。 </li>
+<li> エンドユーザがコンピュータにログオンしてOriginを起動すると、<b>Auto Install</b>フォルダの下のすべてのアプリがそのユーザアカウントに対して自動的にインストールされます。ここでは様々なことが起こる可能性があります。
+<ul><li>A. ほとんどのアプリはC:\Users\&lt;username&gt;\AppData\Local\OriginLab\Apps\にサイレントにインストールされます。エンドユーザはそのフォルダへの書き込み権限を持つためです。</li>
+<li> B. 一部のアプリではPythonパッケージが必要です（Neural Network Regressionなど）。エンドユーザにPythonパッケージをインストールするためのメッセージが表示されます。「はい」をクリックしてPythonパッケージをインストールします。その後はケースAと同様です。</li>
+<li> C. 一部のアプリにはサードパーティ製ソフトウェアが必要です（例：DOEにはRソフトウェアが必要です）。Rソフトウェアが見つからなかった場合、エンドユーザはOriginを管理者として実行し、Rをインストールするように求められるます。</li></ul></li></ul></dd></dl>
+<p><span class='headerInParagraph'>Originをインストール済みのエンドユーザ向けにアプリを事後配布</span>
+</p>
+<dl><dd><ul><li> グループリーダーとグループメンバーの設定
+<ol><li> 最初のステップは<a class="external text" href="../../UserGuide/UserGuide/Set_Group_Folder_Location_Dialog.html#Setting_the_Group_Folder_for_the_Group_Leader_Machine">グループリーダーマシンのグループフォルダを設定することです</a>。</li>
+<li> 次に、<a class="external text" href="../../UserGuide/UserGuide/Set_Group_Folder_Location_Dialog.html#Setting_the_Group_Folder_for_the_Member_Machines">メンバーマシンのグループフォルダを設定します</a>。</li></ol></li>
+<li> アプリを配布する
+<ol><li>グループリーダマシンの<a href="../../QuickHelp/QuickHelp/What_is_the_User_Files_Folder.html" title="クイックヘルプ：User Filesフォルダとはなんですか？">User Filesフォルダ</a>に、<i>Auto Install</i>という名前のフォルダを作成</li>
+<li>アプリファイル(*.opx)をダウンロードし、<i>Auto Install</i>フォルダに保存</li>
+<li><a class="external text" href="../../UserGuide/UserGuide/Group_Folder_Manager.html"><b>グループフォルダマネージャ</b></a>を使用してアプリファイル（*.opx）を配布</li>
+<li>OriginグループメンバーがOriginを開始すると、Originにインストールされているアプリが表示されます。</li></ol></li></ul></dd></dl>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>同時起動, ock, auto install, group, apps, administrator</span></p>
+
+
+
+
+
+
+
+    

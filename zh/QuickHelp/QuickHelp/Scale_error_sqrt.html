@@ -1,0 +1,23 @@
+<h1 class="firstHeading">3.170 FAQ-1211 使用开方缩放误差是什么？为什么不能取消它？</h1><p class='urlname' style='display: none'>Scale-error-sqrt</p>
+<p class='faqID'>Last Update: 11/13/2025</p>
+<p><b>使用开方缩放误差(Reduced Chi-Sqr)</b> 选项出现在： 
+</p>
+<dl><dd><ul><li><b>非线性曲线拟合</b> 对话框的<a class="external text" href="../../UserGuide/UserGuide/Settings_Tab_Upper_Panel.html#Advanced">高级标签页: 拟合控制</a> ，或</li>
+<li><b>线性回归</b> 对话框的<a class="external text" href="../../UserGuide/UserGuide/Linear_Regression_Dialog.html#Fit_Control">拟合控制标签页</a>。</li></ul></dd></dl>
+<h2><a name=".E5.A6.82.E6.9E.9C.E4.BD.A0.E4.B8.8D.E4.BD.BF.E7.94.A8.E6.9D.83.E9.87.8D"></a><span class="mw-headline">如果你不使用权重</span></h2>
+<p>如果您在 Origin 中运行回归分析时没有误差数据，则分析将不使用权重。在这种情况下，使用开方缩放误差（reduced chi-square）对误差进行缩放，因此无法取消选中。
+</p><p>从物理角度来看，参数标准误差 (SE) 的单位应与参数本身的单位一致。如果误差未缩放，则参数标准误差的单位为 (参数单位) / (y 的单位)。这会导致与参数单位不同的结果，这是不正确的。
+</p><p>当将 y 数据缩放 10 倍时，这一点显而易见：线性拟合中的参数也会缩放相同的倍数。但是，如果误差未缩放，则参数的标准误差 (SE) 将保持不变。这种行为是不合理的，因为 SE 也应根据数据的变化按比例缩放。
+</p><p>另一个说明缩放为何合适的例子是最大似然估计 (MLE) 方法的结果。它的公式中包含统计得出的参数标准误差，并且也进行了缩放。
+</p>
+<h2><a name=".E5.A6.82.E6.9E.9C.E8.A6.81.E4.BD.BF.E7.94.A8.E6.9D.83.E9.87.8D"></a><span class="mw-headline">如果要使用权重</span></h2>
+<p>使用权重时，可以取消选中的权重选项，尤其是在选择"仪器权重"时，在本例中我们建议取消勾选。这意味着用户假设 𝑦<sub>𝑖</sub> 的误差为 𝑤<sub>𝑖</sub>，即 𝑦<sub>𝑖</sub>/𝑤<sub>𝑖</sub> 的误差为 1。因此，加权模型的理论方差为 1，缩放 1 倍不会产生任何影响。因此，无需缩放 1 倍。
+</p><p>但是，如果给定的权重仅反映每个点的误差相对大小（而非真实误差），则用户应选中缩放选项。在这种情况下，加权模型的理论方差不为 1，而应使用实际值，例如拟合后用开方缩放误差。
+</p><p><br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Scale_error_sqrt/Tip_icon.png?v=0" width="57"  border="0" /></td><td><p><a href="../../QuickHelp/QuickHelp/Why_Parameters_SE_remains_unchanged_when_error_bar_is_scaled.html" title="QuickHelp:Why Parameters SE remains unchanged when error bar is scaled">请参阅此页面了解理论和示例</a>
+</p></td></tr></table>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>linear, 线性, regression, 回归, fit control, 拟合控制, square root, 平方根, grayed out, 灰色, greyed, standard error, 标准误差</span></p>
+
+

@@ -1,0 +1,42 @@
+﻿<h1 class="firstHeading">FAQ-1202 あるユーザアカウントによってインストールされた内部Pythonパッケージが別のアカウントで使用できません。どうしたらよいでしょうか？</h1>
+<p class='urlname' style='display: none'>Interal-Python-Packages-Fail-for-Different-User</p>
+<p class='faqID'>最終更新日：2024/9/5</p>
+<p><b>すべてのユーザ</b>がアクセス可能な状態でOriginをインストールした後でOriginを実行し、Windowsユーザーアカウント<i>A</i>の下にPythonパッケージ(例えば<i>numpy</i>)をインストールした場合、このパッケージはすべてのWindowsユーザーアカウントで使用できるはずです。</p>
+<p><i><b>Origin 2023b/2024/2024bからOrigin 2025以降にアップグレードした場合</b></i></p>
+<p>インストールされたPythonパッケージを別のユーザアカウントで実行できず、次のようなエラーメッセージが表示された場合</p>
+<pre class="lt" style="font-family:monospace;">
+Traceback <span style="color: #000000;">(</span>most recent call last<span style="color: #000000;">)</span><span style="color: #000000;">:</span>
+  File <span style="color: #ff00ff;">"&lt;string&gt;"</span>, line <span style="color: #0000dd;">1</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+  File <span style="color: #ff00ff;">"C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\__init__.py"</span>, line <span style="color: #0000dd;">9</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+    from .<span style="color: #000080;">config</span> import <span style="color: #000080;">*</span>
+  File <span style="color: #ff00ff;">"C:\ProgramData\OriginLab\101b\PyPackage\Py3\originpro\config.py"</span>, line <span style="color: #0000dd;">61</span>, in <span style="color: #000080;">&lt;</span>module<span style="color: #000080;">&gt;</span>
+    np.<span style="color: #000080;">float64</span><span style="color: #000000;">:</span> po.<span style="color: #000080;">DF_DOUBLE</span>,
+    <span style="color: #000080;">^^^^^^^^^^</span>
+AttributeError<span style="color: #000000;">:</span> module <span style="color: #ff00ff;">'numpy'</span> has no attribute <span style="color: #ff00ff;">'float64'</span>
+</pre>
+<p>この問題を解決するために<b>python311.zip</b>ファイルをアップグレードをお試しください。以下のように操作します。</p>
+<ol>
+<li><a class="external text" href="https://blog.originlab.com/wp-content/uploads/2024/08/python311.zip" target="_blank">こちら</a>から<b>python311.zip</b>ファイルをダウンロードします。</li>
+<li>Originのインストールフォルダ（デフォルトは<code>C:\Program Files\OriginLab\Origin####</code> <b>）のpython311.zipを</b>上記のフォルダに置き換えます。Windowsの管理者権限が必要であることに注意してください。<br />
+全てのPythonパッケージは権利の問題があるので、以下の手順を続けて再インストールします。</li>
+<li>Originを起動します。メニュー<b>ウィンドウ：コマンドウィンドウを</b>選択し、コマンドウィンドウで次のLabTalkスクリプトを実行します。
+<pre class="lt" style="font-family:monospace;">
+pip freeze <span style="color: #000080;">&gt;</span> d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>;  <span style="color: #008000;">//パスは適宜変更</span>
+</pre></li>
+<li>作成された<i>packages.txtを</i>任意のテキストエディタ(メモ帳など)で開きます。<i>originpro</i>、<i>jedi</i>、<i>parso</i>を含む3行を削除します。ファイルを再度保存します。</li>
+<li>次のLabTalkスクリプトを実行して、インストールされているすべてのPythonパッケージを削除します。
+<pre class="lt" style="font-family:monospace;">
+pip uninstall <span style="color: #000080;">*</span>;
+</pre></li>
+<li>次のLabTalkスクリプトを実行して、すべてのパッケージを再インストールします。
+<pre class="lt" style="font-family:monospace;">
+pip install <span style="color: #000080;">-</span>r d<span style="color: #000000;">:</span>\packages.<span style="color: #000080;">txt</span>;
+</pre></li>
+<li>次のLabTalkスクリプトを実行して<i>originproを</i>更新します。
+<pre class="lt" style="font-family:monospace;">
+pip install originpro <span style="color: #000080;">--</span>upgrade;
+</pre></li>
+<li>完了したら、Originを再起動し、Pythonスクリプトを実行してみます。これでうまく動作するはずです。</li>
+</ol>
+<hr class='keywordshr' />
+<p><span class='keywords'>キーワード:</span> <span class='keywordsInput'>python, パッケージ, numpy, 別のアカウント, ログインアカウント</span></p>

@@ -1,0 +1,25 @@
+<h1 class="firstHeading">4.75 FAQ-1220 如何默认从指定的 CRAN 镜像下载 R 包？</h1><p class='urlname' style='display: none'>R-Packages-CRAN-Mirror</p>
+<p class='faqID'>Last Update: 11/12/2025</p>
+<p>R 可以从不同的 CRAN 镜像下载 R 包。
+</p><p>如果默认镜像速度慢，可以改用其他镜像作为默认:
+</p>
+<ol>
+<li>以管理员身份运行记事本（右击并选择<b>以管理员身份运行</b>）。浏览并打开以下文件:
+<br /><code>C:\Program Files\R\R-4.5.0\etc\Rprofile.site</code>
+<li>找到 <code>set a CRAN mirror</code> 章节去修改默认镜像，比如:
+<pre class="lt" style="font-family:monospace;"># set a CRAN mirror
+ local<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#123;</span>r <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> getOption<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;repos&quot;</span><span style="color: #000000;">&#41;</span>
+	r<span style="color: #000000;">&#91;</span><span style="color: #ff00ff;">&quot;CRAN&quot;</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">&quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;</span>
+	r<span style="color: #000000;">&#91;</span><span style="color: #ff00ff;">&quot;Mirror1&quot;</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">&quot;https://ftp.yz.yamagata-u.ac.jp/pub/cran/&quot;</span>
+	r<span style="color: #000000;">&#91;</span><span style="color: #ff00ff;">&quot;Mirror2&quot;</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">&quot;https://ftp.fau.de/cran/&quot;</span>
+	r<span style="color: #000000;">&#91;</span><span style="color: #ff00ff;">&quot;Mirror3&quot;</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">&quot;https://cran.yu.ac.kr/&quot;</span>
+       options<span style="color: #000000;">&#40;</span>repos<span style="color: #000080;">=</span>r<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#125;</span><span style="color: #000000;">&#41;</span></pre>
+</li>
+</ol>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>R 包, R package, CRAN 镜像, CRAN mirror, 安装包, install.packages(), 库, repository<keywords></span></p>
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<h1 class="firstHeading">2.48 FAQ-482 怎样以最大精度复制数据？</h1><p class='urlname' style='display: none'>Copy-with-Full-Precision</p>
+<p class='faqID'>Last Update: 5/20/2025</p>
+<p>在 Origin 工作表或矩阵窗口的数值以十进制呈现，最大小数位数可达15位，最高指数可达+/-308。在软件内部则以 64 位 "双精度" 二进制存储。
+</p><p>工作表和矩阵 <a class="external text" href="../../UserGuide/UserGuide/The_(Column_Properties)_Properties_Tab.html#Digits">默认数值是显示5位到6位小数位数</a> ，用户必须意识到，在单元格看到的数值位数可能只显示了"全精度"（15位小数位数）的一部分。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="FAQ-482 1.png" src="../images/How_do_I_copy_data_with_maximum_precision/FAQ-482_1.png?v=4892" width="480"  /></a></dd></dl></dd></dl>
+<ol><li> 在以下情况下，<b>编辑：复制：复制</b> 或 <b>Ctrl+C</b> 可完全精确地复制数据:
+<ul><li> 将数据从一个工作表（包括结果表）复制到（相同或不同 Origin 进程中的）另一个工作表。<b>注意：</b>这不适用于矩阵表。</li>
+<li> 将数据从外部应用程序（例如 MS Excel）复制到 Origin 工作表。</li></ul></li>
+<li> 其余情况，选择<b>编辑：复制：复制</b>或 <b>Ctrl+C</b> 仅复制显示精度的数据。要复制全精度数据，请选择<b>编辑：复制：复制值（全精度）</b>或 <b>Ctrl+Alt+C</b>。</li>
+<li> 如果工作表单元格实际上是<a class="external text" href="../../UserGuide/UserGuide/Inserting_Links_into_Worksheet_Cells.html#Links_to_Show_Contents_From_Other_Cell">指向其他工作表单元格的链接</a>，例如，输出报告表里面链接到拟合结果的值：
+<ul><li> 从一个工作表复制并粘贴到同一个 Origin 进程中另一个工作表时，<b>编辑：复制：复制(Ctrl+C)</b> 和 <b>编辑：复制：复制值（全精度）(Ctrl+Alt+C)</b> 是一样的。复制粘贴的是链接。如果源数据发生更改，链接的单元格会更新。</li>
+<li> 而从一个 Origin 进程复制粘贴到新的 Origin 进程时，必须使用 <b>编辑：复制：复制值（全精度）</b> 或 <b>Ctrl+ALT+C</b>。否则只会复制链接并为文本，比如 <i>FitLinear1!Summary.R1.Intercept_Error</i> 这在新的 Origin 进程中无法解释。Origin 2018 新增了在进程间复制单元格链接的功能。</li>
+<li> 从 Origin 复制到外部应用程序，使用 <b>编辑：复制：复制值（全精度）</b> 或 <b>Ctrl+ALT+C</b> 来复制全精度。否则只会复制显示精度。</li></ul></li></ol>
+<table class="simple" width="50%">
+<tr>
+<th>源 (复制)
+</th>
+<th>目标 (粘贴)
+</th>
+<th>实际情况是 ...
+</th></tr>
+<tr>
+<td> 工作表
+</td>
+<td> 工作表
+</td>
+<td> 以最大精度复制和粘贴数值，但显示的数字由列或工作表属性控制
+</td></tr>
+<tr>
+<td> 工作表
+</td>
+<td> 其他地方，例如矩阵、备注、图形中的标签、对话框、外部应用程序
+</td>
+<td> 以源显示的精度复制和粘贴数值
+</td></tr>
+<tr>
+<td> 矩阵
+</td>
+<td> 其他地方，例如工作表、矩阵、备注、图形中的标签、对话框、外部应用程序
+</td>
+<td> 以源显示的精度复制和粘贴数值
+</td></tr>
+<tr>
+<td> 外部程序
+</td>
+<td> 工作表
+</td>
+<td> 以全精度复制和粘贴数值，但是在工作表显示的是，在工作表属性对话框设置过的数值精度
+</td></tr>
+<tr>
+<td> 外部程序
+</td>
+<td> 矩阵
+</td>
+<td> 以源显示的精度复制和粘贴数值，但是在矩阵显示的是，在矩阵属性对话框设置过的数值精度
+</td></tr></table>
+<p><br />	
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/How_do_I_copy_data_with_maximum_precision/Tip_icon.png?v=0" width="57"  border="0" /></td><td><p>虽然从 Excel 复制粘贴数据到 Origin 数字限制为 15 位，但可使用导入 Excel 文件去支持更多数字，并在导入时保留这些数字。
+</p></td></tr></table>
+<h4><a name=".E5.9C.A8_Origin_.E4.B8.AD.E5.A4.8D.E5.88.B6.E7.B2.98.E8.B4.B4.E6.95.B0.E6.8D.AE.EF.BC.88.E5.85.A8.E7.B2.BE.E5.BA.A6.EF.BC.89.E7.9A.84.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9"></a><span class="mw-headline">在 Origin 中复制粘贴数据（全精度）的注意事项</span></h4>
+<p>当使用<b>复制值（全精度）</b>将数据从 Origin 复制到外部应用程序（例如 MS Excel）时，Origin 一直将内部以二进制存储的数据转换为最高 15 小数位数的数值。
+</p><p>在 Origin 2018 版本之前， 在工作表之间进行复制粘贴数值时，<b>复制值（全精度）</b> 和 <b>复制</b> 都是使用 Origin 内部二进制值。Origin 2018 之后，<b>复制值（全精度）</b> 也是先转换数字。
+</p><p>这改动是为了方便那些希望在新的 Origin 进程复制数据（但实际是链接）到工作表的用户。这些数据实际上是指向其他单元格的链接（自定义报告表中的值实际上链接到拟合结果表中的参数值）。在 Origin 2018 版本之前，使用<b>复制</b>还是<b>复制值（全精度）</b>，被复制粘贴的都是链接，但链接在新的 Origin 进程无法解释，只会显示为无意义的文本，例如 FitLinear1!Summary.R1.Intercept_Error 。在 Origin 2018 中<b>复制值（全精度）</b>会先将链接的数据转换为最多 15 位有效数字的十进制数，然后再粘贴，使其显示为值。
+</p><p>如果你不想在不同的 Origin 进程间进行上述复制粘贴操作，而是想恢复 Origin 2018 之前的版本中 <b>Copy (full precision)</b> 进行的操作，那么请打开 <b>Script Window</b> 窗口，并输入以下脚本：
+</p>
+<pre class="lt" style="font-family:monospace;">@CFP<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span></pre>
+<p>此复制操作的改变只在当前运行的 Origin 中有效，如果希望在以后使用 Origin 时也生效，请参阅 <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">此帮助文档</a>
+</p>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>accuracy, decimals, digits, numeric display, rounding，准确度，小数点，数字，数值显示，四舍五入</span></p>
+
+

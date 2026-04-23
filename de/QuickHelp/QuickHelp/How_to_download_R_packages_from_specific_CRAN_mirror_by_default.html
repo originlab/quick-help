@@ -1,0 +1,23 @@
+﻿<h1 class="firstHeading">FAQ-1220 Wie lade ich R-Pakete standardmäßig von einem spezifischen CRAN-Mirror herunter?</h1>
+
+  <p class='urlname' style='display: none'>R-Packages-CRAN-Mirror</p>
+
+  <p class='faqID'>Letztes Update: 20.06.2025</p>
+
+  <p>R unterstützt den Download von R-Paketen aus unterschiedlichen CRAN-Mirrorn.</p>
+
+  <p>Falls der Standard-Mirror langsam ist, können Sie einen anderen Mirror zum Standard machen:</p>
+
+  <ol>
+    <li>Führen Sie Notepad als Administrator aus (Rechtsklick und Auswahl von <b>Als Administrator ausführen</b>). Navigieren Sie zu und öffnen Sie die folgende Datei:<br>
+    <code>C:\Program Files\R\R-4.5.0\etc\Rprofile.site</code></li>
+
+    <li>Finden und bearbeiten Sie den Abschnitt <code>set a CRAN mirror</code>, um die Standardspiegel festzulegen. Zum Beispiel:
+      <pre class="lt" style="font-family:monospace;">
+# set a CRAN mirror local<span style="color: #000000;">(</span><span style="color: #000000;">{</span>r <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> getOption<span style="color: #000000;">(</span><span style="color: #ff00ff;">"repos"</span><span style="color: #000000;">)</span> r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"CRAN"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span> r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"Mirror1"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://ftp.yz.yamagata-u.ac.jp/pub/cran/"</span> r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"Mirror2"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://ftp.fau.de/cran/"</span> r<span style="color: #000000;">[</span><span style="color: #ff00ff;">"Mirror3"</span><span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span><span style="color: #000080;">-</span> <span style="color: #ff00ff;">"https://cran.yu.ac.kr/"</span> options<span style="color: #000000;">(</span>repos<span style="color: #000080;">=</span>r<span style="color: #000000;">)</span><span style="color: #000000;">}</span><span style="color: #000000;">)</span>
+</pre>
+    </li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>R-Paket, CRAN-Mirror, install.packages(), Repository</span></p>

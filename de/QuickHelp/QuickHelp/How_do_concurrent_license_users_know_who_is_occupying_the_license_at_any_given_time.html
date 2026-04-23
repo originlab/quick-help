@@ -1,0 +1,60 @@
+﻿<h1 class="firstHeading">FAQ-1198 Wie wissen Benutzer der Concurrent-Lizenz, wer die Lizenz zu eine gegebenen Zeitpunkt besetzt?</h1>
+
+  <p class='urlname' style='display: none'>Perform-License-Status-Enquiry-on-Client</p>
+
+  <p class='faqID'>Letztes Update: 10.07.2024</p>
+
+  <p>Ein Concurrent-Lizenztyp bedeutet, dass die gekaufte Anzahl der Lizenzen sich frei zwischen zugewiesenen Clients bewegen. Wenn Sie eine Concurrent-Lizenz verwenden, möchten Sie manchmal sehen, wer aktuell eine Lizenz ausgebucht hat, besonders wenn die verfügbaren Lizenzen alle verwendet werden.</p>
+
+  <p>Als Administrator einer Concurrent-Lizenz können Sie immer LMTools öffnen und auf der Registerkarte Server Status <b>Perform Status Enquiry</b> (Statusabfrage durchführen) verwenden. Am Ende des Ausgabetexts können Sie den Ausbuchungsstatus der Lizenz sehen.</p>
+
+  <p>Als Client können Sie eine der folgenden Methoden wählen, um den Lizenzstatus von einem Client-Computer abzufragen.</p>
+
+  <p><span class='headerInParagraph'>Methode 1:</span></p>
+
+  <ol>
+    <li>Kopieren Sie die Datei <b>LMTools.exe</b> auf den/die Client-Computer.</li>
+
+    <li>Öffnen Sie LMTOOLS und gehen Sie zur Registerkarte Service/License File (Dienst/Lizenzdatei).</li>
+
+    <li>Wählen Sie die Option <b>Configuration using License File</b> (Konfiguration mit Hilfe der Lizenzdatei).</li>
+
+    <li>Geben Sie<br>
+      <code>@SERVERNAME</code> oder <code>@IP_Address_Of_Server</code><br>
+      in das Bearbeitungsfeld ein, wobei <i>SERVERNAME</i> Ihr Lizenzservername ist, und stellen Sie sicher, das “@”-Symbol am Anfang einzuschließen. Angenommen, Ihr Lizenzservername ist zum Beispiel “OriginServer”. Dann setzen Sie Folgendes:
+
+      <dl>
+        <dd><a class="image"><img alt="Config using Lic File FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Config_using_Lic_File_FAQ_1198.PNG" width="687"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf der Registerkarte Server Status auf die Schaltfläche <b>Perform Status Enquiry</b>, und der Ausgabeserverstatus zeigt, welche Clients die Lizenzen aktuell besetzen.
+
+      <dl>
+        <dd><a class="image"><img alt="Server Status Enquiry FAQ 1198.PNG" src="../images/How_do_concurrent_license_users_know_who_is_occupying_the_license_at_any_given_time/Server_Status_Enquiry_FAQ_1198.PNG" width="673"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p><span class='headerInParagraph'>Methode 2:</span></p>
+
+  <ol>
+    <li>Kopieren Sie die Datei <b>lmstat.exe</b> auf den/die Client-Computer. Diese Datei kann im Ordner <i>\Tools\command line</i> unter dem Ordner des Lizenzmanagers gefunden werden.</li>
+
+    <li>Öffnen Sie einen Texteditor (z. B. Notepad), geben Sie die folgenden Befehlszeilen ein und speichern Sie das Ganze als .bat-Datei.
+      <pre class="lt" style="font-family:monospace;">
+@echo off <span style="color: #000080;">&lt;</span>path_to_lmstat.<span style="color: #000080;">exe</span><span style="color: #000080;">&gt;</span>\lmstat.<span style="color: #000080;">exe</span> <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #000080;">&lt;</span>port_no.<span style="color: #000080;">&gt;</span>@SERVERNAME pause
+</pre>
+
+      <p><br>
+      Hierbei ist <i>&lt;path_to_lmstat.exe&gt;</i> der Pfad zur Datei <b>lmstat.exe</b> auf dem Client-Computer und <i>SERVERNAME</i> ist Ihr Lizenzservername. <i>port_no.</i> ist die Portnummer, die lmgrd.exe verwendet. Sie kann weggelassen werden, falls der Standardport 27000 verwendet wird, das "@"-Symbol jedoch nicht. Angenommen, Sie kopieren zum Beispiel die Datei <b>lmstat.exe</b> in den Ordnerpfad <i>C:\Tools\OriginLicenseServer\command line\</i>, Ihr Lizenzservername ist “OriginServer” und Sie verwenden die Port 27001, dann geben Sie die folgenden Zeilen in die .bat-Datei ein:</p>
+      <pre class="lt" style="font-family:monospace;">
+@echo off <span style="color: #ff00ff;">"C:\Tools\OriginLicenseServer\command line\lmstat.exe"</span> <span style="color: #000080;">-</span>a <span style="color: #000080;">-</span>c <span style="color: #0000dd;">27001</span>@OriginServer pause
+</pre>
+    </li>
+
+    <li>Sie können immer doppelt auf diese .bat-Datei, um den Status zu prüfen.</li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>Concurrent, Lizenzverwaltung, Lizenzausbuchungsstatus, Lizenz besetzen, Lizenznutzung überwachen</span></p>

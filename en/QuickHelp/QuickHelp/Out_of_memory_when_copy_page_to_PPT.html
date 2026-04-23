@@ -1,0 +1,22 @@
+<h1 class="firstHeading">1.192 FAQ-893 I see an "Out of Memory" error message when I copy page to PowerPoint. What is wrong?</h1><p class='urlname' style='display: none'>OutOfMemory-CopyToPPT</p>
+<p class='faqID'>Last Update: 6/25/2024</p>
+<p>When you copy an Origin graph with dense data points and paste it as an Origin Graph Object (OLE object) to PowerPoint, you might get an error message:<br />
+"<i>There isn't enough memory to perform the operation.</i>"
+</p><p>It is because that when you copy an Origin graph, the internal generated EMF file (saved within the PPT file) reaches the limitation of 23M.  
+</p><p>Since it is <a class="external text" href="https://answers.microsoft.com/en-us/msoffice/forum/msoffice_powerpoint-mso_winother/there-isnt-enough-memory-to-perform-this-operation/e7113cfb-cc6b-4714-b0dc-4c1e48f2a32d" target="_blank">a known issue caused by PowerPoint</a>, it cannot be fixed from  Origin side. 
+</p><p>To workaround this problem, try one of the following solutions: 
+</p>
+<ul><li> Use menu <b>Edit: Copy Graph as Image</b> instead to copy and paste the page as a picture.</li></ul>
+<p>or,
+</p>
+<ul><li> Use menu <b>Edit:Copy Page</b> but paste it as a picture in PowerPoint.</li></ul>
+<p>or,
+</p>
+<ul><li>Copy graph (<b>Ctrl+C</b>) from Origin and paste it to other Microsoft Office software like Word/Excel. It will be successfully pasted as an OLE object. Then select the OLE object and press <b>Ctrl+C</b> to copy it, and press <b>Ctrl+V</b> to paste it to PPT. <br />This way the Origin graph can be pasted to PPT as an Origin object successfully.</li></ul>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>out of memory, PPT, PowerPoint, EMF, copy page, paste link, paste image</span></p>
+
+
+
+
+
+

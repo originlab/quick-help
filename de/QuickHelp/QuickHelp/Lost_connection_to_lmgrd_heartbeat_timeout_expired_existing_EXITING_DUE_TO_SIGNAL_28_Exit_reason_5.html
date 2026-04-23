@@ -1,0 +1,23 @@
+﻿<h1 class="firstHeading">FAQ-1197 Ich erhalten den Fehler "Verbindung zu lmgrd verlorengegangen, Heartbeat-Zeitlimit abgelaufen, existiert. WIRD AUFGRUND VON SIGNAL 28 BEENDET Grund 5". Was soll ich tun?</h1>
+
+  <p class='urlname' style='display: none'>Lost-Connection-to-Lmgrd</p>
+
+  <p class='faqID'>Letztes Update: 05.09.2024</p>
+
+  <p>Wenn das Starten des FLEXnet-Lizenzservers fehlschlägt und Sie die folgende Fehlermeldung in der Log-Datei erhalten:</p>
+
+  <p><code>10:38:30 (lmgrd) Lost connection to lmgrd, heartbeat timeout expired, exiting.</code><br>
+  <code>10:38:30 (lmgrd) Heartbeat timeout is 300 seconds. Elapsed time is 16528 seconds.</code><br>
+  <code>10:38:30 (lmgrd) EXITING DUE TO SIGNAL 28 Exit reason 5</code><br>
+  <code>10:38:30 (lmgrd) orglab exited with status 28 (Communications error)</code></p>
+
+  <p><br>
+  Diese Fehlverbindung wird wahrscheinlich durch eine Firewall zwischen Server und Clients verursacht.<br>
+  <span class='headerInParagraph'>Um dieses Problem zu beheben:</span></p>
+
+  <p>Bitte lesen Sie <a class="external text" href="https://www.originlab.com/doc/License/Concurrent-Additional-Info#Allowing_Access_through_a_Firewall" target="_blank">dieses Dokument</a>, um Ihrem Lizenzserver Zugriff durch die Firewall zu gewähren.</p>
+
+  <p>Beachten Sie, dass in Schritt 1 “An der Firewall”: Wenn Sie bestimmte Ports öffnen, stellen Sie sicher, dass Sie das für jede Firewall machen, die die Verbindung zwischen Server und Clients unterbrechen könnte. Zum Beispiel kann auf dem Server neben der Standardfirewall von Windows auch die auf dem Rechner installierte Antivirensoftware eine weitere Firewall errichten. In diesem Fall müssen Sie die Überwachung bestimmter Ports in beiden Firewalls abschalten.</p>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>Concurrent, -15, 10032, lmgrd wird nicht ausgeführt, kann keine Verbindung zum Lizenzserver herstellen, Port oder Hostname wurden in der Lizenzdatei geändert, WIRD AUFGRUND VON SIGNAL 28 BEENDET, Grund 5, EXITING DUE TO SIGNAL 28, Exit reason 5, Orglab beendete mit Status 28, Kommunikationsfehler, verlorene Verbindung zu lmgrd, Heartbeat-Zeitlimit abgelaufen</span></p>

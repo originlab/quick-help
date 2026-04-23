@@ -1,0 +1,50 @@
+﻿<h1 class="firstHeading">FAQ-710 Warum ist meine OPJ-Datei so groß, und warum nimmt Origin die gesamte CPU meines Computers in Beschlag?</h1>
+
+  <p class='urlname' style='display: none'>OPJ-so-large-and-take-full-cpu</p>
+
+  <p class='faqID'>Letztes Update: 12.08.2024</p>
+
+  <p>Wenn Sie eines dieser Probleme erleben:</p>
+
+  <ul>
+    <li>Sie arbeiten mit einer spezifischen Origin-Projektdatei (OPJ), und Origin nimmt die gesamte CPU des Computers in Beschlag.</li>
+
+    <li>Die Größe einer OPJ-Datei ist unverhältnismäßig groß.</li>
+
+    <li>Wenn Sie auf die Symbolleistenschaltfläche mit dem gelben Rechteck klicken, schlägt die Neuberechnung fehl und die Schaltfläche wird rot.</li>
+  </ul>
+
+  <p>Diese Probleme werden womöglich verursacht von:</p>
+
+  <h3><a name="Pending_operations"></a><span class="mw-headline">Ausstehende Operationen</span></h3>
+
+  <p>Führen Sie die untenstehenden Schritte durch, um die ausstehenden Operationen zu löschen. Öffnen Sie die spezifische OPJ. Rufen Sie dann das <b>Skriptfenster</b> auf (<b>Fenster: Skriptfenster</b>), geben Sie das folgende Skript ein und drücken Sie <b>Enter</b>. Origin listet die Operationen im <b>Skriptfenster</b> auf. (Ausstehende Operationen sind Operationen ohne Eingabe und Ausgabe.)</p>
+  <pre class="lt" style="font-family:monospace;">
+list op
+</pre>
+
+  <p>Geben Sie dann das folgende Skript ein (und drücken Sie <b>Enter</b>), um diese ausstehenden Operationen zu löschen:</p>
+  <pre class="lt" style="font-family:monospace;">
+delete <span style="color: #000080;">-</span>op
+</pre>
+
+  <p>Speichern Sie das Projekt neu.</p>
+
+  <h3><a name="Autofill_Ranges"></a><span class="mw-headline">Autofill Ranges - automatisch gefüllte Bereiche</span></h3>
+
+  <p>Wenn Benutzer in alten Versionen Bereiche im Arbeitsblatt automatisch mit Daten füllen, kann es passieren, dass der Bereich fälschlicherweise vergrößert wird. Um zu prüfen, ob das der Fall ist, öffnen Sie das bestimmte OPJ und geben Sie im <b>Skriptfenster</b> folgendes Skript ein und drücken Sie <b>ENTER</b>.</p>
+  <pre class="lt" style="font-family:monospace;">
+doc.<span style="color: #000080;">rangescount</span><span style="color: #000000;">(</span><span style="color: #0000dd;">32</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>
+</pre>
+
+  <p>Wenn eine große Zahl ausgegeben wird, führen Sie das folgende Skript aus, um alle automatisch gefüllten Bereiche zu entfernen.</p>
+  <pre class="lt" style="font-family:monospace;">
+del <span style="color: #000080;">-</span>r <span style="color: #0000dd;">32</span>
+</pre>
+
+  <p>Speichern Sie das Projekt neu.</p>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>große OPJ, volle CPU, Neuberechnung schlägt fehl, automatische Füllen, Bereich</span></p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 8.5.1</p>

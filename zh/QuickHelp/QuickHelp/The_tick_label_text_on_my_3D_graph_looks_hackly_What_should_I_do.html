@@ -1,0 +1,18 @@
+<h1 class="firstHeading">1.302 FAQ-1208 3D图刻度标签上的文本看起来很粗糙，如何改善？</h1><p class='urlname' style='display: none'>3D-Graph-Tick-Label-Anti-Aliansing</p> 
+<p class='faqID'>Last Update: 11/19/2024</p>
+<p>如果你发现文本对象（如 3D OpenGL 图的刻度标签）看起来很糟糕，如下所示，
+</p>
+<dl><dd><a  class="image"><img alt="3D Graph Text AA.png" src="../images/The_tick_label_text_on_my_3D_graph_looks_hackly_What_should_I_do/350px-3D_Graph_Text_AA.png?v=12050" width="350"   /></a></dd></dl>
+<p>请首先检查您的显卡是否满足<a href="../../QuickHelp/QuickHelp/What_are_OpenGL_3D_graphs_requirements_and_limitations.html" title="QuickHelp:What are OpenGL 3D graphs requirements and limitations">3D OpenGL要求</a>，并且驱动程序是否正确安装并升级到最新版本，因为3D OpenGL图的显示几乎取决于显卡。
+</p><p>如果一切正常，但文本仍然不好，请尝试将系统变量<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#O">@OGLF</a>设置为 0。也就是说，
+</p>
+<ol><li> 选择菜单 <b>设置: 系统变量…</b></li>
+<li> 在<b>设置系统变量</b> 对话框的<b>变量</b>里输入 “OGLF” 然后把它的<b>值</b>设为0.</li></ol>
+<dl><dd><a  class="image"><img alt="3D Graph Text AA System Variable.png" src="../images/The_tick_label_text_on_my_3D_graph_looks_hackly_What_should_I_do/3D_Graph_Text_AA_System_Variable.png?v=12051" width="301"  /></a></dd></dl>
+<hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>3D OpenGL, tick label, 刻度标签, 文本, text, zigzag, 锯齿状<keywords></span></p>
+
+
+
+
+
+

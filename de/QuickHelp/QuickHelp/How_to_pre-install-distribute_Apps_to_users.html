@@ -1,0 +1,25 @@
+﻿<h1 class="firstHeading">FAQ-1194 Wie installiere ich Apps f&uuml;r die Benutzer vor bzw. verteile sie?</h1><p class='urlname' style='display: none'>preinstall-apps</p>
+<p class='faqID'>Letztes Update: 03.12.2024</p>
+<p><br /> Hinweis: Apps werden nur installiert, wenn der Endbenutzer Origin &ouml;ffnet, und sind auch nur f&uuml;r diesen Anwender sichtbar.</p><p><span class='headerInParagraph'>F&uuml;r Standorte, an denen die IT in die Installation von Origin und Verteilung von Apps involviert ist</span></p>
+<dl><dd><ul><li>Die IT erstellt einen Ordner mit dem Namen <i>Auto Install</i> im Installationsordner von Origin (mit Setup.exe oder MSI).</li>
+<li>Die Apps-Dateien (*.opx) werden heruntergeladen und im Ordner <i>Auto Install</i> gespeichert.</li>
+<li>Die IT installiert Origin auf dem Computer des Endbenutzers mit dem Account des Systemadministrators und w&auml;hlt &quot;F&uuml;r alle Benutzer&quot; w&auml;hrend der Installation. Der Ordner <i>Auto Install</i> mit den Apps wird in den Origin-Programmordner des Endbenutzers kopiert, z. B. &ldquo;C:\Program Files\OriginLab\Origin2025\Auto Install&rdquo; (f&uuml;r Version 2025). Die IT kann sogar weitere opx-Dateien zu diesem Programmordner hinzuf&uuml;gen, nachdem Origin installiert ist. Hinweis: Zu diesem Zeitpunkt sind die Apps noch nicht installiert.</li>
+<li>Wenn ein Endbenutzer sich an seinem Computer anmeldet und Origin &ouml;ffnet, f&auml;ngt die Installation aller Apps im Ordner <b>Auto Install</b> automatisch an. Hier passieren verschiedene Dinge.<ul><li>A. Die meisten Apps werden stumm unter C:\Users\&lt;username&gt;\AppData\Local\OriginLab\Apps\ installiert, da der Endbenutzer die Zugriffsrechte auf diesen Ordner haben sollte.</li>
+<li>B. Einige Apps erfordern Python-Pakete (z. B. Neural Network Regression). Der Endbenutzer sieht die Warnmeldung zum Installieren der Python-Pakete. Klicken Sie auf Ja, um die Python-Pakete zu installieren. Der Rest entspricht Fall A.</li>
+<li>C. Einige Apps erfordern eine Drittanbietersoftware (z. B. erfordert DOE die Software R). Der Endbenutzer wird aufgefordert, Origin als Administrator auszuf&uuml;hren, um zuerst R zu installieren, falls die Software R nicht gefunden werden konnte.</li></ul></li></ul></dd></dl>
+<p><span class='headerInParagraph'>Die Apps im Nachhinein an Endbenutzer verteilen, die Origin bereits installiert hatten</span></p>
+<dl><dd><ul><li>Gruppenleiter und Gruppenmitglieder einrichten<ol><li>Der erste Schritt ist, <a class="external text" href="../../UserGuide/UserGuide/Set_Group_Folder_Location_Dialog.html#Setting_the_Group_Folder_for_the_Group_Leader_Machine">den Gruppenordner f&uuml;r den Rechner des Gruppenleiters einzurichten</a>.</li>
+<li>Als N&auml;chstes kann <a class="external text" href="../../UserGuide/UserGuide/Set_Group_Folder_Location_Dialog.html#Setting_the_Group_Folder_for_the_Member_Machines">der Gruppenordner f&uuml;r die Rechner der Mitglieder eingerichtet werden</a>.</li></ol></li>
+<li>Die Apps verteilen<ol><li>Erstellen Sie einen Ordner mit dem Namen <i>Auto Install</i> im <a href="../../QuickHelp/QuickHelp/What_is_the_User_Files_Folder.html" title="QuickHelp:What is the User Files Folder">Anwenderdateiordner</a> auf dem Gruppenleiterrechner.</li>
+<li>die Apps-Dateien (*.opx) herunteraden und sie im Ordner <i>Auto Install</i> speichern.</li>
+<li>Verwenden Sie <a class="external text" href="../../UserGuide/UserGuide/Group_Folder_Manager.html"><b>Gruppenordner verwalten</b></a>, um die Apps-Dateien (*.opx) zu verteilen.</li>
+<li>Wenn die Origin-Gruppenmitglieder jetzt ihr Origin starten, finden Sie die Apps bereits in ihrem Origin installiert.</li></ol></li></ul></dd></dl>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>Concurrent, Node-locked, automatisch installieren, Gruppe, Apps, Administrator</span></p>
+
+
+
+
+
+
+
+    

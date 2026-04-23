@@ -1,0 +1,20 @@
+﻿<h1 class="firstHeading">FAQ-1206 Wie werden alle Operationen im aktuellen Projekt neu berechnet?</h1>
+
+  <p class='urlname' style='display: none'>recalculate-all-operations-in-project</p>
+
+  <p class='faqID'>Letztes Update: 23.10.2024</p>
+
+  <p>Um die Neuberechnung aller Operationen im aktuellen Projekt zu forcieren (sowohl fertige und ausstehende):,</p>
+
+  <ol>
+    <li>Wählen Sie im Menü <b>Fenster: Skriptfenster</b>.</li>
+
+    <li>Geben Sie im geöffneten <b>Skriptfenster</b> folgende <a class="external text" href="../../LabTalk/LabTalk/Run_(command).html">run</a>-Befehle ein, markieren Sie sie und drücken Sie <b>Enter</b>, um sie auszuführen:
+      <pre class="lt" style="font-family:monospace;">
+run <span style="color: #000080;">-</span>auf <span style="color: #0000dd;">2</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//dirty all operations in the current project</span> run <span style="color: #000080;">-</span>p au; <span style="color: #008000;">//force recalculation</span>
+</pre>
+    </li>
+  </ol>
+  <hr class='keywordshr'>
+
+  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>neu berechnen, Analysebericht, Bericht aktualisieren, Tabellenstil aktualisieren</span></p>
