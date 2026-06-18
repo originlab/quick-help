@@ -1,39 +1,21 @@
-﻿<h1 class="firstHeading">FAQ-1020 Gibt es einen Unterschied zwischen Verbinden und Importieren?</h1>
+﻿<h1 class="firstHeading">FAQ-1020 Gibt es einen Unterschied zwischen Verbinden und Importieren?</h1><p class='urlname' style='display: none'>Data-Connector-Difference-Import-From-File</p>
+<p class='faqID'>Letztes Update: 03.06.2026</p>
+<p><b>Verbinden</b> oder <a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>Datenkonnektor</b></a> ist ein neues Importmodell, das mit <b>OriginPro 2019b</b> eingef&uuml;hrt wurde. Beide Methoden importieren Daten in Arbeitsmappen, aber wir empfehlen die Verwendung der neuen Methode Verbinden, da bereits viele Verbesserungen gemacht wurden und sie auch in Zukunft weiter verbessert werden wird, w&auml;hrend der Importcode der &auml;lteren Methode nicht mehr ver&auml;ndert wird.</p><p>Origin 2021b stellte die Symbolleistenschaltfl&auml;chen ASCII-Dateidaten (Strg+K) und Excel importieren auf die Verwendung von Datenkonnektoren um. Verwenden Sie die Systemvariable <b>@TIB</b> (Standard 0), um zu steuern, wie diese zwei Symbolleistenschaltfl&auml;chen funktionieren.</p>
+<dl><dd><ul><li>0 = Beide &ouml;ffnen die entsprechenden Datenkonnektoren.</li>
+<li>1 = ASCII-Datendateien &ouml;ffnet den alten Dialog zum Importieren von ASCII-Dateien.</li>
+<li>2 = Die Excel-Schaltfl&auml;che &ouml;ffnet den alten Dialog zum Importieren von Excel-Dateien.</li>
+<li>3 = Beide &ouml;ffnen die entsprechenden Import-Dialoge.</li></ul></dd></dl>
+<p><br /> <i><b>Aus Sicht des Anwenders sind die Schl&uuml;sselunterschiede zwischen Verbinden und dem urspr&uuml;nglichen Import:</b></i></p>
+<ol><li>Der Konnektor <a class="external text" href="../../UserGuide/Category/Data_Connector.html#Data_Integrity">sperrt die importierten Daten</a>. Dies verhindert, dass die importierten Daten unabsichtlich ver&auml;ndert werden. Seit Version 2021b k&ouml;nnen Sie auf das Symbol des Datenkonnektors klicken und im Men&uuml; <i>Importierte Daten entsperren</i> ausw&auml;hlen, um das Bearbeiten der Daten zu aktivieren. Sie k&ouml;nnen auch das Sperren der Daten mit Hilfe des <a href="../../QuickHelp/QuickHelp/How_to_allow_changing_data_when_data_connector_is_used.html" title="QuickHelp:How to allow changing data when data connector is used">Dialogs <b>Einstellungen: Optionen</b></a> steuern.</li>
+<li>Der Konnektor erh&auml;lt die Verbindung zu den Quelldaten aufrecht, von der Datei oder der Cloud aus.</li>
+<li>Die &uuml;ber einen Konnektor importierten Daten werden &uuml;blicherweise nicht mit dem Projekt gespeichert, wodurch die Projektdateien klein bleiben. In <b>2019b</b> war dies Standard. In <b>2020</b> werden Dateien, die kleiner als 500kB sind, mit dem Projekt gespeichert, aber Sie k&ouml;nnen das Standardverhalten mit Hilfe der <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html">LabTalk-Systemvariable <b>@DNS</b> und <b>@FSE</b></a> einstellen. <i>In jeden Fall</i> k&ouml;nnen Sie die importierten Daten speichern, indem Sie einfach auf das Symbol des Datenkonnektors <a  class="image"><img alt="DC Icon Live.png" src="../images/Data_Connector_Difference_Import_From_File/DC_Icon_Live.png" width="18"  /></a> klicken und das H&auml;kchen neben <b>Importierte Daten beim Speichern ausschlie&szlig;en</b> entfernen.</li>
+<li>Der CSV-Konnektor kann f&uuml;r eine Textdatei verwendet werden. F&uuml;r den Anwender ist dies sehr angenehm, da Sie f&uuml;r die meisten ASCII-Textdateien keine Dateistruktur festlegen m&uuml;ssen und der Prozess g&auml;nzlich automatisch ist. Im Vergleich dazu erfordern Importdialoge das Festlegen von Einzelheiten der Dateistruktur und solchen Merkmalen wie Datums-/Zeitformat sowie das Speichern der Einstellungen als Design, wenn sie zuk&uuml;nftig erneut genutzt werden sollen.</li></ol>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>Import, ASCII, CSV, TXT, DAT, Header, Excel, XML, JSON, MATLAB, HTML, Konnektor, Projekt, speichern, Daten ausschlie&szlig;en, Big Data, sehr gro&szlig;</span></p>
 
-  <p class='urlname' style='display: none'>Data-Connector-Difference-Import-From-File</p>
 
-  <p class='faqID'>Letztes Update: Dienstag, 2. Juli 2024</p>
 
-  <p><b>Verbinden</b> bzw. <a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>Datenkonnektor</b></a> ist ein neues Importframework, das in <b>OriginPro 2019b</b> eingeführt wurde. Beide Methoden importieren Daten in Arbeitsmappen, aber wir empfehlen die Verwendung der neuen Methode Verbinden, da bereits viele Verbesserungen gemacht wurden und sie auch in Zukunft weiter verbessert werden wird, während der Importcode der älteren Methode nicht mehr verändert wird.</p>
 
-  <p>Origin 2021b änderte die Schaltflächen ASCII-Dateidaten (Strg+K) und Excel importieren auf der Symbolleiste zugunsten von Datenkonnektoren. Verwenden Sie die Systemvariable <b>@TIB</b> (Standard 0), um zu steuern, wie diese zwei Symbolleistenschaltflächen funktionieren.</p>
 
-  <dl>
-    <dd>
-      <ul>
-        <li>0 = Beide öffnen die entsprechenden Datenkonnektoren.</li>
 
-        <li>1 = Schaltfläche ASCII-Dateidaten öffnet den alten Dialog zum Importieren von ASCII-Dateien.</li>
 
-        <li>2 = Schaltfläche Excel importieren öffnet den alten Dialog zum Importieren von Excel-Dateien.</li>
-
-        <li>3 = Beide öffnen die entsprechenden Importdialoge.</li>
-      </ul>
-    </dd>
-  </dl>
-
-  <p><br>
-  <i><b>Aus Sicht des Anwenders sind die Schlüsselunterschiede zwischen Verbinden und dem ursprünglichen Import:</b></i></p>
-
-  <ol>
-    <li>Der Konnektor <a class="external text" href="../../UserGuide/Category/Data_Connector.html#Data_Integrity">sperrt die importierten Daten</a>. Dies verhindert, dass die importierten Daten unabsichtlich verändert werden. Seit Version 2021b können Sie auf das Symbol des Datenkonnektors klicken und im Menü <i>Importierte Daten entsperren</i> auswählen, um das Bearbeiten der Daten zu aktivieren. Sie können auch das Sperren der Daten mit Hilfe der <a href="../../QuickHelp/QuickHelp/How_to_allow_changing_data_when_data_connector_is_used.html" title="QuickHelp:How to allow changing data when data connector is used">Systemvariablen <b>@IPDC</b></a> steuern.</li>
-
-    <li>Der Konnektor erhält die Verbindung zu den Quelldaten aufrecht, von der Datei oder der Cloud aus.</li>
-
-    <li>Die über einen Konnektor importierten Daten werden üblicherweise nicht mit dem Projekt gespeichert, wodurch die Projektdateien klein bleiben. In <b>2019b</b> war dies Standard. In <b>2020</b> werden Dateien, die kleiner als 500kB sind, mit dem Projekt gespeichert, aber Sie können das Standardverhalten mit Hilfe der <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html">LabTalk-Systemvariable <b>@DNS</b> und <b>@FSE</b></a> einstellen. <i>In jeden Fall</i> können Sie die importierten Daten speichern, indem Sie einfach auf das Symbol des Datenkonnektors <a class="image"><img alt="DC Icon Live.png" src="../images/Data_Connector_Difference_Import_From_File/DC_Icon_Live.png" width="18"></a> klicken und das Häkchen neben <b>Importierte Daten beim Speichern ausschließen</b> entfernen.</li>
-
-    <li>Der CSV-Konnektor kann für eine Textdatei verwendet werden. Für den Anwender ist dies sehr angenehm, da Sie für die meisten ASCII-Textdateien keine Dateistruktur festlegen müssen und der Prozess gänzlich automatisch ist. Im Vergleich dazu erfordern Importdialoge das Festlegen von Einzelheiten der Dateistruktur und solchen Merkmalen wie Datums-/Zeitformat sowie das Speichern der Einstellungen als Design, wenn sie zukünftig erneut genutzt werden sollen.</li>
-  </ol>
-  <hr class='keywordshr'>
-
-  <p><span class='keywords'>Schlüsselwörter:</span><span class='keywordsInput'>Import, ASCII, CSV, TXT, DAT, Header, Excel, XML, JSON, MATLAB, HTML, Konnektor, Projekt, speichern, Daten ausschließen, Big Data, sehr groß</span></p>
+    
