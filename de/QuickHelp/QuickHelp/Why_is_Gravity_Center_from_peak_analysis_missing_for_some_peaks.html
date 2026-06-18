@@ -1,0 +1,12 @@
+﻿<h1 class="firstHeading">FAQ-1230 Warum fehlt f&uuml;r einige Peaks der Schwerpunkt aus der Peakanalyse?</h1><p class='urlname' style='display: none'>Missing-Gravity-Center-from-Peak-Analysis</p>
+<p class='faqID'>Letztes Update: 19.12.2025</p>
+<p>Manchmal wird nach der Anpassung eines Spektrums mit der Funktion Peaks analysieren, der Schwerpunkt eines Peaks als fehlender Wert gemeldet &quot;--&quot;, auch wenn die Gesamtanpassung gut aussieht.</p><p>Der Wert wird mit Absicht leer gelassen f&uuml;r bestimmte Standardfunktionen (z. B. PearsonVII), deren Momente wom&ouml;glich nicht existieren. Wenn beispielsweise in der <a class="external text" href="../../UserGuide/UserGuide/PearsonVII.html">Funktion PearsonVII</a> <code>m &lt; 1</code>, dann konvergiert das Produkt <code>x*f(x)</code> nicht auf 0, w&auml;hrend <i>x</i> sich unendlich n&auml;hert, und sein Integral von <i>-inf</i> bis <i>inf</i> divergiert. Da der Schwerpunkt in diesem Fall undefiniert ist, &uuml;berspringt Origin die Berechnung und gibt einen fehlenden Wert an.&emsp;</p>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>Pearson, Peakanpassung, Schwerpunkt Zentrum, Peakanalyse<keywords></span></p>
+
+
+
+
+
+
+
+    

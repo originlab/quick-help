@@ -1,0 +1,17 @@
+﻿<h1 class="firstHeading">FAQ-1235 OriginからExcelに間違ったデータが貼り付けられる理由は？</h1><p class='urlname' style='display: none'>Copy-Paste-Wrong-Data-from-Excel</p>
+<p class='faqID'>最終更新日：2025/12/25</p>
+<h5><a name="Symptom"></a><span class="mw-headline">症状</span></h5>
+<dl><dd>ExcelからOriginにデータ（パルススペクトルなど）をコピー&amp;ペーストし、操作（ピーク解析など）を行い、OriginからExcelに新しいデータ（ピークフィッティング結果など）をコピー&amp;ペーストすると、新しい結果ではなく、元のパルススペクトルが貼り付けられる。</dd></dl>
+<h5><a name="Cause"></a><span class="mw-headline">原因</span></h5>
+<dl><dd>Excel（2024以降）は最初のクリップボードを「仮想フレーム」に保持します。このフレームがクリアされるまで、Excelの外部で作成されたコピーは無視されます。</dd></dl>
+<h5><a name="Workaround"></a><span class="mw-headline">回避策</span></h5>
+<dl><dd> Originに目的のデータをコピーする前に、Excelに切り替えて<b>Esc</b>キーを1回押して仮想フレームをクリアします。次に、Origin内のデータをコピーしてExcelに貼り付けます。</dd></dl>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'> Excelから貼り付け、間違ったデータをコピー</span></p>
+
+
+
+
+
+
+
+    

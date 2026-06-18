@@ -1,0 +1,14 @@
+﻿<h1 class="firstHeading">FAQ-1230 ピーク解析における重心位置が、一部のピークで表示されないのはなぜですか？</h1><p class='urlname' style='display: none'>Missing-Gravity-Center-from-Peak-Analysis</p>
+<p class='faqID'>最終更新日：2025/12/19</p>
+<p>ピークアナライザでスペクトルをフィッティングした後、全体的なフィッティング結果は良好に見えるにもかかわらず、ピークの重心が欠損値 &quot;--&quot; として報告されることがあります。
+</p><p>モーメントが存在しない可能性のある特定の組み込み関数（例：PearsonVII）については、意図的に値が空白のままになっています。例えば、<a class="external text" href="../../UserGuide/UserGuide/PearsonVII.html">PearsonVII関数</a>では、<code>m &lt; 1</code> のとき、積<code>x*f(x)</code>は<i>x</i>が無限大に近づくにつれて0に収束せず、したがって<i>-inf</i>から<i>inf</i>への積分は発散します。この場合、重心は定義されていないため、Originは計算をスキップし、欠損値を報告します。&emsp;
+</p>
+<hr class='keywordshr'><p><span class='keywords'>キーワード：</span><span class='keywordsInput'>ピアソン、ピークフィット、重心位置、ピーク解析<keywords></span></p>
+
+
+
+
+
+
+
+    

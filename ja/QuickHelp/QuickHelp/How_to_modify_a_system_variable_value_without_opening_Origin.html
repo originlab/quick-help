@@ -1,0 +1,31 @@
+﻿<h1 class="firstHeading">FAQ-1234 Originを開かずにシステム変数の値を変更する方法は？</h1><p class='urlname' style='display: none'>Change-System-Variables-without-Origin-Open</p>
+<p class='faqID'>最終更新日：2025/12/25</p>
+<p>Originが正常に開始された場合は、いつでも<a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="クイックヘルプ: システム変数の値を永続的に変更するには？"><b>システム変数を設定</b>ダイアログを使用して変数値を変更できます。</a>ただし、Originが何らかの理由で起動できず、問題を修正/トラブルシューティングするためにシステム変数を調整する必要がある場合は、以下の手順に従ってください。
+</p>
+<ul>
+<li> <span class='headerInParagraph'>レジストリベースのシステム変数の場合： </span> 
+<dl><dd><b>レジストリエディタ</b>を開き、ブランチ<code> \HKEY_CURRENT_USER\Software\OriginLab\SysVar</code> を展開し、必要な値を直接編集または追加します。</li></dd></dl>
+<li> <span class='headerInParagraph'>レジストリ以外のシステム変数の場合：</span>
+<ol>
+<li> Originプロセスが実行されていないことを確認します。 
+<li> テキストエディタでユーザファイルフォルダ内の<i>SystemVariables.ogs</i>を開きます（存在しない場合は作成します）。<code>[Main]</code> セッションで変数を追加します。例えば、@PESS を -1 に変更する場合は、次のようなテキストを追加します。
+<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">[</span>Main<span style="color: #000000;">]</span>
+@PESS<span style="color: #000080;">=</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>;</pre>
+<p>ファイルを保存します。 
+</p>
+<ul>
+<li>手順2で<i>SystemVariables.ogs</i>を新規作成した場合は、テキストエディタでユーザファイルフォルダ内の<i>Origin.ini</i>を開き、<code>[Startup]</code> セッションで次のキーを追加します。 
+<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">[</span>Startup<span style="color: #000000;">]</span>
+sysvar<span style="color: #000080;">=</span>SystemVariables.<span style="color: #000080;">ogs</span></pre>
+ファイルを保存します。 </li></ul></li>
+<li> Originを再起動します。正常に起動できるか確認します。
+</ol></ul>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>システム変数の変更、変数の設定、クラッシュ<keywords></span></p>
+
+
+
+
+
+
+
+    

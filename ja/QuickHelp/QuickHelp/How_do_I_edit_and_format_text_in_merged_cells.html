@@ -1,24 +1,35 @@
-﻿<h1 class="firstheading">FAQ-474 統合したセルにあるテキストを編集したり、書式化するには?</h1>
-<p class="faqID">最終更新日:2018/05/11</p>
-<p>ワークシートには、ワークシート内のさまざまな領域に対して、繰り返しテキストの隣接セルを統合するオプションがあります。テキストを入力した後（<b>セルの統合</b>ボタン<a class="image"><img alt="Button Merge Cells.png" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Button_Merge_Cells.png" width="23" border="0"></a>をクリックして）セルを統合するか、テキストが入力された時にセルを動的に統合することができます。セルを動的に統合するには、メニューから<b>フォーマット: ワークシート</b>を選択するか、<b>F4</b>キーを押して<b>ワークシートプロパティ</b>ダイアログを開きます。<b>フォーマット</b>タブをクリックし、<b>テキスト制御</b>の<b>適用先</b>と<b>ダイナミック統合</b>リストを編集します。各<b>適用先</b>でのオプションは、別々に設定できます。</p>
-<p>動的なセルの統合をする場合、それぞれのセルの元の内容は保持されますが、結合すると表示されなくなります。統合したセルのいずれか1つをダブルクリックすると、以下のような表示が表れます。</p>
-<dl>
-<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Merged cells editing.png" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Merged_cells_editing.png" width="356" height="90" border="0"></a></dd>
-</dl>
-<p>これらのセルのいずれか1つを編集しても、残りの統合されたセルは自動的に更新されません。統合したセルを編集するには、それぞれのセルを別々に編集しなければなりません。オートフィルを使用してこの処理を迅速に行うことができますが、最初の編集は統合された領域の左上でなければなりません。</p>
-<p>オートフィルのために、左上のセルを編集して、セルの外側をクリックして編集モードを停止します。1回クリックしてセルを選びなおし、右下にカーソルを合わせて(<b>+</b>) に表示が変わったら、選択範囲を右へドラッグします。すると、オートフィル機能が働きます。</p>
-<dl>
-<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Merged cells autofill.png" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Merged_cells_autofill.png" width="359" height="92" border="0"></a></dd>
-</dl>
-<p>統合したセルでテキストのフォーマットをする際も同じように操作します。</p>
-<table class="noborder">
-<tr>
-<td style="vertical-align: top;" width="60"><img src="../images/How_do_I_edit_and_format_text_in_merged_cells/Tip_icon.png" alt="" width="57" border="0"></td>
-<td>
-<p>Origin 2018bから、<i>選択された</i>範囲内のすべての統合されたセル（統合されたセルの非連続ブロックを含む）は、<b>スタイル</b>ツールバーの<b>セルの統合</b>ボタン<a class="image"><img alt="Button Merge Cells.png" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Button_Merge_Cells.png" width="23" border="0"></a>をクリックすると統合を解除できます。</p>
-</td>
-</tr>
-</table>
-<hr class="keywordshr" align="center">
-<p><span class="keywords">キーワード：</span><span class="keywordsInput">オートフィル、 ダイナミック統合、結合、ワークシート、行、ラベル</span></p>
-<p><br /></p>
+﻿<h1 class="firstHeading">FAQ-474 統合されたセルのテキストを編集して書式設定するには?</h1><p class='urlname' style='display: none'>Customize-Text-in-MergedCells</p>
+<p class='faqID'>最終更新日：2026/2/2</p>
+<p>Originでは、任意のワークシート領域(ヘッダー行とデータ領域の両方)で隣接するセルを統合する2つの方法が提供されています。内容を編集または書式設定するとき、各方法はわずかに異なる動作をします。
+</p>
+<ul>
+<li><b>ダイナミック統合</b>
+<ul><li> セルのブロックが選択されているときに、ミニツールバーの<b>ダイナミック統合</b>ボタン<a  class="image"><img alt="Popup Dynamic Merge.png" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Popup_Dynamic_Merge.png" width="17"  /></a>をクリックします。 </li></ul>
+
+<i>または</i> 
+<ul><li>メニューから<b>フォーマット：ワークシートの表示属性</b>を選択し、<b>ワークシートプロパティ</b>ダイアログボックスを開きます。<b>フォーマット</b>タブで、<b>適用先</b>を行ヘッダまたはデータに、<b>ダイナミック統合</b>を（<i>水平</i>、<b>垂直</b>、または<b>両方</b>）に設定します。ダイナミック統合する領域をマウスで選択し、右クリックして<b>セルのフォーマット</b>を選択し、<b>ダイナミック統合</b>を設定することもできます。 </li></ul>
+
+<span class='headerInParagraph'>編集とフォーマット</span>
+
+<ul><li> セルをダイナミック統合すると、個々のセルは元の内容を保持し続けます。統合されたブロックを1回クリックすると、ブロック全体が選択されます。直接入力して、すべてのセルを一度に上書きできるようになっています（またはダブルクリックして編集モードを使用します）。</li>
+<li> ブロックを2回クリックすると、個々のセルが選択されます。これで単一セルを編集できます（またはダブルクリックして編集モードを使用します）。アクティブセルを変更すると統合が中断されることに注意してください。</li></ul>
+<dl><dd><a  class="image"><img alt="Edit merge cells.gif" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Edit_merge_cells.gif" width="786"  /></a></dd></dl>
+<br />
+</li>
+<li><b>静的統合</b>
+<ul><li> マージする領域を選択し、<b>スタイル</b>ツールバーの<b>セルの統合</b>ボタン<a  class="image"><img alt="Button Merge Cells.png" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Button_Merge_Cells.png" width="23"  /></a>をクリックします。</li></ul>
+
+<span class='headerInParagraph'>編集とフォーマット</span>
+<ul><li> この統合方法により、左上のセルの内容のみが表示され、個々のセルは元の内容を保持します。統合されたブロックを（シングルクリックまたはダブルクリックで）選択して編集すると、最初のセルのみが変更されます。 </li>
+<li> ブロック内のすべてのセルを更新するには、<b>セルの統合</b>ボタン<a  class="image"><img alt="Button Merge Cells.png" src="../images/How_do_I_edit_and_format_text_in_merged_cells/Button_Merge_Cells.png" width="23"  /></a>を再度クリックしてブロックを統合解除する必要があります。その後領域全体を選択し、新しいテキストを入力して<b>Ctrl</b> + <b>Enterキー</b>を押します。選択したすべてのセル内容が修正されます。それらを再び統合します。 </li></ul>
+</li>
+</ul>
+<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>オートフィル、ダイナミック統合、結合、ワークシート、行、ラベル、単位</span></p>
+
+
+
+
+
+
+
+    

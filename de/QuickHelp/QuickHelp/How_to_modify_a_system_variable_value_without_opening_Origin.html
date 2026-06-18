@@ -1,0 +1,20 @@
+﻿<h1 class="firstHeading">FAQ-1234 Wie &auml;ndere ich den Wert einer Systemvariablen, ohne Origin zu &ouml;ffnen?</h1><p class='urlname' style='display: none'>Change-System-Variables-without-Origin-Open</p>
+<p class='faqID'>Letztes Update: 25.12.2025</p>
+<p>Wenn Origin normal gestartete wird, k&ouml;nnen Sie immer <a href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html" title="QuickHelp:How do I permanently change the value of a system variable">den Dialog <b>Systemvariablen festlegen</b> verwenden, um einen Variablenwert zu &auml;ndern</a>. Wenn Origin aus irgendeinem Grund jedoch nicht gestartet wird und Sie eine Systemvariable anpassen m&uuml;ssen, um das Problem zu beheben, finden Sie die Schritte hier im Folgenden.</p>
+<ul>
+<li><span class='headerInParagraph'>F&uuml;r registry-basierte Systemvariablen:</span><dl><dd>&Ouml;ffnen Sie den <b>Registry Editor</b>, erweitern Sie den Zweig <code>\HKEY_CURRENT_USER\Software\OriginLab\SysVar</code> und bearbeiten oder f&uuml;gen Sie die gew&uuml;nschten Werte direkt hinzu.</li></dd></dl>
+<li><span class='headerInParagraph'>F&uuml;r Nicht-Registry-Systemvariablen:</span><ol>
+<li>Stellen Sie sicher, das kein Origin-Prozess l&auml;uft.<li>&Ouml;ffnen Sie <i>SystemVariables.ogs</i> im Anwenderdateiordner mit dem Notepad-Editor (erstellen Sie die Datei, falls sie nicht existiert). F&uuml;gen Sie die Variable in der <code>[Main]</code>-Session ein. Wenn Sie z. B. @PESS in -1 &auml;ndern m&ouml;chten, f&uuml;gen Sie den unten stehenden Text hinzu:<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">[</span>Main<span style="color: #000000;">]</span> @PESS<span style="color: #000080;">=</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>;</pre>
+<p>Speichern Sie die Datei.</p>
+<ul>
+<li>Wenn Sie <i>SystemVariables.ogs</i> in Schritt 2 erstellt haben, &ouml;ffnen Sie <i>Origin.ini</i> im Anwenderdateiordner mit Notepad und f&uuml;gen Sie folgenden Schl&uuml;ssel in die <code>[Startup]</code>-Session ein.<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">[</span>Startup<span style="color: #000000;">]</span> sysvar<span style="color: #000080;">=</span>SystemVariables.<span style="color: #000080;">ogs</span></pre>Speichern Sie die Datei.</li></ul></li>
+<li>Starten Sie Origin erneut. Pr&uuml;fen Sie, ob es normal gestartet werden kann.</ol></ul>
+<hr class='keywordshr'><p><span class='keywords'>Schl&uuml;sselw&ouml;rter:</span><span class='keywordsInput'>Systemvariable &auml;ndern, Variable festlegen, Absturz<keywords></span></p>
+
+
+
+
+
+
+
+    
