@@ -1,5 +1,5 @@
 <h1 class="firstHeading">3.144 FAQ-878 How to eliminate the outliers by a user-defined defination?</h1><p class='urlname' style='display: none'>Identify-and-Eliminate-User-Defined-Outliers</p>
-<p class='faqID'>Last Update: 7/3/2017</p>
+<p class='faqID'>Last Update: 7/4/2017</p>
 <p>To identify the outlier cells in a worksheet by a self-defined outlier defination, you will need to use a LabTalk function. In the following sample codes, we define a value as "outlier" if its absolute Z value (=abs((x-<i>MeanOfColumn</i>)/<i>SDOfColumn</i>)) is larger than a certain preset threshold: 
 </p>
 <pre class="lt" style="font-family:monospace;">function dataset remoutliers<span style="color: #000000;">&#40;</span>dataset ds1, double zthresh<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#123;</span>

@@ -1,5 +1,5 @@
 <h1 class="firstHeading">3.54 FAQ-288 How to change the default value of Recalculate dropdown when open dialog?</h1><p class='urlname' style='display: none'>recalculate-dropdown-default</p>
-<p class='faqID'>Last Update: 1/23/2025</p>
+<p class='faqID'>Last Update: 1/24/2025</p>
 <p><b>Analysis</b>
 </p><p>When you perform an analysis on some columns or a worksheet, the <a class="external text" href="../../UserGuide/UserGuide/Recalculating_Analysis_Results.html#Recalculate_Toolbar_Buttons_and_Operation_Lock_Icons"><b>Recalculate</b></a> mode is by default set to <b>Manual</b> when open the dialog, and its indicator will be shown as a green lock icon in the result sheet. When there is any change in source data or parameter settings, to recalculate results you have to manually click the lock icon and choose <b>Recalculate</b>.
 </p><p>To globally set the recalculate mode to <b>Auto</b>, set <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#D">system variable</a> @DAM=1 (by default is 2) in Script Window or Command Window before any analysis was performed. Therefore, the default <b>Recalculate</b> dropdown value upon opening dialog is <b>Auto</b> instead.

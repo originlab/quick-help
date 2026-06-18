@@ -1,5 +1,5 @@
 <h1 class="firstHeading">3.172 FAQ-1230 Why is Gravity Center from peak analysis missing for some peaks?</h1><p class='urlname' style='display: none'>Missing-Gravity-Center-from-Peak-Analysis</p>
-<p class='faqID'>Last Update: 12/18/2025</p>
+<p class='faqID'>Last Update: 12/19/2025</p>
 <p>Sometimes, after fitting a spectrum with Peak Analyzer, the gravity center of a peak is reported as missing value "--" even though the overall fit looks good.
 </p><p>The value is intentionally left blank for certain built-in functions (e.g., PearsonVII) whose moments may not exist. For example, in <a class="external text" href="../../UserGuide/UserGuide/PearsonVII.html">PearsonVII function</a>, when <code>m &lt; 1</code> the product <code>x*f(x)</code> does not converge to 0 as <i>x</i> approaches to infinity, and thus its integral from <i>-inf</i> to <i>inf</i> diverges. Because the center of gravity is undefined in this case, Origin skips the calculation and reports a missing value. 
 </p>
