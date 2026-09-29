@@ -1,6 +1,22 @@
 <h1 class="firstHeading">2.141 FAQ-1223 How to create a Google client_id to make use of Origin’s Google Drive Cloud tool?</h1><p class='urlname' style='display: none'>Create-Google-API-Key</p>
-<p class='faqID'>Last Update: 8/6/2025</p>
-<p>Google Drive Cloud tool (Connect to Cloud menu and Open from Cloud button) by default uses Origin's client_id. This is shared among all the Origin users. There is a global limit on the number of access set by Google. It reaches maximum now  and Origin cannot increase it yet.
+<p class='faqID'>Last Update: 9/24/2026</p>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Alert_icon.png?v=0" width="57"  border="0" /></td><td><h3><a name="Important_Notice:_Google_Cloud_Domain_Requirement"></a><span class="mw-headline"><b>Important Notice: Google Cloud Domain Requirement</b></span></h3>
+<p>Google has changed the requirements for configuring Google Cloud applications. When creating or configuring the OAuth consent screen, you may be required to provide <b>Domain information</b>.
+</p><p>Before following the steps below, make sure that:
+</p>
+<dl><dd><ul><li> You have a domain that can be provided in the Google Cloud configuration.</li>
+<li> You have the necessary access to configure the domain and OAuth settings.</li>
+<li> If you are using a Google Workspace account, you may also need the appropriate permissions from your organization administrator.</li></ul></dd></dl>
+<p><b>If you do not have Domain information or cannot configure a domain, we recommend that you do not use this method to connect Origin to Google Drive.</b>
+</p><p><br />
+</p>
+	</td>
+	</tr>
+	</table>
+<p><br />
+Google Drive Cloud tool (Connect to Cloud menu and Open from Cloud button) by default uses Origin's client_id. This is shared among all the Origin users. There is a global limit on the number of access set by Google. It reaches maximum now  and Origin cannot increase it yet.
 </p><p>Users who do not access before cannot access it with Origin's client_id (users who ever accessed it successfully can still access).
 </p><p>If you see error message like following
 </p>
@@ -33,7 +49,10 @@ Click Next button.
 <li>Select Application type to "Desktop app" and give it a Name (default name is OK). Click "Create" button.
 <br /><span class='headerInParagraph'>There are "Client ID" and "Client secret" on the pop-up dialog. Make note of it.</span>
 <li> Click "Audience" on the left-side panel. And then click "Publish app" button and then click "Confirm" button in the pop-up dialog.
-<dl><dd><a  class="image"><img alt="Google API Publish app.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Publish_app.png?v=77060" width="561"  /></a></dd></dl>
+<dl><dd><a  class="image"><img alt="Google API Publish app.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Publish_app.png?v=77060" width="561"  /></a></dd>
+<dd> <b>Note</b>: From this step on, Google requires domain information to publish an app. You need to fill in the <b>App Domain</b> (Application Homepage, Privacy Policy link) under "Branding", and any <b>Authorized Domains</b> must be verified via Google Search Console. If you do not own a verified domain, <b>do not proceed</b> - this workaround will not work for you.</dd></dl>
+
+
 <li>Go back to "APIs &amp; Services" page by top-left Navigation menu.
 <li>Click "..." button on top-right corner and select "Project settings".
 <dl><dd><a  class="image"><img alt="Google API Project settings.png" src="../images/How_to_create_a_Google_client_id_to_make_use_of_Origin_Google_Drive_Cloud_tool/Google_API_Project_settings.png?v=77063" width="600"  /></a></dd></dl>
@@ -56,9 +75,5 @@ ClientSecret<span style="color: #000080;">=</span>USER_CLIENT_SECRET</pre>
 <li>Start Origin to try connecting now.
 </ol>
 <hr class='keywordshr'><p><span class='keywords'>Keywords:</span><span class='keywordsInput'>connect to Google, import from Google Drive, cloud connector, Google API Key, This app is blocked, tried to access sensitive info in Google Account, keep account safe, Google blocked this access<keywords></span></p>
-
-
-
-
 
 
