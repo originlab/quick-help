@@ -3811,6 +3811,12 @@
     <toc_src>QuickHelp:How_to_fit_with_Langmuir_function</toc_src>
   </toc>
   <toc>
+    <toc_name>Quick Help &gt; Data Analysis &gt; FAQ-1242 How to Fix "Automatic installation failed" Error for Design of Experiments App?</toc_name>
+    <toc_link>QuickHelp/Automatic_installation_failed_Error_for_DOE.html</toc_link>
+    <toc_url>Quick-Help/DOE-R-installation-failure</toc_url>
+    <toc_src>QuickHelp:Automatic_installation_failed_Error_for_DOE</toc_src>
+  </toc>
+  <toc>
     <toc_name>Quick Help &gt; Programming</toc_name>
     <toc_link>Category/Programming_(QuickHelp).html</toc_link>
     <toc_url>Quick-Help/Programming</toc_url>
@@ -4859,6 +4865,12 @@
     <toc_link>QuickHelp/Why_does_my_Origin_fail_to_download_Apps_templates_in_Win7.html</toc_link>
     <toc_url>Quick-Help/Win7-Cannot-Download-App-Template</toc_url>
     <toc_src>QuickHelp:Why_does_my_Origin_fail_to_download_Apps_templates_in_Win7</toc_src>
+  </toc>
+  <toc>
+    <toc_name>Quick Help &gt; Miscellaneous &gt; FAQ-1243 Why do some dialogs disappear when running Origin on a Mac with Parallels??</toc_name>
+    <toc_link>QuickHelp/Dialogs_Disappear_Mac_with_Parallels.html</toc_link>
+    <toc_url>Quick-Help/Dialogs-Disappear-Mac-with-Parallels</toc_url>
+    <toc_src>QuickHelp:Dialogs_Disappear_Mac_with_Parallels</toc_src>
   </toc>
   <toc>
     <toc_name>Quick Help &gt; Licensing and Installation</toc_name>
