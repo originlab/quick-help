@@ -1,41 +1,33 @@
-﻿<h1 class="firstheading">FAQ-1053 データコネクタを使用するときにデータの変更をしたい場合にはどうすればよいですか?</h1><p class='urlname' style='display: none'>Change-Data-When-Connector-Used</p>
-<p class='faqID'>最終更新日：2021/10/13</p>
-<p><b>データコネクタ</b>によってインポートされたデータは、デフォルトで保護されています。 
+﻿<h1 class="firstHeading">FAQ-1053 データコネクタ使用時にデータの変更を許可する方法</h1><p class='urlname' style='display: none'>Change-Data-When-Connector-Used</p>
+<p class='faqID'>最終更新日：2026/6/3</p>
+<p><b>データコネクタ</b>によってインポートされたデータは、デフォルトで「ロック」されています。 
 </p>
-<ul><li> <b>Text/CSV</b>そして<b>Excel</b>コネクタからインポートされたデータは編集不可ですが、ソートは可能です。  </li>
-<li> Text / CSVそしてExcel以外のコネクタでインポートされたデータは、編集もソートも不可です。 </li></ul>
-<h3><a name="Free-Editing_or_Sorting_of_Data_Imported_by_Data_Connector"></a><span class="mw-headline">データコネクタによってインポートされたデータを自由に編集または並べ替え</span></h3>
-<p>データ保護が必要ない場合は、データを<i>インポートする前に</i>LabTalkシステム変数 <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#H.2CI.2CJ.2CK"><b>@IPDC</b></a>の値を変更することで、データ編集や並べ替えの制限を回避できます。 
+<ul><li> <b>テキスト/CSV</b>および<b>Excel</b>コネクタを介してインポートされたデータは、ソートは可能ですが編集はできません。  </li>
+<li> テキスト/CSVとExcel以外のコネクタでインポートされたデータは、デフォルトでソートできません（編集もソートも不可）。 </li></ul>
+<p><br />
 </p>
-<ol>
-<li> <b>環境設定: システム変数</b>を選択します。 </li>
-<li> <b>システム変数を設定</b>ダイアログの<b>変数</b>列に&quot;IPDC」を入力します。<b>値</b>には &quot;0&quot; を入力します。</li>
-<li> データコネクタでデータをインポートします。
-</ol>
-<table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/How_to_allow_changing_data_when_data_connector_is_used/Tip_icon.png" width="57"  border="0" /></td><td><p><i>現在のセッションのみ</i>すべての制限を削除する場合は、<b>ウィンドウ:スクリプトウィンドウ</b>をクリックし、次のように入力して、Enterキーを押します。
+<h3><a name="Change_the_Behavior_of_Data_Connector"></a><span class="mw-headline">データコネクタの動作を変更する</span></h3>
+<p>2026b 以降、Origin では<b>環境設定:オプション</b>ダイアログに、データコネクタの動作を制御するオプションが用意されています。
 </p>
-<pre class="lt" style="font-family:monospace;">@IPDC<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span></pre>
-</td></tr></table>
+<dl><dd><a  class="image"><img alt="Options DataConnector.png" src="../images/How_to_allow_changing_data_when_data_connector_is_used/500px-Options_DataConnector.png" width="500"   /></a></dd></dl>
+<ul><li> <b>インポートデータをロック</b>：インポートデータをロックし、並べ替えや編集ができないようにします。（<b>Text/CSV</b> および <b>Excel</b> コネクタでは、並べ替えはできますが編集はできません。）</li>
+<li> <b>データの並べ替えを許可</b>：インポートデータの並べ替えはできますが、編集はできません。</li>
+<li><b>インポート後にデータのロックを解除</b>：インポート後にデータのロックを完全に解除し、自由に編集および並べ替えできるようにします。</li>
+<li> <b>インポート後にコネクタを削除</b>：インポートが完了すると、データコネクタが削除されます。</li></ul>
 <h3><a name="Methods_for_Managing_Editing_of_Connector_Data_that_is_Already_Imported"></a><span class="mw-headline">インポート済みのコネクタデータの編集操作を管理</span></h3>
-<p>コネクタを介してインポートされたデータを変更するには、コネクタアイコン<a  class="image"><img alt="Dadta connector icon connect.png" src="../images/How_to_allow_changing_data_when_data_connector_is_used/Dadta_connector_icon_connect.png" width="16"  /></a>をクリックして、次のいずれかを選択します。
+<p>コネクタを介してインポートされたデータを修正するには、コネクタアイコン<a  class="image"><img alt="Dadta connector icon connect.png" src="../images/How_to_allow_changing_data_when_data_connector_is_used/Dadta_connector_icon_connect.png" width="16"  /></a>をクリックし、次のいずれかを選択します。
 </p>
-<ul><li> <b>インポートしたデータのロック解除</b>：コネクタアイコンをクリックして<b>インポート</b>を選択するまで、データはロック解除されたままになります（インポートすると、データが上書きされ、編集保護が復元されます）。</li>
-<li> <b>シートを接続しない</b>:ワークシート/行列とデータソース間の接続を解除します。また、編集保護も解除します。コネクタアイコンはそのままで、<b>データソース</b>に再接続できます（その時点で、データは上書きされ、編集保護が復元されます）。</li>
-<li> <b>データコネクタを削除</b>:アクティブブックのすべてのシートからデータコネクタを完全に削除します。全シートから編集保護を削除します。さらに、<a class="external text" href="../../UserGuide/Category/Data_Connector.html#Connector_menu:"><b>保存時にインポートデータを除外</b></a> チェックマークも外します。</li></ul>
-<h3><a name="Fine-tuning_Restrictions_on_Connector_Data"></a><span class="mw-headline">コネクタデータの制限を微調整</span></h3>
-<p>保護を完全に削除せずに、コネクタデータの編集に関する制限を緩和するためのオプションがあります。  繰り返しになりますが、LabTalkシステム変数<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#H.2CI.2CJ.2CK"><b>@IPDC</b></a>の値を変更はデータを<i>インポートする前</i>に行う必要があります。
-</p><p><br />
-<i><b>例えば、Texx/ CSV、Excel以外のコネクタを介してインポートされたデータのソートを許可し、編集はできないようにするには次のようにします。</b></i>
+<ul><li> <b>インポートしたデータのロック解除</b>：インポートしたデータのロックを解除します。コネクタアイコンをクリックして<b>インポート</b>を選択するまでは、データはロック解除された状態のままです。インポートを実行すると、データが上書きされ、編集保護が再設定されます。</li>
+<li> <b>シートを接続しない</b>：ワークシート/行列とデータソース間の接続を解除します。編集保護も解除されます。コネクタアイコンは残るため、そこから<b>データソース</b>に再接続できます。再接続すると、データが上書きされ、編集保護が再設定されます。</li>
+<li> <b>データコネクタを削除</b>：アクティブなブック内のすべてのシートからデータコネクタを完全に削除します。全てのシートの編集保護も解除されます。また、<a class="external text" href="../../UserGuide/Category/Data_Connector.html#Connector_menu:"><b>保存時にインポートデータを除外</b></a>のチェックも解除されます。</li></ul>
+<p><br />
 </p>
-<ol>
-<li> <b>環境設定: システム変数</b>を選択します。 </li>
-<li> <b>システム変数を設定</b>ダイアログの<b>変数</b>列に&quot;IPDC」を入力します。<b>値</b>には &quot;1&quot; を入力します。
-<dl><dd><a  class="image"><img alt="Allow edit data by DC.png" src="../images/How_to_allow_changing_data_when_data_connector_is_used/Allow_edit_data_by_DC.png" width="436"  /></a></dd></dl>
-</li>
-<li> データコネクタでデータをインポートします。
-</ol>
-<hr class='keywordshr'><p><span class='keywords'>キーワード:</span><span class='keywordsInput'>インポート、データの接続、CSV、TXT、DAT、Excel、コネクタ、列のソート、ワークシートのソート、データの整合性、データ保護、 </span></p>
+<hr class='keywordshr'><p><span class='keywords'>キーワード: </span><span class='keywordsInput'>インポート, 接続データ, CSV, TXT, DAT, Excel, コネクタ, 列の並べ替え, ワークシートの並べ替え, データの整合性, データ保護,  </span></p>
+
+
+
+
+
 
 
     
